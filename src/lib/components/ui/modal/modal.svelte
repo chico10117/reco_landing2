@@ -6,9 +6,12 @@
   
   const dispatch = createEventDispatcher();
   
-  $: console.log('Modal component received showModal:', showModal);
+  $: {
+    console.log('Modal showModal value changed:', showModal);
+  }
   
   function closeModal() {
+    console.log('Closing modal...');
     showModal = false;
     dispatch('close');
   }
@@ -16,7 +19,7 @@
 
 {#if showModal}
   <div 
-    class="fixed inset-0 bg-black/50 z-50"
+    class="fixed inset-0 bg-black/50 z-[100]"
     transition:fade
     on:click={closeModal}
   >
@@ -36,4 +39,6 @@
       <slot />
     </div>
   </div>
+{:else}
+  <div class="hidden">Modal is closed</div>
 {/if} 

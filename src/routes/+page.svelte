@@ -8,6 +8,19 @@
   import { onMount } from 'svelte';
 
   let showModal = false;
+  let mounted = false;
+
+  onMount(() => {
+    mounted = true;
+    console.log('Component mounted');
+  });
+
+  $: {
+    if (mounted) {
+      console.log('showModal changed:', showModal);
+    }
+  }
+
   let name = '';
   let email = '';
   let whatsapp = '';
@@ -39,13 +52,15 @@
           Únete a una comunidad donde tu contenido brilla y se conecta globalmente.
         </p>
         <div class="flex justify-center">
-          <Button 
-            size="lg" 
-            class="bg-red-700 hover:bg-red-800 text-white font-semibold"
-            on:click={() => showModal = true}
+          <button 
+            class="bg-red-700 hover:bg-red-800 text-white font-semibold px-6 py-3 rounded-md text-lg"
+            on:click={() => {
+              console.log('Opening modal...');
+              showModal = true;
+            }}
           >
             Únete a la Lista de Espera Ahora
-          </Button>
+          </button>
         </div>
       </div>
     </div>
