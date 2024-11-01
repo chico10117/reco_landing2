@@ -100,26 +100,13 @@
       <div class="container mx-auto px-4">
         <h2 class="text-3xl font-bold text-center mb-8">Mira Cómo Funciona</h2>
         <div class="relative aspect-video max-w-3xl mx-auto">
-          <img
-            src="https://img.youtube.com/vi/kmD9Y8w887k/maxresdefault.jpg"
-            alt="Video thumbnail"
-            class="rounded-lg w-full"
-          />
-          <a 
-            href="https://www.youtube.com/watch?v=kmD9Y8w887k"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="absolute inset-0 flex items-center justify-center group"
-          >
-            <Button 
-              size="lg" 
-              variant="outline" 
-              class="rounded-full p-4 bg-black/50 hover:bg-black/70 transition-colors"
-            >
-              <Play class="w-8 h-8" />
-              <span class="sr-only">Play video</span>
-            </Button>
-          </a>
+          <iframe
+            src="https://www.youtube.com/embed/kmD9Y8w887k"
+            title="ConectArte Video"
+            class="w-full h-full rounded-lg"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
         </div>
       </div>
     </section>
