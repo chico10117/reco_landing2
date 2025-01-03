@@ -46,7 +46,7 @@
     <div class="relative z-10 container mx-auto px-4 py-24 md:py-32 min-h-[80vh] flex items-center">
       <div class="max-w-4xl mx-auto text-center space-y-8">
         <h1 class="text-4xl md:text-6xl font-bold tracking-tight">
-          Revoluciona tu Presencia Digital con <span class="bg-clip-text text-transparent bg-gradient-to-r from-red-400 to-red-600">ConectArte</span>
+          Revoluciona tu Presencia Digital con <span class="bg-clip-text text-transparent bg-gradient-to-r from-red-400 to-red-600">SaborFans</span>
         </h1>
         <p class="text-xl md:text-2xl text-gray-200">
           Únete a una comunidad donde tu contenido brilla y se conecta globalmente.
@@ -102,7 +102,7 @@
         <div class="relative aspect-video max-w-3xl mx-auto">
           <iframe
             src="https://www.youtube.com/embed/kmD9Y8w887k"
-            title="ConectArte Video"
+            title="SaborFans Video"
             class="w-full h-full rounded-lg"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
@@ -197,18 +197,18 @@
           <a href="/contact" class="hover:text-red-400">Contáctanos</a>
         </nav>
         <div class="flex space-x-4">
-          <a href="https://twitter.com/conectarte" aria-label="Twitter">
+          <a href="https://twitter.com/saborfans" aria-label="Twitter">
             <Twitter class="w-6 h-6" />
           </a>
-          <a href="https://instagram.com/conectarte" aria-label="Instagram">
+          <a href="https://instagram.com/saborfans" aria-label="Instagram">
             <Instagram class="w-6 h-6" />
           </a>
-          <a href="https://linkedin.com/company/conectarte" aria-label="LinkedIn">
+          <a href="https://linkedin.com/company/saborfans" aria-label="LinkedIn">
             <Linkedin class="w-6 h-6" />
           </a>
         </div>
       </div>
-      <p class="text-center mt-8">&copy; {new Date().getFullYear()} ConectArte. Todos los derechos reservados.</p>
+      <p class="text-center mt-8">&copy; {new Date().getFullYear()} SaborFans. Todos los derechos reservados.</p>
     </div>
   </footer>
 
