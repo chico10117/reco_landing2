@@ -52,7 +52,7 @@
   <header class="pt-20 relative min-h-[90vh] flex items-center">
     <div class="absolute inset-0 z-0">
       <img
-        src="https://images.unsplash.com/photo-1469237559036-c4645cda1a05?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3"
+        src="https://images.pexels.com/photos/7325663/pexels-photo-7325663.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
         alt="Background"
         class="w-full h-full object-cover object-center"
       />
@@ -261,17 +261,18 @@
     </section>
   </main>
 
-  <footer class="bg-white border-t border-gray-100 py-8">
+  <footer class="bg-gray-900 text-gray-100 py-12">
     <div class="container mx-auto px-4">
       <div class="flex flex-col md:flex-row justify-between items-center">
-        <div class="text-2xl font-bold text-red-600 mb-4 md:mb-0">SaborFans</div>
-        <nav class="space-x-4 mb-4 md:mb-0">
-          <a href="/privacy" class="text-gray-600 hover:text-red-600">Política de Privacidad</a>
-          <a href="/terms" class="text-gray-600 hover:text-red-600">Términos de Servicio</a>
-          <a href="/contact" class="text-gray-600 hover:text-red-600">Contacto</a>
+        <div class="text-2xl font-bold text-red-400 mb-4 md:mb-0">SaborFans</div>
+        <nav class="space-x-6 mb-4 md:mb-0">
+          <a href="/privacy" class="text-gray-300 hover:text-red-400 transition-colors">Política de Privacidad</a>
+          <a href="/terms" class="text-gray-300 hover:text-red-400 transition-colors">Términos de Servicio</a>
+          <a href="/contact" class="text-gray-300 hover:text-red-400 transition-colors">Contacto</a>
         </nav>
       </div>
-      <p class="text-center text-gray-600 mt-8">&copy; {new Date().getFullYear()} SaborFans. Todos los derechos reservados.</p>
+      <div class="border-t border-gray-800 my-8"></div>
+      <p class="text-center text-gray-400 text-sm">&copy; {new Date().getFullYear()} SaborFans. Todos los derechos reservados.</p>
     </div>
   </footer>
 
