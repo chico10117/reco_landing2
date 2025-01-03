@@ -36,12 +36,12 @@
 <div class="min-h-screen bg-gradient-to-b from-blue-50 to-white text-gray-900">
   <header class="relative bg-black text-white min-h-[80vh]">
     <div class="absolute inset-0 z-0">
-      <img
+      {/* <img
         src="https://media.fashionnetwork.com/cdn-cgi/image/format=auto/m/26fe/feb9/7ddc/56d4/f480/443f/deb7/a804/5bae/268b/268b.jpg"
         alt="Background"
         class="object-cover w-full h-full opacity-40"
         style="object-position: center 30%;"
-      />
+      /> */}
     </div>
     <div class="relative z-10 container mx-auto px-4 py-24 md:py-32 min-h-[80vh] flex items-center">
       <div class="max-w-4xl mx-auto text-center space-y-8">
