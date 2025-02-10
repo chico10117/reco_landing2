@@ -36,7 +36,7 @@
 <div class="min-h-screen bg-white text-gray-900">
   <nav class="bg-white border-b border-gray-100 fixed w-full top-0 z-50 shadow-sm">
     <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-      <div class="text-2xl font-bold text-red-600">SaborFans</div>
+      <div class="text-2xl font-bold text-red-600">FanLatinas</div>
       <div class="flex items-center space-x-4">
         <Button 
           variant="ghost" 
@@ -102,7 +102,7 @@
   <main>
     <section class="bg-gray-50 py-16">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-12">¿Por qué elegir SaborFans?</h2>
+        <h2 class="text-3xl font-bold text-center mb-12">¿Por qué elegir FanLatinas?</h2>
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
           <Card class="rounded-3xl shadow-lg hover:shadow-xl transition-shadow">
             <CardContent class="p-6 text-center">
@@ -264,7 +264,7 @@
   <footer class="bg-gray-900 text-gray-100 py-12">
     <div class="container mx-auto px-4">
       <div class="flex flex-col md:flex-row justify-between items-center">
-        <div class="text-2xl font-bold text-red-400 mb-4 md:mb-0">SaborFans</div>
+        <div class="text-2xl font-bold text-red-400 mb-4 md:mb-0">FanLatinas</div>
         <nav class="space-x-6 mb-4 md:mb-0">
           <a href="/privacy" class="text-gray-300 hover:text-red-400 transition-colors">Política de Privacidad</a>
           <a href="/terms" class="text-gray-300 hover:text-red-400 transition-colors">Términos de Servicio</a>
@@ -272,7 +272,7 @@
         </nav>
       </div>
       <div class="border-t border-gray-800 my-8"></div>
-      <p class="text-center text-gray-400 text-sm">&copy; {new Date().getFullYear()} SaborFans. Todos los derechos reservados.</p>
+      <p class="text-center text-gray-400 text-sm">&copy; {new Date().getFullYear()} FanLatinas. Todos los derechos reservados.</p>
     </div>
   </footer>
 
