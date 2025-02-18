@@ -52,7 +52,7 @@
   <header class="pt-20 relative min-h-[90vh] flex items-center">
     <div class="absolute inset-0 z-0">
       <img
-        src="https://images.pexels.com/photos/7325663/pexels-photo-7325663.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        src="/fondo.jpeg"
         alt="Background"
         class="w-full h-full object-cover object-center"
       />
@@ -61,28 +61,36 @@
     <div class="container mx-auto px-4 py-12 relative z-10">
       <div class="max-w-4xl mx-auto text-center space-y-8">
         <h1 class="text-4xl md:text-6xl font-bold tracking-tight text-white">
-          La mayor plataforma de <span class="text-red-400">contenido exclusivo</span> en Latinoamérica
+          Transformando la <span class="text-red-400">industria escort</span> con innovación y calidad
         </h1>
         <p class="text-xl text-gray-200">
-          Regístrate ahora y obtén <span class="text-red-400 font-semibold">30 días de acceso VIP gratis</span>
+          Aprovecha el prelanzamiento y asegura <span class="text-red-400 font-semibold">ventajas exclusivas</span> ahora mismo
         </p>
         <div class="flex flex-col space-y-4">
           <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center py-8">
-            <div class="bg-black/30 backdrop-blur-sm rounded-3xl p-6">
-              <div class="text-xl font-bold text-white">+20 millones</div>
-              <div class="text-gray-300">de usuarios</div>
+            <div class="bg-black/30 backdrop-blur-sm rounded-3xl p-6 cursor-pointer hover:bg-black/40 transition-all"
+              on:click={() => window.open('https://wa.me/YOUR_NUMBER?text=Quiero%20información%20del%20plan%20Gratuito', '_blank')}>
+              <div class="text-xl font-bold text-white">Gratuito</div>
+              <div class="text-gray-300 font-medium">Contenido Exclusivo</div>
+              <div class="text-sm text-gray-400 mt-2">Acceso a contenido que no encontrarás en ningún otro lugar</div>
             </div>
-            <div class="bg-black/30 backdrop-blur-sm rounded-3xl p-6">
-              <div class="text-xl font-bold text-white">+50 mil</div>
-              <div class="text-gray-300">creadoras</div>
+            <div class="bg-black/30 backdrop-blur-sm rounded-3xl p-6 cursor-pointer hover:bg-black/40 transition-all"
+              on:click={() => window.open('https://wa.me/YOUR_NUMBER?text=Quiero%20información%20del%20plan%20Básico', '_blank')}>
+              <div class="text-xl font-bold text-white">Básico</div>
+              <div class="text-gray-300 font-medium">Videos HD</div>
+              <div class="text-sm text-gray-400 mt-2">Disfruta del mejor contenido en alta calidad</div>
             </div>
-            <div class="bg-black/30 backdrop-blur-sm rounded-3xl p-6">
-              <div class="text-xl font-bold text-white">+600 mil</div>
-              <div class="text-gray-300">videos</div>
+            <div class="bg-black/30 backdrop-blur-sm rounded-3xl p-6 cursor-pointer hover:bg-black/40 transition-all"
+              on:click={() => window.open('https://wa.me/YOUR_NUMBER?text=Quiero%20información%20del%20plan%20Gold', '_blank')}>
+              <div class="text-xl font-bold text-white">Gold</div>
+              <div class="text-gray-300 font-medium">Creadoras Locales</div>
+              <div class="text-sm text-gray-400 mt-2">Encuentra creadoras cerca de ti</div>
             </div>
-            <div class="bg-black/30 backdrop-blur-sm rounded-3xl p-6">
-              <div class="text-xl font-bold text-white">+70 mil</div>
-              <div class="text-gray-300">reseñas</div>
+            <div class="bg-black/30 backdrop-blur-sm rounded-3xl p-6 cursor-pointer hover:bg-black/40 transition-all"
+              on:click={() => window.open('https://wa.me/YOUR_NUMBER?text=Quiero%20información%20del%20plan%20Platinum', '_blank')}>
+              <div class="text-xl font-bold text-white">Platinum</div>
+              <div class="text-gray-300 font-medium">100% Privado</div>
+              <div class="text-sm text-gray-400 mt-2">Tu privacidad es nuestra prioridad</div>
             </div>
           </div>
           <div class="max-w-md mx-auto w-full">
@@ -90,7 +98,7 @@
               class="w-full bg-red-600 hover:bg-red-700 text-white font-semibold text-lg py-6 rounded-full shadow-lg transform transition-transform hover:scale-105 backdrop-blur-sm"
               on:click={() => showModal = true}
             >
-              Obtén Tu Acceso VIP Gratis
+              Obtén Tu Pre-Suscripción
             </Button>
             <p class="text-sm text-gray-300 mt-2">¡Oferta por tiempo limitado!</p>
           </div>
@@ -136,59 +144,146 @@
       </div>
     </section>
 
-    <section class="py-16">
+    <!-- Video Section -->
+    <section class="py-16 bg-white">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-12">Beneficios VIP</h2>
+        <h2 class="text-3xl font-bold text-center mb-12">Conoce Nuestra Plataforma</h2>
         <div class="max-w-4xl mx-auto">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="bg-gray-50 rounded-3xl p-8 shadow-lg">
-              <h3 class="text-xl font-bold mb-4">Acceso Gratuito</h3>
-              <ul class="space-y-4">
-                <li class="flex items-center">
-                  <Check class="w-5 h-5 text-red-600 mr-2" />
-                  <span>Contenido básico</span>
-                </li>
-                <li class="flex items-center">
-                  <Check class="w-5 h-5 text-red-600 mr-2" />
-                  <span>Búsqueda limitada</span>
-                </li>
-                <li class="flex items-center">
-                  <Check class="w-5 h-5 text-red-600 mr-2" />
-                  <span>Vista previa de videos</span>
-                </li>
-              </ul>
-            </div>
-            <div class="bg-red-50 rounded-3xl p-8 border-2 border-red-600 shadow-lg relative overflow-hidden">
-              <div class="absolute top-0 right-0 bg-red-600 text-white px-6 py-2 rounded-bl-2xl shadow-md">
-                ¡GRATIS por 30 días!
-              </div>
-              <h3 class="text-xl font-bold mb-4">Acceso VIP</h3>
-              <ul class="space-y-4">
-                <li class="flex items-center">
-                  <Check class="w-5 h-5 text-red-600 mr-2" />
-                  <span>Contenido exclusivo sin límites</span>
-                </li>
-                <li class="flex items-center">
-                  <Check class="w-5 h-5 text-red-600 mr-2" />
-                  <span>Chat directo con creadoras</span>
-                </li>
-                <li class="flex items-center">
-                  <Check class="w-5 h-5 text-red-600 mr-2" />
-                  <span>Videos completos en HD</span>
-                </li>
-                <li class="flex items-center">
-                  <Check class="w-5 h-5 text-red-600 mr-2" />
-                  <span>Contenido personalizado</span>
-                </li>
-              </ul>
-              <Button 
-                class="w-full bg-red-600 hover:bg-red-700 text-white font-semibold mt-6 py-4 rounded-full shadow-md transform transition-transform hover:scale-105"
-                on:click={() => showModal = true}
-              >
-                Obtener Acceso VIP
-              </Button>
+          <div class="rounded-3xl overflow-hidden shadow-2xl">
+            <div class="relative pb-[56.25%] h-0">
+              <iframe
+                src="https://drive.google.com/file/d/1oKU0tW90q-buMDj88wiP6Ldwlrg-zM_p/preview"
+                allow="autoplay; encrypted-media"
+                allowfullscreen
+                class="absolute top-0 left-0 w-full h-full"
+                title="Características de la plataforma"
+              ></iframe>
             </div>
           </div>
+          <p class="text-center text-gray-600 mt-6">Descubre todas las características que tenemos para ti</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12">Nuestras Funcionalidades</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <!-- Visuales -->
+          <div class="bg-gray-50 rounded-3xl p-8 shadow-lg">
+            <h3 class="text-xl font-bold mb-4">Visuales</h3>
+            <ul class="space-y-4">
+              <li class="flex items-center">
+                <Check class="w-5 h-5 text-red-600 mr-2" />
+                <span>Publicación de historias efímeras</span>
+              </li>
+              <li class="flex items-center">
+                <Check class="w-5 h-5 text-red-600 mr-2" />
+                <span>Creación de historias destacadas</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Gestión de Reservas -->
+          <div class="bg-red-50 rounded-3xl p-8 border-2 border-red-600 shadow-lg">
+            <h3 class="text-xl font-bold mb-4">Gestión de Reservas</h3>
+            <ul class="space-y-4">
+              <li class="flex items-center">
+                <Check class="w-5 h-5 text-red-600 mr-2" />
+                <span>Calendario de citas</span>
+              </li>
+              <li class="flex items-center">
+                <Check class="w-5 h-5 text-red-600 mr-2" />
+                <span>Programación automática</span>
+              </li>
+              <li class="flex items-center">
+                <Check class="w-5 h-5 text-red-600 mr-2" />
+                <span>Auto-respondedor fuera de línea</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Estadísticas y Analíticas -->
+          <div class="bg-gray-50 rounded-3xl p-8 shadow-lg">
+            <h3 class="text-xl font-bold mb-4">Estadísticas y Analíticas</h3>
+            <ul class="space-y-4">
+              <li class="flex items-center">
+                <Check class="w-5 h-5 text-red-600 mr-2" />
+                <span>Número de visitas al perfil</span>
+              </li>
+              <li class="flex items-center">
+                <Check class="w-5 h-5 text-red-600 mr-2" />
+                <span>Clics en el botón de contacto</span>
+              </li>
+              <li class="flex items-center">
+                <Check class="w-5 h-5 text-red-600 mr-2" />
+                <span>Días y horas de mayor tráfico</span>
+              </li>
+              <li class="flex items-center">
+                <Check class="w-5 h-5 text-red-600 mr-2" />
+                <span>Análisis completo del rendimiento</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Visibilidad -->
+          <Card class="rounded-3xl shadow-lg">
+            <CardContent class="p-6">
+              <h3 class="text-xl font-bold mb-4">Visibilidad</h3>
+              <ul class="space-y-2">
+                <li class="flex items-center">
+                  <Check class="w-5 h-5 text-red-600 mr-2" />
+                  <span>Boost de visibilidad en resultados</span>
+                </li>
+                <li class="flex items-center">
+                  <Check class="w-5 h-5 text-red-600 mr-2" />
+                  <span>Destacado en página principal</span>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <!-- Asesoramiento -->
+          <Card class="rounded-3xl shadow-lg">
+            <CardContent class="p-6">
+              <h3 class="text-xl font-bold mb-4">Asesoramiento</h3>
+              <ul class="space-y-2">
+                <li class="flex items-center">
+                  <Check class="w-5 h-5 text-red-600 mr-2" />
+                  <span>Guías legales y tributarias</span>
+                </li>
+                <li class="flex items-center">
+                  <Check class="w-5 h-5 text-red-600 mr-2" />
+                  <span>Optimización financiera</span>
+                </li>
+                <li class="flex items-center">
+                  <Check class="w-5 h-5 text-red-600 mr-2" />
+                  <span>Consultas personalizadas</span>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <!-- Soporte Técnico -->
+          <Card class="rounded-3xl shadow-lg">
+            <CardContent class="p-6">
+              <h3 class="text-xl font-bold mb-4">Soporte Técnico</h3>
+              <ul class="space-y-2">
+                <li class="flex items-center">
+                  <Check class="w-5 h-5 text-red-600 mr-2" />
+                  <span>Soporte básico por email</span>
+                </li>
+                <li class="flex items-center">
+                  <Check class="w-5 h-5 text-red-600 mr-2" />
+                  <span>Soporte prioritario 24h</span>
+                </li>
+                <li class="flex items-center">
+                  <Check class="w-5 h-5 text-red-600 mr-2" />
+                  <span>Atención VIP personalizada</span>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </section>
