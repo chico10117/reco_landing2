@@ -354,123 +354,117 @@
       <section class="py-16 bg-gray-50">
         <div class="container mx-auto px-4">
           <h2 class="text-3xl font-bold text-center mb-12">Nuestras Funcionalidades</h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <!-- Visuales -->
-            <div class="bg-gray-50 rounded-3xl p-8 shadow-lg">
-              <h3 class="text-xl font-bold mb-4">Visuales</h3>
-              <ul class="space-y-4">
-                <li class="flex items-center">
-                  <Check class="w-5 h-5 text-red-600 mr-2" />
-                  <span>Publicación de historias efímeras</span>
-                </li>
-                <li class="flex items-center">
-                  <Check class="w-5 h-5 text-red-600 mr-2" />
-                  <span>Creación de historias destacadas</span>
-                </li>
-              </ul>
+          
+          <div class="max-w-5xl mx-auto overflow-x-auto">
+            <div class="bg-white rounded-3xl shadow-lg p-6">
+              <table class="w-full border-collapse">
+                <thead>
+                  <tr class="border-b border-gray-200">
+                    <th class="py-4 px-4 text-left font-bold text-gray-700">Funcionalidad</th>
+                    <th class="py-4 px-4 text-center font-bold text-gray-700">Gratuito</th>
+                    <th class="py-4 px-4 text-center font-bold text-gray-700">Básico</th>
+                    <th class="py-4 px-4 text-center font-bold text-gray-700">Gold</th>
+                    <th class="py-4 px-4 text-center font-bold text-gray-700">Platinum</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="border-b border-gray-200">
+                    <td class="py-3 px-4 font-medium">Historias</td>
+                    <td class="py-3 px-4 text-center text-green-600">✓</td>
+                    <td class="py-3 px-4 text-center text-green-600">✓</td>
+                    <td class="py-3 px-4 text-center text-green-600">✓</td>
+                    <td class="py-3 px-4 text-center text-green-600">✓</td>
+                  </tr>
+                  <tr class="border-b border-gray-200">
+                    <td class="py-3 px-4 font-medium">Historias destacadas</td>
+                    <td class="py-3 px-4 text-center text-red-500">-</td>
+                    <td class="py-3 px-4 text-center">3 máx.</td>
+                    <td class="py-3 px-4 text-center">Ilimitado</td>
+                    <td class="py-3 px-4 text-center">Ilimitado</td>
+                  </tr>
+                  <tr class="border-b border-gray-200">
+                    <td class="py-3 px-4 font-medium">Calendario de citas</td>
+                    <td class="py-3 px-4 text-center">Limitado (10 citas)</td>
+                    <td class="py-3 px-4 text-center">Limitado</td>
+                    <td class="py-3 px-4 text-center">Ilimitado</td>
+                    <td class="py-3 px-4 text-center">Integrado con apps externas</td>
+                  </tr>
+                  <tr class="border-b border-gray-200">
+                    <td class="py-3 px-4 font-medium">Programación automática</td>
+                    <td class="py-3 px-4 text-center text-red-500">-</td>
+                    <td class="py-3 px-4 text-center">5/mes</td>
+                    <td class="py-3 px-4 text-center">15/mes</td>
+                    <td class="py-3 px-4 text-center">Ilimitado</td>
+                  </tr>
+                  <tr class="border-b border-gray-200">
+                    <td class="py-3 px-4 font-medium">Auto-respondedor fuera de línea</td>
+                    <td class="py-3 px-4 text-center text-red-500">-</td>
+                    <td class="py-3 px-4 text-center">Básico (1 mensaje)</td>
+                    <td class="py-3 px-4 text-center">Avanzado (3 mensajes)</td>
+                    <td class="py-3 px-4 text-center">Avanzado (3 mensajes)</td>
+                  </tr>
+                  <tr class="border-b border-gray-200">
+                    <td class="py-3 px-4 font-medium">Estadísticas básicas</td>
+                    <td class="py-3 px-4 text-center text-green-600">✓</td>
+                    <td class="py-3 px-4 text-center text-green-600">✓</td>
+                    <td class="py-3 px-4 text-center text-green-600">✓</td>
+                    <td class="py-3 px-4 text-center text-green-600">✓</td>
+                  </tr>
+                  <tr class="border-b border-gray-200">
+                    <td class="py-3 px-4 font-medium">Estadísticas avanzadas</td>
+                    <td class="py-3 px-4 text-center text-red-500">-</td>
+                    <td class="py-3 px-4 text-center text-green-600">✓</td>
+                    <td class="py-3 px-4 text-center text-green-600">✓</td>
+                    <td class="py-3 px-4 text-center text-green-600">✓</td>
+                  </tr>
+                  <tr class="border-b border-gray-200">
+                    <td class="py-3 px-4 font-medium">Mapas de calor de actividad</td>
+                    <td class="py-3 px-4 text-center text-red-500">-</td>
+                    <td class="py-3 px-4 text-center text-red-500">-</td>
+                    <td class="py-3 px-4 text-center text-green-600">✓</td>
+                    <td class="py-3 px-4 text-center text-green-600">✓</td>
+                  </tr>
+                  <tr class="border-b border-gray-200">
+                    <td class="py-3 px-4 font-medium">Boost de visibilidad</td>
+                    <td class="py-3 px-4 text-center text-red-500">-</td>
+                    <td class="py-3 px-4 text-center">1x/mes (12 horas)</td>
+                    <td class="py-3 px-4 text-center">2x/mes (24 horas)</td>
+                    <td class="py-3 px-4 text-center">3x/mes (48 horas)</td>
+                  </tr>
+                  <tr class="border-b border-gray-200">
+                    <td class="py-3 px-4 font-medium">Asesoramiento legal y financiero</td>
+                    <td class="py-3 px-4 text-center text-red-500">-</td>
+                    <td class="py-3 px-4 text-center text-red-500">-</td>
+                    <td class="py-3 px-4 text-center text-red-500">-</td>
+                    <td class="py-3 px-4 text-center">✓ (Personalizado)</td>
+                  </tr>
+                  <tr class="border-b border-gray-200">
+                    <td class="py-3 px-4 font-medium">Soporte técnico</td>
+                    <td class="py-3 px-4 text-center">Básico</td>
+                    <td class="py-3 px-4 text-center">Básico</td>
+                    <td class="py-3 px-4 text-center">Prioritario</td>
+                    <td class="py-3 px-4 text-center">VIP</td>
+                  </tr>
+                  <tr>
+                    <td class="py-4 px-4 font-bold">Precio</td>
+                    <td class="py-4 px-4 text-center font-bold">GRATIS</td>
+                    <td class="py-4 px-4 text-center font-bold">$ 990</td>
+                    <td class="py-4 px-4 text-center font-bold">$ 2.990</td>
+                    <td class="py-4 px-4 text-center font-bold">$ 4.990</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-
-            <!-- Gestión de Reservas -->
-            <div class="bg-red-50 rounded-3xl p-8 border-2 border-red-600 shadow-lg">
-              <h3 class="text-xl font-bold mb-4">Gestión de Reservas</h3>
-              <ul class="space-y-4">
-                <li class="flex items-center">
-                  <Check class="w-5 h-5 text-red-600 mr-2" />
-                  <span>Calendario de citas</span>
-                </li>
-                <li class="flex items-center">
-                  <Check class="w-5 h-5 text-red-600 mr-2" />
-                  <span>Programación automática</span>
-                </li>
-                <li class="flex items-center">
-                  <Check class="w-5 h-5 text-red-600 mr-2" />
-                  <span>Auto-respondedor fuera de línea</span>
-                </li>
-              </ul>
-            </div>
-
-            <!-- Estadísticas y Analíticas -->
-            <div class="bg-gray-50 rounded-3xl p-8 shadow-lg">
-              <h3 class="text-xl font-bold mb-4">Estadísticas y Analíticas</h3>
-              <ul class="space-y-4">
-                <li class="flex items-center">
-                  <Check class="w-5 h-5 text-red-600 mr-2" />
-                  <span>Número de visitas al perfil</span>
-                </li>
-                <li class="flex items-center">
-                  <Check class="w-5 h-5 text-red-600 mr-2" />
-                  <span>Clics en el botón de contacto</span>
-                </li>
-                <li class="flex items-center">
-                  <Check class="w-5 h-5 text-red-600 mr-2" />
-                  <span>Días y horas de mayor tráfico</span>
-                </li>
-                <li class="flex items-center">
-                  <Check class="w-5 h-5 text-red-600 mr-2" />
-                  <span>Análisis completo del rendimiento</span>
-                </li>
-              </ul>
-            </div>
-
-            <!-- Visibilidad -->
-            <Card class="rounded-3xl shadow-lg">
-              <CardContent class="p-6">
-                <h3 class="text-xl font-bold mb-4">Visibilidad</h3>
-                <ul class="space-y-2">
-                  <li class="flex items-center">
-                    <Check class="w-5 h-5 text-red-600 mr-2" />
-                    <span>Boost de visibilidad en resultados</span>
-                  </li>
-                  <li class="flex items-center">
-                    <Check class="w-5 h-5 text-red-600 mr-2" />
-                    <span>Destacado en página principal</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <!-- Asesoramiento -->
-            <Card class="rounded-3xl shadow-lg">
-              <CardContent class="p-6">
-                <h3 class="text-xl font-bold mb-4">Asesoramiento</h3>
-                <ul class="space-y-2">
-                  <li class="flex items-center">
-                    <Check class="w-5 h-5 text-red-600 mr-2" />
-                    <span>Guías legales y tributarias</span>
-                  </li>
-                  <li class="flex items-center">
-                    <Check class="w-5 h-5 text-red-600 mr-2" />
-                    <span>Optimización financiera</span>
-                  </li>
-                  <li class="flex items-center">
-                    <Check class="w-5 h-5 text-red-600 mr-2" />
-                    <span>Consultas personalizadas</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <!-- Soporte Técnico -->
-            <Card class="rounded-3xl shadow-lg">
-              <CardContent class="p-6">
-                <h3 class="text-xl font-bold mb-4">Soporte Técnico</h3>
-                <ul class="space-y-2">
-                  <li class="flex items-center">
-                    <Check class="w-5 h-5 text-red-600 mr-2" />
-                    <span>Soporte básico por email</span>
-                  </li>
-                  <li class="flex items-center">
-                    <Check class="w-5 h-5 text-red-600 mr-2" />
-                    <span>Soporte prioritario 24h</span>
-                  </li>
-                  <li class="flex items-center">
-                    <Check class="w-5 h-5 text-red-600 mr-2" />
-                    <span>Atención VIP personalizada</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
           </div>
+          
+          <div class="mt-12 text-center">
+            <Button 
+              class="bg-red-600 hover:bg-red-700 text-white font-semibold px-8 py-3 rounded-full shadow-lg transform transition-transform hover:scale-105"
+              on:click={() => showModal = true}
+            >
+              Obtén Tu Pre-Suscripción Ahora
+            </Button>
+            <p class="text-sm text-gray-500 mt-2">Precios promocionales por tiempo limitado</p>
         </div>
       </section>
 
