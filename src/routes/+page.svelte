@@ -117,13 +117,12 @@
           <div class="flex flex-col space-y-4">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center py-8">
               <!-- Free Plan -->
-              <div class="bg-white rounded-3xl p-6 shadow-lg overflow-hidden relative cursor-pointer transition-all duration-300 hover:bg-gradient-to-br hover:from-red-500 hover:to-pink-500 group">
-                <div class="absolute top-0 left-0 w-12 h-12 bg-red-500 flex items-center justify-center rounded-br-lg">
-                  <div class="text-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
-                  </div>
+              <Card class="rounded-3xl overflow-hidden relative cursor-pointer transition-all duration-300 hover:shadow-xl group">
+                <div class="absolute inset-0 bg-gradient-to-br from-red-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"></div>
+                <div class="absolute top-0 left-0 w-12 h-12 bg-red-500 flex items-center justify-center rounded-br-lg z-10">
+                  <Check class="w-6 h-6 text-white" />
                 </div>
-                <div class="pt-4">
+                <CardContent class="p-6 pt-10 relative z-10">
                   <div class="text-gray-600 group-hover:text-white transition-colors">Preinscripción Gratuita</div>
                   <div class="text-3xl font-bold text-gray-900 group-hover:text-white transition-colors">$0</div>
                   <div class="text-sm text-gray-500 group-hover:text-white/80 transition-colors">/month</div>
@@ -131,47 +130,36 @@
                   
                   <div class="space-y-3 mt-6 text-left">
                     <div class="flex items-center">
-                      <div class="text-red-500 group-hover:text-white mr-2 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
-                      </div>
+                      <Check class="w-4 h-4 text-red-500 group-hover:text-white mr-2 transition-colors" />
                       <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Accede al Plan Básico completamente GRATIS</span>
                     </div>
                     <div class="flex items-center">
-                      <div class="text-red-500 group-hover:text-white mr-2 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
-                      </div>
+                      <Check class="w-4 h-4 text-red-500 group-hover:text-white mr-2 transition-colors" />
                       <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Disfruta durante 3 meses</span>
                     </div>
                     <div class="flex items-center">
-                      <div class="text-red-500 group-hover:text-white mr-2 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
-                      </div>
+                      <Check class="w-4 h-4 text-red-500 group-hover:text-white mr-2 transition-colors" />
                       <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Participa en el sorteo de 10 planes Platinum</span>
                     </div>
-                    <!-- <div class="flex items-center">
-                      <div class="text-pink-500 group-hover:text-white mr-2 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
-                      </div>
-                      <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Email support</span>
-                    </div> -->
                   </div>
                   
-                  <button 
+                  <Button 
                     class="w-full mt-8 bg-red-500 text-white font-medium py-3 rounded-full group-hover:bg-white group-hover:text-red-600 transition-colors"
                   >
                     Get Started
-                  </button>
-                </div>
-              </div>
+                  </Button>
+                </CardContent>
+              </Card>
 
               <!-- Basic Plan -->
-              <div class="bg-white rounded-3xl p-6 shadow-lg overflow-hidden relative cursor-pointer transition-all duration-300 hover:bg-gradient-to-br hover:from-red-500 hover:to-pink-500 group">
-                <div class="absolute top-0 left-0 w-12 h-12 bg-red-500 flex items-center justify-center rounded-br-lg">
+              <Card class="rounded-3xl overflow-hidden relative cursor-pointer transition-all duration-300 hover:shadow-xl group">
+                <div class="absolute inset-0 bg-gradient-to-br from-red-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"></div>
+                <div class="absolute top-0 left-0 w-12 h-12 bg-red-500 flex items-center justify-center rounded-br-lg z-10">
                   <div class="text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
                   </div>
                 </div>
-                <div class="pt-4">
+                <CardContent class="p-6 pt-10 relative z-10">
                   <div class="text-gray-600 group-hover:text-white transition-colors">Preinscripción Básica</div>
                   <div class="text-3xl font-bold text-gray-900 group-hover:text-white transition-colors">$9.99</div>
                   <div class="text-sm text-gray-500 group-hover:text-white/80 transition-colors">/month</div>
@@ -179,54 +167,39 @@
                   
                   <div class="space-y-3 mt-6 text-left">
                     <div class="flex items-center">
-                      <div class="text-red-500 group-hover:text-white mr-2 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
-                      </div>
+                      <Check class="w-4 h-4 text-red-500 group-hover:text-white mr-2 transition-colors" />
                       <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Suscríbete al plan que elijas</span>
                     </div>
                     <div class="flex items-center">
-                      <div class="text-red-500 group-hover:text-white mr-2 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
-                      </div>
+                      <Check class="w-4 h-4 text-red-500 group-hover:text-white mr-2 transition-colors" />
                       <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Obtén un 50% de descuento por 2 meses</span>
                     </div>
                     <div class="flex items-center">
-                      <div class="text-red-500 group-hover:text-white mr-2 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
-                      </div>
+                      <Check class="w-4 h-4 text-red-500 group-hover:text-white mr-2 transition-colors" />
                       <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Participa en el sorteo de 10 planes Platinum</span>
                     </div>
-                    <!-- <div class="flex items-center">
-                      <div class="text-pink-500 group-hover:text-white mr-2 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
-                      </div>
-                      <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Detailed analytics</span>
-                    </div>
-                    <div class="flex items-center">
-                      <div class="text-pink-500 group-hover:text-white mr-2 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
-                      </div>
-                      <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Priority support</span>
-                    </div> -->
                   </div>
                   
-                  <button 
+                  <Button 
                     class="w-full mt-8 bg-red-500 text-white font-medium py-3 rounded-full group-hover:bg-white group-hover:text-red-600 transition-colors"
                   >
                     Subscribe Now
-                  </button>
-                </div>
-              </div>
+                  </Button>
+                </CardContent>
+              </Card>
 
               <!-- Business Plan -->
-              <div class="bg-white rounded-3xl p-6 shadow-lg overflow-hidden relative cursor-pointer transition-all duration-300 hover:bg-gradient-to-br hover:from-red-500 hover:to-pink-500 group"
-                on:click={() => window.open('https://wa.me/YOUR_NUMBER?text=Quiero%20información%20del%20plan%20Premium', '_blank')}>
-                <div class="absolute top-0 left-0 w-12 h-12 bg-red-500 flex items-center justify-center rounded-br-lg">
+              <Card 
+                class="rounded-3xl overflow-hidden relative cursor-pointer transition-all duration-300 hover:shadow-xl group"
+                on:click={() => window.open('https://wa.me/YOUR_NUMBER?text=Quiero%20información%20del%20plan%20Premium', '_blank')}
+              >
+                <div class="absolute inset-0 bg-gradient-to-br from-red-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"></div>
+                <div class="absolute top-0 left-0 w-12 h-12 bg-red-500 flex items-center justify-center rounded-br-lg z-10">
                   <div class="text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
                   </div>
                 </div>
-                <div class="pt-4">
+                <CardContent class="p-6 pt-10 relative z-10">
                   <div class="text-gray-600 group-hover:text-white transition-colors">Preinscripción Premium</div>
                   <div class="text-3xl font-bold text-gray-900 group-hover:text-white transition-colors">$29.99</div>
                   <div class="text-sm text-gray-500 group-hover:text-white/80 transition-colors">/month</div>
@@ -234,50 +207,26 @@
                   
                   <div class="space-y-3 mt-6 text-left">
                     <div class="flex items-center">
-                      <div class="text-red-500 group-hover:text-white mr-2 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
-                      </div>
+                      <Check class="w-4 h-4 text-red-500 group-hover:text-white mr-2 transition-colors" />
                       <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Disfruta de un 50% de descuento en cualquier plan</span>
                     </div>
                     <div class="flex items-center">
-                      <div class="text-red-500 group-hover:text-white mr-2 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
-                      </div>
+                      <Check class="w-4 h-4 text-red-500 group-hover:text-white mr-2 transition-colors" />
                       <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Válido al contratar por 3 o más meses</span>
                     </div>
                     <div class="flex items-center">
-                      <div class="text-red-500 group-hover:text-white mr-2 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
-                      </div>
+                      <Check class="w-4 h-4 text-red-500 group-hover:text-white mr-2 transition-colors" />
                       <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Participa en el sorteo de 10 planes Platinum</span>
                     </div>
-                    <!-- <div class="flex items-center">
-                      <div class="text-pink-500 group-hover:text-white mr-2 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
-                      </div>
-                      <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Advanced analytics</span>
-                    </div>
-                    <div class="flex items-center">
-                      <div class="text-pink-500 group-hover:text-white mr-2 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
-                      </div>
-                      <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">24/7 VIP support</span>
-                    </div>
-                    <div class="flex items-center">
-                      <div class="text-pink-500 group-hover:text-white mr-2 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
-                      </div>
-                      <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Featured placement</span>
-                    </div> -->
                   </div>
                   
-                  <button 
+                  <Button 
                     class="w-full mt-8 bg-red-500 text-white font-medium py-3 rounded-full group-hover:bg-white group-hover:text-red-600 transition-colors"
                   >
                     Contact us
-                  </button>
-                </div>
-              </div>
+                  </Button>
+                </CardContent>
+              </Card>
             </div>
             <div class="max-w-md mx-auto w-full">
               <Button 
