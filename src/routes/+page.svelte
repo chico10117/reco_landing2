@@ -100,14 +100,14 @@
     <header class="pt-20 relative min-h-[90vh] flex items-center">
       <div class="absolute inset-0 z-0">
         <img
-          src="/foondo.png"
+          src="/fondo.png"
           alt="Background"
           class="w-full h-full object-cover object-center bg-red-600"
         />
         <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70"></div>
       </div>
       <div class="max-w-6xl mx-auto px-4 py-12 relative z-10 w-full">
-        <div class="max-w-4xl mx-auto text-center space-y-8">
+        <div class="max-w-4xl mx-auto text-left space-y-8">
           <h1 class="text-4xl md:text-6xl font-bold tracking-tight text-white">
             Transformando la <span class="text-red-400">industria escort</span> con innovación y calidad
           </h1>
@@ -115,33 +115,7 @@
             Aprovecha el prelanzamiento y asegura <span class="text-red-400 font-semibold">ventajas exclusivas</span> ahora mismo
           </p>
           <div class="flex flex-col space-y-4">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center py-8">
-              <div class="bg-black/30 backdrop-blur-sm rounded-3xl p-6 cursor-pointer hover:bg-black/40 transition-all"
-                on:click={() => window.open('https://wa.me/YOUR_NUMBER?text=Quiero%20información%20del%20plan%20Gratuito', '_blank')}>
-                <div class="text-xl font-bold text-white">Gratuito</div>
-                <div class="text-gray-300 font-medium">Contenido Exclusivo</div>
-                <div class="text-sm text-gray-400 mt-2">Acceso a contenido que no encontrarás en ningún otro lugar</div>
-              </div>
-              <div class="bg-black/30 backdrop-blur-sm rounded-3xl p-6 cursor-pointer hover:bg-black/40 transition-all"
-                on:click={() => window.open('https://wa.me/YOUR_NUMBER?text=Quiero%20información%20del%20plan%20Básico', '_blank')}>
-                <div class="text-xl font-bold text-white">Básico</div>
-                <div class="text-gray-300 font-medium">Videos HD</div>
-                <div class="text-sm text-gray-400 mt-2">Disfruta del mejor contenido en alta calidad</div>
-              </div>
-              <div class="bg-black/30 backdrop-blur-sm rounded-3xl p-6 cursor-pointer hover:bg-black/40 transition-all"
-                on:click={() => window.open('https://wa.me/YOUR_NUMBER?text=Quiero%20información%20del%20plan%20Gold', '_blank')}>
-                <div class="text-xl font-bold text-white">Gold</div>
-                <div class="text-gray-300 font-medium">Creadoras Locales</div>
-                <div class="text-sm text-gray-400 mt-2">Encuentra creadoras cerca de ti</div>
-              </div>
-              <div class="bg-black/30 backdrop-blur-sm rounded-3xl p-6 cursor-pointer hover:bg-black/40 transition-all"
-                on:click={() => window.open('https://wa.me/YOUR_NUMBER?text=Quiero%20información%20del%20plan%20Platinum', '_blank')}>
-                <div class="text-xl font-bold text-white">Platinum</div>
-                <div class="text-gray-300 font-medium">100% Privado</div>
-                <div class="text-sm text-gray-400 mt-2">Tu privacidad es nuestra prioridad</div>
-              </div>
-            </div>
-            <div class="max-w-md mx-auto w-full">
+                       <div class="max-w-md mx-auto w-full">
               <Button 
                 class="w-full bg-red-600 hover:bg-red-700 text-white font-semibold text-lg py-6 rounded-full shadow-lg transform transition-transform hover:scale-105 backdrop-blur-sm"
                 on:click={() => showModal = true}
@@ -158,8 +132,8 @@
     <main class="w-full max-w-6xl mx-auto px-4">
       <section class="bg-gray-50 py-16">
         <div class="container mx-auto px-4">
-          <h2 class="text-3xl font-bold text-center mb-12">¿Por qué elegir FanLatinas?</h2>
-          <div class="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+          <h2 class="text-3xl font-bold text-center mb-12">Ofertas de Preinscripción Exclusivas</h2>
+          <!-- <div class="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
             <Card class="rounded-3xl shadow-lg hover:shadow-xl transition-shadow">
               <CardContent class="p-6 text-center">
                 <Star class="w-8 h-8 text-red-600 mx-auto mb-4" />
@@ -188,6 +162,170 @@
                 <p class="text-gray-600">Tu privacidad es nuestra prioridad</p>
               </CardContent>
             </Card>
+          </div> -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center py-8">
+            <!-- Free Plan -->
+            <div class="bg-white rounded-3xl p-6 shadow-lg overflow-hidden relative cursor-pointer transition-all duration-300 hover:bg-gradient-to-br hover:from-red-500 hover:to-pink-500 group">
+              <div class="absolute top-0 left-0 w-12 h-12 bg-red-500 flex items-center justify-center rounded-br-lg">
+                <div class="text-white">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                </div>
+              </div>
+              <div class="pt-4">
+                <div class="text-gray-600 group-hover:text-white transition-colors">Preinscripción Gratuita</div>
+                <div class="text-3xl font-bold text-gray-900 group-hover:text-white transition-colors">$0</div>
+                <div class="text-sm text-gray-500 group-hover:text-white/80 transition-colors">/month</div>
+                <div class="text-sm text-gray-600 mb-4 group-hover:text-white/80 transition-colors">¡Empieza sin costo!</div>
+                
+                <div class="space-y-3 mt-6 text-left">
+                  <div class="flex items-center">
+                    <div class="text-red-500 group-hover:text-white mr-2 transition-colors">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                    </div>
+                    <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Accede al Plan Básico completamente GRATIS</span>
+                  </div>
+                  <div class="flex items-center">
+                    <div class="text-red-500 group-hover:text-white mr-2 transition-colors">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                    </div>
+                    <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Disfruta durante 3 meses</span>
+                  </div>
+                  <div class="flex items-center">
+                    <div class="text-red-500 group-hover:text-white mr-2 transition-colors">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                    </div>
+                    <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Participa en el sorteo de 10 planes Platinum</span>
+                  </div>
+                  <!-- <div class="flex items-center">
+                    <div class="text-pink-500 group-hover:text-white mr-2 transition-colors">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                    </div>
+                    <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Email support</span>
+                  </div> -->
+                </div>
+                
+                <button 
+                  class="w-full mt-8 bg-red-500 text-white font-medium py-3 rounded-full group-hover:bg-white group-hover:text-red-600 transition-colors"
+                >
+                  Get Started
+                </button>
+              </div>
+            </div>
+
+            <!-- Basic Plan -->
+            <div class="bg-white rounded-3xl p-6 shadow-lg overflow-hidden relative cursor-pointer transition-all duration-300 hover:bg-gradient-to-br hover:from-red-500 hover:to-pink-500 group">
+              <div class="absolute top-0 left-0 w-12 h-12 bg-red-500 flex items-center justify-center rounded-br-lg">
+                <div class="text-white">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+                </div>
+              </div>
+              <div class="pt-4">
+                <div class="text-gray-600 group-hover:text-white transition-colors">Preinscripción Básica</div>
+                <div class="text-3xl font-bold text-gray-900 group-hover:text-white transition-colors">$9.99</div>
+                <div class="text-sm text-gray-500 group-hover:text-white/80 transition-colors">/month</div>
+                <div class="text-sm text-gray-600 mb-4 group-hover:text-white/80 transition-colors">💸 Aprovecha un descuento único</div>
+                
+                <div class="space-y-3 mt-6 text-left">
+                  <div class="flex items-center">
+                    <div class="text-red-500 group-hover:text-white mr-2 transition-colors">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                    </div>
+                    <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Suscríbete al plan que elijas</span>
+                  </div>
+                  <div class="flex items-center">
+                    <div class="text-red-500 group-hover:text-white mr-2 transition-colors">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                    </div>
+                    <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Obtén un 50% de descuento por 2 meses</span>
+                  </div>
+                  <div class="flex items-center">
+                    <div class="text-red-500 group-hover:text-white mr-2 transition-colors">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                    </div>
+                    <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Participa en el sorteo de 10 planes Platinum</span>
+                  </div>
+                  <!-- <div class="flex items-center">
+                    <div class="text-pink-500 group-hover:text-white mr-2 transition-colors">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                    </div>
+                    <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Detailed analytics</span>
+                  </div>
+                  <div class="flex items-center">
+                    <div class="text-pink-500 group-hover:text-white mr-2 transition-colors">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                    </div>
+                    <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Priority support</span>
+                  </div> -->
+                </div>
+                
+                <button 
+                  class="w-full mt-8 bg-red-500 text-white font-medium py-3 rounded-full group-hover:bg-white group-hover:text-red-600 transition-colors"
+                >
+                  Subscribe Now
+                </button>
+              </div>
+            </div>
+
+            <!-- Business Plan -->
+            <div class="bg-white rounded-3xl p-6 shadow-lg overflow-hidden relative cursor-pointer transition-all duration-300 hover:bg-gradient-to-br hover:from-red-500 hover:to-pink-500 group"
+              on:click={() => window.open('https://wa.me/YOUR_NUMBER?text=Quiero%20información%20del%20plan%20Premium', '_blank')}>
+              <div class="absolute top-0 left-0 w-12 h-12 bg-red-500 flex items-center justify-center rounded-br-lg">
+                <div class="text-white">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                </div>
+              </div>
+              <div class="pt-4">
+                <div class="text-gray-600 group-hover:text-white transition-colors">Preinscripción Premium</div>
+                <div class="text-3xl font-bold text-gray-900 group-hover:text-white transition-colors">$29.99</div>
+                <div class="text-sm text-gray-500 group-hover:text-white/80 transition-colors">/month</div>
+                <div class="text-sm text-gray-600 mb-4 group-hover:text-white/80 transition-colors">Lleva tu perfil al siguiente nivel</div>
+                
+                <div class="space-y-3 mt-6 text-left">
+                  <div class="flex items-center">
+                    <div class="text-red-500 group-hover:text-white mr-2 transition-colors">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                    </div>
+                    <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Disfruta de un 50% de descuento en cualquier plan</span>
+                  </div>
+                  <div class="flex items-center">
+                    <div class="text-red-500 group-hover:text-white mr-2 transition-colors">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                    </div>
+                    <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Válido al contratar por 3 o más meses</span>
+                  </div>
+                  <div class="flex items-center">
+                    <div class="text-red-500 group-hover:text-white mr-2 transition-colors">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                    </div>
+                    <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Participa en el sorteo de 10 planes Platinum</span>
+                  </div>
+                  <!-- <div class="flex items-center">
+                    <div class="text-pink-500 group-hover:text-white mr-2 transition-colors">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                    </div>
+                    <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Advanced analytics</span>
+                  </div>
+                  <div class="flex items-center">
+                    <div class="text-pink-500 group-hover:text-white mr-2 transition-colors">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                    </div>
+                    <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">24/7 VIP support</span>
+                  </div>
+                  <div class="flex items-center">
+                    <div class="text-pink-500 group-hover:text-white mr-2 transition-colors">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                    </div>
+                    <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Featured placement</span>
+                  </div> -->
+                </div>
+                
+                <button 
+                  class="w-full mt-8 bg-red-500 text-white font-medium py-3 rounded-full group-hover:bg-white group-hover:text-red-600 transition-colors"
+                >
+                  Contact us
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -216,123 +354,117 @@
       <section class="py-16 bg-gray-50">
         <div class="container mx-auto px-4">
           <h2 class="text-3xl font-bold text-center mb-12">Nuestras Funcionalidades</h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <!-- Visuales -->
-            <div class="bg-gray-50 rounded-3xl p-8 shadow-lg">
-              <h3 class="text-xl font-bold mb-4">Visuales</h3>
-              <ul class="space-y-4">
-                <li class="flex items-center">
-                  <Check class="w-5 h-5 text-red-600 mr-2" />
-                  <span>Publicación de historias efímeras</span>
-                </li>
-                <li class="flex items-center">
-                  <Check class="w-5 h-5 text-red-600 mr-2" />
-                  <span>Creación de historias destacadas</span>
-                </li>
-              </ul>
+          
+          <div class="max-w-5xl mx-auto overflow-x-auto">
+            <div class="bg-white rounded-3xl shadow-lg p-6">
+              <table class="w-full border-collapse">
+                <thead>
+                  <tr class="border-b border-gray-200">
+                    <th class="py-4 px-4 text-left font-bold text-gray-700">Funcionalidad</th>
+                    <th class="py-4 px-4 text-center font-bold text-gray-700">Gratuito</th>
+                    <th class="py-4 px-4 text-center font-bold text-gray-700">Básico</th>
+                    <th class="py-4 px-4 text-center font-bold text-gray-700">Gold</th>
+                    <th class="py-4 px-4 text-center font-bold text-gray-700">Platinum</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="border-b border-gray-200">
+                    <td class="py-3 px-4 font-medium">Historias</td>
+                    <td class="py-3 px-4 text-center text-green-600">✓</td>
+                    <td class="py-3 px-4 text-center text-green-600">✓</td>
+                    <td class="py-3 px-4 text-center text-green-600">✓</td>
+                    <td class="py-3 px-4 text-center text-green-600">✓</td>
+                  </tr>
+                  <tr class="border-b border-gray-200">
+                    <td class="py-3 px-4 font-medium">Historias destacadas</td>
+                    <td class="py-3 px-4 text-center text-red-500">-</td>
+                    <td class="py-3 px-4 text-center">3 máx.</td>
+                    <td class="py-3 px-4 text-center">Ilimitado</td>
+                    <td class="py-3 px-4 text-center">Ilimitado</td>
+                  </tr>
+                  <tr class="border-b border-gray-200">
+                    <td class="py-3 px-4 font-medium">Calendario de citas</td>
+                    <td class="py-3 px-4 text-center">Limitado (10 citas)</td>
+                    <td class="py-3 px-4 text-center">Limitado</td>
+                    <td class="py-3 px-4 text-center">Ilimitado</td>
+                    <td class="py-3 px-4 text-center">Integrado con apps externas</td>
+                  </tr>
+                  <tr class="border-b border-gray-200">
+                    <td class="py-3 px-4 font-medium">Programación automática</td>
+                    <td class="py-3 px-4 text-center text-red-500">-</td>
+                    <td class="py-3 px-4 text-center">5/mes</td>
+                    <td class="py-3 px-4 text-center">15/mes</td>
+                    <td class="py-3 px-4 text-center">Ilimitado</td>
+                  </tr>
+                  <tr class="border-b border-gray-200">
+                    <td class="py-3 px-4 font-medium">Auto-respondedor fuera de línea</td>
+                    <td class="py-3 px-4 text-center text-red-500">-</td>
+                    <td class="py-3 px-4 text-center">Básico (1 mensaje)</td>
+                    <td class="py-3 px-4 text-center">Avanzado (3 mensajes)</td>
+                    <td class="py-3 px-4 text-center">Avanzado (3 mensajes)</td>
+                  </tr>
+                  <tr class="border-b border-gray-200">
+                    <td class="py-3 px-4 font-medium">Estadísticas básicas</td>
+                    <td class="py-3 px-4 text-center text-green-600">✓</td>
+                    <td class="py-3 px-4 text-center text-green-600">✓</td>
+                    <td class="py-3 px-4 text-center text-green-600">✓</td>
+                    <td class="py-3 px-4 text-center text-green-600">✓</td>
+                  </tr>
+                  <tr class="border-b border-gray-200">
+                    <td class="py-3 px-4 font-medium">Estadísticas avanzadas</td>
+                    <td class="py-3 px-4 text-center text-red-500">-</td>
+                    <td class="py-3 px-4 text-center text-green-600">✓</td>
+                    <td class="py-3 px-4 text-center text-green-600">✓</td>
+                    <td class="py-3 px-4 text-center text-green-600">✓</td>
+                  </tr>
+                  <tr class="border-b border-gray-200">
+                    <td class="py-3 px-4 font-medium">Mapas de calor de actividad</td>
+                    <td class="py-3 px-4 text-center text-red-500">-</td>
+                    <td class="py-3 px-4 text-center text-red-500">-</td>
+                    <td class="py-3 px-4 text-center text-green-600">✓</td>
+                    <td class="py-3 px-4 text-center text-green-600">✓</td>
+                  </tr>
+                  <tr class="border-b border-gray-200">
+                    <td class="py-3 px-4 font-medium">Boost de visibilidad</td>
+                    <td class="py-3 px-4 text-center text-red-500">-</td>
+                    <td class="py-3 px-4 text-center">1x/mes (12 horas)</td>
+                    <td class="py-3 px-4 text-center">2x/mes (24 horas)</td>
+                    <td class="py-3 px-4 text-center">3x/mes (48 horas)</td>
+                  </tr>
+                  <tr class="border-b border-gray-200">
+                    <td class="py-3 px-4 font-medium">Asesoramiento legal y financiero</td>
+                    <td class="py-3 px-4 text-center text-red-500">-</td>
+                    <td class="py-3 px-4 text-center text-red-500">-</td>
+                    <td class="py-3 px-4 text-center text-red-500">-</td>
+                    <td class="py-3 px-4 text-center">✓ (Personalizado)</td>
+                  </tr>
+                  <tr class="border-b border-gray-200">
+                    <td class="py-3 px-4 font-medium">Soporte técnico</td>
+                    <td class="py-3 px-4 text-center">Básico</td>
+                    <td class="py-3 px-4 text-center">Básico</td>
+                    <td class="py-3 px-4 text-center">Prioritario</td>
+                    <td class="py-3 px-4 text-center">VIP</td>
+                  </tr>
+                  <tr>
+                    <td class="py-4 px-4 font-bold">Precio</td>
+                    <td class="py-4 px-4 text-center font-bold">GRATIS</td>
+                    <td class="py-4 px-4 text-center font-bold">$ 990</td>
+                    <td class="py-4 px-4 text-center font-bold">$ 2.990</td>
+                    <td class="py-4 px-4 text-center font-bold">$ 4.990</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-
-            <!-- Gestión de Reservas -->
-            <div class="bg-red-50 rounded-3xl p-8 border-2 border-red-600 shadow-lg">
-              <h3 class="text-xl font-bold mb-4">Gestión de Reservas</h3>
-              <ul class="space-y-4">
-                <li class="flex items-center">
-                  <Check class="w-5 h-5 text-red-600 mr-2" />
-                  <span>Calendario de citas</span>
-                </li>
-                <li class="flex items-center">
-                  <Check class="w-5 h-5 text-red-600 mr-2" />
-                  <span>Programación automática</span>
-                </li>
-                <li class="flex items-center">
-                  <Check class="w-5 h-5 text-red-600 mr-2" />
-                  <span>Auto-respondedor fuera de línea</span>
-                </li>
-              </ul>
-            </div>
-
-            <!-- Estadísticas y Analíticas -->
-            <div class="bg-gray-50 rounded-3xl p-8 shadow-lg">
-              <h3 class="text-xl font-bold mb-4">Estadísticas y Analíticas</h3>
-              <ul class="space-y-4">
-                <li class="flex items-center">
-                  <Check class="w-5 h-5 text-red-600 mr-2" />
-                  <span>Número de visitas al perfil</span>
-                </li>
-                <li class="flex items-center">
-                  <Check class="w-5 h-5 text-red-600 mr-2" />
-                  <span>Clics en el botón de contacto</span>
-                </li>
-                <li class="flex items-center">
-                  <Check class="w-5 h-5 text-red-600 mr-2" />
-                  <span>Días y horas de mayor tráfico</span>
-                </li>
-                <li class="flex items-center">
-                  <Check class="w-5 h-5 text-red-600 mr-2" />
-                  <span>Análisis completo del rendimiento</span>
-                </li>
-              </ul>
-            </div>
-
-            <!-- Visibilidad -->
-            <Card class="rounded-3xl shadow-lg">
-              <CardContent class="p-6">
-                <h3 class="text-xl font-bold mb-4">Visibilidad</h3>
-                <ul class="space-y-2">
-                  <li class="flex items-center">
-                    <Check class="w-5 h-5 text-red-600 mr-2" />
-                    <span>Boost de visibilidad en resultados</span>
-                  </li>
-                  <li class="flex items-center">
-                    <Check class="w-5 h-5 text-red-600 mr-2" />
-                    <span>Destacado en página principal</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <!-- Asesoramiento -->
-            <Card class="rounded-3xl shadow-lg">
-              <CardContent class="p-6">
-                <h3 class="text-xl font-bold mb-4">Asesoramiento</h3>
-                <ul class="space-y-2">
-                  <li class="flex items-center">
-                    <Check class="w-5 h-5 text-red-600 mr-2" />
-                    <span>Guías legales y tributarias</span>
-                  </li>
-                  <li class="flex items-center">
-                    <Check class="w-5 h-5 text-red-600 mr-2" />
-                    <span>Optimización financiera</span>
-                  </li>
-                  <li class="flex items-center">
-                    <Check class="w-5 h-5 text-red-600 mr-2" />
-                    <span>Consultas personalizadas</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <!-- Soporte Técnico -->
-            <Card class="rounded-3xl shadow-lg">
-              <CardContent class="p-6">
-                <h3 class="text-xl font-bold mb-4">Soporte Técnico</h3>
-                <ul class="space-y-2">
-                  <li class="flex items-center">
-                    <Check class="w-5 h-5 text-red-600 mr-2" />
-                    <span>Soporte básico por email</span>
-                  </li>
-                  <li class="flex items-center">
-                    <Check class="w-5 h-5 text-red-600 mr-2" />
-                    <span>Soporte prioritario 24h</span>
-                  </li>
-                  <li class="flex items-center">
-                    <Check class="w-5 h-5 text-red-600 mr-2" />
-                    <span>Atención VIP personalizada</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
           </div>
+          
+          <div class="mt-12 text-center">
+            <Button 
+              class="bg-red-600 hover:bg-red-700 text-white font-semibold px-8 py-3 rounded-full shadow-lg transform transition-transform hover:scale-105"
+              on:click={() => showModal = true}
+            >
+              Obtén Tu Pre-Suscripción Ahora
+            </Button>
+            <p class="text-sm text-gray-500 mt-2">Precios promocionales por tiempo limitado</p>
         </div>
       </section>
 
