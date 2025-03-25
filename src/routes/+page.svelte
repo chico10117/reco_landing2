@@ -299,7 +299,7 @@
     <header class="pt-20 relative min-h-[90vh] flex items-center">
       <div class="absolute inset-0 z-0">
         <img
-          src="/foondo.png"
+          src="/fondo.png"
           alt="Background"
           class="w-full h-full object-cover object-center bg-red-600"
         />
