@@ -140,7 +140,7 @@
     <header class="pt-20 relative min-h-[90vh] flex items-center">
       <div class="absolute inset-0 z-0">
         <img
-          src="/fondo.png"
+          src="/foondo.png"
           alt="Background"
           class="w-full h-full object-cover object-center bg-red-600"
         />
@@ -448,9 +448,9 @@
   <div class="max-w-6xl mx-auto px-4">
     <h2 class="text-3xl font-bold text-center mb-12">Lo que dicen nuestros usuarios VIP</h2>
     
-    <div class="relative max-w-5xl mx-auto">
+    <div class="relative max-w-5xl mx-auto overflow-hidden">
       <!-- Carousel container -->
-      <div class="overflow-hidden pb-4">
+      <div class="overflow-hidden pb-4 w-full">
         <div class="flex transition-transform duration-300 ease-in-out" bind:this={carouselContainer} style="transform: translateX({-currentIndex * cardWidth}px)">
           <div class="min-w-[calc(33.333%-0.2rem)] px-2 pb-2">
             <Card class="rounded-3xl shadow-md hover:shadow-lg transition-shadow h-[240px] flex flex-col">
