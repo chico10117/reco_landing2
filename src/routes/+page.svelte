@@ -101,6 +101,165 @@
     console.log({ name, email, whatsapp, newsletter });
     showModal = false;
   }
+
+  // Add this to your existing script section
+  let pricingContainer: HTMLElement;
+  let isDraggingPricing = false;
+  let startXPricing = 0;
+  let scrollLeftPricing = 0;
+  let currentPricingIndex = 0;
+  
+  onMount(() => {
+    // ... existing onMount code ...
+    
+    // Initialize pricing container scroll functionality
+    pricingContainer = document.getElementById('pricing-container');
+    
+    if (pricingContainer) {
+      // Mouse events for pricing container
+      pricingContainer.addEventListener('mousedown', handlePricingMouseDown);
+      window.addEventListener('mousemove', handlePricingMouseMove);
+      window.addEventListener('mouseup', handlePricingMouseUp);
+      
+      // Touch events for pricing container
+      pricingContainer.addEventListener('touchstart', handlePricingTouchStart);
+      pricingContainer.addEventListener('touchmove', handlePricingTouchMove);
+      pricingContainer.addEventListener('touchend', handlePricingMouseUp);
+      
+      // Listen for scroll events to update dots
+      pricingContainer.addEventListener('scroll', updatePricingDots);
+    }
+    
+    return () => {
+      // ... existing cleanup code ...
+      
+      // Clean up pricing container event listeners
+      if (pricingContainer) {
+        pricingContainer.removeEventListener('mousedown', handlePricingMouseDown);
+        window.removeEventListener('mousemove', handlePricingMouseMove);
+        window.removeEventListener('mouseup', handlePricingMouseUp);
+        
+        pricingContainer.removeEventListener('touchstart', handlePricingTouchStart);
+        pricingContainer.removeEventListener('touchmove', handlePricingTouchMove);
+        pricingContainer.removeEventListener('touchend', handlePricingMouseUp);
+        
+        pricingContainer.removeEventListener('scroll', updatePricingDots);
+      }
+    };
+  });
+  
+  function handlePricingMouseDown(e: MouseEvent) {
+    isDraggingPricing = true;
+    startXPricing = e.pageX - pricingContainer.offsetLeft;
+    scrollLeftPricing = pricingContainer.scrollLeft;
+    pricingContainer.style.cursor = 'grabbing';
+  }
+  
+  function handlePricingMouseMove(e: MouseEvent) {
+    if (!isDraggingPricing) return;
+    
+    const x = e.pageX - pricingContainer.offsetLeft;
+    const walk = (x - startXPricing) * 2;
+    pricingContainer.scrollLeft = scrollLeftPricing - walk;
+    e.preventDefault();
+  }
+  
+  function handlePricingMouseUp() {
+    isDraggingPricing = false;
+    if (pricingContainer) {
+      pricingContainer.style.cursor = 'grab';
+      
+      // Snap to nearest card
+      const cardWidth = pricingContainer.offsetWidth * 0.85; // 85vw
+      const scrollPosition = pricingContainer.scrollLeft;
+      const cardIndex = Math.round(scrollPosition / cardWidth);
+      
+      pricingContainer.scrollTo({
+        left: cardIndex * cardWidth,
+        behavior: 'smooth'
+      });
+      
+      currentPricingIndex = cardIndex;
+      updatePricingDots();
+    }
+  }
+  
+  function handlePricingTouchStart(e: TouchEvent) {
+    isDraggingPricing = true;
+    startXPricing = e.touches[0].pageX - pricingContainer.offsetLeft;
+    scrollLeftPricing = pricingContainer.scrollLeft;
+  }
+  
+  function handlePricingTouchMove(e: TouchEvent) {
+    if (!isDraggingPricing) return;
+    
+    const x = e.touches[0].pageX - pricingContainer.offsetLeft;
+    const walk = (x - startXPricing) * 2;
+    pricingContainer.scrollLeft = scrollLeftPricing - walk;
+  }
+  
+  function updatePricingDots() {
+    const dots = document.querySelectorAll('#pricing-dots .dot');
+    if (dots.length > 0) {
+      dots.forEach((dot, index) => {
+        if (index === currentPricingIndex) {
+          dot.classList.add('bg-red-600');
+          dot.classList.remove('bg-gray-300');
+        } else {
+          dot.classList.add('bg-gray-300');
+          dot.classList.remove('bg-red-600');
+        }
+      });
+    }
+  }
+
+  // Variables for mobile testimonials
+  let testimonialsContainer;
+  let currentTestimonialIndex = 0;
+  
+  onMount(() => {
+    // ... existing onMount code ...
+    
+    // Initialize mobile testimonials container
+    testimonialsContainer = document.getElementById('testimonials-container');
+    
+    if (testimonialsContainer) {
+      // Update dots on scroll
+      testimonialsContainer.addEventListener('scroll', () => {
+        const scrollPosition = testimonialsContainer.scrollLeft;
+        const cardWidth = testimonialsContainer.clientWidth;
+        const newIndex = Math.round(scrollPosition / cardWidth);
+        
+        if (newIndex !== currentTestimonialIndex) {
+          currentTestimonialIndex = newIndex;
+          updateTestimonialDots();
+        }
+      });
+    }
+    
+    return () => {
+      // ... existing cleanup code ...
+      
+      if (testimonialsContainer) {
+        testimonialsContainer.removeEventListener('scroll', updateTestimonialDots);
+      }
+    };
+  });
+  
+  function updateTestimonialDots() {
+    const dots = document.querySelectorAll('#testimonials-dots .dot');
+    if (dots.length > 0) {
+      dots.forEach((dot, index) => {
+        if (index === currentTestimonialIndex) {
+          dot.classList.add('bg-red-600');
+          dot.classList.remove('bg-gray-300');
+        } else {
+          dot.classList.add('bg-gray-300');
+          dot.classList.remove('bg-red-600');
+        }
+      });
+    }
+  }
 </script>
 
 <div class="min-h-screen bg-white text-gray-900 flex flex-col">
@@ -172,7 +331,9 @@
     <section class="w-full bg-gray-100 py-10">
       <div class="max-w-6xl mx-auto px-4">
         <h2 class="text-3xl font-bold text-center mb-8">Ofertas de Preinscripción Exclusivas</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+        
+        <!-- Desktop view (hidden on mobile) -->
+        <div class="hidden md:grid md:grid-cols-3 md:gap-4 md:text-center">
           <!-- Free Plan -->
           <div class="bg-white rounded-3xl p-6 shadow-lg overflow-hidden relative cursor-pointer transition-all duration-300 hover:bg-gradient-to-br hover:from-red-500 hover:to-pink-500 group flex flex-col">
             <div class="absolute top-0 left-0 w-12 h-12 bg-red-500 flex items-center justify-center rounded-br-lg">
@@ -300,6 +461,153 @@
             >
               Contact us
             </button>
+          </div>
+        </div>
+        
+        <!-- Mobile view (hidden on desktop) -->
+        <div class="md:hidden text-center">
+          <div class="flex overflow-x-auto pb-4 snap-x snap-mandatory hide-scrollbar" id="pricing-container">
+            <!-- Free Plan (Mobile) -->
+            <div class="min-w-[85vw] px-2 flex-shrink-0 snap-center">
+              <div class="bg-white rounded-3xl p-6 shadow-lg overflow-hidden relative cursor-pointer transition-all duration-300 hover:bg-gradient-to-br hover:from-red-500 hover:to-pink-500 group flex flex-col h-full">
+                <div class="absolute top-0 left-0 w-12 h-12 bg-red-500 flex items-center justify-center rounded-br-lg">
+                  <div class="text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                  </div>
+                </div>
+                <div class="pt-4 flex-grow">
+                  <div class="text-gray-600 group-hover:text-white transition-colors">Preinscripción Gratuita</div>
+                  <div class="text-3xl font-bold text-gray-900 group-hover:text-white transition-colors">$0</div>
+                  <div class="text-sm text-gray-500 group-hover:text-white/80 transition-colors">/month</div>
+                  <div class="text-sm text-gray-600 mb-4 group-hover:text-white/80 transition-colors">¡Empieza sin costo!</div>
+                  
+                  <div class="space-y-3 mt-6 text-left">
+                    <div class="flex items-center">
+                      <div class="text-red-500 group-hover:text-white mr-2 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                      </div>
+                      <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Accede al Plan Básico completamente GRATIS</span>
+                    </div>
+                    <div class="flex items-center">
+                      <div class="text-red-500 group-hover:text-white mr-2 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                      </div>
+                      <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Disfruta durante 3 meses</span>
+                    </div>
+                    <div class="flex items-center">
+                      <div class="text-red-500 group-hover:text-white mr-2 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                      </div>
+                      <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Participa en el sorteo de 10 planes Platinum</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <button 
+                  class="w-full mt-8 bg-red-500 text-white font-medium py-3 rounded-full group-hover:bg-white group-hover:text-red-600 transition-colors"
+                  on:click={() => showModal = true}
+                >
+                  Get Started
+                </button>
+              </div>
+            </div>
+
+            <!-- Basic Plan (Mobile) -->
+            <div class="min-w-[85vw] px-2 flex-shrink-0 snap-center">
+              <div class="bg-white rounded-3xl p-6 shadow-lg overflow-hidden relative cursor-pointer transition-all duration-300 hover:bg-gradient-to-br hover:from-red-500 hover:to-pink-500 group flex flex-col h-full">
+                <div class="absolute top-0 left-0 w-12 h-12 bg-red-500 flex items-center justify-center rounded-br-lg">
+                  <div class="text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+                  </div>
+                </div>
+                <div class="pt-4 flex-grow">
+                  <div class="text-gray-600 group-hover:text-white transition-colors">Preinscripción Básica</div>
+                  <div class="text-3xl font-bold text-gray-900 group-hover:text-white transition-colors">$990.00</div>
+                  <div class="text-sm text-gray-500 group-hover:text-white/80 transition-colors">/month</div>
+                  <div class="text-sm text-gray-600 mb-4 group-hover:text-white/80 transition-colors">💸 Aprovecha un descuento único</div>
+                  
+                  <div class="space-y-3 mt-6 text-left">
+                    <div class="flex items-center">
+                      <div class="text-red-500 group-hover:text-white mr-2 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                      </div>
+                      <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Suscríbete al plan que elijas</span>
+                    </div>
+                    <div class="flex items-center">
+                      <div class="text-red-500 group-hover:text-white mr-2 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                      </div>
+                      <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Obtén un 50% de descuento por 2 meses</span>
+                    </div>
+                    <div class="flex items-center">
+                      <div class="text-red-500 group-hover:text-white mr-2 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                      </div>
+                      <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Participa en el sorteo de 10 planes Platinum</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <button 
+                  class="w-full mt-8 bg-red-500 text-white font-medium py-3 rounded-full group-hover:bg-white group-hover:text-red-600 transition-colors"
+                  on:click={() => showModal = true}
+                >
+                  Subscribe Now
+                </button>
+              </div>
+            </div>
+
+            <!-- Premium Plan (Mobile) -->
+            <div class="min-w-[85vw] px-2 flex-shrink-0 snap-center">
+              <div class="bg-white rounded-3xl p-6 shadow-lg overflow-hidden relative cursor-pointer transition-all duration-300 hover:bg-gradient-to-br hover:from-red-500 hover:to-pink-500 group flex flex-col h-full"
+                on:click={() => window.open('https://wa.me/YOUR_NUMBER?text=Quiero%20información%20del%20plan%20Premium', '_blank')}>
+                <div class="absolute top-0 left-0 w-12 h-12 bg-red-500 flex items-center justify-center rounded-br-lg">
+                  <div class="text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                  </div>
+                </div>
+                <div class="pt-4 flex-grow">
+                  <div class="text-gray-600 group-hover:text-white transition-colors">Preinscripción Premium</div>
+                  <div class="text-3xl font-bold text-gray-900 group-hover:text-white transition-colors">$4.990</div>
+                  <div class="text-sm text-gray-500 group-hover:text-white/80 transition-colors">/month</div>
+                  <div class="text-sm text-gray-600 mb-4 group-hover:text-white/80 transition-colors">Lleva tu perfil al siguiente nivel</div>
+                  
+                  <div class="space-y-3 mt-6 text-left">
+                    <div class="flex items-center">
+                      <div class="text-red-500 group-hover:text-white mr-2 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                      </div>
+                      <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Disfruta de un 50% de descuento en cualquier plan</span>
+                    </div>
+                    <div class="flex items-center">
+                      <div class="text-red-500 group-hover:text-white mr-2 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                      </div>
+                      <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Válido al contratar por 3 o más meses</span>
+                    </div>
+                    <div class="flex items-center">
+                      <div class="text-red-500 group-hover:text-white mr-2 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                      </div>
+                      <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Participa en el sorteo de 10 planes Platinum</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <button 
+                  class="w-full mt-8 bg-red-500 text-white font-medium py-3 rounded-full group-hover:bg-white group-hover:text-red-600 transition-colors"
+                >
+                  Contact us
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Scroll indicator dots (mobile only) -->
+          <div class="flex justify-center mt-4" id="pricing-dots">
+            <div class="w-2 h-2 rounded-full bg-red-600 mx-1 dot"></div>
+            <div class="w-2 h-2 rounded-full bg-gray-300 mx-1 dot"></div>
+            <div class="w-2 h-2 rounded-full bg-gray-300 mx-1 dot"></div>
           </div>
         </div>
       </div>
@@ -448,9 +756,10 @@
   <div class="max-w-6xl mx-auto px-4">
     <h2 class="text-3xl font-bold text-center mb-12">Lo que dicen nuestros usuarios VIP</h2>
     
-    <div class="relative max-w-5xl mx-auto overflow-hidden">
-      <!-- Carousel container -->
-      <div class="overflow-hidden pb-4 w-full">
+    <!-- Desktop view (hidden on mobile) -->
+    <div class="hidden md:block relative max-w-5xl mx-auto">
+      <!-- Carousel container for desktop -->
+      <div class="overflow-hidden pb-4">
         <div class="flex transition-transform duration-300 ease-in-out" bind:this={carouselContainer} style="transform: translateX({-currentIndex * cardWidth}px)">
           <div class="min-w-[calc(33.333%-0.2rem)] px-2 pb-2">
             <Card class="rounded-3xl shadow-md hover:shadow-lg transition-shadow h-[240px] flex flex-col">
@@ -562,7 +871,7 @@
         </div>
       </div>
       
-      <!-- Navigation buttons -->
+      <!-- Navigation buttons (desktop only) -->
       <button 
         class="absolute left-0 top-1/2 -translate-y-1/2 -ml-16 bg-white p-2 z-10 transition-opacity duration-200 {currentIndex === 0 ? 'opacity-50 cursor-not-allowed' : 'opacity-100'}"
         on:click={prevSlide}
@@ -578,6 +887,113 @@
       >
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-700"><polyline points="9 18 15 12 9 6"></polyline></svg>
       </button>
+    </div>
+    
+    <!-- Mobile view (hidden on desktop) -->
+    <div class="md:hidden max-w-5xl mx-auto">
+      <div class="overflow-x-auto snap-x snap-mandatory hide-scrollbar" id="testimonials-container">
+        <div class="flex">
+          <!-- Mobile testimonial cards -->
+          <div class="min-w-[85vw] px-2 flex-shrink-0 snap-center flex">
+            <Card class="rounded-3xl shadow-md hover:shadow-lg transition-shadow h-[240px] flex flex-col">
+              <CardContent class="p-6">
+                <div class="flex items-center mb-4">
+                  <div class="flex text-red-600">
+                    <Star class="w-4 h-4 fill-current" />
+                    <Star class="w-4 h-4 fill-current" />
+                    <Star class="w-4 h-4 fill-current" />
+                    <Star class="w-4 h-4 fill-current" />
+                    <Star class="w-4 h-4 fill-current" />
+                  </div>
+                </div>
+                <p class="text-gray-600 mb-4">"El mejor contenido que he encontrado. <br> Las creadoras son increíbles <br> y el contenido es de primera."</p>
+                <p class="font-semibold">Carlos M.</p>
+              </CardContent>
+            </Card>
+          </div>
+          
+          <div class="min-w-[85vw] px-2 flex-shrink-0 snap-center">
+            <Card class="rounded-3xl shadow-md hover:shadow-lg transition-shadow h-[240px] flex flex-col">
+              <CardContent class="p-6">
+                <div class="flex items-center mb-4">
+                  <div class="flex text-red-600">
+                    <Star class="w-4 h-4 fill-current" />
+                    <Star class="w-4 h-4 fill-current" />
+                    <Star class="w-4 h-4 fill-current" />
+                    <Star class="w-4 h-4 fill-current" />
+                    <Star class="w-4 h-4 fill-current" />
+                  </div>
+                </div>
+                <p class="text-gray-600 mb-4">"La privacidad y discreción son excelentes. <br> El contenido exclusivo vale <br> totalmente la pena."</p>
+                <p class="font-semibold">Miguel R.</p>
+              </CardContent>
+            </Card>
+          </div>
+          
+          <div class="min-w-[85vw] px-2 flex-shrink-0 snap-center">
+            <Card class="rounded-3xl shadow-md hover:shadow-lg transition-shadow h-[240px] flex flex-col">
+              <CardContent class="p-6">
+                <div class="flex items-center mb-4">
+                  <div class="flex text-red-600">
+                    <Star class="w-4 h-4 fill-current" />
+                    <Star class="w-4 h-4 fill-current" />
+                    <Star class="w-4 h-4 fill-current" />
+                    <Star class="w-4 h-4 fill-current" />
+                    <Star class="w-4 h-4 fill-current" />
+                  </div>
+                </div>
+                <p class="text-gray-600 mb-4">"Increíble variedad de contenido <br> y las creadoras son muy interactivas. <br> ¡Altamente recomendado!"</p>
+                <p class="font-semibold">Juan D.</p>
+              </CardContent>
+            </Card>
+          </div>
+          
+          <div class="min-w-[85vw] px-2 flex-shrink-0 snap-center">
+            <Card class="rounded-3xl shadow-md hover:shadow-lg transition-shadow h-[240px] flex flex-col">
+              <CardContent class="p-6">
+                <div class="flex items-center mb-4">
+                  <div class="flex text-red-600">
+                    <Star class="w-4 h-4 fill-current" />
+                    <Star class="w-4 h-4 fill-current" />
+                    <Star class="w-4 h-4 fill-current" />
+                    <Star class="w-4 h-4 fill-current" />
+                    <Star class="w-4 h-4 fill-current" />
+                  </div>
+                </div>
+                <p class="text-gray-600 mb-4">"El servicio al cliente es excepcional. <br> Siempre responden rápido a <br> mis consultas."</p>
+                <p class="font-semibold">Ana P.</p>
+              </CardContent>
+            </Card>
+          </div>
+          
+          <div class="min-w-[85vw] px-2 flex-shrink-0 snap-center">
+            <Card class="rounded-3xl shadow-md hover:shadow-lg transition-shadow h-[240px] flex flex-col">
+              <CardContent class="p-6">
+                <div class="flex items-center mb-4">
+                  <div class="flex text-red-600">
+                    <Star class="w-4 h-4 fill-current" />
+                    <Star class="w-4 h-4 fill-current" />
+                    <Star class="w-4 h-4 fill-current" />
+                    <Star class="w-4 h-4 fill-current" />
+                    <Star class="w-4 h-4 fill-current" />
+                  </div>
+                </div>
+                <p class="text-gray-600 mb-4">"La plataforma es muy fácil de usar <br> y el contenido se actualiza <br> constantemente."</p>
+                <p class="font-semibold">Roberto G.</p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Indicator dots for mobile -->
+      <div class="flex justify-center mt-4" id="testimonials-dots">
+        <div class="w-2 h-2 rounded-full bg-red-600 mx-1 dot"></div>
+        <div class="w-2 h-2 rounded-full bg-gray-300 mx-1 dot"></div>
+        <div class="w-2 h-2 rounded-full bg-gray-300 mx-1 dot"></div>
+        <div class="w-2 h-2 rounded-full bg-gray-300 mx-1 dot"></div>
+        <div class="w-2 h-2 rounded-full bg-gray-300 mx-1 dot"></div>
+      </div>
     </div>
   </div>
 </section>
@@ -681,6 +1097,28 @@
     
     :global(.hover\:scale-105:hover) {
       transform: scale(1.05);
+    }
+    
+    /* Hide scrollbar but keep functionality */
+    .hide-scrollbar {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+    }
+    
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;  /* Chrome, Safari and Opera */
+    }
+    
+    /* Add smooth scrolling */
+    #pricing-container {
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    #testimonials-container {
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 1rem;
     }
   </style>
 </div> 
