@@ -13,8 +13,47 @@
   let hideNav = false;
   let ticking = false;
 
+  // Carousel variables
+  let carouselContainer: HTMLElement;
+  let cardWidth = 0;
+  let currentIndex = 0;
+  const totalSlides = 6; // Total number of testimonial cards
+  
+  function calculateCardWidth() {
+    if (carouselContainer) {
+      const containerWidth = carouselContainer.parentElement?.clientWidth || 0;
+      cardWidth = containerWidth / 3; // Show 3 cards at a time
+    }
+  }
+  
+  function nextSlide() {
+    if (currentIndex < totalSlides - 3) {
+      currentIndex++;
+    }
+  }
+  
+  function prevSlide() {
+    if (currentIndex > 0) {
+      currentIndex--;
+    }
+  }
+  
+  function goToSlide(index: number) {
+    currentIndex = index;
+  }
+
   onMount(() => {
     mounted = true;
+    
+    // Calculate initial card width
+    calculateCardWidth();
+    
+    // Recalculate on window resize
+    const handleResize = () => {
+      calculateCardWidth();
+    };
+    
+    window.addEventListener('resize', handleResize);
     
     // Optimized scroll event listener with requestAnimationFrame
     const handleScroll = () => {
@@ -41,6 +80,7 @@
     
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
     };
   });
 
@@ -60,6 +100,165 @@
     e.preventDefault();
     console.log({ name, email, whatsapp, newsletter });
     showModal = false;
+  }
+
+  // Add this to your existing script section
+  let pricingContainer: HTMLElement;
+  let isDraggingPricing = false;
+  let startXPricing = 0;
+  let scrollLeftPricing = 0;
+  let currentPricingIndex = 0;
+  
+  onMount(() => {
+    // ... existing onMount code ...
+    
+    // Initialize pricing container scroll functionality
+    pricingContainer = document.getElementById('pricing-container');
+    
+    if (pricingContainer) {
+      // Mouse events for pricing container
+      pricingContainer.addEventListener('mousedown', handlePricingMouseDown);
+      window.addEventListener('mousemove', handlePricingMouseMove);
+      window.addEventListener('mouseup', handlePricingMouseUp);
+      
+      // Touch events for pricing container
+      pricingContainer.addEventListener('touchstart', handlePricingTouchStart);
+      pricingContainer.addEventListener('touchmove', handlePricingTouchMove);
+      pricingContainer.addEventListener('touchend', handlePricingMouseUp);
+      
+      // Listen for scroll events to update dots
+      pricingContainer.addEventListener('scroll', updatePricingDots);
+    }
+    
+    return () => {
+      // ... existing cleanup code ...
+      
+      // Clean up pricing container event listeners
+      if (pricingContainer) {
+        pricingContainer.removeEventListener('mousedown', handlePricingMouseDown);
+        window.removeEventListener('mousemove', handlePricingMouseMove);
+        window.removeEventListener('mouseup', handlePricingMouseUp);
+        
+        pricingContainer.removeEventListener('touchstart', handlePricingTouchStart);
+        pricingContainer.removeEventListener('touchmove', handlePricingTouchMove);
+        pricingContainer.removeEventListener('touchend', handlePricingMouseUp);
+        
+        pricingContainer.removeEventListener('scroll', updatePricingDots);
+      }
+    };
+  });
+  
+  function handlePricingMouseDown(e: MouseEvent) {
+    isDraggingPricing = true;
+    startXPricing = e.pageX - pricingContainer.offsetLeft;
+    scrollLeftPricing = pricingContainer.scrollLeft;
+    pricingContainer.style.cursor = 'grabbing';
+  }
+  
+  function handlePricingMouseMove(e: MouseEvent) {
+    if (!isDraggingPricing) return;
+    
+    const x = e.pageX - pricingContainer.offsetLeft;
+    const walk = (x - startXPricing) * 2;
+    pricingContainer.scrollLeft = scrollLeftPricing - walk;
+    e.preventDefault();
+  }
+  
+  function handlePricingMouseUp() {
+    isDraggingPricing = false;
+    if (pricingContainer) {
+      pricingContainer.style.cursor = 'grab';
+      
+      // Snap to nearest card
+      const cardWidth = pricingContainer.offsetWidth * 0.85; // 85vw
+      const scrollPosition = pricingContainer.scrollLeft;
+      const cardIndex = Math.round(scrollPosition / cardWidth);
+      
+      pricingContainer.scrollTo({
+        left: cardIndex * cardWidth,
+        behavior: 'smooth'
+      });
+      
+      currentPricingIndex = cardIndex;
+      updatePricingDots();
+    }
+  }
+  
+  function handlePricingTouchStart(e: TouchEvent) {
+    isDraggingPricing = true;
+    startXPricing = e.touches[0].pageX - pricingContainer.offsetLeft;
+    scrollLeftPricing = pricingContainer.scrollLeft;
+  }
+  
+  function handlePricingTouchMove(e: TouchEvent) {
+    if (!isDraggingPricing) return;
+    
+    const x = e.touches[0].pageX - pricingContainer.offsetLeft;
+    const walk = (x - startXPricing) * 2;
+    pricingContainer.scrollLeft = scrollLeftPricing - walk;
+  }
+  
+  function updatePricingDots() {
+    const dots = document.querySelectorAll('#pricing-dots .dot');
+    if (dots.length > 0) {
+      dots.forEach((dot, index) => {
+        if (index === currentPricingIndex) {
+          dot.classList.add('bg-red-600');
+          dot.classList.remove('bg-gray-300');
+        } else {
+          dot.classList.add('bg-gray-300');
+          dot.classList.remove('bg-red-600');
+        }
+      });
+    }
+  }
+
+  // Variables for mobile testimonials
+  let testimonialsContainer;
+  let currentTestimonialIndex = 0;
+  
+  onMount(() => {
+    // ... existing onMount code ...
+    
+    // Initialize mobile testimonials container
+    testimonialsContainer = document.getElementById('testimonials-container');
+    
+    if (testimonialsContainer) {
+      // Update dots on scroll
+      testimonialsContainer.addEventListener('scroll', () => {
+        const scrollPosition = testimonialsContainer.scrollLeft;
+        const cardWidth = testimonialsContainer.clientWidth;
+        const newIndex = Math.round(scrollPosition / cardWidth);
+        
+        if (newIndex !== currentTestimonialIndex) {
+          currentTestimonialIndex = newIndex;
+          updateTestimonialDots();
+        }
+      });
+    }
+    
+    return () => {
+      // ... existing cleanup code ...
+      
+      if (testimonialsContainer) {
+        testimonialsContainer.removeEventListener('scroll', updateTestimonialDots);
+      }
+    };
+  });
+  
+  function updateTestimonialDots() {
+    const dots = document.querySelectorAll('#testimonials-dots .dot');
+    if (dots.length > 0) {
+      dots.forEach((dot, index) => {
+        if (index === currentTestimonialIndex) {
+          dot.classList.add('bg-red-600');
+          dot.classList.remove('bg-gray-300');
+        } else {
+          dot.classList.add('bg-gray-300');
+          dot.classList.remove('bg-red-600');
+        }
+      });
+    }
   }
 </script>
 
@@ -100,14 +299,14 @@
     <header class="pt-20 relative min-h-[90vh] flex items-center">
       <div class="absolute inset-0 z-0">
         <img
-          src="/foondo.png"
+          src="/fondo.png"
           alt="Background"
           class="w-full h-full object-cover object-center bg-red-600"
         />
         <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70"></div>
       </div>
       <div class="max-w-6xl mx-auto px-4 py-12 relative z-10 w-full">
-        <div class="max-w-4xl mx-auto text-center space-y-8">
+        <div class="max-w-4xl mx-auto text-left space-y-8">
           <h1 class="text-4xl md:text-6xl font-bold tracking-tight text-white">
             Transformando la <span class="text-red-400">industria escort</span> con innovación y calidad
           </h1>
@@ -115,32 +314,6 @@
             Aprovecha el prelanzamiento y asegura <span class="text-red-400 font-semibold">ventajas exclusivas</span> ahora mismo
           </p>
           <div class="flex flex-col space-y-4">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center py-8">
-              <div class="bg-black/30 backdrop-blur-sm rounded-3xl p-6 cursor-pointer hover:bg-black/40 transition-all"
-                on:click={() => window.open('https://wa.me/YOUR_NUMBER?text=Quiero%20información%20del%20plan%20Gratuito', '_blank')}>
-                <div class="text-xl font-bold text-white">Gratuito</div>
-                <div class="text-gray-300 font-medium">Contenido Exclusivo</div>
-                <div class="text-sm text-gray-400 mt-2">Acceso a contenido que no encontrarás en ningún otro lugar</div>
-              </div>
-              <div class="bg-black/30 backdrop-blur-sm rounded-3xl p-6 cursor-pointer hover:bg-black/40 transition-all"
-                on:click={() => window.open('https://wa.me/YOUR_NUMBER?text=Quiero%20información%20del%20plan%20Básico', '_blank')}>
-                <div class="text-xl font-bold text-white">Básico</div>
-                <div class="text-gray-300 font-medium">Videos HD</div>
-                <div class="text-sm text-gray-400 mt-2">Disfruta del mejor contenido en alta calidad</div>
-              </div>
-              <div class="bg-black/30 backdrop-blur-sm rounded-3xl p-6 cursor-pointer hover:bg-black/40 transition-all"
-                on:click={() => window.open('https://wa.me/YOUR_NUMBER?text=Quiero%20información%20del%20plan%20Gold', '_blank')}>
-                <div class="text-xl font-bold text-white">Gold</div>
-                <div class="text-gray-300 font-medium">Creadoras Locales</div>
-                <div class="text-sm text-gray-400 mt-2">Encuentra creadoras cerca de ti</div>
-              </div>
-              <div class="bg-black/30 backdrop-blur-sm rounded-3xl p-6 cursor-pointer hover:bg-black/40 transition-all"
-                on:click={() => window.open('https://wa.me/YOUR_NUMBER?text=Quiero%20información%20del%20plan%20Platinum', '_blank')}>
-                <div class="text-xl font-bold text-white">Platinum</div>
-                <div class="text-gray-300 font-medium">100% Privado</div>
-                <div class="text-sm text-gray-400 mt-2">Tu privacidad es nuestra prioridad</div>
-              </div>
-            </div>
             <div class="max-w-md mx-auto w-full">
               <Button 
                 class="w-full bg-red-600 hover:bg-red-700 text-white font-semibold text-lg py-6 rounded-full shadow-lg transform transition-transform hover:scale-105 backdrop-blur-sm"
@@ -148,199 +321,448 @@
               >
                 Obtén Tu Pre-Suscripción
               </Button>
-              <p class="text-sm text-gray-300 mt-2">¡Oferta por tiempo limitado!</p>
+              <p class="text-sm text-gray-300 text-center mt-2">¡Oferta por tiempo limitado!</p>
             </div>
           </div>
         </div>
       </div>
     </header>
 
-    <main class="w-full max-w-6xl mx-auto px-4">
-      <section class="bg-gray-50 py-16">
-        <div class="container mx-auto px-4">
-          <h2 class="text-3xl font-bold text-center mb-12">¿Por qué elegir FanLatinas?</h2>
-          <div class="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-            <Card class="rounded-3xl shadow-lg hover:shadow-xl transition-shadow">
-              <CardContent class="p-6 text-center">
-                <Star class="w-8 h-8 text-red-600 mx-auto mb-4" />
-                <h3 class="font-semibold mb-2">Contenido Exclusivo</h3>
-                <p class="text-gray-600">Acceso a contenido que no encontrarás en ningún otro lugar</p>
-              </CardContent>
-            </Card>
-            <Card class="rounded-3xl shadow-lg hover:shadow-xl transition-shadow">
-              <CardContent class="p-6 text-center">
-                <Play class="w-8 h-8 text-red-600 mx-auto mb-4" />
-                <h3 class="font-semibold mb-2">Videos HD</h3>
-                <p class="text-gray-600">Disfruta del mejor contenido en alta calidad</p>
-              </CardContent>
-            </Card>
-            <Card class="rounded-3xl shadow-lg hover:shadow-xl transition-shadow">
-              <CardContent class="p-6 text-center">
-                <Search class="w-8 h-8 text-red-600 mx-auto mb-4" />
-                <h3 class="font-semibold mb-2">Creadoras Locales</h3>
-                <p class="text-gray-600">Encuentra creadoras cerca de ti</p>
-              </CardContent>
-            </Card>
-            <Card class="rounded-3xl shadow-lg hover:shadow-xl transition-shadow">
-              <CardContent class="p-6 text-center">
-                <Check class="w-8 h-8 text-red-600 mx-auto mb-4" />
-                <h3 class="font-semibold mb-2">100% Privado</h3>
-                <p class="text-gray-600">Tu privacidad es nuestra prioridad</p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      <!-- Video Section -->
-      <section class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-          <h2 class="text-3xl font-bold text-center mb-12">Conoce Nuestra Plataforma</h2>
-          <div class="max-w-4xl mx-auto">
-            <div class="rounded-3xl overflow-hidden shadow-2xl">
-              <div class="relative pb-[56.25%] h-0">
-                <iframe
-                  src="https://drive.google.com/file/d/1oKU0tW90q-buMDj88wiP6Ldwlrg-zM_p/preview"
-                  allow="autoplay; encrypted-media"
-                  allowfullscreen
-                  class="absolute top-0 left-0 w-full h-full"
-                  title="Características de la plataforma"
-                ></iframe>
+    <section class="w-full bg-gray-100 py-10">
+      <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-8">Ofertas de Preinscripción Exclusivas</h2>
+        
+        <!-- Desktop view (hidden on mobile) -->
+        <div class="hidden md:grid md:grid-cols-3 md:gap-4 md:text-center">
+          <!-- Free Plan -->
+          <div class="bg-white rounded-3xl p-6 shadow-lg overflow-hidden relative cursor-pointer transition-all duration-300 hover:bg-gradient-to-br hover:from-red-500 hover:to-pink-500 group flex flex-col">
+            <div class="absolute top-0 left-0 w-12 h-12 bg-red-500 flex items-center justify-center rounded-br-lg">
+              <div class="text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
               </div>
             </div>
-            <p class="text-center text-gray-600 mt-6">Descubre todas las características que tenemos para ti</p>
+            <div class="pt-4 flex-grow">
+              <div class="text-gray-600 group-hover:text-white transition-colors">Preinscripción Gratuita</div>
+              <div class="text-3xl font-bold text-gray-900 group-hover:text-white transition-colors">$0</div>
+              <div class="text-sm text-gray-500 group-hover:text-white/80 transition-colors">/month</div>
+              <div class="text-sm text-gray-600 mb-4 group-hover:text-white/80 transition-colors">¡Empieza sin costo!</div>
+              
+              <div class="space-y-3 mt-6 text-left">
+                <div class="flex items-center">
+                  <div class="text-red-500 group-hover:text-white mr-2 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                  </div>
+                  <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Accede al Plan Básico completamente GRATIS</span>
+                </div>
+                <div class="flex items-center">
+                  <div class="text-red-500 group-hover:text-white mr-2 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                  </div>
+                  <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Disfruta durante 3 meses</span>
+                </div>
+                <div class="flex items-center">
+                  <div class="text-red-500 group-hover:text-white mr-2 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                  </div>
+                  <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Participa en el sorteo de 10 planes Platinum</span>
+                </div>
+              </div>
+            </div>
+            
+            <button 
+              class="w-full mt-8 bg-red-500 text-white font-medium py-3 rounded-full group-hover:bg-white group-hover:text-red-600 transition-colors"
+              on:click={() => showModal = true}
+            >
+              Get Started
+            </button>
+          </div>
+
+          <!-- Basic Plan -->
+          <div class="bg-white rounded-3xl p-6 shadow-lg overflow-hidden relative cursor-pointer transition-all duration-300 hover:bg-gradient-to-br hover:from-red-500 hover:to-pink-500 group flex flex-col">
+            <div class="absolute top-0 left-0 w-12 h-12 bg-red-500 flex items-center justify-center rounded-br-lg">
+              <div class="text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+              </div>
+            </div>
+            <div class="pt-4 flex-grow">
+              <div class="text-gray-600 group-hover:text-white transition-colors">Preinscripción Básica</div>
+              <div class="text-3xl font-bold text-gray-900 group-hover:text-white transition-colors">$990.00</div>
+              <div class="text-sm text-gray-500 group-hover:text-white/80 transition-colors">/month</div>
+              <div class="text-sm text-gray-600 mb-4 group-hover:text-white/80 transition-colors">💸 Aprovecha un descuento único</div>
+              
+              <div class="space-y-3 mt-6 text-left">
+                <div class="flex items-center">
+                  <div class="text-red-500 group-hover:text-white mr-2 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                  </div>
+                  <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Suscríbete al plan que elijas</span>
+                </div>
+                <div class="flex items-center">
+                  <div class="text-red-500 group-hover:text-white mr-2 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                  </div>
+                  <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Obtén un 50% de descuento por 2 meses</span>
+                </div>
+                <div class="flex items-center">
+                  <div class="text-red-500 group-hover:text-white mr-2 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                  </div>
+                  <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Participa en el sorteo de 10 planes Platinum</span>
+                </div>
+              </div>
+            </div>
+            
+            <button 
+              class="w-full mt-8 bg-red-500 text-white font-medium py-3 rounded-full group-hover:bg-white group-hover:text-red-600 transition-colors"
+              on:click={() => showModal = true}
+            >
+              Subscribe Now
+            </button>
+          </div>
+
+          <!-- Premium Plan -->
+          <div class="bg-white rounded-3xl p-6 shadow-lg overflow-hidden relative cursor-pointer transition-all duration-300 hover:bg-gradient-to-br hover:from-red-500 hover:to-pink-500 group flex flex-col"
+            on:click={() => window.open('https://wa.me/YOUR_NUMBER?text=Quiero%20información%20del%20plan%20Premium', '_blank')}>
+            <div class="absolute top-0 left-0 w-12 h-12 bg-red-500 flex items-center justify-center rounded-br-lg">
+              <div class="text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              </div>
+            </div>
+            <div class="pt-4 flex-grow">
+              <div class="text-gray-600 group-hover:text-white transition-colors">Preinscripción Premium</div>
+              <div class="text-3xl font-bold text-gray-900 group-hover:text-white transition-colors">$4.990</div>
+              <div class="text-sm text-gray-500 group-hover:text-white/80 transition-colors">/month</div>
+              <div class="text-sm text-gray-600 mb-4 group-hover:text-white/80 transition-colors">Lleva tu perfil al siguiente nivel</div>
+              
+              <div class="space-y-3 mt-6 text-left">
+                <div class="flex items-center">
+                  <div class="text-red-500 group-hover:text-white mr-2 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                  </div>
+                  <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Disfruta de un 50% de descuento en cualquier plan</span>
+                </div>
+                <div class="flex items-center">
+                  <div class="text-red-500 group-hover:text-white mr-2 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                  </div>
+                  <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Válido al contratar por 3 o más meses</span>
+                </div>
+                <div class="flex items-center">
+                  <div class="text-red-500 group-hover:text-white mr-2 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                  </div>
+                  <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Participa en el sorteo de 10 planes Platinum</span>
+                </div>
+              </div>
+            </div>
+            
+            <button 
+              class="w-full mt-8 bg-red-500 text-white font-medium py-3 rounded-full group-hover:bg-white group-hover:text-red-600 transition-colors"
+            >
+              Contact us
+            </button>
           </div>
         </div>
-      </section>
-
-      <section class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-          <h2 class="text-3xl font-bold text-center mb-12">Nuestras Funcionalidades</h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <!-- Visuales -->
-            <div class="bg-gray-50 rounded-3xl p-8 shadow-lg">
-              <h3 class="text-xl font-bold mb-4">Visuales</h3>
-              <ul class="space-y-4">
-                <li class="flex items-center">
-                  <Check class="w-5 h-5 text-red-600 mr-2" />
-                  <span>Publicación de historias efímeras</span>
-                </li>
-                <li class="flex items-center">
-                  <Check class="w-5 h-5 text-red-600 mr-2" />
-                  <span>Creación de historias destacadas</span>
-                </li>
-              </ul>
+        
+        <!-- Mobile view (hidden on desktop) -->
+        <div class="md:hidden text-center">
+          <div class="flex overflow-x-auto pb-4 snap-x snap-mandatory hide-scrollbar" id="pricing-container">
+            <!-- Free Plan (Mobile) -->
+            <div class="min-w-[85vw] px-2 flex-shrink-0 snap-center">
+              <div class="bg-white rounded-3xl p-6 shadow-lg overflow-hidden relative cursor-pointer transition-all duration-300 hover:bg-gradient-to-br hover:from-red-500 hover:to-pink-500 group flex flex-col h-full">
+                <div class="absolute top-0 left-0 w-12 h-12 bg-red-500 flex items-center justify-center rounded-br-lg">
+                  <div class="text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                  </div>
+                </div>
+                <div class="pt-4 flex-grow">
+                  <div class="text-gray-600 group-hover:text-white transition-colors">Preinscripción Gratuita</div>
+                  <div class="text-3xl font-bold text-gray-900 group-hover:text-white transition-colors">$0</div>
+                  <div class="text-sm text-gray-500 group-hover:text-white/80 transition-colors">/month</div>
+                  <div class="text-sm text-gray-600 mb-4 group-hover:text-white/80 transition-colors">¡Empieza sin costo!</div>
+                  
+                  <div class="space-y-3 mt-6 text-left">
+                    <div class="flex items-center">
+                      <div class="text-red-500 group-hover:text-white mr-2 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                      </div>
+                      <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Accede al Plan Básico completamente GRATIS</span>
+                    </div>
+                    <div class="flex items-center">
+                      <div class="text-red-500 group-hover:text-white mr-2 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                      </div>
+                      <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Disfruta durante 3 meses</span>
+                    </div>
+                    <div class="flex items-center">
+                      <div class="text-red-500 group-hover:text-white mr-2 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                      </div>
+                      <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Participa en el sorteo de 10 planes Platinum</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <button 
+                  class="w-full mt-8 bg-red-500 text-white font-medium py-3 rounded-full group-hover:bg-white group-hover:text-red-600 transition-colors"
+                  on:click={() => showModal = true}
+                >
+                  Get Started
+                </button>
+              </div>
             </div>
 
-            <!-- Gestión de Reservas -->
-            <div class="bg-red-50 rounded-3xl p-8 border-2 border-red-600 shadow-lg">
-              <h3 class="text-xl font-bold mb-4">Gestión de Reservas</h3>
-              <ul class="space-y-4">
-                <li class="flex items-center">
-                  <Check class="w-5 h-5 text-red-600 mr-2" />
-                  <span>Calendario de citas</span>
-                </li>
-                <li class="flex items-center">
-                  <Check class="w-5 h-5 text-red-600 mr-2" />
-                  <span>Programación automática</span>
-                </li>
-                <li class="flex items-center">
-                  <Check class="w-5 h-5 text-red-600 mr-2" />
-                  <span>Auto-respondedor fuera de línea</span>
-                </li>
-              </ul>
+            <!-- Basic Plan (Mobile) -->
+            <div class="min-w-[85vw] px-2 flex-shrink-0 snap-center">
+              <div class="bg-white rounded-3xl p-6 shadow-lg overflow-hidden relative cursor-pointer transition-all duration-300 hover:bg-gradient-to-br hover:from-red-500 hover:to-pink-500 group flex flex-col h-full">
+                <div class="absolute top-0 left-0 w-12 h-12 bg-red-500 flex items-center justify-center rounded-br-lg">
+                  <div class="text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+                  </div>
+                </div>
+                <div class="pt-4 flex-grow">
+                  <div class="text-gray-600 group-hover:text-white transition-colors">Preinscripción Básica</div>
+                  <div class="text-3xl font-bold text-gray-900 group-hover:text-white transition-colors">$990.00</div>
+                  <div class="text-sm text-gray-500 group-hover:text-white/80 transition-colors">/month</div>
+                  <div class="text-sm text-gray-600 mb-4 group-hover:text-white/80 transition-colors">💸 Aprovecha un descuento único</div>
+                  
+                  <div class="space-y-3 mt-6 text-left">
+                    <div class="flex items-center">
+                      <div class="text-red-500 group-hover:text-white mr-2 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                      </div>
+                      <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Suscríbete al plan que elijas</span>
+                    </div>
+                    <div class="flex items-center">
+                      <div class="text-red-500 group-hover:text-white mr-2 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                      </div>
+                      <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Obtén un 50% de descuento por 2 meses</span>
+                    </div>
+                    <div class="flex items-center">
+                      <div class="text-red-500 group-hover:text-white mr-2 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                      </div>
+                      <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Participa en el sorteo de 10 planes Platinum</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <button 
+                  class="w-full mt-8 bg-red-500 text-white font-medium py-3 rounded-full group-hover:bg-white group-hover:text-red-600 transition-colors"
+                  on:click={() => showModal = true}
+                >
+                  Subscribe Now
+                </button>
+              </div>
             </div>
 
-            <!-- Estadísticas y Analíticas -->
-            <div class="bg-gray-50 rounded-3xl p-8 shadow-lg">
-              <h3 class="text-xl font-bold mb-4">Estadísticas y Analíticas</h3>
-              <ul class="space-y-4">
-                <li class="flex items-center">
-                  <Check class="w-5 h-5 text-red-600 mr-2" />
-                  <span>Número de visitas al perfil</span>
-                </li>
-                <li class="flex items-center">
-                  <Check class="w-5 h-5 text-red-600 mr-2" />
-                  <span>Clics en el botón de contacto</span>
-                </li>
-                <li class="flex items-center">
-                  <Check class="w-5 h-5 text-red-600 mr-2" />
-                  <span>Días y horas de mayor tráfico</span>
-                </li>
-                <li class="flex items-center">
-                  <Check class="w-5 h-5 text-red-600 mr-2" />
-                  <span>Análisis completo del rendimiento</span>
-                </li>
-              </ul>
+            <!-- Premium Plan (Mobile) -->
+            <div class="min-w-[85vw] px-2 flex-shrink-0 snap-center">
+              <div class="bg-white rounded-3xl p-6 shadow-lg overflow-hidden relative cursor-pointer transition-all duration-300 hover:bg-gradient-to-br hover:from-red-500 hover:to-pink-500 group flex flex-col h-full"
+                on:click={() => window.open('https://wa.me/YOUR_NUMBER?text=Quiero%20información%20del%20plan%20Premium', '_blank')}>
+                <div class="absolute top-0 left-0 w-12 h-12 bg-red-500 flex items-center justify-center rounded-br-lg">
+                  <div class="text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                  </div>
+                </div>
+                <div class="pt-4 flex-grow">
+                  <div class="text-gray-600 group-hover:text-white transition-colors">Preinscripción Premium</div>
+                  <div class="text-3xl font-bold text-gray-900 group-hover:text-white transition-colors">$4.990</div>
+                  <div class="text-sm text-gray-500 group-hover:text-white/80 transition-colors">/month</div>
+                  <div class="text-sm text-gray-600 mb-4 group-hover:text-white/80 transition-colors">Lleva tu perfil al siguiente nivel</div>
+                  
+                  <div class="space-y-3 mt-6 text-left">
+                    <div class="flex items-center">
+                      <div class="text-red-500 group-hover:text-white mr-2 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                      </div>
+                      <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Disfruta de un 50% de descuento en cualquier plan</span>
+                    </div>
+                    <div class="flex items-center">
+                      <div class="text-red-500 group-hover:text-white mr-2 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                      </div>
+                      <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Válido al contratar por 3 o más meses</span>
+                    </div>
+                    <div class="flex items-center">
+                      <div class="text-red-500 group-hover:text-white mr-2 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                      </div>
+                      <span class="text-sm text-gray-700 group-hover:text-white/90 transition-colors">Participa en el sorteo de 10 planes Platinum</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <button 
+                  class="w-full mt-8 bg-red-500 text-white font-medium py-3 rounded-full group-hover:bg-white group-hover:text-red-600 transition-colors"
+                >
+                  Contact us
+                </button>
+              </div>
             </div>
-
-            <!-- Visibilidad -->
-            <Card class="rounded-3xl shadow-lg">
-              <CardContent class="p-6">
-                <h3 class="text-xl font-bold mb-4">Visibilidad</h3>
-                <ul class="space-y-2">
-                  <li class="flex items-center">
-                    <Check class="w-5 h-5 text-red-600 mr-2" />
-                    <span>Boost de visibilidad en resultados</span>
-                  </li>
-                  <li class="flex items-center">
-                    <Check class="w-5 h-5 text-red-600 mr-2" />
-                    <span>Destacado en página principal</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <!-- Asesoramiento -->
-            <Card class="rounded-3xl shadow-lg">
-              <CardContent class="p-6">
-                <h3 class="text-xl font-bold mb-4">Asesoramiento</h3>
-                <ul class="space-y-2">
-                  <li class="flex items-center">
-                    <Check class="w-5 h-5 text-red-600 mr-2" />
-                    <span>Guías legales y tributarias</span>
-                  </li>
-                  <li class="flex items-center">
-                    <Check class="w-5 h-5 text-red-600 mr-2" />
-                    <span>Optimización financiera</span>
-                  </li>
-                  <li class="flex items-center">
-                    <Check class="w-5 h-5 text-red-600 mr-2" />
-                    <span>Consultas personalizadas</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <!-- Soporte Técnico -->
-            <Card class="rounded-3xl shadow-lg">
-              <CardContent class="p-6">
-                <h3 class="text-xl font-bold mb-4">Soporte Técnico</h3>
-                <ul class="space-y-2">
-                  <li class="flex items-center">
-                    <Check class="w-5 h-5 text-red-600 mr-2" />
-                    <span>Soporte básico por email</span>
-                  </li>
-                  <li class="flex items-center">
-                    <Check class="w-5 h-5 text-red-600 mr-2" />
-                    <span>Soporte prioritario 24h</span>
-                  </li>
-                  <li class="flex items-center">
-                    <Check class="w-5 h-5 text-red-600 mr-2" />
-                    <span>Atención VIP personalizada</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
+          </div>
+          
+          <!-- Scroll indicator dots (mobile only) -->
+          <div class="flex justify-center mt-4" id="pricing-dots">
+            <div class="w-2 h-2 rounded-full bg-red-600 mx-1 dot"></div>
+            <div class="w-2 h-2 rounded-full bg-gray-300 mx-1 dot"></div>
+            <div class="w-2 h-2 rounded-full bg-gray-300 mx-1 dot"></div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="bg-gray-50 py-16">
-        <div class="container mx-auto px-4">
-          <h2 class="text-3xl font-bold text-center mb-12">Lo que dicen nuestros usuarios VIP</h2>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <Card class="rounded-3xl shadow-lg hover:shadow-xl transition-shadow">
+    <!-- Video Section -->
+    <section class="py-10 bg-white w-full">
+      <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12">Conoce Nuestra Plataforma</h2>
+        <div class="max-w-4xl mx-auto">
+          <div class="rounded-3xl overflow-hidden shadow-2xl">
+            <div class="relative pb-[56.25%] h-0">
+              <iframe
+                src="https://drive.google.com/file/d/1oKU0tW90q-buMDj88wiP6Ldwlrg-zM_p/preview"
+                allow="autoplay; encrypted-media"
+                allowfullscreen
+                class="absolute top-0 left-0 w-full h-full"
+                title="Características de la plataforma"
+              ></iframe>
+            </div>
+          </div>
+          <p class="text-center text-gray-600 mt-6">Descubre todas las características que tenemos para ti</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-10 bg-gray-50 w-full">
+      <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12">Nuestras Funcionalidades</h2>
+        
+        <div class="max-w-5xl mx-auto overflow-x-auto">
+          <div class="bg-gray-50 shadow-lg p-6">
+            <table class="w-full border-collapse">
+              <thead>
+                <tr class="border-b bg-red-200 border-gray-200">
+                  <th class="py-4 px-4 text-left font-bold rounded-tl-lg text-gray-700">Funcionalidad</th>
+                  <th class="py-4 px-4 text-center font-bold text-gray-700">Gratuito</th>
+                  <th class="py-4 px-4 text-center font-bold text-gray-700">Básico</th>
+                  <th class="py-4 px-4 text-center font-bold text-gray-700">Gold</th>
+                  <th class="py-4 px-4 text-center font-bold rounded-tr-lg text-gray-700">Platinum</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-b border-gray-200">
+                  <td class="py-3 px-4 font-medium">Historias</td>
+                  <td class="py-3 px-4 text-center text-green-600">✓</td>
+                  <td class="py-3 px-4 text-center text-green-600">✓</td>
+                  <td class="py-3 px-4 text-center text-green-600">✓</td>
+                  <td class="py-3 px-4 text-center text-green-600">✓</td>
+                </tr>
+                <tr class="border-b bg-red-50 border-gray-200">
+                  <td class="py-3 px-4 font-medium">Historias destacadas</td>
+                  <td class="py-3 px-4 text-center text-red-500">-</td>
+                  <td class="py-3 px-4 text-center">3 máx.</td>
+                  <td class="py-3 px-4 text-center">Ilimitado</td>
+                  <td class="py-3 px-4 text-center">Ilimitado</td>
+                </tr>
+                <tr class="border-b border-gray-200">
+                  <td class="py-3 px-4 font-medium">Calendario de citas</td>
+                  <td class="py-3 px-4 text-center">Limitado (10 citas)</td>
+                  <td class="py-3 px-4 text-center">Limitado</td>
+                  <td class="py-3 px-4 text-center">Ilimitado</td>
+                  <td class="py-3 px-4 text-center">Integrado con apps externas</td>
+                </tr>
+                <tr class="border-b bg-red-50 border-gray-200">
+                  <td class="py-3 px-4 font-medium">Programación automática</td>
+                  <td class="py-3 px-4 text-center text-red-500">-</td>
+                  <td class="py-3 px-4 text-center">5/mes</td>
+                  <td class="py-3 px-4 text-center">15/mes</td>
+                  <td class="py-3 px-4 text-center">Ilimitado</td>
+                </tr>
+                <tr class="border-b border-gray-200">
+                  <td class="py-3 px-4 font-medium">Auto-respondedor fuera de línea</td>
+                  <td class="py-3 px-4 text-center text-red-500">-</td>
+                  <td class="py-3 px-4 text-center">Básico (1 mensaje)</td>
+                  <td class="py-3 px-4 text-center">Avanzado (3 mensajes)</td>
+                  <td class="py-3 px-4 text-center">Avanzado (3 mensajes)</td>
+                </tr>
+                <tr class="border-b bg-red-50 border-gray-200">
+                  <td class="py-3 px-4 font-medium">Estadísticas básicas</td>
+                  <td class="py-3 px-4 text-center text-green-600">✓</td>
+                  <td class="py-3 px-4 text-center text-green-600">✓</td>
+                  <td class="py-3 px-4 text-center text-green-600">✓</td>
+                  <td class="py-3 px-4 text-center text-green-600">✓</td>
+                </tr>
+                <tr class="border-b border-gray-200">
+                  <td class="py-3 px-4 font-medium">Estadísticas avanzadas</td>
+                  <td class="py-3 px-4 text-center text-red-500">-</td>
+                  <td class="py-3 px-4 text-center text-green-600">✓</td>
+                  <td class="py-3 px-4 text-center text-green-600">✓</td>
+                  <td class="py-3 px-4 text-center text-green-600">✓</td>
+                </tr>
+                <tr class="border-b bg-red-50 border-gray-200">
+                  <td class="py-3 px-4 font-medium">Mapas de calor de actividad</td>
+                  <td class="py-3 px-4 text-center text-red-500">-</td>
+                  <td class="py-3 px-4 text-center text-red-500">-</td>
+                  <td class="py-3 px-4 text-center text-green-600">✓</td>
+                  <td class="py-3 px-4 text-center text-green-600">✓</td>
+                </tr>
+                <tr class="border-b border-gray-200">
+                  <td class="py-3 px-4 font-medium">Boost de visibilidad</td>
+                  <td class="py-3 px-4 text-center text-red-500">-</td>
+                  <td class="py-3 px-4 text-center">1x/mes (12 horas)</td>
+                  <td class="py-3 px-4 text-center">2x/mes (24 horas)</td>
+                  <td class="py-3 px-4 text-center">3x/mes (48 horas)</td>
+                </tr>
+                <tr class="border-b bg-red-50 border-gray-200">
+                  <td class="py-3 px-4 font-medium">Asesoramiento legal y financiero</td>
+                  <td class="py-3 px-4 text-center text-red-500">-</td>
+                  <td class="py-3 px-4 text-center text-red-500">-</td>
+                  <td class="py-3 px-4 text-center text-red-500">-</td>
+                  <td class="py-3 px-4 text-center">✓ (Personalizado)</td>
+                </tr>
+                <tr class="border-b border-gray-200">
+                  <td class="py-3 px-4 font-medium">Soporte técnico</td>
+                  <td class="py-3 px-4 text-center">Básico</td>
+                  <td class="py-3 px-4 text-center">Básico</td>
+                  <td class="py-3 px-4 text-center">Prioritario</td>
+                  <td class="py-3 px-4 text-center">VIP</td>
+                </tr>
+                <tr>
+                  <td class="py-4 px-4 font-bold">Precio</td>
+                  <td class="py-4 px-4 text-center font-bold">GRATIS</td>
+                  <td class="py-4 px-4 text-center font-bold">$ 990</td>
+                  <td class="py-4 px-4 text-center font-bold">$ 2.990</td>
+                  <td class="py-4 px-4 text-center font-bold">$ 4.990</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        
+        <div class="mt-12 text-center">
+          <Button 
+            class="bg-red-600 hover:bg-red-700 text-white font-semibold px-8 py-3 rounded-full shadow-lg transform transition-transform hover:scale-105"
+            on:click={() => showModal = true}
+          >
+            Obtén Tu Pre-Suscripción Ahora
+          </Button>
+          <p class="text-sm text-gray-500 mt-2">Precios promocionales por tiempo limitado</p>
+      </div>
+    </section>
+
+
+<section class="bg-white py-10 w-full">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-12">Lo que dicen nuestros usuarios VIP</h2>
+    
+    <!-- Desktop view (hidden on mobile) -->
+    <div class="hidden md:block relative max-w-5xl mx-auto">
+      <!-- Carousel container for desktop -->
+      <div class="overflow-hidden pb-4">
+        <div class="flex transition-transform duration-300 ease-in-out" bind:this={carouselContainer} style="transform: translateX({-currentIndex * cardWidth}px)">
+          <div class="min-w-[calc(33.333%-0.2rem)] px-2 pb-2">
+            <Card class="rounded-3xl shadow-md hover:shadow-lg transition-shadow h-[240px] flex flex-col">
               <CardContent class="p-6">
                 <div class="flex items-center mb-4">
                   <div class="flex text-red-600">
@@ -355,7 +777,10 @@
                 <p class="font-semibold">Carlos M.</p>
               </CardContent>
             </Card>
-            <Card class="rounded-3xl shadow-lg hover:shadow-xl transition-shadow">
+          </div>
+          
+          <div class="min-w-[calc(33.333%-0.2rem)] px-2 pb-2">
+            <Card class="rounded-3xl shadow-md hover:shadow-lg transition-shadow h-[240px] flex flex-col">
               <CardContent class="p-6">
                 <div class="flex items-center mb-4">
                   <div class="flex text-red-600">
@@ -370,7 +795,10 @@
                 <p class="font-semibold">Miguel R.</p>
               </CardContent>
             </Card>
-            <Card class="rounded-3xl shadow-lg hover:shadow-xl transition-shadow">
+          </div>
+          
+          <div class="min-w-[calc(33.333%-0.2rem)] px-2 pb-2">
+            <Card class="rounded-3xl shadow-md hover:shadow-lg transition-shadow h-[240px] flex flex-col">
               <CardContent class="p-6">
                 <div class="flex items-center mb-4">
                   <div class="flex text-red-600">
@@ -386,23 +814,203 @@
               </CardContent>
             </Card>
           </div>
+          
+          <div class="min-w-[calc(33.333%-0.2rem)] px-2 pb-2">
+            <Card class="rounded-3xl shadow-md hover:shadow-lg transition-shadow h-[240px] flex flex-col">
+              <CardContent class="p-6">
+                <div class="flex items-center mb-4">
+                  <div class="flex text-red-600">
+                    <Star class="w-4 h-4 fill-current" />
+                    <Star class="w-4 h-4 fill-current" />
+                    <Star class="w-4 h-4 fill-current" />
+                    <Star class="w-4 h-4 fill-current" />
+                    <Star class="w-4 h-4 fill-current" />
+                  </div>
+                </div>
+                <p class="text-gray-600 mb-4">"Increíble variedad de contenido y las creadoras son muy interactivas. ¡Altamente recomendado!"</p>
+                <p class="font-semibold">Juan D.</p>
+              </CardContent>
+            </Card>
+          </div>
+          
+          <div class="min-w-[calc(33.333%-0.2rem)] px-2 pb-2">
+            <Card class="rounded-3xl shadow-md hover:shadow-lg transition-shadow h-[240px] flex flex-col">
+              <CardContent class="p-6">
+                <div class="flex items-center mb-4">
+                  <div class="flex text-red-600">
+                    <Star class="w-4 h-4 fill-current" />
+                    <Star class="w-4 h-4 fill-current" />
+                    <Star class="w-4 h-4 fill-current" />
+                    <Star class="w-4 h-4 fill-current" />
+                    <Star class="w-4 h-4 fill-current" />
+                  </div>
+                </div>
+                <p class="text-gray-600 mb-4">"El servicio al cliente es excepcional. Siempre responden rápido a mis consultas."</p>
+                <p class="font-semibold">Ana P.</p>
+              </CardContent>
+            </Card>
+          </div>
+          
+          <div class="min-w-[calc(33.333%-0.2rem)] px-2 pb-2">
+            <Card class="rounded-3xl shadow-md hover:shadow-lg transition-shadow h-[240px] flex flex-col">
+              <CardContent class="p-6">
+                <div class="flex items-center mb-4">
+                  <div class="flex text-red-600">
+                    <Star class="w-4 h-4 fill-current" />
+                    <Star class="w-4 h-4 fill-current" />
+                    <Star class="w-4 h-4 fill-current" />
+                    <Star class="w-4 h-4 fill-current" />
+                    <Star class="w-4 h-4 fill-current" />
+                  </div>
+                </div>
+                <p class="text-gray-600 mb-4">"La plataforma es muy fácil de usar y el contenido se actualiza constantemente."</p>
+                <p class="font-semibold">Roberto G.</p>
+              </CardContent>
+            </Card>
+          </div>
         </div>
-      </section>
+      </div>
+      
+      <!-- Navigation buttons (desktop only) -->
+      <button 
+        class="absolute left-0 top-1/2 -translate-y-1/2 -ml-16 bg-white p-2 z-10 transition-opacity duration-200 {currentIndex === 0 ? 'opacity-50 cursor-not-allowed' : 'opacity-100'}"
+        on:click={prevSlide}
+        disabled={currentIndex === 0}
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-700"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </button>
+      
+      <button 
+        class="absolute right-0 top-1/2 -translate-y-1/2 -mr-16 bg-white p-2 z-10 transition-opacity duration-200 {currentIndex >= totalSlides - 3 ? 'opacity-50 cursor-not-allowed' : 'opacity-100'}"
+        on:click={nextSlide}
+        disabled={currentIndex >= totalSlides - 3}
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-700"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
+    </div>
+    
+    <!-- Mobile view (hidden on desktop) -->
+    <div class="md:hidden max-w-5xl mx-auto">
+      <div class="overflow-x-auto snap-x snap-mandatory hide-scrollbar" id="testimonials-container">
+        <div class="flex">
+          <!-- Mobile testimonial cards -->
+          <div class="min-w-[85vw] px-2 flex-shrink-0 snap-center flex">
+            <Card class="rounded-3xl shadow-md hover:shadow-lg transition-shadow h-[240px] flex flex-col">
+              <CardContent class="p-6">
+                <div class="flex items-center mb-4">
+                  <div class="flex text-red-600">
+                    <Star class="w-4 h-4 fill-current" />
+                    <Star class="w-4 h-4 fill-current" />
+                    <Star class="w-4 h-4 fill-current" />
+                    <Star class="w-4 h-4 fill-current" />
+                    <Star class="w-4 h-4 fill-current" />
+                  </div>
+                </div>
+                <p class="text-gray-600 mb-4">"El mejor contenido que he encontrado. <br> Las creadoras son increíbles <br> y el contenido es de primera."</p>
+                <p class="font-semibold">Carlos M.</p>
+              </CardContent>
+            </Card>
+          </div>
+          
+          <div class="min-w-[85vw] px-2 flex-shrink-0 snap-center">
+            <Card class="rounded-3xl shadow-md hover:shadow-lg transition-shadow h-[240px] flex flex-col">
+              <CardContent class="p-6">
+                <div class="flex items-center mb-4">
+                  <div class="flex text-red-600">
+                    <Star class="w-4 h-4 fill-current" />
+                    <Star class="w-4 h-4 fill-current" />
+                    <Star class="w-4 h-4 fill-current" />
+                    <Star class="w-4 h-4 fill-current" />
+                    <Star class="w-4 h-4 fill-current" />
+                  </div>
+                </div>
+                <p class="text-gray-600 mb-4">"La privacidad y discreción son excelentes. <br> El contenido exclusivo vale <br> totalmente la pena."</p>
+                <p class="font-semibold">Miguel R.</p>
+              </CardContent>
+            </Card>
+          </div>
+          
+          <div class="min-w-[85vw] px-2 flex-shrink-0 snap-center">
+            <Card class="rounded-3xl shadow-md hover:shadow-lg transition-shadow h-[240px] flex flex-col">
+              <CardContent class="p-6">
+                <div class="flex items-center mb-4">
+                  <div class="flex text-red-600">
+                    <Star class="w-4 h-4 fill-current" />
+                    <Star class="w-4 h-4 fill-current" />
+                    <Star class="w-4 h-4 fill-current" />
+                    <Star class="w-4 h-4 fill-current" />
+                    <Star class="w-4 h-4 fill-current" />
+                  </div>
+                </div>
+                <p class="text-gray-600 mb-4">"Increíble variedad de contenido <br> y las creadoras son muy interactivas. <br> ¡Altamente recomendado!"</p>
+                <p class="font-semibold">Juan D.</p>
+              </CardContent>
+            </Card>
+          </div>
+          
+          <div class="min-w-[85vw] px-2 flex-shrink-0 snap-center">
+            <Card class="rounded-3xl shadow-md hover:shadow-lg transition-shadow h-[240px] flex flex-col">
+              <CardContent class="p-6">
+                <div class="flex items-center mb-4">
+                  <div class="flex text-red-600">
+                    <Star class="w-4 h-4 fill-current" />
+                    <Star class="w-4 h-4 fill-current" />
+                    <Star class="w-4 h-4 fill-current" />
+                    <Star class="w-4 h-4 fill-current" />
+                    <Star class="w-4 h-4 fill-current" />
+                  </div>
+                </div>
+                <p class="text-gray-600 mb-4">"El servicio al cliente es excepcional. <br> Siempre responden rápido a <br> mis consultas."</p>
+                <p class="font-semibold">Ana P.</p>
+              </CardContent>
+            </Card>
+          </div>
+          
+          <div class="min-w-[85vw] px-2 flex-shrink-0 snap-center">
+            <Card class="rounded-3xl shadow-md hover:shadow-lg transition-shadow h-[240px] flex flex-col">
+              <CardContent class="p-6">
+                <div class="flex items-center mb-4">
+                  <div class="flex text-red-600">
+                    <Star class="w-4 h-4 fill-current" />
+                    <Star class="w-4 h-4 fill-current" />
+                    <Star class="w-4 h-4 fill-current" />
+                    <Star class="w-4 h-4 fill-current" />
+                    <Star class="w-4 h-4 fill-current" />
+                  </div>
+                </div>
+                <p class="text-gray-600 mb-4">"La plataforma es muy fácil de usar <br> y el contenido se actualiza <br> constantemente."</p>
+                <p class="font-semibold">Roberto G.</p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Indicator dots for mobile -->
+      <div class="flex justify-center mt-4" id="testimonials-dots">
+        <div class="w-2 h-2 rounded-full bg-red-600 mx-1 dot"></div>
+        <div class="w-2 h-2 rounded-full bg-gray-300 mx-1 dot"></div>
+        <div class="w-2 h-2 rounded-full bg-gray-300 mx-1 dot"></div>
+        <div class="w-2 h-2 rounded-full bg-gray-300 mx-1 dot"></div>
+        <div class="w-2 h-2 rounded-full bg-gray-300 mx-1 dot"></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <section class="py-16 bg-red-600 text-white">
-        <div class="container mx-auto px-4 text-center">
-          <h2 class="text-3xl font-bold mb-8">¡No pierdas esta oportunidad!</h2>
-          <p class="text-xl mb-8">Regístrate ahora y obtén 30 días de acceso VIP completamente gratis</p>
-          <Button 
-            class="bg-white text-red-600 hover:bg-gray-100 font-semibold text-lg px-8 py-4 rounded-full shadow-lg transform transition-transform hover:scale-105"
-            on:click={() => showModal = true}
-          >
-            Obtener Mi Acceso VIP
-          </Button>
-          <p class="text-sm mt-4 text-red-200">Sin compromiso - Cancela cuando quieras</p>
-        </div>
-      </section>
-    </main>
+    <section class="py-16 bg-red-600 text-white w-full">
+      <div class="max-w-6xl mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold mb-8">¡No pierdas esta oportunidad!</h2>
+        <p class="text-xl mb-8">Regístrate ahora y obtén 30 días de acceso VIP completamente gratis</p>
+        <Button 
+          class="bg-white text-red-600 hover:bg-gray-100 font-semibold text-lg px-8 py-4 rounded-full shadow-lg transform transition-transform hover:scale-105"
+          on:click={() => showModal = true}
+        >
+          Obtener Mi Acceso VIP
+        </Button>
+        <p class="text-sm mt-4 text-red-200">Sin compromiso - Cancela cuando quieras</p>
+      </div>
+    </section>
   </div>
 
   <footer class="bg-gray-900 text-gray-100 py-12">
@@ -489,6 +1097,28 @@
     
     :global(.hover\:scale-105:hover) {
       transform: scale(1.05);
+    }
+    
+    /* Hide scrollbar but keep functionality */
+    .hide-scrollbar {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+    }
+    
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;  /* Chrome, Safari and Opera */
+    }
+    
+    /* Add smooth scrolling */
+    #pricing-container {
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    #testimonials-container {
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 1rem;
     }
   </style>
 </div> 
