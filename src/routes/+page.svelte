@@ -299,14 +299,14 @@
     <header class="pt-20 relative min-h-[90vh] flex items-center">
       <div class="absolute inset-0 z-0">
         <img
-          src="/fondo.png"
+          src="/foondo.png"
           alt="Background"
           class="w-full h-full object-cover object-center bg-red-600"
         />
         <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70"></div>
       </div>
       <div class="max-w-6xl mx-auto px-4 py-12 relative z-10 w-full">
-        <div class="max-w-4xl mx-auto text-left space-y-8">
+        <div class="max-w-4xl mx-auto md:text-center text-left space-y-8">
           <h1 class="text-4xl md:text-6xl font-bold tracking-tight text-white">
             Transformando la <span class="text-red-400">industria escort</span> con innovación y calidad
           </h1>
@@ -873,7 +873,7 @@
       
       <!-- Navigation buttons (desktop only) -->
       <button 
-        class="absolute left-0 top-1/2 -translate-y-1/2 -ml-16 bg-white p-2 z-10 transition-opacity duration-200 {currentIndex === 0 ? 'opacity-50 cursor-not-allowed' : 'opacity-100'}"
+        class="absolute left-0 top-1/2 -translate-y-1/2 -ml-10 bg-transparent p-2 z-10 transition-opacity duration-200 {currentIndex === 0 ? 'opacity-50 cursor-not-allowed' : 'opacity-100'}"
         on:click={prevSlide}
         disabled={currentIndex === 0}
       >
@@ -881,7 +881,7 @@
       </button>
       
       <button 
-        class="absolute right-0 top-1/2 -translate-y-1/2 -mr-16 bg-white p-2 z-10 transition-opacity duration-200 {currentIndex >= totalSlides - 3 ? 'opacity-50 cursor-not-allowed' : 'opacity-100'}"
+        class="absolute right-0 top-1/2 -translate-y-1/2 -mr-4 bg-transparent p-2 z-10 transition-opacity duration-200 {currentIndex >= totalSlides - 3 ? 'opacity-50 cursor-not-allowed' : 'opacity-100'}"
         on:click={nextSlide}
         disabled={currentIndex >= totalSlides - 3}
       >
@@ -894,7 +894,7 @@
       <div class="overflow-x-auto snap-x snap-mandatory hide-scrollbar" id="testimonials-container">
         <div class="flex">
           <!-- Mobile testimonial cards -->
-          <div class="min-w-[85vw] px-2 flex-shrink-0 snap-center flex">
+          <div class=" px-2 flex-shrink-0 snap-center flex">
             <Card class="rounded-3xl shadow-md hover:shadow-lg transition-shadow h-[240px] flex flex-col">
               <CardContent class="p-6">
                 <div class="flex items-center mb-4">
@@ -912,7 +912,7 @@
             </Card>
           </div>
           
-          <div class="min-w-[85vw] px-2 flex-shrink-0 snap-center">
+          <div class="px-2 flex-shrink-0 snap-center">
             <Card class="rounded-3xl shadow-md hover:shadow-lg transition-shadow h-[240px] flex flex-col">
               <CardContent class="p-6">
                 <div class="flex items-center mb-4">
@@ -930,7 +930,7 @@
             </Card>
           </div>
           
-          <div class="min-w-[85vw] px-2 flex-shrink-0 snap-center">
+          <div class="px-2 flex-shrink-0 snap-center">
             <Card class="rounded-3xl shadow-md hover:shadow-lg transition-shadow h-[240px] flex flex-col">
               <CardContent class="p-6">
                 <div class="flex items-center mb-4">
@@ -948,7 +948,7 @@
             </Card>
           </div>
           
-          <div class="min-w-[85vw] px-2 flex-shrink-0 snap-center">
+          <div class="px-2 flex-shrink-0 snap-center">
             <Card class="rounded-3xl shadow-md hover:shadow-lg transition-shadow h-[240px] flex flex-col">
               <CardContent class="p-6">
                 <div class="flex items-center mb-4">
@@ -966,7 +966,7 @@
             </Card>
           </div>
           
-          <div class="min-w-[85vw] px-2 flex-shrink-0 snap-center">
+          <div class="px-2 flex-shrink-0 snap-center">
             <Card class="rounded-3xl shadow-md hover:shadow-lg transition-shadow h-[240px] flex flex-col">
               <CardContent class="p-6">
                 <div class="flex items-center mb-4">
