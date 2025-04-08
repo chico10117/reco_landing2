@@ -619,7 +619,7 @@
         <h2 class="text-3xl font-bold text-center mb-12">Conoce Nuestra Plataforma</h2>
         <div class="max-w-4xl mx-auto">
           <div class="rounded-3xl overflow-hidden shadow-2xl">
-            <div style="position: relative; overflow: hidden; padding-top: 56.25%;"><iframe src="https://share.synthesia.io/embeds/videos/3b5696f3-72b1-4a32-9694-2f5e99a48c98" loading="lazy" title="Synthesia video player - Fanlatinas- April Version" allowfullscreen allow="encrypted-media; fullscreen;" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0; margin: 0; overflow:hidden;"></iframe></div>
+            <div style="position: relative; overflow: hidden; padding-top: 56.25%;"><div style="position: relative; overflow: hidden; aspect-ratio: 1920/1080"><iframe src="https://share.synthesia.io/embeds/videos/da3e910b-b890-4c96-a4c5-c3bb4f1679d0" loading="lazy" title="Synthesia video player - Copy of Fanlatinas- April Version" allowfullscreen allow="encrypted-media; fullscreen;" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0; margin: 0; overflow:hidden;"></iframe></div>
           </div>
           <p class="text-center text-gray-600 mt-6">Descubre todas las características que tenemos para ti</p>
         </div>
