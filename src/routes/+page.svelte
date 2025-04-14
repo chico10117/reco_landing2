@@ -421,7 +421,7 @@
               class="w-full mt-8 bg-red-500 text-white font-medium py-3 rounded-full group-hover:bg-white group-hover:text-red-600 transition-colors"
               on:click={() => showModal = true}
             >
-              Get Started
+              Empezar
             </button>
           </div>
 
@@ -464,7 +464,7 @@
               class="w-full mt-8 bg-red-500 text-white font-medium py-3 rounded-full group-hover:bg-white group-hover:text-red-600 transition-colors"
               on:click={() => showModal = true}
             >
-              Subscribe Now
+              Suscribirse Ahora
             </button>
           </div>
 
@@ -507,7 +507,7 @@
             <button 
               class="w-full mt-8 bg-red-500 text-white font-medium py-3 rounded-full group-hover:bg-white group-hover:text-red-600 transition-colors"
             >
-              Contact us
+              Contáctanos
             </button>
           </div>
         </div>
@@ -555,7 +555,7 @@
                   class="w-full mt-8 bg-red-500 text-white font-medium py-3 rounded-full group-hover:bg-white group-hover:text-red-600 transition-colors"
                   on:click={() => showModal = true}
                 >
-                  Get Started
+                  Empezar
                 </button>
               </div>
             </div>
@@ -600,7 +600,7 @@
                   class="w-full mt-8 bg-red-500 text-white font-medium py-3 rounded-full group-hover:bg-white group-hover:text-red-600 transition-colors"
                   on:click={() => showModal = true}
                 >
-                  Subscribe Now
+                  Suscribirse Ahora
                 </button>
               </div>
             </div>
@@ -645,7 +645,7 @@
                 <button 
                   class="w-full mt-8 bg-red-500 text-white font-medium py-3 rounded-full group-hover:bg-white group-hover:text-red-600 transition-colors"
                 >
-                  Contact us
+                  Contáctanos
                 </button>
               </div>
             </div>
