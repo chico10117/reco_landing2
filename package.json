@@ -12,8 +12,10 @@
     "format": "prettier --plugin-search-dir . --write ."
   },
   "dependencies": {
+    "@types/google-spreadsheet": "^3.3.2",
     "bits-ui": "^0.21.16",
     "clsx": "^2.1.1",
+    "googleapis": "^148.0.0",
     "lucide-svelte": "^0.454.0",
     "tailwind-merge": "^2.5.4",
     "tailwind-variants": "^0.2.1"
