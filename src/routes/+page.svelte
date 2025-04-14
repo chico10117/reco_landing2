@@ -96,10 +96,58 @@
   let whatsapp = '';
   let newsletter = false;
 
-  function handleSubmit(e: SubmitEvent) {
+  let submitting = false;
+  let submitError = '';
+  let submitSuccess = false;
+
+  async function handleSubmit(e: SubmitEvent) {
     e.preventDefault();
-    console.log({ name, email, whatsapp, newsletter });
-    showModal = false;
+    console.log('Form submitted');
+    console.log('Form values:', { name, email, whatsapp, newsletter });
+    
+    submitting = true;
+    submitError = '';
+    submitSuccess = false;
+
+    try {
+      const response = await fetch('/api/submit-form', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          whatsapp,
+          newsletter
+        })
+      });
+
+      console.log('Response received:', response);
+      const result = await response.json();
+      console.log('Response data:', result);
+
+      if (result.success) {
+        submitSuccess = true;
+        // Clear form
+        name = '';
+        email = '';
+        whatsapp = '';
+        newsletter = false;
+        // Close modal after short delay
+        setTimeout(() => {
+          showModal = false;
+          submitSuccess = false;
+        }, 2000);
+      } else {
+        submitError = result.error || 'Failed to submit form. Please try again.';
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      submitError = 'An error occurred. Please try again.';
+    } finally {
+      submitting = false;
+    }
   }
 
   // Add this to your existing script section
@@ -1026,40 +1074,76 @@
       <p class="text-gray-600">Regístrate ahora y disfruta de 30 días de contenido premium sin costo</p>
     </div>
     <form on:submit={handleSubmit} class="space-y-4">
-      <Input
-        type="text"
-        placeholder="Tu Nombre"
-        bind:value={name}
-        required
-        class="rounded-full px-6 py-3 shadow-sm"
-      />
-      <Input
-        type="email"
-        placeholder="Tu Email"
-        bind:value={email}
-        required
-        class="rounded-full px-6 py-3 shadow-sm"
-      />
-      <Input
-        type="tel"
-        placeholder="Tu WhatsApp"
-        bind:value={whatsapp}
-        required
-        class="rounded-full px-6 py-3 shadow-sm"
-      />
+      <!-- Name input -->
+      <div class="space-y-2">
+        <input
+          type="text"
+          placeholder="Tu Nombre"
+          bind:value={name}
+          required
+          disabled={submitting}
+          class="w-full rounded-full px-6 py-3 shadow-sm border border-gray-300"
+        />
+      </div>
+
+      <!-- Email input -->
+      <div class="space-y-2">
+        <input
+          type="email"
+          placeholder="Tu Email"
+          bind:value={email}
+          required
+          disabled={submitting}
+          class="w-full rounded-full px-6 py-3 shadow-sm border border-gray-300"
+        />
+      </div>
+
+      <!-- WhatsApp input -->
+      <div class="space-y-2">
+        <input
+          type="tel"
+          placeholder="Tu WhatsApp"
+          bind:value={whatsapp}
+          required
+          disabled={submitting}
+          class="w-full rounded-full px-6 py-3 shadow-sm border border-gray-300"
+        />
+      </div>
+
+      <!-- Newsletter checkbox -->
       <div class="flex items-center space-x-2">
-        <Checkbox
+        <input
+          type="checkbox"
           id="newsletter-modal"
           bind:checked={newsletter}
+          disabled={submitting}
           class="rounded-full"
         />
         <label for="newsletter-modal" class="text-sm">
           Quiero recibir contenido exclusivo y ofertas especiales
         </label>
       </div>
-      <Button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-4 text-lg rounded-full shadow-lg transform transition-transform hover:scale-105">
-        Obtener Mi Acceso VIP
-      </Button>
+      
+      {#if submitError}
+        <p class="text-red-600 text-sm text-center">{submitError}</p>
+      {/if}
+      
+      {#if submitSuccess}
+        <p class="text-green-600 text-sm text-center">¡Registro exitoso! Redirigiendo...</p>
+      {/if}
+      
+      <button 
+        type="submit" 
+        disabled={submitting}
+        class="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-4 text-lg rounded-full shadow-lg transform transition-transform hover:scale-105"
+      >
+        {#if submitting}
+          Procesando...
+        {:else}
+          Obtener Mi Acceso VIP
+        {/if}
+      </button>
+      
       <p class="text-xs text-gray-500 text-center mt-2">
         Al registrarte, aceptas nuestros Términos de Servicio y Política de Privacidad
       </p>
