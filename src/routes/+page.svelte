@@ -100,10 +100,29 @@
   let submitError = '';
   let submitSuccess = false;
 
+  let whatsappError = '';
+  
+  function validateWhatsApp(value: string) {
+    // Clear previous error
+    whatsappError = '';
+    
+    // Validate Uruguayan phone number (starts with 9, total 8 digits)
+    if (value && !/^9\d{7}$/.test(value)) {
+      whatsappError = 'Ingresa un número válido de Uruguay (debe comenzar con 9 y tener 8 dígitos)';
+      return false;
+    }
+    return true;
+  }
+  
   async function handleSubmit(e: SubmitEvent) {
     e.preventDefault();
     console.log('Form submitted');
     console.log('Form values:', { name, email, whatsapp, newsletter });
+    
+    // Validate WhatsApp number first
+    if (!validateWhatsApp(whatsapp)) {
+      return; // Stop form submission if validation fails
+    }
     
     submitting = true;
     submitError = '';
@@ -1102,12 +1121,20 @@
       <div class="space-y-2">
         <input
           type="tel"
-          placeholder="Tu WhatsApp"
+          placeholder="Número WhatsApp (ej: 99629864)"
           bind:value={whatsapp}
           required
           disabled={submitting}
-          class="w-full rounded-full px-6 py-3 shadow-sm border border-gray-300"
+          class="w-full rounded-full px-6 py-3 shadow-sm border border-gray-300 {whatsappError ? 'border-red-500' : ''}"
+          on:input={() => {
+            // Remove any non-digit characters
+            whatsapp = whatsapp.replace(/\D/g, '');
+            validateWhatsApp(whatsapp);
+          }}
         />
+        {#if whatsappError}
+          <p class="text-red-600 text-xs px-2">{whatsappError}</p>
+        {/if}
       </div>
 
       <!-- Newsletter checkbox -->
