@@ -65,18 +65,3 @@ export const POST: RequestHandler = async ({ request }) => {
     );
   }
 };
-
-function validateWhatsApp(value: string) {
-  // Clear previous error
-  whatsappError = '';
-  
-  // Remove any spaces or non-digit characters
-  const cleanedValue = value.trim().replace(/\D/g, '');
-  
-  // Validate Uruguayan phone number (starts with 9, total 8 digits)
-  if (cleanedValue && (cleanedValue.length !== 8 || !cleanedValue.startsWith('9'))) {
-    whatsappError = 'Ingresa un número válido de Uruguay (debe comenzar con 9 y tener 8 dígitos)';
-    return false;
-  }
-  return true;
-} 
