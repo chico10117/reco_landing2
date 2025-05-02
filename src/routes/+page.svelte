@@ -330,7 +330,7 @@
 </script>
 
 <div class="min-h-screen bg-white text-gray-900 flex flex-col">
-  <nav class="bg-white border-b border-gray-100 fixed w-full top-0 z-50 shadow-sm transition-transform duration-300 ease-in-out will-change-transform {hideNav ? '-translate-y-full' : 'translate-y-0'}">
+  <nav class="bg-white border border-gray-300 fixed w-full top-0 z-50 shadow-sm transition-transform duration-300 ease-in-out will-change-transform {hideNav ? '-translate-y-full' : 'translate-y-0'}">
     <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
       <div class="text-2xl font-bold text-red-600">FanLatinas</div>
       <div class="flex items-center space-x-4">
@@ -345,7 +345,8 @@
     </div>
   </nav>
 
-  <div class="bg-red-500 text-white w-full fixed top-0 z-40 transition-transform duration-300 ease-in-out will-change-transform {hideNav ? '-translate-y-full' : 'translate-y-16'}">
+  <div class="bg-red-500 text-white w-full fixed top-0 z-40 border-b border-red-600 transition-transform duration-300 ease-in-out will-change-transform {hideNav ? '-translate-y-full' : 'translate-y-16'}" 
+       style="transition-delay: {hideNav ? '0ms' : '150ms'}">
     <div class="max-w-6xl mx-auto px-4 py-2 flex justify-between items-center">
       <div>
         <h3 class="text-xl font-medium">Anuncia gratis</h3>

@@ -42,3 +42,4 @@ logs
 
 # Local development
 *.local
+.qodo
