@@ -48,9 +48,9 @@
         <div class="mt-8">
           <p class="text-sm text-gray-500 mb-3">Confían en nosotros:</p>
           <div class="flex items-center gap-6">
-            <img src="/logo-yelmo.svg" alt="Yelmo" class="h-8 opacity-70 hover:opacity-100 transition-opacity" />
-            <img src="/logo-vips.svg" alt="VIPS" class="h-8 opacity-70 hover:opacity-100 transition-opacity" />
-            <img src="/logo-honest-greens.svg" alt="Honest Greens" class="h-8 opacity-70 hover:opacity-100 transition-opacity" />
+            <img src="/img/logo-yelmo.svg" alt="Yelmo" class="h-8 opacity-70 hover:opacity-100 transition-opacity" />
+            <img src="/img/logo-vips.svg" alt="VIPS" class="h-8 opacity-70 hover:opacity-100 transition-opacity" />
+            <img src="/img/logo-honest-greens.svg" alt="Honest Greens" class="h-8 opacity-70 hover:opacity-100 transition-opacity" />
           </div>
         </div>
       </div>
