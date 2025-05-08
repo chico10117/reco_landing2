@@ -24,5 +24,35 @@
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
     --radius: 0.5rem;
+    
+    /* Reco specific colors */
+    --reco-blue: 210 100% 50%;
+    --reco-blue-light: 210 100% 95%;
+    --reco-blue-dark: 210 100% 30%;
   }
+}
+
+@layer base {
+  html {
+    @apply scroll-smooth focus-visible:scroll-auto;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 } 
