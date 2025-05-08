@@ -16,28 +16,30 @@
     </p>
     
     <div class="flex flex-col sm:flex-row gap-6 justify-center">
-      <Button 
-        size="lg" 
-        class="bg-white text-blue-600 hover:bg-blue-50 rounded-full px-8"
-        on:click={() => {
-          track('cta_click', { label: 'contact_sales' });
-          window.location.href = `mailto:${salesEmail}?subject=Información sobre Reco para mi restaurante`;
-        }}
-      >
-        Contacta con ventas
-      </Button>
+      <a href="mailto:sales@reco.chat?subject=Información sobre Reco para mi restaurante">
+        <Button 
+          size="lg" 
+          class="bg-white text-blue-600 hover:bg-blue-50 rounded-full px-8 w-full"
+          on:click={() => {
+            track('cta_click', { label: 'contact_sales' });
+          }}
+        >
+          Contacta con ventas
+        </Button>
+      </a>
       
-      <Button 
-        variant="outline" 
-        size="lg" 
-        class="border-white text-white hover:bg-blue-700 hover:text-white rounded-full px-8"
-        on:click={() => {
-          track('cta_click', { label: 'free_trial' });
-          window.location.href = trialHref;
-        }}
-      >
-        Prueba gratis
-      </Button>
+      <a href="/contact">
+        <Button 
+          variant="outline" 
+          size="lg" 
+          class="border-white text-white hover:bg-blue-700 hover:text-white rounded-full px-8 w-full"
+          on:click={() => {
+            track('cta_click', { label: 'free_trial' });
+          }}
+        >
+          Prueba gratis
+        </Button>
+      </a>
     </div>
   </div>
 </section> 
