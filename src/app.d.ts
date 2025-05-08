@@ -7,8 +7,5 @@ declare namespace App {
   interface Stuff {}
 }
 
-declare module '$env/static/private' {
-  export const GOOGLE_SHEETS_CLIENT_EMAIL: string;
-  export const GOOGLE_SHEETS_PRIVATE_KEY: string;
-  export const GOOGLE_SHEETS_SPREADSHEET_ID: string;
-} 
+// Environment variable declarations can be added here as needed
+// No Google Sheets API variables required for the new landing page 
