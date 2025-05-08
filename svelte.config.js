@@ -1,10 +1,13 @@
-import adapter from '@sveltejs/adapter-auto';
+import adapter from '@sveltejs/adapter-vercel';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	kit: {
-		adapter: adapter(),
+		adapter: adapter({
+			// Specify Node.js 20.x runtime
+			runtime: 'nodejs20.x'
+		}),
 		prerender: {
 			handleHttpError: ({ path, referrer, message }) => {
 				// Ignore missing routes during prerendering
