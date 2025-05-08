@@ -54,8 +54,6 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
       <div class="text-2xl font-bold text-blue-600">Reco</div>
       <div class="flex items-center space-x-4">
-        <a href="/blog" class="text-gray-600 hover:text-blue-600 px-3">Blog</a>
-        <a href="/about" class="text-gray-600 hover:text-blue-600 px-3">Nosotros</a>
         <Button 
           variant="outline" 
           class="text-blue-600 border-blue-600 hover:bg-blue-50 ml-4"
