@@ -10,7 +10,8 @@ const config = {
 				// Ignore missing routes during prerendering
 				if (path.startsWith('/blog') || 
 					path.startsWith('/about') || 
-					path.startsWith('/partners')) {
+					path.startsWith('/partners') ||
+					path.startsWith('/cookies')) {
 					console.warn(`Ignoring "${message}" for path "${path}" (referred from "${referrer}")`);
 					return;
 				}
