@@ -4,6 +4,7 @@
   
   export let salesEmail: string = "sales@reco.chat";
   export let trialHref: string = "/contact";
+  export let calendlyUrl: string = "https://calendly.com/fernando-lqrb/15min";
 </script>
 
 <section class="py-16 md:py-24 bg-gradient-to-br from-blue-600 to-blue-800 text-white">
@@ -16,7 +17,7 @@
     </p>
     
     <div class="flex flex-col sm:flex-row gap-6 justify-center">
-      <a href="mailto:sales@reco.chat?subject=Información sobre Reco para mi restaurante">
+      <a href="https://calendly.com/fernando-lqrb/15min" target="_blank" rel="noopener noreferrer">
         <Button 
           size="lg" 
           class="bg-white text-blue-600 hover:bg-blue-50 rounded-full px-8 w-full"
@@ -32,7 +33,7 @@
         <Button 
           variant="outline" 
           size="lg" 
-          class="border-white text-white hover:bg-blue-700 hover:text-white rounded-full px-8 w-full"
+          class="border-white text-blue-600 hover:bg-blue-700 hover:text-white rounded-full px-8 w-full"
           on:click={() => {
             track('cta_click', { label: 'free_trial' });
           }}

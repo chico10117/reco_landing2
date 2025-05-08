@@ -34,11 +34,11 @@
         <h3 class="text-lg font-medium mb-4">Contacto</h3>
         <ul class="space-y-2">
           <li>
-            <a href="mailto:info@reco.chat" class="text-gray-400 hover:text-white transition-colors flex items-center">
+            <a href="https://calendly.com/fernando-lqrb/15min" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors flex items-center">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
-              info@reco.chat
+              Agenda una cita
             </a>
           </li>
           <li>

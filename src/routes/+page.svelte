@@ -54,16 +54,17 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
       <div class="text-2xl font-bold text-blue-600">Reco</div>
       <div class="flex items-center space-x-4">
-        <Button 
-          variant="outline" 
-          class="text-blue-600 border-blue-600 hover:bg-blue-50 ml-4"
-          on:click={() => {
-            track('nav_click', { label: 'contact' });
-            window.location.href = '/contact';
-          }}
-        >
-          Contacto
-        </Button>
+        <a href="https://calendly.com/fernando-lqrb/15min" target="_blank" rel="noopener noreferrer">
+          <Button 
+            variant="outline" 
+            class="text-blue-600 border-blue-600 hover:bg-blue-50 ml-4"
+            on:click={() => {
+              track('nav_click', { label: 'contact' });
+            }}
+          >
+            Contacto
+          </Button>
+        </a>
       </div>
     </div>
   </nav>
