@@ -21,7 +21,7 @@
   });
 </script>
 
-<div class="min-h-screen bg-baby-blue">
+<div class="min-h-screen bg-white">
   <!-- Navigation -->
   <nav class="bg-white border-b border-gray-100 fixed w-full top-0 z-50 shadow-sm">
     <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
@@ -31,7 +31,7 @@
       <div class="flex items-center space-x-4">
         <Button 
           variant="ghost" 
-          class="text-gray-700 hover:text-dark-blue rounded-full px-6"
+          class="text-gray-700 hover:text-blue-600 rounded-full px-6"
           on:click={navigateHome}
         >
           Volver al Inicio
@@ -52,7 +52,7 @@
         </p>
         
         <Button 
-          class="w-full bg-dark-blue hover:bg-blue-purple text-white font-semibold py-4 rounded-full shadow-lg transform transition-all hover:scale-105"
+          class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 rounded-full shadow-lg transform transition-all hover:scale-105"
           on:click={redirectToCalendly}
         >
           Agendar una reunión
@@ -66,15 +66,15 @@
   </div>
 
   <!-- Footer -->
-  <footer class="bg-almost-black text-gray-100 py-8 fixed bottom-0 w-full">
+  <footer class="bg-gray-900 text-gray-100 py-8 fixed bottom-0 w-full">
     <div class="max-w-6xl mx-auto px-4">
       <div class="flex flex-col md:flex-row justify-between items-center">
         <a href="/" class="block mb-4 md:mb-0">
           <img src="/img/reco-logo.svg" alt="Reco" class="h-7" />
         </a>
         <nav class="space-x-6">
-          <a href="/privacy" class="text-gray-300 hover:text-blue-purple transition-colors">Política de Privacidad</a>
-          <a href="/terms" class="text-gray-300 hover:text-blue-purple transition-colors">Términos de Servicio</a>
+          <a href="/privacy" class="text-gray-300 hover:text-blue-400 transition-colors">Política de Privacidad</a>
+          <a href="/terms" class="text-gray-300 hover:text-blue-400 transition-colors">Términos de Servicio</a>
         </nav>
       </div>
       <div class="border-t border-gray-800 my-6"></div>
