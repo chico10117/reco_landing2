@@ -13,7 +13,7 @@
   ];
 </script>
 
-<section class="py-12 bg-almost-black bg-opacity-5">
+<section class="py-12 bg-gray-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-8">
       <h3 class="text-lg font-medium text-gray-900">Empresas que confían en Reco</h3>
