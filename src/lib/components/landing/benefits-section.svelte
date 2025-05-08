@@ -3,7 +3,7 @@
   import { onMount } from "svelte";
 </script>
 
-<section id="benefits" class="py-16 md:py-24 bg-gray-50">
+<section id="benefits" class="py-16 md:py-24 bg-baby-blue">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16">
       <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Una forma más inteligente de comer fuera.</h2>
@@ -17,8 +17,8 @@
       <!-- Benefit 1 -->
       <Card class="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow">
         <CardContent class="p-6">
-          <div class="w-12 h-12 bg-blue-100 rounded-lg mb-5 flex items-center justify-center">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <div class="w-12 h-12 bg-blue-purple bg-opacity-20 rounded-lg mb-5 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-dark-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path>
               <path d="M22 12A10 10 0 0 0 12 2v10z"></path>
             </svg>
@@ -36,8 +36,8 @@
       <!-- Benefit 2 -->
       <Card class="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow">
         <CardContent class="p-6">
-          <div class="w-12 h-12 bg-green-100 rounded-lg mb-5 flex items-center justify-center">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <div class="w-12 h-12 bg-almost-black bg-opacity-10 rounded-lg mb-5 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-almost-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
             </svg>
           </div>
@@ -54,8 +54,8 @@
       <!-- Benefit 3 -->
       <Card class="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow">
         <CardContent class="p-6">
-          <div class="w-12 h-12 bg-purple-100 rounded-lg mb-5 flex items-center justify-center">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <div class="w-12 h-12 bg-dark-blue bg-opacity-20 rounded-lg mb-5 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-purple" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <rect x="2" y="4" width="20" height="16" rx="2"></rect>
               <path d="M7 15h0"></path>
               <path d="M11 15h0"></path>

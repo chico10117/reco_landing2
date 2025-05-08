@@ -71,7 +71,7 @@
     <div class="max-w-4xl mx-auto">
       <div class="relative">
         <!-- Vertical line -->
-        <div class="absolute left-8 inset-y-0 w-0.5 bg-gray-200"></div>
+        <div class="absolute left-8 inset-y-0 w-0.5 bg-blue-purple bg-opacity-20"></div>
         
         {#each steps as step, i}
           <div 
@@ -80,7 +80,7 @@
             data-index={i}
           >
             <!-- Circle with icon -->
-            <div class="z-10 flex-shrink-0 w-16 h-16 rounded-full bg-blue-600 text-white flex items-center justify-center shadow-lg">
+            <div class="z-10 flex-shrink-0 w-16 h-16 rounded-full bg-dark-blue text-white flex items-center justify-center shadow-lg">
               {@html step.icon}
             </div>
             
@@ -92,8 +92,8 @@
         {/each}
       </div>
       
-      <div class="mt-12 bg-blue-50 p-6 rounded-lg">
-        <p class="text-center text-blue-800">
+      <div class="mt-12 bg-baby-blue p-6 rounded-lg border border-blue-purple border-opacity-20">
+        <p class="text-center text-dark-blue">
           <strong>¿Tienes un restaurante?</strong> Descubre cómo Reco transforma estas preguntas en 
           insights que mejoran tu cocina.
         </p>

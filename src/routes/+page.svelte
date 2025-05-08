@@ -49,15 +49,17 @@
   <meta property="og:type" content={data.meta.openGraph.type} />
 </svelte:head>
 
-<div class="min-h-screen bg-white text-gray-900 flex flex-col">
+<div class="min-h-screen bg-baby-blue text-gray-900 flex flex-col">
   <nav class="bg-white border-b border-gray-100 fixed w-full top-0 z-50 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-      <div class="text-2xl font-bold text-blue-600">Reco</div>
+      <a href="/" class="flex items-center">
+        <img src="/img/reco-logo.svg" alt="Reco" class="h-10" />
+      </a>
       <div class="flex items-center space-x-4">
         <a href="https://calendly.com/fernando-lqrb/15min" target="_blank" rel="noopener noreferrer">
           <Button 
             variant="outline" 
-            class="text-blue-600 border-blue-600 hover:bg-blue-50 ml-4"
+            class="text-dark-blue border-dark-blue hover:bg-blue-purple hover:text-white hover:border-blue-purple ml-4"
             on:click={() => {
               track('nav_click', { label: 'contact' });
             }}

@@ -4,6 +4,10 @@ export default {
   theme: {
     extend: {
       colors: {
+        'blue-purple': '#85A3FA',
+        'dark-blue': '#547EF7',
+        'baby-blue': '#FAFAFC',
+        'almost-black': '#255AF6',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

@@ -6,13 +6,13 @@
   export let onRestaurantClick: () => void;
 </script>
 
-<section class="bg-white py-20 md:py-32 overflow-hidden relative">
+<section class="bg-baby-blue py-20 md:py-32 overflow-hidden relative">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="md:flex md:items-center md:justify-between">
       <div class="md:w-1/2 md:pr-12 mb-12 md:mb-0">
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
           Pide mejor.<br>
-          <span class="text-blue-600">Disfruta más.</span>
+          <span class="text-dark-blue">Disfruta más.</span>
         </h1>
         
         <p class="mt-6 text-lg md:text-xl text-gray-600 max-w-2xl">
@@ -23,7 +23,7 @@
         <div class="mt-10 flex flex-col sm:flex-row gap-4">
           <Button 
             size="lg" 
-            class="rounded-full px-6 bg-blue-600 hover:bg-blue-700 text-white"
+            class="rounded-full px-6 bg-dark-blue hover:bg-blue-purple text-white"
             on:click={() => {
               track('cta_click', { label: 'discover_how_it_works' });
               onDiscoverClick();
@@ -35,7 +35,7 @@
           <Button 
             variant="outline" 
             size="lg" 
-            class="rounded-full px-6 border-blue-600 text-blue-600 hover:bg-blue-50"
+            class="rounded-full px-6 border-dark-blue text-dark-blue hover:bg-blue-purple hover:text-white hover:border-blue-purple"
             on:click={() => {
               track('cta_click', { label: 'restaurant_help' });
               onRestaurantClick();
@@ -58,7 +58,7 @@
       <div class="md:w-1/2 relative">
         <div class="relative z-10 transform transition-transform duration-500 hover:translate-y-[-10px]">
           <img
-            src="/img/phone-mockup.webp"
+            src="/img/phone-mockup.png"
             alt="Reco app interface on mobile phone"
             class="w-full max-w-md mx-auto rounded-3xl shadow-2xl"
             loading="eager"
@@ -66,11 +66,11 @@
           />
         </div>
         
-        <div class="absolute inset-0 bg-gradient-to-tr from-blue-100 via-transparent to-blue-50 rounded-full filter blur-3xl opacity-70"></div>
+        <div class="absolute inset-0 bg-gradient-to-tr from-blue-purple via-transparent to-baby-blue rounded-full filter blur-3xl opacity-70"></div>
         
         <!-- Decorative elements -->
-        <div class="absolute top-1/4 left-1/4 w-12 h-12 bg-yellow-400 rounded-full filter blur-xl opacity-70 animate-pulse"></div>
-        <div class="absolute bottom-1/3 right-1/4 w-16 h-16 bg-blue-400 rounded-full filter blur-xl opacity-60 animate-pulse" style="animation-delay: 1s"></div>
+        <div class="absolute top-1/4 left-1/4 w-12 h-12 bg-dark-blue rounded-full filter blur-xl opacity-70 animate-pulse"></div>
+        <div class="absolute bottom-1/3 right-1/4 w-16 h-16 bg-blue-purple rounded-full filter blur-xl opacity-60 animate-pulse" style="animation-delay: 1s"></div>
       </div>
     </div>
   </div>
