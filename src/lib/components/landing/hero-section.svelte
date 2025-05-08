@@ -58,7 +58,7 @@
       <div class="md:w-1/2 relative">
         <div class="relative z-10 transform transition-transform duration-500 hover:translate-y-[-10px]">
           <img
-            src="/phone-mockup.png"
+            src="/img/phone-mockup.png"
             alt="Reco app interface on mobile phone"
             class="w-full max-w-md mx-auto rounded-3xl shadow-2xl"
             loading="eager"
