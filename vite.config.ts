@@ -11,10 +11,17 @@ export default defineConfig({
 	},
 	build: {
 		cssCodeSplit: false,
+		cssMinify: true,
 		rollupOptions: {
 			output: {
-				manualChunks: undefined
+				manualChunks: undefined,
+				assetFileNames: 'assets/[name].[hash][extname]',
+				chunkFileNames: 'assets/[name].[hash].js',
+				entryFileNames: 'assets/[name].[hash].js'
 			}
 		}
+	},
+	optimizeDeps: {
+		include: ['@sveltejs/kit']
 	}
 }); 
