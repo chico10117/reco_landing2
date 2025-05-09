@@ -15,58 +15,51 @@
       </div>
       
       <div>
-        <h3 class="text-lg font-medium mb-4">Empresa</h3>
+        <h3 class="text-lg font-semibold mb-4">Empresa</h3>
         <ul class="space-y-2">
-          <li><a href="/about" class="text-gray-400 hover:text-white transition-colors">Sobre nosotros</a></li>
-          <li><a href="/partners" class="text-gray-400 hover:text-white transition-colors">Partners</a></li>
-          <li><a href="/blog" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+          <li><a href="/nosotros" class="hover:text-blue-400">Nosotros</a></li>
+          <li><a href="/noticias" class="hover:text-blue-400">Noticias</a></li>
+          <li><a href="/contact" class="hover:text-blue-400">Contacto</a></li>
         </ul>
       </div>
       
       <div>
-        <h3 class="text-lg font-medium mb-4">Legal</h3>
+        <h3 class="text-lg font-semibold mb-4">Productos</h3>
         <ul class="space-y-2">
-          <li><a href="/privacy" class="text-gray-400 hover:text-white transition-colors">Política de privacidad</a></li>
-          <li><a href="/terms" class="text-gray-400 hover:text-white transition-colors">Términos de servicio</a></li>
-          <li><a href="/cookies" class="text-gray-400 hover:text-white transition-colors">Política de cookies</a></li>
+          <li><a href="/restaurantes" class="hover:text-blue-400">Restaurantes</a></li>
+          <li><a href="/precios" class="hover:text-blue-400">Precios</a></li>
         </ul>
       </div>
       
       <div>
-        <h3 class="text-lg font-medium mb-4">Contacto</h3>
+        <h3 class="text-lg font-semibold mb-4">Legal</h3>
         <ul class="space-y-2">
-          <li>
-            <a href="https://calendly.com/fernando-lqrb/15min" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors flex items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-              </svg>
-              Agenda una cita
-            </a>
-          </li>
-          <li>
-            <a href="https://twitter.com/recochat" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors flex items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
-              </svg>
-              @recochat
-            </a>
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/company/recochat" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors flex items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/>
-              </svg>
-              LinkedIn
-            </a>
-          </li>
+          <li><a href="/privacy" class="hover:text-blue-400">Privacidad</a></li>
+          <li><a href="/terms" class="hover:text-blue-400">Términos</a></li>
         </ul>
+      </div>
+      
+      <div>
+        <h3 class="text-lg font-semibold mb-4">Síguenos</h3>
+        <div class="flex space-x-4">
+          <a href="https://twitter.com/reco" target="_blank" rel="noopener noreferrer" class="hover:text-blue-400">
+            <span class="sr-only">Twitter</span>
+            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+            </svg>
+          </a>
+          <a href="https://linkedin.com/company/reco" target="_blank" rel="noopener noreferrer" class="hover:text-blue-400">
+            <span class="sr-only">LinkedIn</span>
+            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+            </svg>
+          </a>
+        </div>
       </div>
     </div>
     
-    <div class="border-t border-gray-800 mt-12 pt-8">
-      <p class="text-center text-gray-500 text-sm">
-        &copy; {currentYear} Reco AI Solutions. Todos los derechos reservados.
-      </p>
+    <div class="mt-8 pt-8 border-t border-gray-700 text-center text-sm text-gray-400">
+      <p>&copy; {currentYear} Reco. Todos los derechos reservados.</p>
     </div>
   </div>
 </footer> 
