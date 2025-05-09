@@ -1,6 +1,4 @@
-import type { PageLoad } from './$types';
-
-export const load: PageLoad = async () => {
+export function load() {
   return {
     meta: {
       title: 'Precios | Reco',
@@ -8,4 +6,4 @@ export const load: PageLoad = async () => {
       keywords: 'precios, planes, reco, inteligencia artificial, menú digital'
     }
   };
-}; 
+} 

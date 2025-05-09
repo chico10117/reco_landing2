@@ -16,7 +16,9 @@ const config = {
 					path.startsWith('/partners') ||
 					path.startsWith('/cookies') ||
 					path.startsWith('/restaurantes') ||
-					path.startsWith('/precios')) {
+					path.startsWith('/precios') ||
+					path.startsWith('/noticias') ||
+					path.startsWith('/nosotros')) {
 					console.warn(`Ignoring "${message}" for path "${path}" (referred from "${referrer}")`);
 					return;
 				}

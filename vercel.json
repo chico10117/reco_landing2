@@ -9,6 +9,8 @@
     { "handle": "filesystem" },
     { "src": "/restaurantes", "dest": "/restaurantes" },
     { "src": "/precios", "dest": "/precios" },
+    { "src": "/noticias", "dest": "/noticias" },
+    { "src": "/nosotros", "dest": "/nosotros" },
     { "src": "/(.*)", "status": 404, "dest": "/404.html" }
   ]
 } 
