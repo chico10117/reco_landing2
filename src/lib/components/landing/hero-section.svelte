@@ -5,7 +5,7 @@
   export let onDiscoverClick: () => void;
   export let onRestaurantClick: () => void;
 </script>
-
+<!-- Hero Section -->
 <section class="bg-white py-20 md:py-32 overflow-hidden relative">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="md:flex md:items-center md:justify-between">
