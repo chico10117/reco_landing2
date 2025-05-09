@@ -1,6 +1,6 @@
-import type { PageServerLoad } from './$types';
+import type { RequestEvent } from '@sveltejs/kit';
 
-export const load: PageServerLoad = async ({ url }) => {
+export const load = async ({ url }: RequestEvent) => {
   const path = url.pathname;
   
   // Determinar qué contenido mostrar basado en la ruta

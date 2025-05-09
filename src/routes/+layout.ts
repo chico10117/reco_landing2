@@ -1,3 +1,8 @@
-export const prerender = false;
+// Configuración de SvelteKit
+export const trailingSlash = 'never';
+
+// Configuración de SSR
 export const ssr = true;
-export const trailingSlash = 'never'; 
+
+// Configuración de prerendering
+export const prerender = false; 
