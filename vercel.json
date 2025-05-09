@@ -13,14 +13,10 @@
   },
   "routes": [
     { "handle": "filesystem" },
-    { "src": "/restaurantes", "dest": "restaurantes" },
-    { "src": "/precios", "dest": "precios" },
-    { "src": "/noticias", "dest": "noticias" },
-    { "src": "/nosotros", "dest": "nosotros" },
-    { 
-      "src": "/(restaurantes|precios|noticias|nosotros)/(.*)", 
-      "dest": "/$1.html" 
-    },
+    { "src": "/restaurantes", "dest": "/restaurantes.html" },
+    { "src": "/precios", "dest": "/precios.html" },
+    { "src": "/noticias", "dest": "/noticias.html" },
+    { "src": "/nosotros", "dest": "/nosotros.html" },
     { "src": "/(.*)", "dest": "/" }
   ]
 } 

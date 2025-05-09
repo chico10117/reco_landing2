@@ -38,13 +38,13 @@
       
       <!-- Menú de navegación para escritorio -->
       <div class="hidden lg:flex lg:items-center">
-        <a href="/restaurantes" class="text-white hover:text-white/80 flex items-center space-x-1 mx-6 px-6">
+        <a href="/?page=restaurantes" class="text-white hover:text-white/80 flex items-center space-x-1 mx-6 px-6">
           <span>Restaurantes</span>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><polyline points="6 9 12 15 18 9"></polyline></svg>
         </a>
-        <a href="/precios" class="text-white hover:text-white/80 mx-6 px-6">Precios</a>
-        <a href="/noticias" class="text-white hover:text-white/80 mx-6 px-6">Noticias</a>
-        <a href="/nosotros" class="text-white hover:text-white/80 flex items-center space-x-1 mx-6 px-6">
+        <a href="/?page=precios" class="text-white hover:text-white/80 mx-6 px-6">Precios</a>
+        <a href="/?page=noticias" class="text-white hover:text-white/80 mx-6 px-6">Noticias</a>
+        <a href="/?page=nosotros" class="text-white hover:text-white/80 flex items-center space-x-1 mx-6 px-6">
           <span>Nosotros</span>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><polyline points="6 9 12 15 18 9"></polyline></svg>
         </a>
@@ -95,13 +95,13 @@
   {#if isMenuOpen}
     <div class="bg-blue-600 py-4 px-4 lg:hidden">
       <div class="flex flex-col space-y-4">
-        <a href="/restaurantes" class="text-white hover:text-white/80 flex items-center space-x-1" on:click={closeMenu}>
+        <a href="/?page=restaurantes" class="text-white hover:text-white/80 flex items-center space-x-1" on:click={closeMenu}>
           <span>Restaurantes</span>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><polyline points="6 9 12 15 18 9"></polyline></svg>
         </a>
-        <a href="/precios" class="text-white hover:text-white/80" on:click={closeMenu}>Precios</a>
-        <a href="/noticias" class="text-white hover:text-white/80" on:click={closeMenu}>Noticias</a>
-        <a href="/nosotros" class="text-white hover:text-white/80 flex items-center space-x-1" on:click={closeMenu}>
+        <a href="/?page=precios" class="text-white hover:text-white/80" on:click={closeMenu}>Precios</a>
+        <a href="/?page=noticias" class="text-white hover:text-white/80" on:click={closeMenu}>Noticias</a>
+        <a href="/?page=nosotros" class="text-white hover:text-white/80 flex items-center space-x-1" on:click={closeMenu}>
           <span>Nosotros</span>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><polyline points="6 9 12 15 18 9"></polyline></svg>
         </a>

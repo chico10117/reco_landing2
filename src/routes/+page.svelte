@@ -12,6 +12,15 @@
   import ContactCTA from "$lib/components/landing/contact-cta.svelte";
   import Footer from "$lib/components/landing/footer.svelte";
   
+  // Importar componentes necesarios
+  import { page } from '$app/stores';
+  
+  // Importar componentes de secciones
+  import RestaurantesContent from './restaurantes/+page.svelte';
+  import PreciosContent from './precios/+page.svelte';
+  import NoticiasContent from './noticias/+page.svelte';
+  import NosotrosContent from './nosotros/+page.svelte';
+  
   export let data;
   
   // Function handlers for hero section
@@ -31,9 +40,25 @@
     { name: "TGB", logoUrl: "/img/logo-tgb.svg" }
   ];
   
+  // Estado para la página actual
+  let currentPage = '';
+  
   onMount(() => {
     // Track page view
     track('page_view', { page: 'home' });
+    
+    // Obtener el parámetro de la URL
+    const urlParams = new URLSearchParams(window.location.search);
+    currentPage = urlParams.get('page') || '';
+    
+    // Si hay un parámetro, actualizar la URL sin recargar la página
+    if (currentPage) {
+      window.history.replaceState(
+        {}, 
+        document.title, 
+        `/${currentPage}`
+      );
+    }
   });
 </script>
 
@@ -50,23 +75,33 @@
   <meta property="og:type" content={data.meta.openGraph.type} />
 </svelte:head>
 
-<div class="min-h-screen bg-white text-gray-900 flex flex-col">
-  <Navbar />
+{#if currentPage === 'restaurantes'}
+  <RestaurantesContent />
+{:else if currentPage === 'precios'}
+  <PreciosContent />
+{:else if currentPage === 'noticias'}
+  <NoticiasContent />
+{:else if currentPage === 'nosotros'}
+  <NosotrosContent />
+{:else}
+  <div class="min-h-screen bg-white text-gray-900 flex flex-col">
+    <Navbar />
 
-  <main class="flex-grow">
-    <HeroSection 
-      onDiscoverClick={handleDiscoverClick} 
-      onRestaurantClick={handleRestaurantClick} 
-    />
-    
-    <BenefitsSection />
-    
-    <HowItWorks />
-    
-    <PartnersStrip {partners} />
-    
-    <ContactCTA />
-  </main>
+    <main class="flex-grow">
+      <HeroSection 
+        onDiscoverClick={handleDiscoverClick} 
+        onRestaurantClick={handleRestaurantClick} 
+      />
+      
+      <BenefitsSection />
+      
+      <HowItWorks />
+      
+      <PartnersStrip {partners} />
+      
+      <ContactCTA />
+    </main>
 
-  <Footer />
-</div> 
+    <Footer />
+  </div>
+{/if} 
