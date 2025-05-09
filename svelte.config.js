@@ -5,15 +5,13 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 const config = {
 	kit: {
 		adapter: adapter({
-			runtime: 'nodejs20.x'
+			runtime: 'nodejs18.x'
 		}),
 		alias: {
 			$lib: './src/lib'
 		},
 		prerender: {
-			handleHttpError: ({ path, referrer, message }) => {
-				console.warn(`Warning: ${message} (${path} from ${referrer})`);
-			}
+			handleHttpError: 'warn'
 		}
 	},
 	preprocess: vitePreprocess()
