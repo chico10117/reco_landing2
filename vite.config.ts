@@ -8,5 +8,13 @@ export default defineConfig({
 			// Allow serving files from one level up from the package root
 			allow: ['..']
 		}
+	},
+	build: {
+		cssCodeSplit: false,
+		rollupOptions: {
+			output: {
+				manualChunks: undefined
+			}
+		}
 	}
 }); 
