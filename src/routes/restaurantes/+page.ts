@@ -1,4 +1,6 @@
-export function load() {
+import type { PageLoad } from './$types';
+
+export const load = (async () => {
   return {
     meta: {
       title: 'Restaurantes | Reco',
@@ -6,4 +8,4 @@ export function load() {
       keywords: 'restaurantes, reco, inteligencia artificial, menú digital'
     }
   };
-} 
+}) satisfies PageLoad; 
