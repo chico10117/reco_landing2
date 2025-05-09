@@ -1,13 +1,15 @@
-<script>
+<script lang="ts">
   import '../app.css';
   import Navbar from '$lib/components/Navbar.svelte';
   import Footer from '$lib/components/landing/footer.svelte';
 </script>
 
-<div class="flex flex-col min-h-screen">
+<div class="min-h-screen bg-white text-gray-900 flex flex-col">
   <Navbar />
+  
   <main class="flex-grow">
     <slot />
   </main>
+
   <Footer />
 </div> 
