@@ -7,6 +7,9 @@ const config = {
 		adapter: adapter({
 			runtime: 'nodejs20.x'
 		}),
+		alias: {
+			$lib: './src/lib'
+		},
 		prerender: {
 			handleHttpError: ({ path, referrer, message }) => {
 				console.warn(`Warning: ${message} (${path} from ${referrer})`);
