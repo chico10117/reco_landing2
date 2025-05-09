@@ -5,4 +5,4 @@ export const trailingSlash = 'never';
 export const ssr = true;
 
 // Configuración de prerendering
-export const prerender = true; 
+export const prerender = false; 

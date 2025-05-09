@@ -1,6 +1,6 @@
 import type { PageServerLoad } from './$types';
 
-export const prerender = true;
+export const prerender = false;
 
 type PageData = {
   [key: string]: {
