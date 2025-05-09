@@ -1,5 +1,13 @@
 <script>
-  import "../app.css";
+  import '../app.css';
+  import Navbar from '$lib/components/Navbar.svelte';
+  import Footer from '$lib/components/Footer.svelte';
 </script>
 
-<slot /> 
+<div class="flex flex-col min-h-screen">
+  <Navbar />
+  <main class="flex-grow">
+    <slot />
+  </main>
+  <Footer />
+</div> 
