@@ -93,7 +93,7 @@
         <div class="text-2xl font-bold text-red-400 mb-4 md:mb-0">FanLatinas</div>
         <nav class="space-x-6">
           <a href="/terms" class="text-gray-300 hover:text-red-400 transition-colors">Términos de Servicio</a>
-          <a href="/contact" class="text-gray-300 hover:text-red-400 transition-colors">Contacto</a>
+          <a href="https://calendly.com/fernando-lqrb/15min" class="text-gray-300 hover:text-red-400 transition-colors">Contacto</a>
         </nav>
       </div>
       <div class="border-t border-gray-800 my-6"></div>

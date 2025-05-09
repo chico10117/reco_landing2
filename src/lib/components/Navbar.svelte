@@ -55,7 +55,7 @@
     <div class="flex items-center">
       <!-- Enlaces de acción para escritorio -->
       <div class="hidden lg:flex lg:items-center lg:space-x-4">
-        <a href="/login" class="text-white hover:text-white/80 flex items-center space-x-1 px-4" on:click={() => track('nav_click', { label: 'restaurant_login' })}>
+        <a href="https://app.reco.chat/login" class="text-white hover:text-white/80 flex items-center space-x-1 px-4" on:click={() => track('nav_click', { label: 'restaurant_login' })}>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
           <span>Restaurantes | Login</span>
         </a>
@@ -106,7 +106,7 @@
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><polyline points="6 9 12 15 18 9"></polyline></svg>
         </a>
         <div class="pt-2 border-t border-blue-500">
-          <a href="/login" class="text-white hover:text-white/80 flex items-center space-x-1" on:click={closeMenu}>
+          <a href="https://app.reco.chat/login" class="text-white hover:text-white/80 flex items-center space-x-1" on:click={closeMenu}>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
             <span>Restaurantes | Login</span>
           </a>
