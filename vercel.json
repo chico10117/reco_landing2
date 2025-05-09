@@ -5,6 +5,12 @@
   "outputDirectory": ".svelte-kit/output",
   "trailingSlash": false,
   "cleanUrls": true,
+  "git": {
+    "deploymentEnabled": {
+      "main": true,
+      "RecoLanding": false
+    }
+  },
   "routes": [
     { "handle": "filesystem" },
     { "src": "/restaurantes", "dest": "/restaurantes" },
