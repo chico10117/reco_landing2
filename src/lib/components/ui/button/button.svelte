@@ -24,7 +24,7 @@
 </script>
 
 <button
-  class={cn(buttonVariants({ variant, size, className }))}
+  class={cn(buttonVariants({ variant, size }), className)}
   on:click={handleClick}
   {...$$restProps}
 >
