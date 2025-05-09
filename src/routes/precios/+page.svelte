@@ -1,6 +1,4 @@
 <script lang="ts">
-  import Navbar from "$lib/components/Navbar.svelte";
-  import Footer from "$lib/components/landing/footer.svelte";
 </script>
 
 <svelte:head>
@@ -15,6 +13,4 @@
       Conoce nuestros planes y precios adaptados a las necesidades de tu restaurante.
     </p>
   </div>
-</div>
-
-<Footer /> 
+</div> 

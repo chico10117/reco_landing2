@@ -1,6 +1,4 @@
 <script lang="ts">
-  import Navbar from "$lib/components/Navbar.svelte";
-  import Footer from "$lib/components/landing/footer.svelte";
 </script>
 
 <svelte:head>
@@ -15,6 +13,4 @@
       Mantente al día con las últimas noticias y actualizaciones de Reco.
     </p>
   </div>
-</div>
-
-<Footer /> 
+</div> 

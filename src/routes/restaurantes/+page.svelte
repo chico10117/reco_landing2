@@ -1,6 +1,4 @@
 <script lang="ts">
-  import Navbar from "$lib/components/Navbar.svelte";
-  import Footer from "$lib/components/landing/footer.svelte";
 </script>
 
 <svelte:head>
@@ -15,6 +13,4 @@
       Descubre los restaurantes que utilizan Reco para mejorar la experiencia de sus comensales.
     </p>
   </div>
-</div>
-
-<Footer /> 
+</div> 
