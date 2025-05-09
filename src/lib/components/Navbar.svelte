@@ -59,7 +59,7 @@
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
           <span>Restaurantes | Login</span>
         </a>
-        <a href="/contacto">
+        <a href="/contact">
           <Button 
             variant="default" 
             class="bg-white text-blue-600 hover:bg-white/90 font-medium rounded-md px-5 py-2"
@@ -111,7 +111,7 @@
             <span>Restaurantes | Login</span>
           </a>
         </div>
-        <a href="/contacto" class="block w-full" on:click={closeMenu}>
+        <a href="/contact" class="block w-full" on:click={closeMenu}>
           <Button 
             variant="default" 
             class="bg-white text-blue-600 hover:bg-white/90 font-medium rounded-md px-5 py-2 w-full"
