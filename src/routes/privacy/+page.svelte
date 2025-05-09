@@ -1,23 +1,12 @@
 <script lang="ts">
   import { Button } from "$lib/components/ui/button";
+  import { track } from "$lib/utils/analytics";
+  import Navbar from "$lib/components/Navbar.svelte";
 </script>
 
 <div class="min-h-screen bg-white">
   <!-- Navigation -->
-  <nav class="bg-white border-b border-gray-100 fixed w-full top-0 z-50 shadow-sm">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
-      <a href="/" class="text-2xl font-bold text-red-600">FanLatinas</a>
-      <div class="flex items-center space-x-4">
-        <Button 
-          variant="ghost" 
-          class="text-gray-700 hover:text-red-600 rounded-full px-6"
-          href="/"
-        >
-          Volver al Inicio
-        </Button>
-      </div>
-    </div>
-  </nav>
+  <Navbar />
 
   <!-- Content -->
   <div class="pt-20 pb-12">

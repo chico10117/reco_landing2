@@ -10,7 +10,7 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="md:flex md:items-center md:justify-between">
       <div class="md:w-1/2 md:pr-12 mb-12 md:mb-0">
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight">
           Pide mejor.<br>
           <span class="text-blue-600">Disfruta más.</span>
         </h1>
@@ -45,14 +45,16 @@
           </Button>
         </div>
         
-        <div class="mt-8">
-          <p class="text-sm text-gray-500 mb-3">Confían en nosotros:</p>
-          <div class="flex items-center gap-6">
-            <img src="/img/logo-yelmo.svg" alt="Yelmo" class="h-8 opacity-70 hover:opacity-100 transition-opacity" />
-            <img src="/img/logo-vips.svg" alt="VIPS" class="h-8 opacity-70 hover:opacity-100 transition-opacity" />
-            <img src="/img/logo-honest-greens.svg" alt="Honest Greens" class="h-8 opacity-70 hover:opacity-100 transition-opacity" />
+        <p class="mt-8 text-sm text-gray-500">Confían en nosotros:</p>
+        <div class="relative">
+          <div class="absolute left-0 mt-2 flex flex-wrap items-center gap-8">
+            <img src="/Yelmo.png" alt="Cine Yelmo" class="h-20 opacity-100 hover:opacity-90 transition-opacity" />
+            <img src="/VIPS.png" alt="Vips" class="h-16 opacity-100 hover:opacity-90 transition-opacity" />
+            <img src="/HonestGreens.png" alt="HonestGreens" class="h-16 opacity-100 hover:opacity-90 transition-opacity" />
           </div>
         </div>
+        <!-- Espacio adicional para evitar que el contenido siguiente se superponga con los logos -->
+        <div class="h-28"></div>
       </div>
       
       <div class="md:w-1/2 relative">
