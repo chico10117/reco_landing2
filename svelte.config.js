@@ -5,10 +5,18 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 const config = {
 	kit: {
 		adapter: adapter({
-			// Specify Node.js 20.x runtime
-			runtime: 'nodejs20.x'
+			runtime: 'nodejs20.x',
+			edge: false,
+			split: false
 		}),
 		prerender: {
+			entries: [
+				'*',
+				'/restaurantes',
+				'/precios',
+				'/noticias',
+				'/nosotros'
+			],
 			handleHttpError: ({ path, referrer, message }) => {
 				// Ignore missing routes during prerendering
 				if (path.startsWith('/blog') || 
@@ -25,6 +33,9 @@ const config = {
 				// Otherwise throw the error
 				throw new Error(message);
 			}
+		},
+		paths: {
+			base: ''
 		}
 	},
 	preprocess: vitePreprocess()
