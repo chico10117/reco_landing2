@@ -3,20 +3,5 @@
   "installCommand": "pnpm install",
   "framework": "sveltekit",
   "outputDirectory": ".svelte-kit/output",
-  "trailingSlash": false,
-  "cleanUrls": true,
-  "git": {
-    "deploymentEnabled": {
-      "main": true,
-      "RecoLanding": false
-    }
-  },
-  "routes": [
-    { "handle": "filesystem" },
-    { "src": "/restaurantes", "dest": "/restaurantes.html" },
-    { "src": "/precios", "dest": "/precios.html" },
-    { "src": "/noticias", "dest": "/noticias.html" },
-    { "src": "/nosotros", "dest": "/nosotros.html" },
-    { "src": "/(.*)", "dest": "/" }
-  ]
+  "cleanUrls": true
 } 
