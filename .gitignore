@@ -10,6 +10,12 @@ yarn-debug.log
 yarn-error.log
 pnpm-debug.log
 
+# pnpm specific
+.pnpm-store/
+.pnpm-state.json
+.pnpm-lock.yaml
+.pnpm-debug.log
+
 # Environment variables
 .env
 .env.*

@@ -1,44 +1,66 @@
 <script lang="ts">
   import { fade } from 'svelte/transition';
   import { createEventDispatcher } from 'svelte';
-  
-  export let showModal: boolean;
-  
+
   const dispatch = createEventDispatcher();
-  
-  $: {
-    console.log('Modal showModal value changed:', showModal);
-  }
-  
+
+  // Props
+  let { 
+    open = false, 
+    title = '', 
+    showCloseButton = true 
+  } = $props<{
+    open?: boolean;
+    title?: string;
+    showCloseButton?: boolean;
+  }>();
+
   function closeModal() {
-    console.log('Closing modal...');
-    showModal = false;
     dispatch('close');
   }
+
+  function handleKeydown(event: KeyboardEvent) {
+    if (event.key === 'Escape' && open) {
+      closeModal();
+    }
+  }
+
+  // Listen for keydown events
+  $effect(() => {
+    if (typeof window !== 'undefined') {
+      window.addEventListener('keydown', handleKeydown);
+      return () => {
+        window.removeEventListener('keydown', handleKeydown);
+      };
+    }
+  });
 </script>
 
-{#if showModal}
-  <div 
-    class="fixed inset-0 bg-black/50 z-[100]"
-    transition:fade
-    on:click={closeModal}
-  >
-    <div 
-      class="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white p-6 rounded-lg w-full max-w-lg"
-      on:click|stopPropagation
-    >
-      <div class="flex justify-between items-center mb-4">
-        <h2 class="text-lg font-semibold">Únete a la Lista de Espera</h2>
-        <button 
-          class="text-gray-500 hover:text-gray-700"
-          on:click={closeModal}
-        >
-          ✕
-        </button>
+{#if open}
+  <div class="fixed inset-0 z-50 flex items-center justify-center">
+    <!-- Backdrop -->
+    <div class="fixed inset-0 bg-black/50" transition:fade={{ duration: 200 }} onclick={closeModal}></div>
+    
+    <!-- Modal content -->
+    <div class="relative bg-white rounded-lg shadow-xl max-w-md w-full mx-4 z-10" transition:fade={{ duration: 150 }}>
+      {#if title}
+        <div class="flex justify-between items-center p-5 border-b">
+          <h3 class="text-xl font-semibold">{title}</h3>
+          {#if showCloseButton}
+            <button 
+              class="text-gray-500 hover:text-gray-700" 
+              onclick={closeModal}
+              aria-label="Close modal"
+            >
+              ×
+            </button>
+          {/if}
+        </div>
+      {/if}
+      
+      <div class="p-5">
+        {@render $$slots.default?.()}
       </div>
-      <slot />
     </div>
   </div>
-{:else}
-  <div class="hidden">Modal is closed</div>
 {/if} 

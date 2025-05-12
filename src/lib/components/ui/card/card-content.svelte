@@ -1,10 +1,11 @@
 <script lang="ts">
   import { cn } from "$lib/utils";
 
-  let className: string | undefined = undefined;
-  export { className as class };
+  let { class: className = "" } = $props<{
+    class?: string;
+  }>();
 </script>
 
-<div class={cn("p-6 pt-0", className)} {...$$restProps}>
-  <slot />
+<div class={cn("p-6 pt-0", className)}>
+  {@render $$slots.default?.()}
 </div> 

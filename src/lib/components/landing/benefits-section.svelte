@@ -10,7 +10,7 @@
         RECO es una carta digital inteligente que personaliza la experiencia de cada comensal.
         Funciona con un simple escaneo de QR - sin necesidad de app.
       </p>
-      <a href="#explora" class="mt-6 inline-block text-blue-600 font-medium hover:underline">Explorar cómo usarlo →</a>
+      <a href="#how-it-works" class="mt-6 inline-block text-blue-600 font-medium hover:underline">Explorar cómo usarlo →</a>
     </div>
     
     <div class="grid md:grid-cols-3 gap-8 mt-16">

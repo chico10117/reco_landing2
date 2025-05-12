@@ -4,13 +4,13 @@
     logoUrl: string;
   }
   
-  export let partners: Partner[] = [
+  let { partners = [
     { name: "Yelmo", logoUrl: "/img/logo-yelmo.svg" },
     { name: "VIPS", logoUrl: "/img/logo-vips.svg" },
     { name: "Honest Greens", logoUrl: "/img/logo-honest-greens.svg" },
     { name: "TGB", logoUrl: "/img/logo-tgb.svg" },
     { name: "FoodBox", logoUrl: "/img/logo-foodbox.svg" }
-  ];
+  ] } = $props<{partners?: Partner[]}>();
 </script>
 
 <section class="py-12 bg-gray-50">

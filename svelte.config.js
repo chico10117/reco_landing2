@@ -11,7 +11,16 @@ const config = {
 			$lib: './src/lib'
 		},
 		prerender: {
-			handleHttpError: 'warn',
+			handleHttpError: ({ status, path, referrer, referenceType }) => {
+				if (path.startsWith('/img/') || path.includes('.jpg') || path.includes('.png') || path.includes('.svg')) {
+					console.warn(`Missing asset file: ${path}`);
+					return;
+				}
+				
+				// otherwise fail the build
+				throw new Error(`${status} ${path}${referrer ? ` (${referenceType} from ${referrer})` : ''}`);
+			},
+			handleMissingId: 'ignore',
 			entries: ['*']
 		},
 		inlineStyleThreshold: 8192,
@@ -19,7 +28,10 @@ const config = {
 			checkOrigin: false
 		}
 	},
-	preprocess: vitePreprocess()
+	preprocess: vitePreprocess(),
+	compilerOptions: {
+		runes: true
+	}
 };
 
 export default config; 

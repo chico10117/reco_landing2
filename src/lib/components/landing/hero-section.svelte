@@ -2,8 +2,10 @@
   import { Button } from "$lib/components/ui/button";
   import { track } from "$lib/utils/analytics";
 
-  export let onDiscoverClick: () => void;
-  export let onRestaurantClick: () => void;
+  let { onDiscoverClick, onRestaurantClick } = $props<{
+    onDiscoverClick: () => void;
+    onRestaurantClick: () => void;
+  }>();
 </script>
 <!-- Hero Section -->
 <section class="bg-white py-20 md:py-32 overflow-hidden relative">
@@ -48,9 +50,9 @@
         <p class="mt-8 text-sm text-gray-500">Confían en nosotros:</p>
         <div class="relative">
           <div class="absolute left-0 mt-2 flex flex-wrap items-center gap-8">
-            <img src="/Yelmo.png" alt="Cine Yelmo" class="h-20 opacity-100 hover:opacity-90 transition-opacity" />
-            <img src="/VIPS.png" alt="Vips" class="h-16 opacity-100 hover:opacity-90 transition-opacity" />
-            <img src="/HonestGreens.png" alt="HonestGreens" class="h-16 opacity-100 hover:opacity-90 transition-opacity" />
+            <img src="/img/logo-yelmo.svg" alt="Cine Yelmo" class="h-20 opacity-100 hover:opacity-90 transition-opacity" />
+            <img src="/img/logo-vips.svg" alt="Vips" class="h-16 opacity-100 hover:opacity-90 transition-opacity" />
+            <img src="/img/logo-honest-greens.svg" alt="HonestGreens" class="h-16 opacity-100 hover:opacity-90 transition-opacity" />
           </div>
         </div>
         <!-- Espacio adicional para evitar que el contenido siguiente se superponga con los logos -->

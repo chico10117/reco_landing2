@@ -33,7 +33,9 @@
 
 <BenefitsSection />
 
-<HowItWorks />
+<div id="explora">
+  <HowItWorks />
+</div>
 
 <PartnersStrip {partners} />
 
