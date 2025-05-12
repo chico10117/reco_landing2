@@ -1,0 +1,357 @@
+# Svelte 5 Runes Syntax Guide
+
+This guide covers the proper syntax and patterns for using Svelte 5 runes in your code. Runes are compiler directives that start with `$` and are used to manage reactivity in Svelte 5.
+
+## State Management
+
+### `$state` - Declaring Reactive State
+
+Use `$state` to create reactive variables:
+
+```svelte
+<script>
+  // Simple state
+  let count = $state(0);
+  
+  // Object state
+  let user = $state({ name: 'John', age: 30 });
+  
+  // Array state
+  let items = $state([1, 2, 3]);
+  
+  // Class state (preferred approach for complex state)
+  class Counter {
+    count = $state(0);
+    
+    increment() {
+      this.count++;
+    }
+  }
+  
+  const counter = new Counter();
+</script>
+
+<button on:click={() => count++}>{count}</button>
+<button on:click={() => counter.increment()}>{counter.count}</button>
+```
+
+### `$derived` - Computed Values
+
+Use `$derived` for values derived from other state:
+
+```svelte
+<script>
+  let count = $state(0);
+  let doubled = $derived(count * 2);
+  let message = $derived(
+    count > 10 ? "Count is high" : "Count is low"
+  );
+  
+  // With function syntax for complex calculations
+  let expensiveCalculation = $derived(() => {
+    // Complex calculation here
+    return count * count;
+  });
+</script>
+
+<div>Count: {count}, Doubled: {doubled}</div>
+<div>Message: {message}</div>
+```
+
+### `$effect` - Side Effects
+
+Use `$effect` for side effects when reactive values change:
+
+```svelte
+<script>
+  let count = $state(0);
+  
+  // Basic effect
+  $effect(() => {
+    console.log(`Count changed to ${count}`);
+  });
+  
+  // With cleanup function (returned function runs before the next effect)
+  $effect(() => {
+    const interval = setInterval(() => {
+      count++;
+    }, 1000);
+    
+    // Return cleanup function
+    return () => {
+      clearInterval(interval);
+    };
+  });
+  
+  // Effect that only runs on hydration (client side)
+  $effect(() => {
+    if (typeof window === 'undefined') return;
+    // Client-side only code
+  });
+</script>
+```
+
+### `$props` - Component Props
+
+Use `$props` to define component props:
+
+```svelte
+<script>
+  // Basic props
+  let { name, age = 25 } = $props();
+  
+  // With TypeScript
+  let { 
+    name, 
+    age = 25, 
+    onClick 
+  } = $props<{ 
+    name: string; 
+    age?: number; 
+    onClick?: () => void;
+  }>();
+  
+  // Required children snippet prop for layouts
+  let { children } = $props<{ 
+    children?: import('svelte').Snippet;
+  }>();
+</script>
+
+<div>Hello {name}, you are {age} years old</div>
+<button on:click={onClick}>Click me</button>
+
+<!-- Render children snippets -->
+{@render children?.()}
+```
+
+## Rendering
+
+### `{@render ...}` - Render Snippets
+
+Use `{@render}` to render snippets instead of using slots:
+
+```svelte
+<script>
+  // Child component
+  let { item, footer } = $props<{
+    item: (item: any) => import('svelte').Snippet;
+    footer?: import('svelte').Snippet;
+  }>();
+</script>
+
+<div>
+  {@render item({ text: 'Hello' })}
+</div>
+<footer>
+  {@render footer?.()}
+</footer>
+
+<!-- Parent usage example:
+<ChildComponent>
+  {#snippet item(params)}
+    <span>{params.text}</span>
+  {/snippet}
+  
+  {#snippet footer()}
+    <p>Footer content</p>
+  {/snippet}
+</ChildComponent>
+-->
+```
+
+## TypeScript Integration
+
+### Type Definitions
+
+When using TypeScript with Svelte 5:
+
+```svelte
+<script lang="ts">
+  import type { Snippet } from 'svelte';
+  
+  // Typed props
+  let { 
+    name, 
+    items = [],
+    onSelect,
+    children
+  } = $props<{ 
+    name: string; 
+    items?: string[];
+    onSelect?: (item: string) => void;
+    children?: Snippet;
+  }>();
+  
+  // Type-safe state
+  interface User {
+    id: number;
+    name: string;
+    email: string;
+  }
+  
+  let user = $state<User | null>(null);
+  
+  // Type-safe snippets
+  let { 
+    header,
+    row 
+  } = $props<{
+    header?: Snippet;
+    row: (item: { id: number; name: string }) => Snippet;
+  }>();
+</script>
+```
+
+## Debugging
+
+### `$inspect` - Debug Values
+
+Use `$inspect` for debugging state changes:
+
+```svelte
+<script>
+  let count = $state(0);
+  
+  // Log state changes to console
+  $inspect(count);
+  
+  // Log multiple values with custom label
+  $inspect("Debug values", count, otherValue);
+</script>
+```
+
+## Migration from Svelte 4
+
+### Slots to Snippets
+
+Convert Svelte 4 slots to Svelte 5 snippets:
+
+```svelte
+<!-- Svelte 4 (deprecated) -->
+<slot name="header"></slot>
+<slot item={item}></slot>
+
+<!-- Svelte 5 (preferred) -->
+<script>
+  let { header, item } = $props<{
+    header?: Snippet;
+    item: (data: any) => Snippet;
+  }>();
+</script>
+
+{@render header?.()}
+{@render item(someData)}
+```
+
+### Store Subscriptions to Runes
+
+Convert Svelte 4 store patterns to Svelte 5 runes:
+
+```svelte
+<!-- Svelte 4 (deprecated) -->
+<script>
+  import { writable } from 'svelte/store';
+  const count = writable(0);
+</script>
+
+<div>{$count}</div>
+
+<!-- Svelte 5 (preferred) -->
+<script>
+  let count = $state(0);
+</script>
+
+<div>{count}</div>
+```
+
+## Common Patterns
+
+### Best Practices
+
+1. Use classes for complex state management:
+
+```svelte
+<script>
+  class TodoList {
+    todos = $state([]);
+    filter = $state('all');
+    
+    get filteredTodos() {
+      return $derived(
+        this.filter === 'all' 
+          ? this.todos 
+          : this.todos.filter(t => 
+              this.filter === 'completed' ? t.completed : !t.completed
+            )
+      );
+    }
+    
+    addTodo(text) {
+      this.todos = [...this.todos, { text, completed: false }];
+    }
+    
+    toggleTodo(index) {
+      this.todos = this.todos.map((todo, i) => 
+        i === index ? { ...todo, completed: !todo.completed } : todo
+      );
+    }
+  }
+  
+  const todoList = new TodoList();
+</script>
+```
+
+2. Always handle SSR/hydration when interacting with browser APIs:
+
+```svelte
+<script>
+  $effect(() => {
+    if (typeof window === 'undefined') return;
+    
+    // Now safe to use browser APIs
+    window.addEventListener('resize', handleResize);
+    
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  });
+</script>
+```
+
+3. Use `$state` for arrays and objects that need to be mutated:
+
+```svelte
+<script>
+  // BAD - mutation won't trigger updates
+  let items = [1, 2, 3];
+  function addItem() {
+    items.push(4); // Won't update UI
+  }
+  
+  // GOOD - using $state
+  let reactiveItems = $state([1, 2, 3]);
+  function addReactiveItem() {
+    reactiveItems.push(4); // Will update UI correctly
+  }
+  
+  // ALTERNATIVE - using immutable patterns
+  function addItemImmutable() {
+    reactiveItems = [...reactiveItems, 4]; // Also works
+  }
+</script>
+```
+
+## Common Errors
+
+1. `slot_snippet_conflict` error occurs when mixing old slots with new snippet syntax in the same component. Always fully migrate to snippets.
+
+2. Using `$state` outside of a variable declaration or class field is not allowed.
+
+3. When using `$effect`, always check for browser APIs with `typeof window === 'undefined'` for SSR safety.
+
+4. TypeScript errors about `$state`, `$effect`, etc., are expected during this transitional period and won't affect functionality.
+
+## Reference
+
+- Official Svelte 5 Documentation: https://svelte.dev/docs
+- Migration Guide: https://svelte.dev/docs/svelte/v5-migration-guide 

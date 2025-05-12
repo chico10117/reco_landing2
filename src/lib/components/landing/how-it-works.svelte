@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onMount } from "svelte";
+  import { onMount } from 'svelte';
   
   interface Step {
     title: string;
@@ -38,14 +38,16 @@
     }
   ];
   
-  let stepsVisible = Array(steps.length).fill(false);
+  let visible = $state(Array(steps.length).fill(false));
   
-  onMount(() => {
+  $effect(() => {
+    if (typeof window === 'undefined') return;
+    
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const index = parseInt(entry.target.getAttribute('data-index') || '0');
-          stepsVisible[index] = true;
+          visible[index] = true;
         }
       });
     }, { threshold: 0.3 });
@@ -75,7 +77,8 @@
         
         {#each steps as step, i}
           <div 
-            class="step-item relative flex items-start mb-12 transition-opacity duration-500 ease-in-out {stepsVisible[i] ? 'opacity-100' : 'opacity-0'}" 
+            class="step-item relative flex items-start mb-12 transition-all duration-500 ease-in-out opacity-0"
+            class:opacity-100={visible[i]}
             style="transition-delay: {i * 150}ms;"
             data-index={i}
           >
