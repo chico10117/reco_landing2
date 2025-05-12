@@ -8,8 +8,12 @@
   const calendlyUrl: string = "https://calendly.com/fernando-lqrb/15min";
 </script>
 
-<section class="py-16 md:py-24 bg-gradient-to-br from-blue-600 to-blue-800 text-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<section class="relative py-16 md:py-24 text-white overflow-hidden">
+  <div class="absolute inset-0 z-0">
+    <div class="w-full h-full" style="background-image: url('/img/lastbksvg.svg'); background-size: cover; background-position: center; background-repeat: no-repeat;"></div>
+  </div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
     <h2 class="text-3xl md:text-4xl font-bold mb-6">Transforma la experiencia de tus clientes con Reco</h2>
     
     <p class="text-xl text-blue-100 max-w-3xl mx-auto mb-10">
@@ -34,7 +38,7 @@
         <Button 
           variant="outline" 
           size="lg" 
-          class="border-white text-blue-600 hover:bg-blue-700 hover:text-white rounded-full px-8 w-full"
+          class="bg-white text-blue-600 hover:bg-blue-50 rounded-full px-8 w-full"
           on:click={() => {
             track('cta_click', { label: 'free_trial' });
           }}
