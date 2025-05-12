@@ -78,8 +78,8 @@
     <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
       {#each restaurantTypes as type, i}
         <ScrollTransition delay={i * 200}>
-          <div class="bg-white rounded-xl shadow-xl p-8">
-            <div class="w-16 h-16 {type.iconBgColor} rounded-xl mb-6 flex items-center justify-center">
+          <div class="bg-white rounded-xl shadow-xl p-8 transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.02] cursor-pointer">
+            <div class="w-16 h-16 {type.iconBgColor} rounded-xl mb-6 flex items-center justify-center transition-transform duration-300 ease-in-out group-hover:scale-110">
               <div class={type.iconColor}>
                 {@html type.icon}
               </div>

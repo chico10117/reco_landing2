@@ -19,8 +19,8 @@
     <div class="grid md:grid-cols-3 gap-8 mt-16">
       <!-- Benefit 1 - Menús en tu idioma -->
       <ScrollTransition delay={200}>
-        <div class="bg-white rounded-xl shadow-xl p-8">
-          <div class="w-16 h-16 bg-blue-100 rounded-xl mb-6 flex items-center justify-center">
+        <div class="bg-white rounded-xl shadow-xl p-8 transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.02] cursor-pointer">
+          <div class="w-16 h-16 bg-blue-100 rounded-xl mb-6 flex items-center justify-center transition-transform duration-300 ease-in-out group-hover:scale-110">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
             </svg>
@@ -36,8 +36,8 @@
       
       <!-- Benefit 2 - Recomendaciones personalizadas -->
       <ScrollTransition delay={400}>
-        <div class="bg-white rounded-xl shadow-xl p-8">
-          <div class="w-16 h-16 bg-green-100 rounded-xl mb-6 flex items-center justify-center">
+        <div class="bg-white rounded-xl shadow-xl p-8 transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.02] cursor-pointer">
+          <div class="w-16 h-16 bg-green-100 rounded-xl mb-6 flex items-center justify-center transition-transform duration-300 ease-in-out group-hover:scale-110">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
             </svg>
@@ -53,8 +53,8 @@
       
       <!-- Benefit 3 - Pide y paga desde el móvil -->
       <ScrollTransition delay={600}>
-        <div class="bg-white rounded-xl shadow-xl p-8">
-          <div class="w-16 h-16 bg-purple-100 rounded-xl mb-6 flex items-center justify-center">
+        <div class="bg-white rounded-xl shadow-xl p-8 transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.02] cursor-pointer">
+          <div class="w-16 h-16 bg-purple-100 rounded-xl mb-6 flex items-center justify-center transition-transform duration-300 ease-in-out group-hover:scale-110">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
             </svg>
