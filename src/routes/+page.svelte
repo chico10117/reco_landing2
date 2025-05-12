@@ -4,6 +4,7 @@
   import HowItWorks from '$lib/components/landing/how-it-works.svelte';
   import PartnersStrip from '$lib/components/landing/partners-strip.svelte';
   import ContactCTA from '$lib/components/landing/contact-cta.svelte';
+  import ChooseRestaurantType from '$lib/components/landing/choose-restaurant-type.svelte';
   import { partners } from '$lib/data/partners';
 
   const handleDiscoverClick = () => {
@@ -36,6 +37,8 @@
 <div id="explora">
   <HowItWorks />
 </div>
+
+<ChooseRestaurantType />
 
 <PartnersStrip {partners} />
 
