@@ -4,19 +4,19 @@
       fecha: '15 de Marzo, 2024',
       titulo: 'Reco se expande a nuevos mercados',
       resumen: 'Nuestra plataforma de menús digitales inteligentes ahora está disponible en más países.',
-      imagen: '/img/news/expansion.jpg'
+      imagen: '/img/Background.svg'
     },
     {
       fecha: '1 de Marzo, 2024',
       titulo: 'Nueva función: Recomendaciones personalizadas por IA',
       resumen: 'Mejoramos nuestro sistema de recomendaciones con inteligencia artificial más avanzada.',
-      imagen: '/img/news/ai-recommendations.jpg'
+      imagen: '/img/lastbksvg.svg'
     },
     {
       fecha: '15 de Febrero, 2024',
       titulo: 'Alianza estratégica con cadenas de restaurantes',
       resumen: 'Reco firma acuerdos con importantes cadenas para mejorar la experiencia de sus clientes.',
-      imagen: '/img/news/partnership.jpg'
+      imagen: '/img/Background.svg'
     }
   ];
 </script>
