@@ -51,7 +51,8 @@
           <img 
             src="/img/RECOIMAGE.png" 
             alt="Reco" 
-            class="h-8 md:h-10 w-auto" 
+            class="h-8 md:h-10 w-auto object-contain max-w-[160px] md:max-w-[180px]" 
+            style="aspect-ratio: auto;"
           />
         </a>
         

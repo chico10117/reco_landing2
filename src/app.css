@@ -29,6 +29,9 @@
     --reco-blue: 210 100% 50%;
     --reco-blue-light: 210 100% 95%;
     --reco-blue-dark: 210 100% 30%;
+
+    /* Font family configuration */
+    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   }
 }
 
@@ -38,8 +41,29 @@
   }
   
   body {
-    @apply bg-background text-foreground font-sans antialiased;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-sans);
+  }
+
+  /* Font weight utility classes */
+  .font-inter {
+    font-family: var(--font-sans);
+  }
+
+  .font-light {
+    font-weight: 300;
+  }
+
+  .font-regular {
+    font-weight: 400;
+  }
+
+  .font-medium {
+    font-weight: 500;
+  }
+
+  .font-bold {
+    font-weight: 700;
   }
 }
 

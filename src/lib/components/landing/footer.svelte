@@ -7,7 +7,12 @@
     <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
       <div>
         <a href="/" class="block mb-4">
-          <img src="/img/reco-logo.svg" alt="Reco" class="h-8" />
+          <img 
+            src="/img/reco-logo.svg" 
+            alt="Reco" 
+            class="h-8 w-auto object-contain max-w-[140px]" 
+            style="aspect-ratio: auto;"
+          />
         </a>
         <p class="text-gray-400 text-sm">
           Transformando la experiencia gastronómica con inteligencia artificial.
