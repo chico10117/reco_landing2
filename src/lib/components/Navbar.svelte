@@ -49,7 +49,7 @@
       <div class="flex items-center space-x-24">
         <a href="/" class="flex items-center">
           <img 
-            src="/img/RECOIMAGE.png" 
+            src="/img/RECOIMAGE.svg" 
             alt="Reco" 
             class="h-8 md:h-10 w-auto" 
           />
