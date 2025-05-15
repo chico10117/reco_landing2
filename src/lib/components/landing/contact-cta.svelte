@@ -47,18 +47,22 @@
 
 <section 
   bind:this={sectionElement}
-  class="relative py-24 md:py-32 text-white overflow-hidden"
+  class="relative py-16 md:py-24 text-white overflow-hidden w-full"
 >
   <div class="absolute inset-0 z-0">
     <div 
-      class="w-full h-full" 
+      class="w-screen h-full" 
       style="
         background-image: url('/img/lastbksvg.svg');
-        background-size: 100% 400%;
-        background-position: 50% 80%;
+        background-size: cover;
+        background-position: center;
         background-repeat: no-repeat;
+        margin-left: calc(-50vw + 50%);
+        margin-right: calc(-50vw + 50%);
+        width: 100vw;
       "
     ></div>
+    <div class="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white to-transparent"></div>
   </div>
 
   <div 
