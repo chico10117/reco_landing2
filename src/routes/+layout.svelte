@@ -1,6 +1,6 @@
 <script lang="ts">
   import '../app.css';
-  import Navbar from '$lib/components/Navbar.svelte';
+  import Navbar from '$lib/components/landing/Navbar.svelte';
   import Footer from '$lib/components/landing/footer.svelte';
 
   // Access route children via snippet prop instead of legacy slots

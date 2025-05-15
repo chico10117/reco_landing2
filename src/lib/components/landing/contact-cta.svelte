@@ -62,7 +62,7 @@
         width: 100vw;
       "
     ></div>
-    <div class="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white to-transparent"></div>
+    <div class="absolute inset-x-0 top-0 h-40 bg-gradient-to-t from-transparent via-white/70 to-white pointer-events-none"></div>
   </div>
 
   <div 

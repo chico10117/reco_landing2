@@ -58,7 +58,7 @@
         
         <!-- Menú de navegación para escritorio -->
         <div class="hidden lg:flex lg:items-center">
-          <div class="flex items-center space-x-16">
+          <div class="flex items-center space-x-12">
             <a href="/restaurantes" class="text-white hover:text-white/80 flex items-center space-x-2 px-2 text-base font-medium">
               <span>Restaurantes</span>
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -75,15 +75,15 @@
       
       <!-- Parte derecha - Botones de acción -->
       <div class="flex items-center">
-        <div class="hidden lg:flex lg:items-center space-x-16">
+        <div class="hidden lg:flex lg:items-center">
           <a href="https://carta.reco.chat/login" class="text-white hover:text-white/80 flex items-center whitespace-nowrap px-6 text-base font-medium" onclick={() => trackNavClick('restaurant_login')}>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 mr-2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
             <span class="flex-nowrap">Restaurantes | Login</span>
           </a>
-          <a href="/contact">
+          <a href="/contact" class="inline-block">
             <Button 
               variant="default" 
-              class="bg-white text-blue-600 hover:bg-white/90 font-medium rounded-md px-10 py-2 whitespace-nowrap text-base"
+              class="bg-white text-blue-600 hover:bg-white/90 font-medium rounded-xl px-5 py-2 whitespace-nowrap text-base"
               onclick={() => trackNavClick('contact_sales')}
             >
               Contáctanos
@@ -132,10 +132,10 @@
               <span class="flex-shrink-0">Restaurantes | Login</span>
             </a>
           </div>
-          <a href="/contact" class="block w-full" onclick={closeMenu}>
+          <a href="/contact" class="inline-block" onclick={closeMenu}>
             <Button 
               variant="default" 
-              class="bg-white text-blue-600 hover:bg-white/90 font-medium rounded-md px-5 py-2 w-full"
+              class="bg-white text-blue-600 hover:bg-white/90 font-medium rounded-2xl px-5 py-2 whitespace-nowrap"
               onclick={() => trackNavClick('contact_sales')}
             >
               Contáctanos

@@ -59,7 +59,7 @@
   bind:this={sectionElement}
   class="relative min-h-screen overflow-hidden hero-section bg-white"
 >
-  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-10 md:pt-25 md:pb-16 lg:pb-12 lg:pt-30">
     <div class="md:flex md:items-center md:justify-between">
       <div 
         bind:this={leftContent}
@@ -101,8 +101,8 @@
           </Button>
         </div>
         
-        <p class="mt-8 text-sm text-gray-500">Confían en nosotros:</p>
-        <div class="mt-4 flex flex-wrap items-center gap-8">
+        <p class="mt-16 text-lg text-gray-500">Confían en nosotros:</p>
+        <div class="mt-16 flex flex-wrap items-center gap-8">
           <img src="/Yelmo.png" alt="Cine Yelmo" class="h-24 opacity-100 hover:opacity-90 transition-opacity" />
           <img src="/Basque.png" alt="Vips" class="h-20 opacity-100 hover:opacity-90 transition-opacity" />
           <img src="/HonestGreens.png" alt="HonestGreens" class="h-20 opacity-100 hover:opacity-90 transition-opacity" />
@@ -116,9 +116,9 @@
       >
         <div class="relative z-10 transform transition-transform duration-500 hover:translate-y-[-10px]">
           <img
-            src="/img/phone-mockup.png"
+            src="/img/hero.png"
             alt="Reco app interface on mobile phone"
-            class="w-full max-w-md mx-auto rounded-3xl shadow-2xl"
+            class="w-full max-w-md mx-auto rounded-3xl"
             loading="eager"
             fetchpriority="high"
           />
@@ -131,6 +131,7 @@
       </div>
     </div>
   </div>
+  <div class="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-b from-white/0 via-white/70 to-white pointer-events-none"></div>
 </section>
 
 <style>

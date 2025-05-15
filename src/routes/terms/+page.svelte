@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Button } from "$lib/components/ui/button";
   import { track } from "$lib/utils/analytics";
-  import Navbar from "$lib/components/Navbar.svelte";
+  import Navbar from "$lib/components/landing/Navbar.svelte";
 </script>
 
 <div class="min-h-screen bg-white">

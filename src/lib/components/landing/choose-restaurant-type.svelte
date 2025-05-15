@@ -51,7 +51,7 @@
 </script>
 
 <section class="py-16 md:py-24 bg-white relative overflow-hidden">
-  <div class="absolute top-0 left-0 right-0 h-32 bg-gradient-to-t from-white/0 via-white/50 to-white"></div>
+  <div class="absolute top-0 left-0 right-0 h-32 bg-gradient-to-t from-white/0 via-white/70 to-white pointer-events-none"></div>
   <div class="absolute -right-1/4 top-0 w-1/3 h-3/4">
     <div class="absolute inset-0 bg-[#4169E1] blur-2xl opacity-40 rounded-[40%_60%_60%_40%] animate-pulse"></div>
     <div class="absolute inset-0 bg-[#4169E1] blur-3xl opacity-25 rounded-[40%_60%_60%_40%] transform translate-x-10 animate-pulse" style="animation-delay: 0.5s;"></div>
@@ -146,5 +146,5 @@
       {/each}
     </div>
   </div>
-  <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-white/0 via-white/50 to-white"></div>
+  <div class="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-b from-white/0 via-white/70 to-white pointer-events-none"></div>
 </section> 

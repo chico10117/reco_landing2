@@ -2,7 +2,7 @@
   import { Button } from "$lib/components/ui/button";
   import { onMount } from 'svelte';
   import { track } from "$lib/utils/analytics";
-  import Navbar from "$lib/components/Navbar.svelte";
+  import Navbar from "$lib/components/landing/Navbar.svelte";
 
   // Calendly URL
   const calendlyUrl = "https://calendly.com/fernando-lqrb/15min";

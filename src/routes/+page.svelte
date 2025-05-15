@@ -23,8 +23,8 @@
 </script>
 
 <svelte:head>
-  <title>Reco - Pide mejor. Disfruta más.</title>
-  <meta name="description" content="El menú ya no es solo una lista de platos. Es el mejor amigo de tu cliente… que trabaja para ti." />
+  <title>Reco: Carta Inteligente</title>
+  <meta name="description" content="Descubre Reco, la carta inteligente con IA que revoluciona la experiencia en restaurantes. Ayuda a tus clientes a pedir mejor y disfrutar más, optimizando tu menú." />
 </svelte:head>
 
 <HeroSection 
