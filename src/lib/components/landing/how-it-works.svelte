@@ -40,7 +40,7 @@
   ];
 </script>
 
-<section id="how-it-works" class="py-16 md:py-24 bg-[#F8F7FF]">
+<section id="how-it-works" class="py-16 md:py-24 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <ScrollTransition>
       <div class="text-left mb-16">

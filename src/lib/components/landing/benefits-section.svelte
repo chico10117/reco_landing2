@@ -3,7 +3,7 @@
   import ScrollTransition from '$lib/components/ui/scroll-transition.svelte';
 </script>
 
-<section id="benefits" class="py-16 md:py-24 bg-gray-50">
+<section id="benefits" class="py-16 md:py-24 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <ScrollTransition>
       <div class="text-left mb-12">
