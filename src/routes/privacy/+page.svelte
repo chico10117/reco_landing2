@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Navbar from "$lib/components/landing/Navbar.svelter.svelte";
+  import Navbar from "$lib/components/landing/Navbar.svelte";
 </script>
 
 <div class="min-h-screen bg-white">
