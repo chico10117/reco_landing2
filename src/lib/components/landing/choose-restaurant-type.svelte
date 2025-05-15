@@ -74,10 +74,19 @@
               "Tu staff se enfoca en lo humano. Reco, en todo lo demás."
             </blockquote>
     
-            <ul class="mt-4 text-lg text-gray-600 max-w-3xl space-y-3 list-disc list-inside">
-              <li>Aumenta el ticket medio con recomendaciones inteligentes</li>
-              <li>Reduce errores de pedido (Mejor experiencia del cliente = mejores reseñas)</li>
-              <li>Funciona con un QR. Sin instalaciones, sin formaciones eternas</li>
+            <ul class="mt-4 text-lg text-gray-600 max-w-3xl space-y-2">
+              <li class="flex items-center">
+                <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                Aumenta el ticket medio con recomendaciones inteligentes
+              </li>
+              <li class="flex items-center">
+                <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                Reduce errores de pedido (Mejor experiencia del cliente = mejores reseñas)
+              </li>
+              <li class="flex items-center">
+                <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                Funciona con un QR. Sin instalaciones, sin formaciones eternas
+              </li>
             </ul>
           </div>
           <div class="md:w-2/5 lg:w-1/2 mt-6 md:mt-0">
@@ -107,13 +116,31 @@
             <blockquote class="text-xl text-gray-700 italic border-l-4 border-blue-500 pl-4 py-2 max-w-3xl">
               Una carta profesional no es solo bonita. Es clara, útil y estratégica.
             </blockquote>
-            <ul class="mt-4 text-lg text-gray-600 max-w-3xl space-y-3 list-disc list-inside">
-              <li>Con Reco sabes qué platos funcionan y cuáles no</li>
-              <li>Reco aprende y propone mejoras</li>
-              <li>Vende como un camarero experto</li>
-              <li>Habla todos los idiomas</li>
-              <li>Se adapta al perfil de cada cliente</li>
-              <li>Esto no es diseño. Es ingeniería de carta — con IA incluida.</li>
+            <ul class="mt-4 text-lg text-gray-600 max-w-3xl space-y-2">
+              <li class="flex items-center">
+                <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                Con Reco sabes qué platos funcionan y cuáles no
+              </li>
+              <li class="flex items-center">
+                <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                Reco aprende y propone mejoras
+              </li>
+              <li class="flex items-center">
+                <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                Vende como un camarero experto
+              </li>
+              <li class="flex items-center">
+                <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                Habla todos los idiomas
+              </li>
+              <li class="flex items-center">
+                <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                Se adapta al perfil de cada cliente
+              </li>
+              <li class="flex items-center">
+                <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                Esto no es diseño. Es ingeniería de carta — con IA incluida.
+              </li>
             </ul>
           </div>
           <div class="md:w-2/5 lg:w-1/2 mt-6 md:mt-0">

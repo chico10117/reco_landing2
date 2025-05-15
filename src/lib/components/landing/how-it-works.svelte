@@ -60,10 +60,19 @@
         
         <div class="mt-6 md:flex md:items-start md:space-x-8">
           <div class="md:w-3/5 lg:w-1/2">
-            <p class="text-xl text-gray-600 max-w-3xl">
-              Piden sin miedo a equivocarse<br>
-              Pueden preguntar lo que quieran (y Reco responde)<br>
-              Reciben sugerencias según su dieta, tiempo y bolsillo
+            <p class="text-xl text-gray-600 max-w-3xl space-y-2">
+              <span class="flex items-center">
+                <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                Piden sin miedo a equivocarse
+              </span>
+              <span class="flex items-center">
+                <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                Pueden preguntar lo que quieran (y Reco responde)
+              </span>
+              <span class="flex items-center">
+                <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                Reciben sugerencias según su dieta, tiempo y bolsillo
+              </span>
             </p>
           </div>
           <div class="md:w-2/5 lg:w-1/2 mt-6 md:mt-0">

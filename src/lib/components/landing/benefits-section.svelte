@@ -17,10 +17,19 @@
     <ScrollTransition>
       <div class="text-left mb-12">
         <h2 class="text-5xl md:text-6xl lg:text-7xl font-bold text-blue-600 leading-tight">Una forma más<br>inteligente de comer fuera.</h2>
-        <p class="mt-6 text-lg md:text-xl text-gray-600 max-w-2xl">
-          Escaneas el QR.<br>
-          Aparece Reco.<br>
-          Le preguntas lo que quieras:
+        <p class="mt-6 text-lg md:text-xl text-gray-600 max-w-2xl space-y-2">
+          <span class="flex items-center">
+            <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+            Escaneas el QR
+          </span>
+          <span class="flex items-center">
+            <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+            Aparece Reco
+          </span>
+          <span class="flex items-center">
+            <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+            Le preguntas lo que quieras
+          </span>
         </p>
         <a href="#how-it-works" class="mt-6 inline-block text-blue-600 font-medium hover:underline">Explorar cómo usarlo →</a>
       </div>
