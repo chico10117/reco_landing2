@@ -47,20 +47,32 @@
 
 <section 
   bind:this={sectionElement}
-  class="relative py-16 md:py-24 text-white overflow-hidden"
+  class="relative py-16 md:py-24 text-white overflow-hidden w-full"
 >
   <div class="absolute inset-0 z-0">
-    <div class="w-full h-full" style="background-image: url('/img/lastbksvg.svg'); background-size: cover; background-position: center; background-repeat: no-repeat;"></div>
+    <div 
+      class="w-screen h-full" 
+      style="
+        background-image: url('/img/lastbksvg.svg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        margin-left: calc(-50vw + 50%);
+        margin-right: calc(-50vw + 50%);
+        width: 100vw;
+      "
+    ></div>
+    <div class="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white to-transparent"></div>
   </div>
 
   <div 
     bind:this={contentElement}
-    class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+    class="relative z-10 max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 text-center"
     class:animate-slide-up={isVisible}
   >
-    <h2 class="text-3xl md:text-4xl font-bold mb-6">Transforma la experiencia de tus clientes con Reco</h2>
+    <h2 class="text-4xl md:text-5xl font-bold mb-8 text-white">Transforma la experiencia de tus clientes con Reco</h2>
     
-    <p class="text-xl text-blue-100 max-w-3xl mx-auto mb-10">
+    <p class="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto mb-12">
       Potencia tu restaurante con recomendaciones inteligentes, pagos más rápidos y clientes más satisfechos.
       Descubre cómo Reco puede ayudarte a crecer.
     </p>

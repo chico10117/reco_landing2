@@ -3,8 +3,18 @@
   import ScrollTransition from '$lib/components/ui/scroll-transition.svelte';
 </script>
 
-<section id="benefits" class="py-16 md:py-24 bg-gray-50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<section id="benefits" class="py-16 md:py-24 bg-white relative">
+  <div class="absolute -right-1/4 top-0 w-1/3 h-3/4">
+    <div class="absolute inset-0 bg-[#4169E1] blur-2xl opacity-40 rounded-[40%_60%_60%_40%] animate-pulse"></div>
+    <div class="absolute inset-0 bg-[#4169E1] blur-3xl opacity-25 rounded-[40%_60%_60%_40%] transform translate-x-10 animate-pulse" style="animation-delay: 0.5s;"></div>
+    <div class="absolute inset-0 bg-[#4169E1] blur-3xl opacity-15 rounded-[40%_60%_60%_40%] transform translate-x-20 animate-pulse" style="animation-delay: 1s;"></div>
+  </div>
+  <div class="absolute -left-1/4 bottom-0 w-1/3 h-2/3">
+    <div class="absolute inset-0 bg-[#4169E1] blur-2xl opacity-40 rounded-[60%_40%_40%_60%] animate-pulse"></div>
+    <div class="absolute inset-0 bg-[#4169E1] blur-3xl opacity-25 rounded-[60%_40%_40%_60%] transform -translate-x-10 animate-pulse" style="animation-delay: 0.5s;"></div>
+    <div class="absolute inset-0 bg-[#4169E1] blur-3xl opacity-15 rounded-[60%_40%_40%_60%] transform -translate-x-20 animate-pulse" style="animation-delay: 1s;"></div>
+  </div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     <ScrollTransition>
       <div class="text-left mb-12">
         <h2 class="text-5xl md:text-6xl lg:text-7xl font-bold text-blue-600 leading-tight">Una forma más<br>inteligente de comer fuera.</h2>
@@ -69,4 +79,5 @@
       </ScrollTransition>
     </div>
   </div>
+  <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-white/0 via-white/50 to-white"></div>
 </section> 
