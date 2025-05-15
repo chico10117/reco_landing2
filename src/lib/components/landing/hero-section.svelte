@@ -131,7 +131,9 @@
       </div>
     </div>
   </div>
-  <div class="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-b from-white/0 via-white/70 to-white pointer-events-none"></div>
+  
+  <!-- Add bottom gradient overlay -->
+  <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent via-white to-white"></div>
 </section>
 
 <style>
