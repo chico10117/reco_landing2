@@ -6,11 +6,11 @@ export const load: PageServerLoad = async () => {
   return {
     meta: {
       title: 'Reco - Pide mejor. Disfruta más.',
-      description: 'Reco es un menú digital inteligente que personaliza la experiencia de cada comensal. Te recomienda el plato perfecto según tu antojo, tu bolsillo y tu dieta en tu idioma y sin líos.',
+      description: 'El menú ya no es solo una lista de platos. Es el mejor amigo de tu cliente… que trabaja para ti.',
       canonical: 'https://reco.chat',
       openGraph: {
         title: 'Reco - Pide mejor. Disfruta más.',
-        description: 'Reco es un menú digital inteligente que personaliza la experiencia de cada comensal. Te recomienda el plato perfecto según tu antojo, tu bolsillo y tu dieta en tu idioma y sin líos.',
+        description: 'El menú ya no es solo una lista de platos. Es el mejor amigo de tu cliente… que trabaja para ti.',
         image: 'https://reco.chat/img/og-image.jpg',
         url: 'https://reco.chat',
         type: 'website'

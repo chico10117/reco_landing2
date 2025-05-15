@@ -24,7 +24,7 @@
 
 <svelte:head>
   <title>Reco - Pide mejor. Disfruta más.</title>
-  <meta name="description" content="Reco es un menú digital inteligente que personaliza la experiencia de cada comensal. Te recomienda el plato perfecto según tu antojo, tu bolsillo y tu dieta en tu idioma y sin líos." />
+  <meta name="description" content="El menú ya no es solo una lista de platos. Es el mejor amigo de tu cliente… que trabaja para ti." />
 </svelte:head>
 
 <HeroSection 

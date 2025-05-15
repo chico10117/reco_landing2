@@ -57,12 +57,8 @@
 <!-- Hero Section -->
 <section 
   bind:this={sectionElement}
-  class="relative min-h-screen overflow-hidden hero-section"
+  class="relative min-h-screen overflow-hidden hero-section bg-white"
 >
-  <div class="absolute inset-0 z-0">
-    <div class="w-full h-full" style="background-image: url('/img/Background.svg'); background-size: cover; background-position: top center; background-repeat: no-repeat;"></div>
-  </div>
-
   <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
     <div class="md:flex md:items-center md:justify-between">
       <div 
@@ -71,13 +67,13 @@
         class:animate-slide-left={isVisible}
       >
         <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-          <span class="text-white">Pide mejor.</span><br>
+          <span class="text-[#85A3FA]">Pide mejor.</span><br>
           <span class="text-blue-600">Disfruta más.</span>
         </h1>
         
         <p class="mt-6 text-lg md:text-xl text-gray-600 max-w-2xl">
-          Reco es ese amigo experto que te ayuda a elegir como si conociera toda la carta.
-          Te recomienda el plato perfecto según tu antojo, tu bolsillo y tu dieta en tu idioma y sin líos.
+          El menú ya no es solo una lista de platos.
+          Es el mejor amigo de tu cliente… que trabaja para ti.
         </p>
         
         <div class="mt-10 flex flex-col sm:flex-row gap-4">

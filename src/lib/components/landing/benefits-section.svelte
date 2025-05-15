@@ -19,8 +19,9 @@
       <div class="text-left mb-12">
         <h2 class="text-5xl md:text-6xl lg:text-7xl font-bold text-blue-600 leading-tight">Una forma más<br>inteligente de comer fuera.</h2>
         <p class="mt-6 text-lg md:text-xl text-gray-600 max-w-2xl">
-          RECO es una carta digital inteligente que personaliza la experiencia de cada comensal.
-          Funciona con un simple escaneo de QR - sin necesidad de app.
+          Escaneas el QR.<br>
+          Aparece Reco.<br>
+          Le preguntas lo que quieras:
         </p>
         <a href="#how-it-works" class="mt-6 inline-block text-blue-600 font-medium hover:underline">Explorar cómo usarlo →</a>
       </div>

@@ -66,23 +66,67 @@
     <ScrollTransition>
       <div class="text-left mb-16">
         <h2 class="text-5xl md:text-6xl lg:text-7xl font-bold text-blue-600 leading-tight">
-          Elige tu tipo de restaurante...<br>
-          ¡y haz que cada mesa<br>
-          funcione mejor!
+          Para ti, restaurador: más ventas, menos errores
         </h2>
         
-        <p class="mt-6 text-xl text-gray-600 max-w-3xl">
-          Sabemos que cada restaurante es distinto.
-          Por eso, Reco se adapta a tu tipo de servicio, carta y clientela.
-        </p>
+        <div class="mt-6 md:flex md:items-start md:space-x-8">
+          <div class="md:w-3/5 lg:w-1/2">
+            <blockquote class="text-xl text-gray-700 italic border-l-4 border-blue-500 pl-4 py-2 max-w-3xl">
+              "Tu staff se enfoca en lo humano. Reco, en todo lo demás."
+            </blockquote>
+    
+            <ul class="mt-4 text-lg text-gray-600 max-w-3xl space-y-3 list-disc list-inside">
+              <li>Aumenta el ticket medio con recomendaciones inteligentes</li>
+              <li>Reduce errores de pedido (Mejor experiencia del cliente = mejores reseñas)</li>
+              <li>Funciona con un QR. Sin instalaciones, sin formaciones eternas</li>
+            </ul>
+          </div>
+          <div class="md:w-2/5 lg:w-1/2 mt-6 md:mt-0">
+            <div class="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 bg-slate-50 rounded-lg shadow-sm border border-slate-200">
+              <img src="/img/testimonials/isabel.jpg" alt="Isabel, Casa Ramos" class="h-14 w-14 sm:h-16 sm:w-16 rounded-full object-cover border-2 border-blue-200 shrink-0">
+              <div>
+                <p class="text-base sm:text-lg font-medium text-gray-800 italic leading-tight">"Reco no reemplaza a mi equipo. Lo hace mejor."</p>
+                <p class="text-xs sm:text-sm text-gray-600 mt-1">- Isabel, Casa Ramos</p>
+              </div>
+            </div>
+          </div>
+        </div>
 
-        <p class="mt-4 text-xl text-gray-600 max-w-3xl">
-          Desde bares con menú del día hasta gastrobares con maridaje — tu operación fluye, tu equipo respira, y tus clientes repiten.
-        </p>
-
-        <a href="#pricing" class="mt-4 inline-block text-blue-600 hover:text-blue-700 font-medium">
+        <a href="#pricing" class="mt-8 inline-block text-blue-600 hover:text-blue-700 font-medium">
           Conoce los precios flexibles de Reco →
         </a>
+      </div>
+    </ScrollTransition>
+
+    <ScrollTransition delay={100}>
+      <div class="mb-12 md:mb-16 text-left">
+        <h2 class="text-5xl md:text-6xl lg:text-7xl font-bold text-blue-600 leading-tight mb-4 whitespace-nowrap">
+          ¿Tu carta vende o solo decora?
+        </h2>
+        <div class="mt-6 md:flex md:items-start md:space-x-8">
+          <div class="md:w-3/5 lg:w-1/2">
+            <blockquote class="text-xl text-gray-700 italic border-l-4 border-blue-500 pl-4 py-2 max-w-3xl">
+              Una carta profesional no es solo bonita. Es clara, útil y estratégica.
+            </blockquote>
+            <ul class="mt-4 text-lg text-gray-600 max-w-3xl space-y-3 list-disc list-inside">
+              <li>Con Reco sabes qué platos funcionan y cuáles no</li>
+              <li>Reco aprende y propone mejoras</li>
+              <li>Vende como un camarero experto</li>
+              <li>Habla todos los idiomas</li>
+              <li>Se adapta al perfil de cada cliente</li>
+              <li>Esto no es diseño. Es ingeniería de carta — con IA incluida.</li>
+            </ul>
+          </div>
+          <div class="md:w-2/5 lg:w-1/2 mt-6 md:mt-0">
+            <div class="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 bg-slate-50 rounded-lg shadow-sm border border-slate-200">
+              <img src="/img/testimonials/andres.jpg" alt="Andrés, Fonda Muñoz" class="h-14 w-14 sm:h-16 sm:w-16 rounded-full object-cover border-2 border-blue-200 shrink-0">
+              <div>
+                <p class="text-base sm:text-lg font-medium text-gray-800 italic leading-tight">"Reco convirtió mi carta en mi mejor vendedor."</p>
+                <p class="text-xs sm:text-sm text-gray-600 mt-1">- Andrés, Fonda Muñoz</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </ScrollTransition>
 
