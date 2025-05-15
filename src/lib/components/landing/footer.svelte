@@ -2,16 +2,16 @@
   const currentYear = new Date().getFullYear();
 </script>
 
-<footer class="bg-gray-900 text-white py-12">
+<footer class="bg-gray-900 text-white py-8">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
       <div>
-        <a href="/" class="block mb-4">
+        <a href="/" class="block mb-3">
           <img 
-            src="/img/reco-logo.svg" 
+            src="/img/RECOIMAGE.png" 
             alt="Reco" 
             class="h-8 w-auto object-contain max-w-[140px]" 
-            style="aspect-ratio: auto;"
+            style="aspect-ratio: auto; filter: brightness(0) invert(1);"
           />
         </a>
         <p class="text-gray-400 text-sm">
@@ -20,7 +20,7 @@
       </div>
       
       <div>
-        <h3 class="text-lg font-semibold mb-4">Empresa</h3>
+        <h3 class="text-lg font-semibold mb-3">Empresa</h3>
         <ul class="space-y-2">
           <li><a href="/nosotros" class="hover:text-blue-400">Nosotros</a></li>
           <li><a href="/noticias" class="hover:text-blue-400">Noticias</a></li>
@@ -29,7 +29,7 @@
       </div>
       
       <div>
-        <h3 class="text-lg font-semibold mb-4">Productos</h3>
+        <h3 class="text-lg font-semibold mb-3">Productos</h3>
         <ul class="space-y-2">
           <li><a href="/restaurantes" class="hover:text-blue-400">Restaurantes</a></li>
           <li><a href="/precios" class="hover:text-blue-400">Precios</a></li>
@@ -37,7 +37,7 @@
       </div>
       
       <div>
-        <h3 class="text-lg font-semibold mb-4">Legal</h3>
+        <h3 class="text-lg font-semibold mb-3">Legal</h3>
         <ul class="space-y-2">
           <li><a href="/privacy" class="hover:text-blue-400">Privacidad</a></li>
           <li><a href="/terms" class="hover:text-blue-400">Términos</a></li>
@@ -63,7 +63,7 @@
       </div>
     </div>
     
-    <div class="mt-8 pt-8 border-t border-gray-700 text-center text-sm text-gray-400">
+    <div class="mt-6 pt-6 border-t border-gray-700 text-center text-sm text-gray-400">
       <p>&copy; {currentYear} Reco. Todos los derechos reservados.</p>
     </div>
   </div>

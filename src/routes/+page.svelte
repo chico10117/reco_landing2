@@ -40,6 +40,6 @@
 
 <ChooseRestaurantType />
 
-<PartnersStrip {partners} />
+<!-- <PartnersStrip {partners} /> -->
 
 <ContactCTA /> 
