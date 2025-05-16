@@ -8,102 +8,96 @@
 
   <!-- Content -->
   <div class="pt-20 pb-12">
-    <div class="max-w-3xl mx-auto px-4">
-      <h1 class="text-3xl font-bold text-gray-900 mb-8 pt-8">Política de Privacidad</h1>
+    <div class="max-w-5xl mx-auto px-4">
+      <h1 class="text-4xl font-bold text-indigo-700 mb-10 pt-8 text-center md:text-left">Política de Privacidad</h1>
       
-      <div class="prose prose-red max-w-none">
-        <p class="text-gray-600 mb-6">
-          Última actualización: {new Date().toLocaleDateString('es-UY')}
+      <section class="mb-8">
+        <h2 class="text-3xl font-semibold text-[#547EF7] mb-4">Quiénes somos</h2>
+        <p class="text-black mb-4 text-lg">
+          La dirección de nuestra web es: https://reco.chat.
         </p>
+      </section>
 
-        <section class="mb-8">
-          <h2 class="text-2xl font-semibold text-gray-800 mb-4">1. Introducción</h2>
-          <p class="text-gray-600 mb-4">
-            En FanLatinas, nos tomamos muy en serio la privacidad de nuestros usuarios. Esta política de privacidad describe cómo recopilamos, utilizamos y protegemos su información personal.
-          </p>
-        </section>
+      <section class="mb-8">
+        <h2 class="text-3xl font-semibold text-[#547EF7] mb-4">Comentarios</h2>
+        <p class="text-black mb-4 text-lg">
+          Cuando los visitantes dejan comentarios en la web, recopilamos los datos que se muestran en el formulario de comentarios, así como la dirección IP del visitante y la cadena de agentes de usuario del navegador para ayudar a la detección de spam.
+        </p>
+        <p class="text-black mb-4 text-lg">
+          Una cadena anónima creada a partir de tu dirección de correo electrónico (también llamada hash) puede ser proporcionada al servicio de Gravatar para ver si la estás usando. La política de privacidad del servicio Gravatar está disponible aquí: https://automattic.com/privacy/. Después de la aprobación de tu comentario, la imagen de tu perfil es visible para el público en el contexto de tu comentario.
+        </p>
+      </section>
 
-        <section class="mb-8">
-          <h2 class="text-2xl font-semibold text-gray-800 mb-4">2. Información que Recopilamos</h2>
-          <p class="text-gray-600 mb-4">
-            Recopilamos la siguiente información:
-          </p>
-          <ul class="list-disc pl-6 text-gray-600 mb-4">
-            <li>Nombre</li>
-            <li>Dirección de correo electrónico</li>
-            <li>Número de WhatsApp</li>
-            <li>Preferencias de newsletter</li>
-          </ul>
-        </section>
+      <section class="mb-8">
+        <h2 class="text-3xl font-semibold text-[#547EF7] mb-4">Medios</h2>
+        <p class="text-black mb-4 text-lg">
+          Si subes imágenes a la web, deberías evitar subir imágenes con datos de ubicación (GPS EXIF) incluidos. Los visitantes de la web pueden descargar y extraer cualquier dato de ubicación de las imágenes de la web.
+        </p>
+      </section>
 
-        <section class="mb-8">
-          <h2 class="text-2xl font-semibold text-gray-800 mb-4">3. Uso de la Información</h2>
-          <p class="text-gray-600 mb-4">
-            Utilizamos su información para:
-          </p>
-          <ul class="list-disc pl-6 text-gray-600 mb-4">
-            <li>Proporcionar y mantener nuestros servicios</li>
-            <li>Notificarle sobre cambios en nuestros servicios</li>
-            <li>Permitirle participar en funciones interactivas</li>
-            <li>Proporcionar atención al cliente</li>
-            <li>Detectar y prevenir fraudes</li>
-          </ul>
-        </section>
+      <section class="mb-8">
+        <h2 class="text-3xl font-semibold text-[#547EF7] mb-4">Cookies</h2>
+        <p class="text-black mb-4 text-lg">
+          Si dejas un comentario en nuestro sitio puedes elegir guardar tu nombre, dirección de correo electrónico y web en cookies. Esto es para tu comodidad, para que no tengas que volver a rellenar tus datos cuando dejes otro comentario. Estas cookies tendrán una duración de un año.
+        </p>
+        <p class="text-black mb-4 text-lg">
+          Si tienes una cuenta y te conectas a este sitio, instalaremos una cookie temporal para determinar si tu navegador acepta cookies. Esta cookie no contiene datos personales y se elimina al cerrar el navegador.
+        </p>
+        <p class="text-black mb-4 text-lg">
+          Cuando accedas, también instalaremos varias cookies para guardar tu información de acceso y tus opciones de visualización de pantalla. Las cookies de acceso duran dos días, y las cookies de opciones de pantalla duran un año. Si seleccionas «Recuérdarme», tu acceso perdurará durante dos semanas. Si sales de tu cuenta, las cookies de acceso se eliminarán.
+        </p>
+        <p class="text-black mb-4 text-lg">
+          Si editas o publicas un artículo se guardará una cookie adicional en tu navegador. Esta cookie no incluye datos personales y simplemente indica el ID del artículo que acabas de editar. Caduca después de 1 día.
+        </p>
+      </section>
 
-        <section class="mb-8">
-          <h2 class="text-2xl font-semibold text-gray-800 mb-4">4. Protección de Datos</h2>
-          <p class="text-gray-600 mb-4">
-            Implementamos medidas de seguridad adecuadas para proteger su información personal contra acceso, alteración, divulgación o destrucción no autorizada, de acuerdo con la Ley N° 18.331 de Protección de Datos Personales de Uruguay.
-          </p>
-        </section>
+      <section class="mb-8">
+        <h2 class="text-3xl font-semibold text-[#547EF7] mb-4">Contenido incrustado de otros sitios web</h2>
+        <p class="text-black mb-4 text-lg">
+          Los artículos de este sitio pueden incluir contenido incrustado (por ejemplo, vídeos, imágenes, artículos, etc.). El contenido incrustado de otras webs se comporta exactamente de la misma manera que si el visitante hubiera visitado la otra web.
+        </p>
+        <p class="text-black mb-4 text-lg">
+          Estas webs pueden recopilar datos sobre ti, utilizar cookies, incrustar un seguimiento adicional de terceros, y supervisar tu interacción con ese contenido incrustado, incluido el seguimiento de tu interacción con el contenido incrustado si tienes una cuenta y estás conectado a esa web.
+        </p>
+      </section>
 
-        <section class="mb-8">
-          <h2 class="text-2xl font-semibold text-gray-800 mb-4">5. Sus Derechos</h2>
-          <p class="text-gray-600 mb-4">
-            De acuerdo con la ley uruguaya, usted tiene derecho a:
-          </p>
-          <ul class="list-disc pl-6 text-gray-600 mb-4">
-            <li>Acceder a sus datos personales</li>
-            <li>Rectificar sus datos personales</li>
-            <li>Cancelar sus datos personales</li>
-            <li>Oponerse al tratamiento de sus datos personales</li>
-          </ul>
-        </section>
+      <section class="mb-8">
+        <h2 class="text-3xl font-semibold text-[#547EF7] mb-4">Con quién compartimos tus datos</h2>
+        <p class="text-black mb-4 text-lg">
+          Si solicitas un restablecimiento de contraseña, tu dirección IP será incluida en el correo electrónico de restablecimiento.
+        </p>
+      </section>
 
-        <section class="mb-8">
-          <h2 class="text-2xl font-semibold text-gray-800 mb-4">6. Contacto</h2>
-          <p class="text-gray-600 mb-4">
-            Si tiene preguntas sobre esta Política de Privacidad, puede contactarnos a través de:
-          </p>
-          <ul class="list-disc pl-6 text-gray-600 mb-4">
-            <li>Email: privacy@fanlatinas.com</li>
-            <li>WhatsApp: [Número de Contacto]</li>
-          </ul>
-        </section>
-      </div>
+      <section class="mb-8">
+        <h2 class="text-3xl font-semibold text-[#547EF7] mb-4">Cuánto tiempo conservamos tus datos</h2>
+        <p class="text-black mb-4 text-lg">
+          Si dejas un comentario, el comentario y sus metadatos se conservan indefinidamente. Esto es para que podamos reconocer y aprobar comentarios sucesivos automáticamente, en lugar de mantenerlos en una cola de moderación.
+        </p>
+        <p class="text-black mb-4 text-lg">
+          De los usuarios que se registran en nuestra web (si los hay), también almacenamos la información personal que proporcionan en su perfil de usuario. Todos los usuarios pueden ver, editar o eliminar su información personal en cualquier momento (excepto que no pueden cambiar su nombre de usuario). Los administradores de la web también pueden ver y editar esa información.
+        </p>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-3xl font-semibold text-[#547EF7] mb-4">Qué derechos tienes sobre tus datos</h2>
+        <p class="text-black mb-4 text-lg">
+          Si tienes una cuenta o has dejado comentarios en esta web, puedes solicitar recibir un archivo de exportación de los datos personales que tenemos sobre ti, incluyendo cualquier dato que nos hayas proporcionado. También puedes solicitar que eliminemos cualquier dato personal que tengamos sobre ti. Esto no incluye ningún dato que estemos obligados a conservar con fines administrativos, legales o de seguridad.
+        </p>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-3xl font-semibold text-[#547EF7] mb-4">Dónde se envían tus datos</h2>
+        <p class="text-black mb-4 text-lg">
+          Los comentarios de los visitantes puede que los revise un servicio de detección automática de spam.
+        </p>
+      </section>
     </div>
   </div>
 
-  <!-- Footer -->
-  <footer class="bg-gray-900 text-gray-100 py-8">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="flex flex-col md:flex-row justify-between items-center">
-        <div class="text-2xl font-bold text-red-400 mb-4 md:mb-0">FanLatinas</div>
-        <nav class="space-x-6">
-          <a href="/terms" class="text-gray-300 hover:text-red-400 transition-colors">Términos de Servicio</a>
-          <a href="https://calendly.com/fernando-lqrb/15min" class="text-gray-300 hover:text-red-400 transition-colors">Contacto</a>
-        </nav>
-      </div>
-      <div class="border-t border-gray-800 my-6"></div>
-      <p class="text-center text-gray-400 text-sm">&copy; {new Date().getFullYear()} FanLatinas. Todos los derechos reservados.</p>
-    </div>
-  </footer>
+  <!-- The old footer is removed. If a new footer is needed, it should be added separately or as part of a global layout -->
 </div>
 
 <style>
-  /* Add any custom styles here */
-  :global(.prose) {
-    max-width: 65ch;
-    margin: 0 auto;
-  }
+  /* Remove global prose styles if they were specific to the old content */
+  /* Custom styles can be added here if needed, but Tailwind should cover most cases */
 </style> 

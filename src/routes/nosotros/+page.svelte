@@ -186,28 +186,7 @@
 </svelte:head>
 
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 mt-16">
-  <!-- Sección de Historia -->
-  <div class="text-center mb-16">
-    <h1 class="text-4xl font-bold text-gray-900 mb-4">Nuestra Historia</h1>
-    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-      Reco nació de la pasión por la gastronomía y la tecnología. Nuestra misión es transformar 
-      la experiencia de comer fuera haciéndola más personal, intuitiva y satisfactoria.
-    </p>
-  </div>
-
-  <!-- Sección de Valores -->
-  <div class="mb-20">
-    <h2 class="text-3xl font-bold text-gray-900 mb-10 text-center">Nuestros Valores</h2>
-    <div class="grid md:grid-cols-3 gap-10">
-      {#each valores as valor}
-        <div class="text-center bg-white p-8 rounded-lg shadow-lg transform transition-transform hover:scale-105">
-          <div class="text-5xl mb-5">{valor.icono}</div>
-          <h3 class="text-xl font-semibold text-gray-900 mb-3">{valor.titulo}</h3>
-          <p class="text-gray-600">{valor.descripcion}</p>
-        </div>
-      {/each}
-    </div>
-  </div>
+  <!-- Sección de Historia y Valores eliminadas -->
 
   <!-- Sección del Equipo -->
   <div class="mb-20">
