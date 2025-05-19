@@ -9,7 +9,7 @@
   let { children } = $props<{ children?: Snippet }>();
 </script>
 
-<div class="min-h-screen bg-white text-gray-900 flex flex-col">
+<div class="min-h-screen bg-white text-gray-900 flex flex-col overflow-x-hidden">
   <Navbar />
   
   <main class="flex-grow">

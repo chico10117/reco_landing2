@@ -91,7 +91,7 @@
           </div>
           <div class="md:w-2/5 lg:w-1/2 mt-6 md:mt-0">
             <div class="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 bg-slate-50 rounded-lg shadow-sm border border-slate-200">
-              <img src="/img/testimonials/isabel.jpg" alt="Isabel, Casa Ramos" class="h-14 w-14 sm:h-16 sm:w-16 rounded-full object-cover border-2 border-blue-200 shrink-0">
+              <img src="/Isabel.webp" alt="Isabel, Casa Ramos" class="h-14 w-14 sm:h-16 sm:w-16 rounded-full object-cover border-2 border-blue-200 shrink-0">
               <div>
                 <p class="text-base sm:text-lg font-medium text-gray-800 italic leading-tight">"Reco no reemplaza a mi equipo. Lo hace mejor."</p>
                 <p class="text-xs sm:text-sm text-gray-600 mt-1">- Isabel, Casa Ramos</p>
@@ -145,7 +145,7 @@
           </div>
           <div class="md:w-2/5 lg:w-1/2 mt-6 md:mt-0">
             <div class="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 bg-slate-50 rounded-lg shadow-sm border border-slate-200">
-              <img src="/img/testimonials/andres.jpg" alt="Andrés, Fonda Muñoz" class="h-14 w-14 sm:h-16 sm:w-16 rounded-full object-cover border-2 border-blue-200 shrink-0">
+              <img src="/Andres.webp" alt="Andrés, Fonda Muñoz" class="h-14 w-14 sm:h-16 sm:w-16 rounded-full object-cover border-2 border-blue-200 shrink-0">
               <div>
                 <p class="text-base sm:text-lg font-medium text-gray-800 italic leading-tight">"Reco convirtió mi carta en mi mejor vendedor."</p>
                 <p class="text-xs sm:text-sm text-gray-600 mt-1">- Andrés, Fonda Muñoz</p>
