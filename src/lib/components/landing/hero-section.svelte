@@ -2,9 +2,9 @@
   import { Button } from "$lib/components/ui/button";
   import { track } from "$lib/utils/analytics";
   import { onMount } from 'svelte';
+  import VideoOverlay from '$lib/components/ui/video-overlay/video-overlay.svelte';
 
-  let { onDiscoverClick, onRestaurantClick } = $props<{
-    onDiscoverClick: () => void;
+  let { onRestaurantClick } = $props<{
     onRestaurantClick: () => void;
   }>();
 
@@ -12,6 +12,18 @@
   let rightContent: HTMLElement;
   let sectionElement: HTMLElement;
   let isVisible = $state(true);
+  let videoOverlay: VideoOverlay;
+
+  function onDiscoverClick() {
+    // Track click event for analytics
+    track('cta_click', { label: 'discover_how_it_works' });
+    if (videoOverlay) {
+      // Open video overlay when instance is available
+      videoOverlay.open();
+    } else {
+      // Handle case where video overlay component is not mounted
+    }
+  }
 
   onMount(() => {
     const observer = new IntersectionObserver(
@@ -80,10 +92,7 @@
           <Button 
             size="lg" 
             class="rounded-full px-6 bg-blue-600 hover:bg-blue-700 text-white"
-            on:click={() => {
-              track('cta_click', { label: 'discover_how_it_works' });
-              onDiscoverClick();
-            }}
+            on:click={onDiscoverClick}
           >
             Descubre cómo funciona
           </Button>
@@ -135,6 +144,8 @@
   <!-- Add bottom gradient overlay -->
   <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent via-white to-white"></div>
 </section>
+
+<VideoOverlay bind:this={videoOverlay} />
 
 <style>
   /* Animaciones y transiciones */

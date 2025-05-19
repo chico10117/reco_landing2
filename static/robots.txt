@@ -2,7 +2,7 @@
 # ---------------------------
 User-agent: *
 Disallow:
-
+ 
 Sitemap: https://reco.chat/sitemap.xml
 # ---------------------------
 # END YOAST BLOCK 

@@ -22,6 +22,7 @@
 
 <button
   class={cn(buttonVariants({ variant, size }), className)}
+  on:click
   {...attrs}
 >
   {@render children?.()}

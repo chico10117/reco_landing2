@@ -24,7 +24,8 @@
 
 <svelte:head>
   <title>Reco: Carta Inteligente</title>
-  <meta name="description" content="Descubre Reco, la carta inteligente con IA que revoluciona la experiencia en restaurantes. Ayuda a tus clientes a pedir mejor y disfrutar más, optimizando tu menú." />
+  <!-- <meta name="description" content="Descubre Reco, la carta inteligente con IA que revoluciona la experiencia en restaurantes. Ayuda a tus clientes a pedir mejor y disfrutar más, optimizando tu menú." /> -->
+  <meta name="description" content="Descubre Reco, la carta inteligente con IA que revoluciona la experiencia en restaurantes. Ayuda a tus clientes a pedir mejor y disfrutar más!" />
 </svelte:head>
 
 <HeroSection 
