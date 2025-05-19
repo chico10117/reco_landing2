@@ -47,32 +47,28 @@
 
 <section 
   bind:this={sectionElement}
-  class="relative py-16 md:py-24 text-white overflow-hidden w-full"
+  class="relative py-16 md:py-24 overflow-hidden w-full bg-white"
 >
-  <div class="absolute inset-0 z-0">
-    <div 
-      class="w-screen h-full" 
-      style="
-        background-image: url('/img/lastbksvg.svg');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        margin-left: calc(-50vw + 50%);
-        margin-right: calc(-50vw + 50%);
-        width: 100vw;
-      "
-    ></div>
-    <div class="absolute inset-x-0 top-0 h-40 bg-gradient-to-t from-transparent via-white/70 to-white pointer-events-none"></div>
+  <!-- Animated background patterns -->
+  <div class="absolute -right-1/4 top-1/4 w-1/3 h-3/4">
+    <div class="absolute inset-0 bg-[#4169E1] blur-2xl opacity-30 rounded-[40%_60%_60%_40%] animate-pulse"></div>
+    <div class="absolute inset-0 bg-[#4169E1] blur-3xl opacity-20 rounded-[40%_60%_60%_40%] transform translate-x-10 animate-pulse" style="animation-delay: 0.5s;"></div>
+    <div class="absolute inset-0 bg-[#4169E1] blur-3xl opacity-10 rounded-[40%_60%_60%_40%] transform translate-x-20 animate-pulse" style="animation-delay: 1s;"></div>
   </div>
-
+  <div class="absolute -left-1/4 bottom-0 w-1/3 h-2/3">
+    <div class="absolute inset-0 bg-[#4169E1] blur-2xl opacity-30 rounded-[60%_40%_40%_60%] animate-pulse"></div>
+    <div class="absolute inset-0 bg-[#4169E1] blur-3xl opacity-20 rounded-[60%_40%_40%_60%] transform -translate-x-10 animate-pulse" style="animation-delay: 0.5s;"></div>
+    <div class="absolute inset-0 bg-[#4169E1] blur-3xl opacity-10 rounded-[60%_40%_40%_60%] transform -translate-x-20 animate-pulse" style="animation-delay: 1s;"></div>
+  </div>
+  
   <div 
     bind:this={contentElement}
-    class="relative z-10 max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 text-center"
+    class="relative z-10 w-full text-center"
     class:animate-slide-up={isVisible}
   >
-    <h2 class="text-4xl md:text-5xl font-bold mb-8 text-white">Transforma la experiencia de tus clientes con Reco</h2>
+    <h2 class="text-4xl md:text-5xl font-bold mb-8 text-blue-600">Transforma la experiencia de tus clientes con Reco</h2>
     
-    <p class="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto mb-12">
+    <p class="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto mb-12">
       Potencia tu restaurante con recomendaciones inteligentes, pagos más rápidos y clientes más satisfechos.
       Descubre cómo Reco puede ayudarte a crecer.
     </p>
@@ -81,7 +77,7 @@
       <a href={calendlyUrl} target="_blank" rel="noopener noreferrer">
         <Button 
           size="lg" 
-          class="bg-white text-blue-600 hover:bg-blue-50 rounded-full px-8 w-full"
+          class="bg-blue-600 text-white hover:bg-blue-700 rounded-full px-8 w-full"
           on:click={() => {
             track('cta_click', { label: 'contact_sales' });
           }}
@@ -94,7 +90,7 @@
         <Button 
           variant="outline" 
           size="lg" 
-          class="bg-white text-blue-600 hover:bg-blue-50 rounded-full px-8 w-full"
+          class="bg-white text-blue-600 hover:bg-blue-50 rounded-full px-8 w-full border border-blue-600"
           on:click={() => {
             track('cta_click', { label: 'free_trial' });
           }}
@@ -104,6 +100,9 @@
       </a>
     </div>
   </div>
+
+  <!-- Bottom gradient overlay -->
+  <div class="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-b from-white/0 via-white/70 to-white pointer-events-none"></div>
 </section>
 
 <style>
@@ -120,6 +119,19 @@
     to {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+
+  :global(.animate-pulse) {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 0.7;
+    }
+    50% {
+      opacity: 0.3;
     }
   }
 </style> 

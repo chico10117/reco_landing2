@@ -77,7 +77,7 @@
           </div>
           <div class="md:w-2/5 lg:w-1/2 mt-6 md:mt-0">
             <div class="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 bg-slate-50 rounded-lg shadow-sm border border-slate-200">
-              <img src="/img/testimonials/marta.jpg" alt="Marta, comensal" class="h-14 w-14 sm:h-16 sm:w-16 rounded-full object-cover border-2 border-blue-200 shrink-0">
+              <img src="https://placehold.co/400x400/547EF7/FFFFFF/png?text=Marta" alt="Marta, comensal" class="h-14 w-14 sm:h-16 sm:w-16 rounded-full object-cover border-2 border-blue-200 shrink-0">
               <div>
                 <p class="text-base sm:text-lg font-medium text-gray-800 italic leading-tight">"Reco me salvó de pedir algo con mariscos (¡alérgica!)"</p>
                 <p class="text-xs sm:text-sm text-gray-600 mt-1">- Marta, comensal en Barcelona</p>
