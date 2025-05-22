@@ -78,14 +78,15 @@
         class="md:w-1/2 md:pr-12 mb-12 md:mb-0"
         class:animate-slide-left={isVisible}
       >
-        <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-          <span class="text-[#85A3FA]">Pide mejor.</span><br>
-          <span class="text-blue-600">Disfruta más.</span>
+        <h1 class="mt-16 text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
+          <span class="text-[#85A3FA] [text-shadow:0_2px_4px_rgba(0,0,0,0.2)]">El mejor amigo de tu cliente...</span><br>
+          <span class="text-blue-600 [text-shadow:0_2px_4px_rgba(0,0,0,0.1)]">Que trabaja para ti.</span>
         </h1>
         
-        <p class="mt-6 text-lg md:text-xl text-gray-600 max-w-2xl">
-          El menú ya no es solo una lista de platos.
-          Es el mejor amigo de tu cliente… que trabaja para ti.
+        <p class="mt-6 text-lg md:text-xl text-gray-600 max-w-2xl drop-shadow-sm hover:drop-shadow-md transition-all duration-300 bg-gradient-to-r from-transparent via-white/50 to-transparent p-4 rounded-xl backdrop-blur-sm">
+          Tu carta inteligente, sugiere platos, resuelve dudas y te ayuda a conocer mejor a tus clientes.
+          <br>
+          Todo desde el móvil, sin apps, sin complicaciones.
         </p>
         
         <div class="mt-10 flex flex-col sm:flex-row gap-4">
