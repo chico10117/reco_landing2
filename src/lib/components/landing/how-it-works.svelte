@@ -41,39 +41,42 @@
 </script>
 
 <section id="how-it-works" class="py-16 md:py-24 bg-white relative overflow-hidden">
-  <div class="absolute -left-1/4 top-1/4 w-1/3 h-3/4">
-    <div class="absolute inset-0 bg-[#4169E1] blur-2xl opacity-30 rounded-[40%_60%_60%_40%] animate-pulse"></div>
-    <div class="absolute inset-0 bg-[#4169E1] blur-3xl opacity-20 rounded-[40%_60%_60%_40%] transform translate-x-10 animate-pulse" style="animation-delay: 0.5s;"></div>
-    <div class="absolute inset-0 bg-[#4169E1] blur-3xl opacity-10 rounded-[40%_60%_60%_40%] transform translate-x-20 animate-pulse" style="animation-delay: 1s;"></div>
-  </div>
-  <div class="absolute -right-1/4 bottom-0 w-1/3 h-2/3">
-    <div class="absolute inset-0 bg-[#4169E1] blur-2xl opacity-30 rounded-[60%_40%_40%_60%] animate-pulse"></div>
-    <div class="absolute inset-0 bg-[#4169E1] blur-3xl opacity-20 rounded-[60%_40%_40%_60%] transform -translate-x-10 animate-pulse" style="animation-delay: 0.5s;"></div>
-    <div class="absolute inset-0 bg-[#4169E1] blur-3xl opacity-10 rounded-[60%_40%_40%_60%] transform -translate-x-20 animate-pulse" style="animation-delay: 1s;"></div>
-  </div>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     <ScrollTransition>
       <div class="text-left mb-16">
-        <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-blue-600 leading-tight">
-          Para comensales: pedir sin dudas, comer mejor
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-blue-600 leading-tight text-center">
+          ¿Tu Carta Vende O Solo Decora?
         </h1>
-        
+        <br>
+        <p class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-700 leading-tight text-center w-full">
+          Una Carta Profesional No Es Solo Bonita.<br>
+          Es Clara, Útil Y Estratégica.
+        </p>
         <div class="mt-6 md:flex md:items-start md:space-x-8">
           <div class="md:w-3/5 lg:w-1/2">
-            <p class="text-xl text-gray-600 max-w-3xl space-y-2">
+            <p class="text-xl text-gray-600 max-w-3xl space-y-2 font-bold mb-2">Con Reco:</p>
+            <div class="text-xl text-gray-600 max-w-3xl space-y-2">
               <span class="flex items-center">
                 <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
-                Piden sin miedo a equivocarse
+                Sabes qué platos funcionan y cuáles no.
               </span>
               <span class="flex items-center">
                 <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
-                Pueden preguntar lo que quieran (y Reco responde)
+                Reco aprende y propone mejoras.
               </span>
               <span class="flex items-center">
                 <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
-                Reciben sugerencias según su dieta, tiempo y bolsillo
+                Vende como un camarero experto.
               </span>
-            </p>
+              <span class="flex items-center">
+                <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                Habla todos los idiomas.
+              </span>
+              <span class="flex items-center">
+                <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                Se adapta al perfil de cada cliente.
+              </span>
+            </div>
           </div>
           <div class="md:w-2/5 lg:w-1/2 mt-6 md:mt-0">
             <div class="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 bg-slate-50 rounded-lg shadow-sm border border-slate-200">
@@ -85,12 +88,15 @@
             </div>
           </div>
         </div>
-
-        <a href="#benefits" class="mt-8 inline-block text-blue-600 hover:text-blue-700 font-medium">
-          Soy un restaurante → Ver beneficios para mi negocio
-        </a>
+<br>
+        <p class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-700 leading-tight text-center w-full mt-8">
+          No Es Solo Diseño. Es Ingeniería De Carta — Con IA Incluida.
+        </p>
       </div>
     </ScrollTransition>
+
+    <div class="w-full h-8 md:h-12"></div>
+    <div class="w-full border-t border-gray-200 mb-12"></div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       {#each benefits as benefit, i}

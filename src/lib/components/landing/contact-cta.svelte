@@ -47,28 +47,18 @@
 
 <section 
   bind:this={sectionElement}
-  class="relative py-16 md:py-24 overflow-hidden w-full bg-white"
+  class="relative py-28 md:py-40 overflow-hidden w-full bg-white"
 >
-  <!-- Animated background patterns -->
-  <div class="absolute -right-1/4 top-1/4 w-1/3 h-3/4">
-    <div class="absolute inset-0 bg-[#4169E1] blur-2xl opacity-30 rounded-[40%_60%_60%_40%] animate-pulse"></div>
-    <div class="absolute inset-0 bg-[#4169E1] blur-3xl opacity-20 rounded-[40%_60%_60%_40%] transform translate-x-10 animate-pulse" style="animation-delay: 0.5s;"></div>
-    <div class="absolute inset-0 bg-[#4169E1] blur-3xl opacity-10 rounded-[40%_60%_60%_40%] transform translate-x-20 animate-pulse" style="animation-delay: 1s;"></div>
-  </div>
-  <div class="absolute -left-1/4 bottom-0 w-1/3 h-2/3">
-    <div class="absolute inset-0 bg-[#4169E1] blur-2xl opacity-30 rounded-[60%_40%_40%_60%] animate-pulse"></div>
-    <div class="absolute inset-0 bg-[#4169E1] blur-3xl opacity-20 rounded-[60%_40%_40%_60%] transform -translate-x-10 animate-pulse" style="animation-delay: 0.5s;"></div>
-    <div class="absolute inset-0 bg-[#4169E1] blur-3xl opacity-10 rounded-[60%_40%_40%_60%] transform -translate-x-20 animate-pulse" style="animation-delay: 1s;"></div>
-  </div>
+  <!-- Manchas azules eliminadas -->
   
   <div 
     bind:this={contentElement}
     class="relative z-10 w-full text-center"
     class:animate-slide-up={isVisible}
   >
-    <h2 class="text-4xl md:text-5xl font-bold mb-8 text-blue-600">Transforma la experiencia de tus clientes con Reco</h2>
+    <h2 class="text-4xl md:text-5xl font-bold mb-16 text-blue-600">Transforma la experiencia de tus clientes con Reco</h2>
     
-    <p class="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto mb-12">
+    <p class="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto mb-20">
       Potencia tu restaurante con recomendaciones inteligentes, pagos más rápidos y clientes más satisfechos.
       Descubre cómo Reco puede ayudarte a crecer.
     </p>

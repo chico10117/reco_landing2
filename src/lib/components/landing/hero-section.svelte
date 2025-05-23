@@ -133,11 +133,6 @@
             fetchpriority="high"
           />
         </div>
-        
-        <!-- Efectos decorativos -->
-        <div class="absolute inset-0 bg-gradient-to-tr from-blue-100 via-transparent to-blue-50 rounded-full filter blur-3xl opacity-70"></div>
-        <div class="absolute top-1/4 left-1/4 w-12 h-12 bg-yellow-400 rounded-full filter blur-xl opacity-70 animate-pulse"></div>
-        <div class="absolute bottom-1/3 right-1/4 w-16 h-16 bg-blue-400 rounded-full filter blur-xl opacity-60 animate-pulse" style="animation-delay: 1s"></div>
       </div>
     </div>
   </div>

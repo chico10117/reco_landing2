@@ -3,32 +3,22 @@
 </script>
 
 <section id="benefits" class="pt-4 pb-16 md:pt-8 md:pb-24 bg-white relative">
-  <div class="absolute -right-1/4 top-1/4 w-1/3 h-3/4">
-    <div class="absolute inset-0 bg-[#4169E1] blur-2xl opacity-30 rounded-[40%_60%_60%_40%] animate-pulse"></div>
-    <div class="absolute inset-0 bg-[#4169E1] blur-3xl opacity-20 rounded-[40%_60%_60%_40%] transform translate-x-10 animate-pulse" style="animation-delay: 0.5s;"></div>
-    <div class="absolute inset-0 bg-[#4169E1] blur-3xl opacity-10 rounded-[40%_60%_60%_40%] transform translate-x-20 animate-pulse" style="animation-delay: 1s;"></div>
-  </div>
-  <div class="absolute -left-1/4 bottom-0 w-1/3 h-2/3">
-    <div class="absolute inset-0 bg-[#4169E1] blur-2xl opacity-30 rounded-[60%_40%_40%_60%] animate-pulse"></div>
-    <div class="absolute inset-0 bg-[#4169E1] blur-3xl opacity-20 rounded-[60%_40%_40%_60%] transform -translate-x-10 animate-pulse" style="animation-delay: 0.5s;"></div>
-    <div class="absolute inset-0 bg-[#4169E1] blur-3xl opacity-10 rounded-[60%_40%_40%_60%] transform -translate-x-20 animate-pulse" style="animation-delay: 1s;"></div>
-  </div>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     <ScrollTransition>
       <div class="text-left mb-12">
-        <h2 class="text-5xl md:text-6xl lg:text-7xl font-bold text-blue-600 leading-tight">Una forma más<br>inteligente de comer fuera.</h2>
+        <h2 class="text-5xl md:text-6xl lg:text-7xl font-bold text-blue-600 leading-tight">Para ti, Restaurador:<br>Más Ventas, Más Información.</h2>
         <p class="mt-6 text-lg md:text-xl text-gray-600 max-w-2xl space-y-2">
           <span class="flex items-center">
             <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
-            Escaneas el QR
+            Aumenta el ticket medio con recomendaciones inteligentes
           </span>
           <span class="flex items-center">
             <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
-            Aparece Reco
+            Conoce mejor a tu cliente (Mejor experiencia del cliente = mejores reseñas)
           </span>
           <span class="flex items-center">
             <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
-            Le preguntas lo que quieras
+            Funciona con un QR. Sin instalaciones, sin formaciones eternas
           </span>
         </p>
         <a href="#how-it-works" class="mt-6 inline-block text-blue-600 font-medium hover:underline">Explorar cómo usarlo →</a>

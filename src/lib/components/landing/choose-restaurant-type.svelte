@@ -50,42 +50,37 @@
   ];
 </script>
 
-<section class="py-16 md:py-24 bg-white relative overflow-hidden">
-  <div class="absolute -right-1/4 top-1/4 w-1/3 h-3/4">
-    <div class="absolute inset-0 bg-[#4169E1] blur-2xl opacity-30 rounded-[40%_60%_60%_40%] animate-pulse"></div>
-    <div class="absolute inset-0 bg-[#4169E1] blur-3xl opacity-20 rounded-[40%_60%_60%_40%] transform translate-x-10 animate-pulse" style="animation-delay: 0.5s;"></div>
-    <div class="absolute inset-0 bg-[#4169E1] blur-3xl opacity-10 rounded-[40%_60%_60%_40%] transform translate-x-20 animate-pulse" style="animation-delay: 1s;"></div>
-  </div>
-  <div class="absolute -left-1/4 bottom-0 w-1/3 h-2/3">
-    <div class="absolute inset-0 bg-[#4169E1] blur-2xl opacity-40 rounded-[60%_40%_40%_60%] animate-pulse"></div>
-    <div class="absolute inset-0 bg-[#4169E1] blur-3xl opacity-25 rounded-[60%_40%_40%_60%] transform -translate-x-10 animate-pulse" style="animation-delay: 0.5s;"></div>
-    <div class="absolute inset-0 bg-[#4169E1] blur-3xl opacity-15 rounded-[60%_40%_40%_60%] transform -translate-x-20 animate-pulse" style="animation-delay: 1s;"></div>
-  </div>
+<section class="py-28 md:py-40 bg-white relative overflow-hidden">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     <ScrollTransition>
-      <div class="text-left mb-16">
-        <h2 class="text-5xl md:text-6xl lg:text-7xl font-bold text-blue-600 leading-tight">
-          Para ti, restaurador: más ventas, menos errores
+      <div class="text-left mb-24">
+        <h2 class="text-5xl md:text-6xl lg:text-7xl font-bold text-blue-600 leading-tight mb-12 text-center">
+          Para Comensales, La Mejor Experiencia De La Industria.
         </h2>
+        <p class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-700 leading-tight text-center w-full">
+          Reco no es solo un menú digital. <br>
+          Es tu cómplice foodie en la mesa.
+          Foodie en la mesa.
+        </p>
         
         <div class="mt-6 md:flex md:items-start md:space-x-8">
           <div class="md:w-3/5 lg:w-1/2">
             <blockquote class="text-xl text-gray-700 italic border-l-4 border-blue-500 pl-4 py-2 max-w-3xl">
-              "Tu staff se enfoca en lo humano. Reco, en todo lo demás."
+              "La Unica Experiencia Super Personalizada En El Mundo Para Comensales."
             </blockquote>
     
             <ul class="mt-4 text-lg text-gray-600 max-w-3xl space-y-2">
               <li class="flex items-center">
                 <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
-                Aumenta el ticket medio con recomendaciones inteligentes
+                Recomienda Platos Según Gustos, Alergias, Antojos Y Patrones De Consumo.
               </li>
               <li class="flex items-center">
                 <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
-                Reduce errores de pedido (Mejor experiencia del cliente = mejores reseñas)
+                Responde Todas Las Dudas En Degundos (Sin Molestar Al Camarero).
               </li>
               <li class="flex items-center">
                 <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
-                Funciona con un QR. Sin instalaciones, sin formaciones eternas
+                Reco Conoce A Tus Comensales Mejor Que Nadie.
               </li>
             </ul>
           </div>
@@ -155,7 +150,12 @@
         </div>
       </div>
     </ScrollTransition>
+  </div>
+  <div class="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-b from-white/0 via-white/70 to-white pointer-events-none"></div>
+</section>
 
+<section class="py-20 md:py-32 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
       {#each restaurantTypes as type, i}
         <ScrollTransition delay={i * 200}>
@@ -172,5 +172,4 @@
       {/each}
     </div>
   </div>
-  <div class="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-b from-white/0 via-white/70 to-white pointer-events-none"></div>
 </section> 
