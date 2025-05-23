@@ -7,9 +7,8 @@
   let isLoading = $state(true);
   let iframeElement: HTMLIFrameElement;
   
-  // Convert Google Drive link to embed URL
-  const videoId = "1K1W-WLbC978iKJSWltMyEoPdxRPS6WLd";
-  const embedUrl = `https://drive.google.com/file/d/${videoId}/preview`;
+    // Cloudflare Stream embed URL with autoplay enabled
+  const embedUrl = "https://customer-e5khuengb89dqab3.cloudflarestream.com/d4ccc59cb861eb870cf53490ba8a1a4e/iframe?preload=true&poster=https%3A%2F%2Fcustomer-e5khuengb89dqab3.cloudflarestream.com%2Fd4ccc59cb861eb870cf53490ba8a1a4e%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600&autoplay=true";
 
   // Preload iframe in background
   let preloadIframe: HTMLIFrameElement;
@@ -70,10 +69,11 @@
         bind:this={iframeElement}
         src={embedUrl}
         class="w-full h-full rounded-lg shadow-xl {isLoading ? 'opacity-0' : 'opacity-100'}"
-        allow="autoplay"
-        allowfullscreen
+        allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+        allowfullscreen="true"
         on:load={onIframeLoad}
+        style="border: none;"
       ></iframe>
     </div>
   </div>
-{/if} 
+{/if}

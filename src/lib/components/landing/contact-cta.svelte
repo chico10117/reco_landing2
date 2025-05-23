@@ -61,23 +61,22 @@
     <div class="absolute inset-0 bg-[#4169E1] blur-3xl opacity-10 rounded-[60%_40%_40%_60%] transform -translate-x-20 animate-pulse" style="animation-delay: 1s;"></div>
   </div>
   
-  <div 
+  <div id="video-reco" 
     bind:this={contentElement}
     class="relative z-10 w-full text-center"
     class:animate-slide-up={isVisible}
   >
     <h2 class="text-4xl md:text-5xl font-bold mb-8 text-blue-600">Transforma la experiencia de tus clientes con Reco</h2>
-    
     <p class="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto mb-12">
       Potencia tu restaurante con recomendaciones inteligentes, pagos más rápidos y clientes más satisfechos.
       Descubre cómo Reco puede ayudarte a crecer.
     </p>
     
-    <div class="flex flex-col sm:flex-row gap-6 justify-center">
-      <a href={calendlyUrl} target="_blank" rel="noopener noreferrer">
+    <div class="flex flex-col sm:flex-row gap-6 justify-center w-full px-4 sm:px-0">
+      <a href={calendlyUrl} target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto">
         <Button 
           size="lg" 
-          class="bg-blue-600 text-white hover:bg-blue-700 rounded-full px-8 w-full"
+          class="rounded-full px-6 bg-blue-600 hover:bg-blue-700 text-white w-full"
           on:click={() => {
             track('cta_click', { label: 'contact_sales' });
           }}
@@ -86,11 +85,11 @@
         </Button>
       </a>
       
-      <a href={trialHref}>
+      <a href={trialHref} class="w-full sm:w-auto">
         <Button 
           variant="outline" 
           size="lg" 
-          class="bg-white text-blue-600 hover:bg-blue-50 rounded-full px-8 w-full border border-blue-600"
+          class="rounded-full px-6 border-blue-600 text-blue-600 hover:bg-blue-50 w-full"
           on:click={() => {
             track('cta_click', { label: 'free_trial' });
           }}
@@ -134,4 +133,4 @@
       opacity: 0.3;
     }
   }
-</style> 
+</style>

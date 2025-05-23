@@ -23,6 +23,7 @@
     } else {
       // Handle case where video overlay component is not mounted
     }
+
   }
 
   onMount(() => {
@@ -111,10 +112,10 @@
         </div>
         
         <p class="mt-16 text-lg text-gray-500">Confían en nosotros:</p>
-        <div class="mt-16 flex flex-wrap items-center gap-8">
-          <img src="/Yelmo.png" alt="Cine Yelmo" class="h-24 opacity-100 hover:opacity-90 transition-opacity" />
-          <img src="/Basque.png" alt="Vips" class="h-20 opacity-100 hover:opacity-90 transition-opacity" />
-          <img src="/HonestGreens.png" alt="HonestGreens" class="h-20 opacity-100 hover:opacity-90 transition-opacity" />
+        <div class="mt-2 flex flex-wrap items-center gap-4">
+          <img src="/cinepolis.png" alt="Cinepolis" class="h-8 md:h-12 opacity-100 hover:opacity-90 transition-opacity" />
+          <img src="/Yelmo.svg" alt="Cine Yelmo" class="h-6 md:h-9 opacity-100 hover:opacity-90 transition-opacity" />
+          <img src="/Basque.png" alt="Basque" class="h-10 md:h-15 opacity-100 hover:opacity-90 transition-opacity" />
         </div>
       </div>
       
@@ -140,7 +141,7 @@
       </div>
     </div>
   </div>
-  
+
   <!-- Add bottom gradient overlay -->
   <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent via-white to-white"></div>
 </section>
@@ -191,4 +192,4 @@
       transform: translateX(0);
     }
   }
-</style> 
+</style>

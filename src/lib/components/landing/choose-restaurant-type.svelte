@@ -108,7 +108,7 @@
 
     <ScrollTransition delay={100}>
       <div class="mb-12 md:mb-16 text-left">
-        <h2 class="text-5xl md:text-6xl lg:text-7xl font-bold text-blue-600 leading-tight mb-4 whitespace-nowrap">
+        <h2 class="text-5xl md:text-6xl lg:text-7xl font-bold text-blue-600 leading-tight mb-4">
           ¿Tu carta vende o solo decora?
         </h2>
         <div class="mt-6 md:flex md:items-start md:space-x-8">
@@ -173,4 +173,4 @@
     </div>
   </div>
   <div class="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-b from-white/0 via-white/70 to-white pointer-events-none"></div>
-</section> 
+</section>

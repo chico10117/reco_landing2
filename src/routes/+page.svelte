@@ -15,10 +15,11 @@
   };
 
   const handleRestaurantClick = () => {
-    const benefitsSection = document.getElementById('benefits');
-    if (benefitsSection) {
-      benefitsSection.scrollIntoView({ behavior: 'smooth' });
-    }
+    // Open WhatsApp chat with a predefined message
+    const whatsappNumber = "34603114264"; // Replace with your actual WhatsApp number
+    const message = "Hola, me gustaría obtener más información sobre Reco para mi restaurante.";
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
   };
 </script>
 
@@ -43,4 +44,4 @@
 
 <!-- <PartnersStrip {partners} /> -->
 
-<ContactCTA /> 
+<ContactCTA />
