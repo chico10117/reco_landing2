@@ -22,8 +22,15 @@
 
   // Aplicar filtros
   function applyFilters() {
+    // Helper para obtener idioma de Yoast schema
+    const getPostLanguage = (post: any) => {
+      const graph = post.yoast_head_json?.schema?.['@graph'] || [];
+      const article = graph.find((node: any) => node['@type'] === 'Article');
+      return (article?.inLanguage as string) || 'es';
+    };
     visiblePosts = blogPosts.filter(post => {
-      const matchLanguage = selectedLanguage === 'all' || post.language === selectedLanguage;
+      const lang = getPostLanguage(post);
+      const matchLanguage = selectedLanguage === 'all' || lang === selectedLanguage;
       const matchCategory = selectedCategory === 'all' || post.categories.includes(selectedCategory);
       
       return matchLanguage && matchCategory;

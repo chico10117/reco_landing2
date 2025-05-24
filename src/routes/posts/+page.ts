@@ -1,8 +1,10 @@
 import type { PageLoad } from './$types';
+import {blogPosts} from '$lib/data/blog-posts';
 
 export const load: PageLoad = async () => {
   return {
-    title: 'Noticias | Reco',
-    description: 'Últimas noticias y actualizaciones de Reco.'
+    title: 'Blog | Reco',
+    description: 'Últimas entradas y actualizaciones de Reco.',
+    posts: blogPosts
   };
-}; 
+};

@@ -23,7 +23,7 @@
         <h3 class="text-lg font-semibold mb-3">Empresa</h3>
         <ul class="space-y-2">
           <li><a href="/nosotros" class="hover:text-blue-400">Nosotros</a></li>
-          <li><a href="/noticias" class="hover:text-blue-400">Noticias</a></li>
+          <li><a href="/posts" class="hover:text-blue-400">Blog</a></li>
           <li><a href="/contact" class="hover:text-blue-400">Contacto</a></li>
         </ul>
       </div>

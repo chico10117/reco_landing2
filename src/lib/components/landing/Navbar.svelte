@@ -146,7 +146,7 @@
               {/if}
             </div>
             <a href="/precios" class="text-white hover:text-white/80 px-2 text-base font-medium" onclick={closeAllMenus}>Precios</a>
-            <a href="/noticias" class="text-white hover:text-white/80 px-2 text-base font-medium" onclick={closeAllMenus}>Noticias</a>
+            <a href="/posts" class="text-white hover:text-white/80 px-2 text-base font-medium" onclick={closeAllMenus}>Blog</a>
             <a href="/nosotros" class="text-white hover:text-white/80 flex items-center space-x-2 px-2 text-base font-medium" onclick={closeAllMenus}>
               <span>Nosotros</span>
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -221,7 +221,7 @@
           </div>
           
           <a href="/precios" class="text-white hover:text-white/80 block py-2 text-base" onclick={closeAllMenus}>Precios</a>
-          <a href="/noticias" class="text-white hover:text-white/80 block py-2 text-base" onclick={closeAllMenus}>Noticias</a>
+          <a href="/posts" class="text-white hover:text-white/80 block py-2 text-base" onclick={closeAllMenus}>Blog</a>
           <a href="/nosotros" class="text-white hover:text-white/80 flex items-center space-x-1 py-2 text-base" onclick={closeAllMenus}>
             <span>Nosotros</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><polyline points="6 9 12 15 18 9"></polyline></svg>

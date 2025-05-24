@@ -14,17 +14,21 @@ export const load: PageServerLoad = async ({ params }) => {
     });
   }
 
+  // Compute related posts
+  const relatedPosts = blogPosts.filter(p => p.slug !== slug).slice(0, 2);
+
   return {
     post,
+    relatedPosts,
     meta: {
       title: `${post.title} | Reco Blog`,
       description: post.excerpt,
-      canonical: `https://reco.chat/posts/${post.slug}`,
+      canonical: `https://reco.chat/${post.slug}`,
       openGraph: {
         title: post.title,
         description: post.excerpt,
         image: 'https://reco.chat/img/og-image.jpg',
-        url: `https://reco.chat/posts/${post.slug}`,
+        url: `https://reco.chat/${post.slug}`,
         type: 'article'
       }
     }

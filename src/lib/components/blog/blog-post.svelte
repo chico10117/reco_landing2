@@ -8,36 +8,36 @@
 
 <article class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 h-full flex flex-col">
   <div class="relative">
-    <img 
-      src={post.imageUrl} 
-      alt={post.title}
-      class="w-full h-48 object-cover"
-      loading="lazy"
-    />
-    <div class="absolute top-0 right-0 bg-blue-600 text-white text-xs font-bold px-2 py-1 m-2 rounded">
-      {post.language === 'es' ? 'ES' : 'EN'}
-    </div>
+    <a href={"/" + post.slug} class="relative block overflow-hidden group">
+      <img
+        src="/{post.featured_media || 'img/lastbksvg.svg'}"
+        alt={post.title.rendered}
+        class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+        loading="lazy"
+      />
+      <div class="absolute top-0 right-0 bg-blue-600 text-white text-xs font-bold px-2 py-1 m-2 rounded">
+        {post.author}
+      </div>
+    </a>
   </div>
   
   <div class="p-6 flex flex-col flex-grow">
     <div class="flex items-center text-sm text-gray-500 mb-2">
-      <span>{post.date}</span>
-      <span class="mx-2">•</span>
-      <span>{post.categories[0]}</span>
+      <span>{new Date(post.date).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
     </div>
     
-    <h2 class="text-xl font-bold text-gray-900 mb-3 line-clamp-2 hover:text-blue-600 transition-colors">
-      {post.title}
+    <h2 class="text-xl font-bold text-gray-900 mb-3 line-clamp-2 transition-colors">
+      <a href={"/" + post.slug} class="hover:text-blue-600">
+        {@html post.title.rendered}
+      </a>
     </h2>
     
     <p class="text-gray-600 mb-4 line-clamp-3 flex-grow">
-      {post.excerpt}
+      {@html post.excerpt.rendered}
     </p>
     
     <a 
-      href={post.url} 
-      target="_blank" 
-      rel="noopener noreferrer"
+      href={"/" + post.slug} 
       class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center mt-auto"
     >
       Leer más

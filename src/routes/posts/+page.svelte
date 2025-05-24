@@ -1,5 +1,6 @@
 <script lang="ts">
   import BlogList from '$lib/components/blog/blog-list.svelte';
+  const { posts } = $props<{ posts: any[] }>();
 </script>
 
 <svelte:head>
