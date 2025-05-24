@@ -1,19 +1,13 @@
 // Estructura de datos para los posts del blog
 export interface BlogPost {
+    [key: string]: any; // Permitir propiedades adicionales
     id: number;
     date: string;
     date_gmt: string;
     author: string;
     featured_media: string;
-    guid: {
-        rendered: string;
-    };
-    modified: string;
-    modified_gmt: string;
+    categories: number[];
     slug: string;
-    status: string;
-    type: string;
-    link: string;
     title: {
         rendered: string;
     };
