@@ -108,7 +108,7 @@
               onRestaurantClick();
             }}
           >
-            ¿Tienes un restaurante? Así te ayuda RECO
+            ¿Quieres que tu carta trabaje para ti?
           </Button>
         </div>
         
