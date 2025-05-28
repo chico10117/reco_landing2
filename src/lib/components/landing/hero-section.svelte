@@ -80,15 +80,31 @@
         class:animate-slide-left={isVisible}
       >
         <h1 class="mt-16 text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-          <span class="text-[#85A3FA] [text-shadow:0_2px_4px_rgba(0,0,0,0.2)]">El mejor amigo de tu cliente...</span><br>
-          <span class="text-blue-600 [text-shadow:0_2px_4px_rgba(0,0,0,0.1)]">Que trabaja para ti.</span>
+          <span class="text-[#85A3FA]">La mejor experiencia QR</span><br>
+          <span class="text-blue-600 whitespace-nowrap">Para tus clientes</span>
         </h1>
         
-        <p class="mt-6 text-lg md:text-xl text-gray-600 max-w-2xl drop-shadow-sm hover:drop-shadow-md transition-all duration-300 bg-gradient-to-r from-transparent via-white/50 to-transparent p-4 rounded-xl backdrop-blur-sm">
-          Tu carta inteligente, sugiere platos, resuelve dudas y te ayuda a conocer mejor a tus clientes.
-          <br>
-          Todo desde el móvil, sin apps, sin complicaciones.
-        </p>
+        <div class="mt-6 text-lg md:text-xl text-gray-600 max-w-2xl">
+          <p class="mb-4">La carta más inteligente que:</p>
+          <ul class="space-y-2 ml-4">
+            <li class="flex items-start">
+              <span class="text-blue-500 mr-3 mt-1">•</span>
+              <span>Sugiere platos personalizados</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-blue-500 mr-3 mt-1">•</span>
+              <span>Resuelve dudas al instante</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-blue-500 mr-3 mt-1">•</span>
+              <span>Te ayuda a conocer mejor a tus clientes</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-blue-500 mr-3 mt-1">•</span>
+              <span>Todo desde el móvil, sin capacitaciones, sin complicaciones</span>
+            </li>
+          </ul>
+        </div>
         
         <div class="mt-10 flex flex-col sm:flex-row gap-4">
           <Button 
@@ -113,10 +129,10 @@
         </div>
         
         <p class="mt-16 text-lg text-gray-500">Confían en nosotros:</p>
-        <div class="mt-2 flex flex-wrap items-center gap-4">
+        <div class="mt-2 flex flex-wrap items-center gap-8">
           <img src="/cinepolis.png" alt="Cinepolis" class="h-8 md:h-12 opacity-100 hover:opacity-90 transition-opacity" />
-          <img src="/Yelmo.svg" alt="Cine Yelmo" class="h-6 md:h-9 opacity-100 hover:opacity-90 transition-opacity" />
           <img src="/Basque.png" alt="Basque" class="h-10 md:h-15 opacity-100 hover:opacity-90 transition-opacity" />
+          <img src="/Yelmo.svg" alt="Cine Yelmo" class="h-6 md:h-9 opacity-100 hover:opacity-90 transition-opacity" />
         </div>
       </div>
       
@@ -136,9 +152,9 @@
         </div>
         
         <!-- Efectos decorativos -->
-        <div class="absolute inset-0 bg-gradient-to-tr from-blue-100 via-transparent to-blue-50 rounded-full filter blur-3xl opacity-70"></div>
+        <!-- <div class="absolute inset-0 bg-gradient-to-tr from-blue-100 via-transparent to-blue-50 rounded-full filter blur-3xl opacity-70"></div>
         <div class="absolute top-1/4 left-1/4 w-12 h-12 bg-yellow-400 rounded-full filter blur-xl opacity-70 animate-pulse"></div>
-        <div class="absolute bottom-1/3 right-1/4 w-16 h-16 bg-blue-400 rounded-full filter blur-xl opacity-60 animate-pulse" style="animation-delay: 1s"></div>
+        <div class="absolute bottom-1/3 right-1/4 w-16 h-16 bg-blue-400 rounded-full filter blur-xl opacity-60 animate-pulse" style="animation-delay: 1s"></div> -->
       </div>
     </div>
   </div>
