@@ -9,6 +9,44 @@
     iconColor: string;
   }
 
+  interface Benefit {
+    icon: string;
+    title: string;
+    description: string;
+    iconBgColor: string;
+    iconColor: string;
+  }
+
+  const benefits: Benefit[] = [
+    {
+      icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>`,
+      title: "Más ingresos",
+      description: "Reco recomienda platos que suben el ticket medio — sin que el staff diga una palabra.",
+      iconBgColor: "bg-blue-100",
+      iconColor: "text-blue-600"
+    },
+    {
+      icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>`,
+      title: "Menos presión para el equipo",
+      description: "Reco responde dudas frecuentes, sugiere maridajes y libera al personal para lo humano.",
+      iconBgColor: "bg-green-100",
+      iconColor: "text-green-600"
+    },
+    {
+      icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+      </svg>`,
+      title: "Datos útiles al instante",
+      description: "Descubre qué platos triunfan, qué falla y cómo mejorar — todo desde la carta.",
+      iconBgColor: "bg-purple-100",
+      iconColor: "text-purple-600"
+    }
+  ];
+
   const restaurantTypes: RestaurantType[] = [
     {
       icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -62,7 +100,75 @@
     <div class="absolute inset-0 bg-[#4169E1] blur-3xl opacity-15 rounded-[60%_40%_40%_60%] transform -translate-x-20 animate-pulse" style="animation-delay: 1s;"></div>
   </div>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+
     <ScrollTransition>
+      <div class="mb-12 md:mb-16 text-left">
+        <h2 class="text-5xl md:text-6xl lg:text-7xl font-bold text-blue-600 leading-tight mb-4">
+          ¿Tu carta vende o solo decora?
+        </h2>
+        <div class="mt-6 md:flex md:items-start md:space-x-8">
+          <div class="md:w-3/5 lg:w-1/2">
+            <blockquote class="text-xl text-gray-700 italic border-l-4 border-blue-500 pl-4 py-2 max-w-3xl">
+              Una carta profesional no es solo bonita. Es clara, útil y estratégica.
+            </blockquote>
+            <ul class="mt-4 text-lg text-gray-600 max-w-3xl space-y-2">
+              <li class="flex items-center">
+                <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                Sabes qué platos realmente quieren tus clientes
+              </li>
+              <li class="flex items-center">
+                <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                Reco aprende y propone mejoras en tu carta
+              </li>
+              <li class="flex items-center">
+                <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                Vende como un camarero experto
+              </li>
+              <li class="flex items-center">
+                <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                Habla todos los idiomas
+              </li>
+              <li class="flex items-center">
+                <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                Se adapta al perfil de cada cliente
+              </li>
+            </ul>
+            <blockquote class="text-xl text-gray-700 italic border-l-4 border-blue-500 pl-4 py-2 max-w-3xl mt-4">
+              No es diseño. Es ingeniería de carta.
+            </blockquote>
+          </div>
+          <div class="md:w-2/5 lg:w-1/2 mt-6 md:mt-0">
+            <div class="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 bg-slate-50 rounded-lg shadow-sm border border-slate-200">
+              <img src="/Andres.webp" alt="Andrés, Fonda Muñoz" class="h-14 w-14 sm:h-16 sm:w-16 rounded-full object-cover border-2 border-blue-200 shrink-0">
+              <div>
+                <p class="text-base sm:text-lg font-medium text-gray-800 italic leading-tight">"Reco convirtió mi carta en mi mejor vendedor."</p>
+                <p class="text-xs sm:text-sm text-gray-600 mt-1">- Andrés, Fonda Muñoz</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ScrollTransition>
+
+    <!-- Benefits from how-it-works.svelte -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+      {#each benefits as benefit, i}
+        <ScrollTransition delay={i * 200}>
+          <div class="bg-white rounded-xl shadow-xl p-8 transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.02] cursor-pointer">
+            <div class="w-16 h-16 {benefit.iconBgColor} rounded-xl mb-6 flex items-center justify-center transition-transform duration-300 ease-in-out group-hover:scale-110">
+              <div class={benefit.iconColor}>
+                {@html benefit.icon}
+              </div>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-3">{benefit.title}</h3>
+            <p class="text-gray-600">{benefit.description}</p>
+          </div>
+        </ScrollTransition>
+      {/each}
+    </div>
+
+    <ScrollTransition delay={100}>
       <div class="text-left mb-16">
         <h2 class="text-5xl md:text-6xl lg:text-7xl font-bold text-blue-600 leading-tight">
           Para ti, restaurador: más ventas, menos errores
@@ -103,56 +209,6 @@
         <a href="#pricing" class="mt-8 inline-block text-blue-600 hover:text-blue-700 font-medium">
           Conoce los precios flexibles de Reco →
         </a>
-      </div>
-    </ScrollTransition>
-
-    <ScrollTransition delay={100}>
-      <div class="mb-12 md:mb-16 text-left">
-        <h2 class="text-5xl md:text-6xl lg:text-7xl font-bold text-blue-600 leading-tight mb-4">
-          ¿Tu carta vende o solo decora?
-        </h2>
-        <div class="mt-6 md:flex md:items-start md:space-x-8">
-          <div class="md:w-3/5 lg:w-1/2">
-            <blockquote class="text-xl text-gray-700 italic border-l-4 border-blue-500 pl-4 py-2 max-w-3xl">
-              Una carta profesional no es solo bonita. Es clara, útil y estratégica.
-            </blockquote>
-            <ul class="mt-4 text-lg text-gray-600 max-w-3xl space-y-2">
-              <li class="flex items-center">
-                <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
-                Con Reco sabes qué platos funcionan y cuáles no
-              </li>
-              <li class="flex items-center">
-                <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
-                Reco aprende y propone mejoras
-              </li>
-              <li class="flex items-center">
-                <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
-                Vende como un camarero experto
-              </li>
-              <li class="flex items-center">
-                <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
-                Habla todos los idiomas
-              </li>
-              <li class="flex items-center">
-                <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
-                Se adapta al perfil de cada cliente
-              </li>
-              <li class="flex items-center">
-                <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
-                Esto no es diseño. Es ingeniería de carta — con IA incluida.
-              </li>
-            </ul>
-          </div>
-          <div class="md:w-2/5 lg:w-1/2 mt-6 md:mt-0">
-            <div class="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 bg-slate-50 rounded-lg shadow-sm border border-slate-200">
-              <img src="/Andres.webp" alt="Andrés, Fonda Muñoz" class="h-14 w-14 sm:h-16 sm:w-16 rounded-full object-cover border-2 border-blue-200 shrink-0">
-              <div>
-                <p class="text-base sm:text-lg font-medium text-gray-800 italic leading-tight">"Reco convirtió mi carta en mi mejor vendedor."</p>
-                <p class="text-xs sm:text-sm text-gray-600 mt-1">- Andrés, Fonda Muñoz</p>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </ScrollTransition>
 

@@ -141,7 +141,7 @@
         class="md:w-1/2 relative"
         class:animate-slide-right={isVisible}
       >
-        <div class="relative z-10 transform transition-transform duration-500 hover:translate-y-[-10px]">
+        <div class="relative z-10 transform transition-transform duration-500 hover:translate-y-[-10px] cursor-pointer" on:click={() => window.open('https://fiamma.reco.restaurant', '_blank')}>
           <img
             src="/img/hero.png"
             alt="Reco app interface on mobile phone"

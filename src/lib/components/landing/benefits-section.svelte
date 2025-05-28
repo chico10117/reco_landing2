@@ -54,7 +54,9 @@
           No es solo diseño. Es ingeniería de carta.
         </h3>
         
-        <a href="#how-it-works" class="mt-8 inline-block text-blue-600 font-medium hover:underline">Evalúa tu carta →</a>
+
+        <!-- AGREGAR ESTE CALL TO ACTION PARA EVALUAR TU CARTA FUNCIONALIDAD!! -->
+        <!-- <a href="#how-it-works" class="mt-8 inline-block text-blue-600 font-medium hover:underline">Evalúa tu carta →</a> -->
       </div>
     </ScrollTransition>
     

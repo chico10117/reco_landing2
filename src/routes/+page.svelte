@@ -34,13 +34,15 @@
   onRestaurantClick={handleRestaurantClick} 
 />
 
-<BenefitsSection />
+<ChooseRestaurantType />
+
+<!-- <BenefitsSection /> -->
 
 <div id="explora">
   <HowItWorks />
 </div>
 
-<ChooseRestaurantType />
+
 
 <!-- <PartnersStrip {partners} /> -->
 
