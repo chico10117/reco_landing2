@@ -169,6 +169,7 @@
       dragStartY = null;
       dragDelta = 0;
       return;
+      ////
     }
     isHorizontalDrag = true;
     dragDelta = deltaX;
