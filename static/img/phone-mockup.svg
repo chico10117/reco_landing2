@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="375" height="812" viewBox="0 0 375 812" xmlns="http://www.w3.org/2000/svg">
+  <!-- Phone frame -->
+  <rect width="375" height="812" rx="40" fill="#f5f5f5" stroke="#cccccc" stroke-width="2"/>
+  
+  <!-- App header -->
+  <rect x="20" y="60" width="335" height="60" fill="#1a73e8" rx="10"/>
+  <text x="40" y="100" font-family="Arial, sans-serif" font-size="22" fill="white">Reco</text>
+  
+  <!-- Menu item 1 -->
+  <rect x="20" y="140" width="335" height="100" fill="#ffffff" rx="10" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="40" y="170" font-family="Arial, sans-serif" font-size="18" fill="#333333">Pasta Carbonara</text>
+  <text x="40" y="195" font-family="Arial, sans-serif" font-size="14" fill="#666666">Creamy pasta with bacon and eggs</text>
+  <text x="40" y="220" font-family="Arial, sans-serif" font-size="16" fill="#1a73e8">€12.50</text>
+  
+  <!-- Menu item 2 -->
+  <rect x="20" y="260" width="335" height="100" fill="#ffffff" rx="10" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="40" y="290" font-family="Arial, sans-serif" font-size="18" fill="#333333">Margherita Pizza</text>
+  <text x="40" y="315" font-family="Arial, sans-serif" font-size="14" fill="#666666">Classic pizza with tomato and mozzarella</text>
+  <text x="40" y="340" font-family="Arial, sans-serif" font-size="16" fill="#1a73e8">€10.00</text>
+  
+  <!-- Menu item 3 -->
+  <rect x="20" y="380" width="335" height="100" fill="#ffffff" rx="10" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="40" y="410" font-family="Arial, sans-serif" font-size="18" fill="#333333">Veggie Burger</text>
+  <text x="40" y="435" font-family="Arial, sans-serif" font-size="14" fill="#666666">Plant-based patty with fresh vegetables</text>
+  <text x="40" y="460" font-family="Arial, sans-serif" font-size="16" fill="#1a73e8">€11.75</text>
+  
+  <!-- Recommendation bubble -->
+  <rect x="20" y="500" width="335" height="120" fill="#e8f0fe" rx="20" stroke="#1a73e8" stroke-width="1"/>
+  <text x="40" y="530" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1a73e8">Reco dice:</text>
+  <text x="40" y="560" font-family="Arial, sans-serif" font-size="14" fill="#333333">Te recomiendo la Pasta Carbonara si</text>
+  <text x="40" y="585" font-family="Arial, sans-serif" font-size="14" fill="#333333">buscas algo cremoso y reconfortante.</text>
+  
+  <!-- Bottom navigation -->
+  <rect x="0" y="752" width="375" height="60" fill="#ffffff" stroke="#e0e0e0" stroke-width="1"/>
+  <circle cx="60" cy="782" r="10" fill="#1a73e8"/>
+  <circle cx="187" cy="782" r="10" fill="#666666"/>
+  <circle cx="315" cy="782" r="10" fill="#666666"/>
+</svg> 
