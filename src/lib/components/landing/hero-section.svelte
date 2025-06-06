@@ -143,7 +143,9 @@
           <img src="/cinepolis.png" alt="Cinepolis" class="h-8 md:h-10 opacity-100 hover:opacity-90 transition-opacity" />
           <img src="/Basque.png" alt="Basque" class="h-8 md:h-12 opacity-100 hover:opacity-90 transition-opacity" />
           <img src="/Yelmo.svg" alt="Cine Yelmo" class="h-6 md:h-8 opacity-100 hover:opacity-90 transition-opacity" />
-          <a href="https://carta.reco.chat/login" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white rounded-full px-6 py-2 text-base font-medium shadow transition-all duration-200" target="_blank" rel="noopener">
+        </div>
+        <div class="relative mt-4 h-10">
+          <a href="https://carta.reco.chat/login" class="absolute right-0 md:right-[-100px] lg:right-[-200px] inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white rounded-full px-6 py-2 text-base font-medium shadow transition-all duration-200" target="_blank" rel="noopener">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
             <span>Crea tu carta demo acá</span>
           </a>
