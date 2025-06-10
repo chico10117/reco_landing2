@@ -169,7 +169,7 @@
       >
         <!-- Imagen en desktop -->
         <div 
-          class="hidden md:block absolute right-8 top-2/3 -translate-y-1/2 w-[70%] max-w-4xl"
+          class="hidden md:block w-[70%] max-w-4xl"
         >
           <a 
             href="https://fiamma.reco.restaurant" 
