@@ -85,12 +85,12 @@
         <div class="flex-grow">
           <h1 class="mt-0 text-3xl md:text-4xl lg:text-5xl font-bold leading-tight tracking-tight">
             <div class="text-wrapper">
-              <span class="text-black typing-text">La mejor experiencia QR</span>
-              <span class="text-black invisible" aria-hidden="true">La mejor experiencia QR</span>
+              <span class="text-black">La mejor experiencia QR</span>
             </div>
             <div class="text-wrapper">
               <span class="text-blue-600 whitespace-nowrap typing-text">Para tus clientes</span>
-              <span class="text-blue-600 whitespace-nowrap invisible" aria-hidden="true">Para tus clientes</span>
+              <span class="text-blue-600 whitespace-nowrap typing-text-alt">Para tus camareros</span>
+              <span class="text-blue-600 whitespace-nowrap invisible" aria-hidden="true">Para tus camareros</span>
             </div>
           </h1>
           <div class="mt-4 text-base md:text-lg text-gray-600 max-w-2xl">
@@ -325,45 +325,39 @@
     overflow: hidden;
     display: inline-block;
     white-space: nowrap;
-    animation: typing 6s steps(20) infinite;
+    animation: typing 6s steps(15) infinite;
   }
 
-  .text-wrapper:nth-child(2) .typing-text {
-    animation-name: typing-second;
+  .typing-text-alt {
+    position: absolute;
+    width: 0;
+    overflow: hidden;
+    display: inline-block;
+    white-space: nowrap;
+    animation: typing-alt 6s steps(15) infinite;
   }
 
   @keyframes typing {
     0% {
       width: 0;
     }
-    15%, 80% {
+    15%, 35% {
       width: 100%;
     }
-    95%, 100% {
+    50%, 100% {
       width: 0;
     }
   }
 
-  @keyframes typing-second {
-    0%, 15% {
+  @keyframes typing-alt {
+    0%, 50% {
       width: 0;
     }
-    25%, 60% {
+    65%, 85% {
       width: 100%;
     }
-    75%, 80% {
+    100% {
       width: 0;
     }
-    80%, 100% {
-      width: 0;
-    }
-  }
-
-  /* Asegurarnos que ambos textos tengan el mismo ancho base */
-  .text-wrapper:nth-child(1) .typing-text {
-    width: 100%;
-  }
-  .text-wrapper:nth-child(2) .typing-text {
-    width: 100%;
   }
 </style>
