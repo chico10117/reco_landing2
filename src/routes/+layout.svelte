@@ -2,6 +2,7 @@
   import '../app.css';
   import Navbar from '$lib/components/landing/Navbar.svelte';
   import Footer from '$lib/components/landing/footer.svelte';
+  import WhatsappButton from '$lib/components/whatsapp-button.svelte';
 
   // Access route children via snippet prop instead of legacy slots
   import type { Snippet } from 'svelte';
@@ -17,4 +18,5 @@
   </main>
 
   <Footer />
+  <WhatsappButton />
 </div> 
