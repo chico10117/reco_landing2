@@ -59,6 +59,12 @@
       observer.observe(sectionElement);
     }
 
+    // Agregar el contenido del texto como atributo data-text
+    const revealElements = document.querySelectorAll('.reveal-text');
+    revealElements.forEach(el => {
+      el.setAttribute('data-text', el.textContent || '');
+    });
+
     return () => {
       if (sectionElement) {
         observer.unobserve(sectionElement);
@@ -78,8 +84,14 @@
       >
         <div class="flex-grow">
           <h1 class="mt-0 text-3xl md:text-4xl lg:text-5xl font-bold leading-tight tracking-tight">
-            <span class="text-black">La mejor experiencia QR</span><br>
-            <span class="text-blue-600 whitespace-nowrap">Para tus clientes</span>
+            <div class="text-wrapper">
+              <span class="text-black">La mejor experiencia QR</span>
+            </div>
+            <div class="text-wrapper">
+              <span class="text-blue-600 whitespace-nowrap typing-text">Para tus clientes</span>
+              <span class="text-blue-600 whitespace-nowrap typing-text-alt">Para tus camareros</span>
+              <span class="text-blue-600 whitespace-nowrap invisible" aria-hidden="true">Para tus camareros</span>
+            </div>
           </h1>
           <div class="mt-4 text-base md:text-lg text-gray-600 max-w-2xl">
             <p class="mb-3">La carta más inteligente que:</p>
@@ -237,6 +249,115 @@
     to {
       opacity: 1;
       transform: translateX(0);
+    }
+  }
+
+  /* Nuevas animaciones de typewriter */
+  .typewriter-1, .typewriter-2 {
+    position: relative;
+    width: fit-content;
+    overflow: hidden;
+    border-right: 2px solid transparent;
+  }
+
+  .typewriter-1::before, .typewriter-2::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    animation: typewriter var(--duration) steps(var(--steps)) forwards;
+  }
+
+  .typewriter-1::after, .typewriter-2::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background: currentColor;
+    animation: blink 0.7s steps(2) infinite;
+  }
+
+  .typewriter-1 {
+    --duration: 2s;
+    --steps: 20;
+  }
+
+  .typewriter-2 {
+    --duration: 1.5s;
+    --steps: 15;
+    animation-delay: 2s;
+  }
+
+  .typewriter-2::before {
+    animation-delay: 2s;
+  }
+
+  .typewriter-2::after {
+    animation-delay: 2s;
+  }
+
+  @keyframes typewriter {
+    to {
+      left: 100%;
+    }
+  }
+
+  @keyframes blink {
+    to {
+      background: transparent;
+    }
+  }
+
+  /* Nueva animación de reveal */
+  .text-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+
+  .typing-text {
+    position: absolute;
+    width: 0;
+    overflow: hidden;
+    display: inline-block;
+    white-space: nowrap;
+    animation: typing 6s steps(15) infinite;
+  }
+
+  .typing-text-alt {
+    position: absolute;
+    width: 0;
+    overflow: hidden;
+    display: inline-block;
+    white-space: nowrap;
+    animation: typing-alt 6s steps(15) infinite;
+  }
+
+  @keyframes typing {
+    0% {
+      width: 0;
+    }
+    15%, 35% {
+      width: 100%;
+    }
+    50%, 100% {
+      width: 0;
+    }
+  }
+
+  @keyframes typing-alt {
+    0%, 50% {
+      width: 0;
+    }
+    65%, 85% {
+      width: 100%;
+    }
+    100% {
+      width: 0;
     }
   }
 </style>
