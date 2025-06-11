@@ -93,29 +93,34 @@
   });
 </script>
 
-<nav class="fixed w-full top-0 z-50 transition-all duration-300 bg-[#547EF7]" class:shadow-lg={isScrolled}>
-  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+<nav
+  class="fixed w-full top-0 z-50 transition-all duration-300 bg-white"
+>
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
     <div class="flex items-center justify-between w-full">
       <div class="flex items-center space-x-24">
         <a href="/" class="flex items-center" onclick={closeAllMenus}>
           <img 
-            src="/img/RECOIMAGE.svg" 
+            src="/RecoImage.svg" 
             alt="Reco" 
-            class="h-8 md:h-10 w-auto object-contain max-w-[160px] md:max-w-[180px]" 
+            class="h-8 w-auto object-contain" 
             style="aspect-ratio: auto;"
           />
         </a>
         
-        <!-- Menú de navegación para escritorio -->
+        <!-- Menú de navegación para escritorio + Botón Contáctanos a la derecha del menú -->
         <div class="hidden lg:flex lg:items-center">
           <div class="flex items-center space-x-12">
             <div class="relative">
               <button 
                 type="button" 
                 bind:this={restaurantButtonRef} 
-                class="text-white hover:text-white/80 flex items-center space-x-2 px-2 text-base font-medium"
+                class="text-black hover:text-gray-700 flex items-center space-x-2 px-2 text-base font-medium"
                 aria-expanded={isRestaurantMenuOpen && !isMobile}
-                onclick={(e) => { e.stopPropagation(); toggleRestaurantSubMenu(); }}
+                onmouseenter={() => { if (!isMobile) isRestaurantMenuOpen = true; }}
+                onmouseleave={() => { if (!isMobile) isRestaurantMenuOpen = false; }}
+                onfocus={() => { if (!isMobile) isRestaurantMenuOpen = true; }}
+                onblur={() => { if (!isMobile) isRestaurantMenuOpen = false; }}
               >
                 <span>Restaurantes</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 transition-transform duration-200 {isRestaurantMenuOpen && !isMobile ? 'rotate-180' : ''}"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -125,15 +130,18 @@
                   bind:this={restaurantDropdownRef}
                   class="absolute -left-4 mt-2 w-96 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none py-2 px-2 z-20"
                   role="menu"
-                  aria-orientation="vertical"
-                  aria-labelledby="desktop-restaurant-menu-button"
-                  onclick={(e) => e.stopPropagation()} 
+                  tabindex="0"
+                  onkeydown={(e) => {
+                    if (e.key === 'Escape') {
+                      isRestaurantMenuOpen = false;
+                    }
+                  }}
                 >
                   <div class="grid grid-cols-2 gap-2">
                     {#each restaurantTypes as item}
                       <a 
                         href={item.href} 
-                        class="flex items-center px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 rounded-md" 
+                        class="flex items-center px-3 py-2 text-sm text-black hover:bg-gray-100 hover:text-gray-900 rounded-md" 
                         role="menuitem"
                         onclick={closeAllMenus}
                       >
@@ -145,11 +153,19 @@
                 </div>
               {/if}
             </div>
-            <a href="/precios" class="text-white hover:text-white/80 px-2 text-base font-medium" onclick={closeAllMenus}>Precios</a>
-            <a href="/posts" class="text-white hover:text-white/80 px-2 text-base font-medium" onclick={closeAllMenus}>Blog</a>
-            <a href="/nosotros" class="text-white hover:text-white/80 flex items-center space-x-2 px-2 text-base font-medium" onclick={closeAllMenus}>
+            <a href="/precios" class="text-black hover:text-gray-700 px-2 text-base font-medium" onclick={closeAllMenus}>Precios</a>
+            <a href="/posts" class="text-black hover:text-gray-700 px-2 text-base font-medium" onclick={closeAllMenus}>Blog</a>
+            <a href="/nosotros" class="text-black hover:text-gray-700 flex items-center space-x-2 px-2 text-base font-medium" onclick={closeAllMenus}>
               <span>Nosotros</span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </a>
+            <a href="/contact" class="inline-block ml-28" onclick={closeAllMenus}>
+              <Button 
+                variant="default" 
+                class="bg-blue-600 text-white hover:bg-blue-700 font-medium rounded-xl px-5 py-2 whitespace-nowrap text-base"
+                onclick={() => { trackNavClick('contact_sales'); /* closeAllMenus is on parent <a> */ }}
+              >
+                Contáctanos
+              </Button>
             </a>
           </div>
         </div>
@@ -157,25 +173,9 @@
       
       <!-- Parte derecha - Botones de acción -->
       <div class="flex items-center">
-        <div class="hidden lg:flex lg:items-center">
-          <a href="https://carta.reco.chat/login" class="text-white hover:text-white/80 flex items-center whitespace-nowrap px-6 text-base font-medium" onclick={() => { trackNavClick('restaurant_login'); closeAllMenus(); }}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 mr-2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-            <span class="flex-nowrap">Restaurantes | Login</span>
-          </a>
-          <a href="/contact" class="inline-block" onclick={closeAllMenus}>
-            <Button 
-              variant="default" 
-              class="bg-white text-blue-600 hover:bg-white/90 font-medium rounded-xl px-5 py-2 whitespace-nowrap text-base"
-              onclick={() => { trackNavClick('contact_sales'); /* closeAllMenus is on parent <a> */ }}
-            >
-              Contáctanos
-            </Button>
-          </a>
-        </div>
-        
         <!-- Menú hamburguesa para móviles -->
         <button 
-          class="text-white ml-4 lg:hidden" 
+          class="text-black ml-4 lg:hidden" 
           onclick={(e) => { e.stopPropagation(); toggleMainMobileMenu(); }}
           aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
         >
@@ -191,14 +191,25 @@
 
   <!-- Menú móvil desplegable -->
   {#if isMenuOpen && isMobile}
-    <div class="absolute top-full left-0 right-0 z-20 lg:hidden" onclick={(e) => e.stopPropagation()}>
-      <div class="py-4 px-4 bg-[#547EF7] shadow-lg">
+    <div 
+      class="absolute top-full left-0 right-0 z-20 lg:hidden" 
+      role="dialog"
+      aria-modal="true"
+      tabindex="0"
+      onclick={(e) => e.stopPropagation()}
+      onkeydown={(e) => {
+        if (e.key === 'Escape') {
+          isMenuOpen = false;
+        }
+      }}
+    >
+      <div class="py-4 px-4 bg-white shadow-lg">
         <div class="flex flex-col space-y-2">
           <div>
             <button 
               type="button" 
               bind:this={mobileRestaurantButtonRef}
-              class="text-white hover:text-white/80 flex items-center justify-between w-full space-x-1 py-2 text-base"
+              class="text-black hover:text-gray-700 flex items-center justify-between w-full space-x-1 py-2 text-base"
               aria-expanded={isRestaurantMenuOpen && isMobile}
               onclick={(e) => { e.stopPropagation(); toggleRestaurantSubMenu(); }} 
             >
@@ -206,11 +217,11 @@
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 transition-transform duration-200 {isRestaurantMenuOpen && isMobile ? 'rotate-180' : ''}"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </button>
             {#if isRestaurantMenuOpen && isMobile}
-              <div class="mt-1 space-y-1 pl-4 border-l-2 border-white/30">
+              <div class="mt-1 space-y-1 pl-4 border-l-2 border-gray-200">
                 {#each restaurantTypes as item}
                   <a 
                     href={item.href} 
-                    class="block px-3 py-2 text-sm text-white hover:bg-white/10 rounded-md" 
+                    class="block px-3 py-2 text-sm text-black hover:bg-gray-100 rounded-md" 
                     onclick={closeAllMenus}
                   >
                     <span class="mr-2">{item.icon}</span>{item.name}
@@ -220,27 +231,22 @@
             {/if}
           </div>
           
-          <a href="/precios" class="text-white hover:text-white/80 block py-2 text-base" onclick={closeAllMenus}>Precios</a>
-          <a href="/posts" class="text-white hover:text-white/80 block py-2 text-base" onclick={closeAllMenus}>Blog</a>
-          <a href="/nosotros" class="text-white hover:text-white/80 flex items-center space-x-1 py-2 text-base" onclick={closeAllMenus}>
+          <a href="/precios" class="text-black hover:text-gray-700 block py-2 text-base" onclick={closeAllMenus}>Precios</a>
+          <a href="/posts" class="text-black hover:text-gray-700 block py-2 text-base" onclick={closeAllMenus}>Blog</a>
+          <a href="/nosotros" class="text-black hover:text-gray-700 flex items-center space-x-1 py-2 text-base" onclick={closeAllMenus}>
             <span>Nosotros</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </a>
-          <div class="pt-2 border-t border-white/20">
-            <a href="https://carta.reco.chat/login" class="text-white hover:text-white/80 flex items-center whitespace-nowrap py-2 text-base" onclick={closeAllMenus}>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 mr-2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-              <span class="flex-shrink-0">Restaurantes | Login</span>
+          <div class="pt-2 border-t border-gray-200">
+            <a href="/contact" class="inline-block pt-2" onclick={closeAllMenus}>
+              <Button 
+                variant="default" 
+                class="bg-blue-600 text-white hover:bg-blue-700 font-medium rounded-2xl px-5 py-2 whitespace-nowrap w-full text-base"
+                onclick={() => trackNavClick('contact_sales')} 
+              >
+                Contáctanos
+              </Button>
             </a>
           </div>
-          <a href="/contact" class="inline-block pt-2" onclick={closeAllMenus}>
-            <Button 
-              variant="default" 
-              class="bg-white text-blue-600 hover:bg-white/90 font-medium rounded-2xl px-5 py-2 whitespace-nowrap w-full text-base"
-              onclick={() => trackNavClick('contact_sales')} 
-            >
-              Contáctanos
-            </Button>
-          </a>
         </div>
       </div>
     </div>
@@ -254,5 +260,5 @@
   nav {
     transition: all 0.3s ease;
   }
-  /* Add any specific styles for the dropdown if Tailwind isn't enough */
+  /* Elimino la clase navbar-blur-bg y cualquier gradiente */
 </style> 

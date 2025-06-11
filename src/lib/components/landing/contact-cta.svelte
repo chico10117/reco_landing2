@@ -48,28 +48,18 @@
 <section 
   bind:this={sectionElement}
   class="relative py-16 md:py-24 overflow-hidden w-full bg-white"
+  style="background: radial-gradient(ellipse 60% 40% at 50% 40%, #dbeafe 0%, #e0e7ef 60%, #fff 100%);"
 >
-  <!-- Animated background patterns -->
-  <div class="absolute -right-1/4 top-1/4 w-1/3 h-3/4">
-    <div class="absolute inset-0 bg-[#4169E1] blur-2xl opacity-30 rounded-[40%_60%_60%_40%] animate-pulse"></div>
-    <div class="absolute inset-0 bg-[#4169E1] blur-3xl opacity-20 rounded-[40%_60%_60%_40%] transform translate-x-10 animate-pulse" style="animation-delay: 0.5s;"></div>
-    <div class="absolute inset-0 bg-[#4169E1] blur-3xl opacity-10 rounded-[40%_60%_60%_40%] transform translate-x-20 animate-pulse" style="animation-delay: 1s;"></div>
-  </div>
-  <div class="absolute -left-1/4 bottom-0 w-1/3 h-2/3">
-    <div class="absolute inset-0 bg-[#4169E1] blur-2xl opacity-30 rounded-[60%_40%_40%_60%] animate-pulse"></div>
-    <div class="absolute inset-0 bg-[#4169E1] blur-3xl opacity-20 rounded-[60%_40%_40%_60%] transform -translate-x-10 animate-pulse" style="animation-delay: 0.5s;"></div>
-    <div class="absolute inset-0 bg-[#4169E1] blur-3xl opacity-10 rounded-[60%_40%_40%_60%] transform -translate-x-20 animate-pulse" style="animation-delay: 1s;"></div>
-  </div>
-  
   <div id="video-reco" 
     bind:this={contentElement}
     class="relative z-10 w-full text-center"
     class:animate-slide-up={isVisible}
   >
-    <h2 class="text-4xl md:text-5xl font-bold mb-8 text-blue-600">Transforma la experiencia de tus clientes con Reco</h2>
-    <p class="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto mb-12">
-      Potencia tu restaurante con recomendaciones inteligentes, pagos más rápidos y clientes más satisfechos.
-      Descubre cómo Reco puede ayudarte a crecer.
+    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
+      <span class="text-black">Transforma la experiencia de tus clientes con&nbsp;</span><span class="text-blue-600">Reco</span>
+    </h2>
+    <p class="text-base md:text-lg text-gray-700 max-w-4xl mx-auto mb-12">
+      Potencia tu restaurante con recomendaciones inteligentes, pagos más rápidos y clientes más satisfechos. Descubre cómo Reco puede ayudarte a crecer.
     </p>
     
     <div class="flex flex-col sm:flex-row gap-6 justify-center w-full px-4 sm:px-0">
@@ -85,7 +75,7 @@
         </Button>
       </a>
       
-      <a href={trialHref} class="w-full sm:w-auto">
+      <a href="https://carta.reco.chat" target="_blank" rel="noopener" class="w-full sm:w-auto">
         <Button 
           variant="outline" 
           size="lg" 

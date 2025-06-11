@@ -1,6 +1,6 @@
 {
-  "framework": "sveltekit",
   "buildCommand": "pnpm run build",
-  "installCommand": "pnpm install --no-frozen-lockfile",
-  "devCommand": "npm run dev"
+  "devCommand": "pnpm run dev",
+  "installCommand": "pnpm install",
+  "framework": "sveltekit"
 } 

@@ -59,6 +59,12 @@
       observer.observe(sectionElement);
     }
 
+    // Agregar el contenido del texto como atributo data-text
+    const revealElements = document.querySelectorAll('.reveal-text');
+    revealElements.forEach(el => {
+      el.setAttribute('data-text', el.textContent || '');
+    });
+
     return () => {
       if (sectionElement) {
         observer.unobserve(sectionElement);
@@ -68,83 +74,135 @@
 </script>
 
 <!-- Hero Section -->
-<section 
-  bind:this={sectionElement}
-  class="relative min-h-screen overflow-hidden hero-section bg-white"
->
-  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-10 md:pt-25 md:pb-16 lg:pb-12 lg:pt-30">
-    <div class="md:flex md:items-center md:justify-between">
+<section bind:this={sectionElement} class="relative min-h-screen overflow-x-hidden hero-section bg-white" style="background: radial-gradient(ellipse 60% 40% at 50% 40%, #dbeafe 0%, #e0e7ef 60%, #fff 100%);">
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 md:pt-12 lg:pt-16 pb-24 md:pb-32">
+    <div class="flex flex-col-reverse md:flex-row md:items-center md:justify-between">
       <div 
         bind:this={leftContent}
-        class="md:w-1/2 md:pr-12 mb-12 md:mb-0"
+        class="md:w-1/2 md:pr-12 mb-12 md:mb-0 flex flex-col"
         class:animate-slide-left={isVisible}
       >
-        <h1 class="mt-16 text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-          <span class="text-[#85A3FA] [text-shadow:0_2px_4px_rgba(0,0,0,0.2)]">El mejor amigo de tu cliente...</span><br>
-          <span class="text-blue-600 [text-shadow:0_2px_4px_rgba(0,0,0,0.1)]">Que trabaja para ti.</span>
-        </h1>
-        
-        <p class="mt-6 text-lg md:text-xl text-gray-600 max-w-2xl drop-shadow-sm hover:drop-shadow-md transition-all duration-300 bg-gradient-to-r from-transparent via-white/50 to-transparent p-4 rounded-xl backdrop-blur-sm">
-          Tu carta inteligente, sugiere platos, resuelve dudas y te ayuda a conocer mejor a tus clientes.
-          <br>
-          Todo desde el móvil, sin apps, sin complicaciones.
-        </p>
-        
-        <div class="mt-10 flex flex-col sm:flex-row gap-4">
-          <Button 
-            size="lg" 
-            class="rounded-full px-6 bg-blue-600 hover:bg-blue-700 text-white"
-            on:click={onDiscoverClick}
-          >
-            Descubre cómo funciona
-          </Button>
-          
-          <Button 
-            variant="outline" 
-            size="lg" 
-            class="rounded-full px-6 border-blue-600 text-blue-600 hover:bg-blue-50"
-            on:click={() => {
-              track('cta_click', { label: 'restaurant_help' });
-              onRestaurantClick();
-            }}
-          >
-            ¿Tienes un restaurante? Así te ayuda RECO
-          </Button>
+        <div class="flex-grow">
+          <h1 class="mt-0 text-3xl md:text-4xl lg:text-5xl font-bold leading-tight tracking-tight">
+            <div class="text-wrapper">
+              <span class="text-black">La mejor experiencia QR</span>
+            </div>
+            <div class="text-wrapper">
+              <span class="text-blue-600 whitespace-nowrap typing-text">Para tus clientes</span>
+              <span class="text-blue-600 whitespace-nowrap typing-text-alt">Para tus camareros</span>
+              <span class="text-blue-600 whitespace-nowrap invisible" aria-hidden="true">Para tus camareros</span>
+            </div>
+          </h1>
+          <div class="mt-4 text-base md:text-lg text-gray-600 max-w-2xl">
+            <p class="mb-3">La carta más inteligente que:</p>
+            <ul class="space-y-2 ml-4">
+              <li class="flex items-start">
+                <span class="text-blue-600 mr-3 mt-1">•</span>
+                <span>Sugiere platos personalizados</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-blue-600 mr-3 mt-1">•</span>
+                <span>Resuelve dudas al instante</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-blue-600 mr-3 mt-1">•</span>
+                <span>Te ayuda a conocer mejor a tus clientes</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-blue-600 mr-3 mt-1">•</span>
+                <span>Todo desde el móvil, sin capacitaciones, sin complicaciones</span>
+              </li>
+            </ul>
+            <!-- Imagen solo en móvil -->
+            <div class="flex justify-center my-6 md:hidden">
+              <a 
+                href="https://fiamma.reco.restaurant" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="cursor-pointer w-[85%]"
+              >
+                <img
+                  src="/img/hero.png"
+                  alt="Reco app interface on mobile phone"
+                  fetchpriority="high"
+                  style="box-shadow:none;background:none;border-radius:0;"
+                  class="w-full"
+                />
+              </a>
+            </div>
+          </div>
+          <div class="mt-8 flex flex-col sm:flex-row gap-4">
+            <Button 
+              size="lg" 
+              class="rounded-full px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white shadow-lg transition-all duration-200 focus:ring-2 focus:ring-blue-300 focus:outline-none text-lg"
+              on:click={onDiscoverClick}
+            >
+              Descubre cómo funciona
+            </Button>
+            <Button 
+              variant="outline" 
+              size="lg" 
+              class="rounded-full px-8 py-3 border-2 border-blue-600 text-blue-600 hover:bg-blue-50 shadow-lg transition-all duration-200 focus:ring-2 focus:ring-blue-200 focus:outline-none text-lg"
+              on:click={() => {
+                track('cta_click', { label: 'restaurant_help' });
+                onRestaurantClick();
+              }}
+            >
+              ¿Quieres que tu carta trabaje para ti?
+            </Button>
+          </div>
+          <p class="mt-10 text-base text-gray-500">Confían en nosotros:</p>
+          <div class="mt-2 flex flex-wrap items-center gap-8">
+            <img src="/cinepolis.png" alt="Cinepolis" class="h-8 md:h-10 opacity-100 hover:opacity-90 transition-opacity" />
+            <img src="/Basque.png" alt="Basque" class="h-8 md:h-12 opacity-100 hover:opacity-90 transition-opacity" />
+            <img src="/Yelmo.svg" alt="Cine Yelmo" class="h-6 md:h-8 opacity-100 hover:opacity-90 transition-opacity" />
+          </div>
         </div>
         
-        <p class="mt-16 text-lg text-gray-500">Confían en nosotros:</p>
-        <div class="mt-2 flex flex-wrap items-center gap-4">
-          <img src="/cinepolis.png" alt="Cinepolis" class="h-8 md:h-12 opacity-100 hover:opacity-90 transition-opacity" />
-          <img src="/Yelmo.svg" alt="Cine Yelmo" class="h-6 md:h-9 opacity-100 hover:opacity-90 transition-opacity" />
-          <img src="/Basque.png" alt="Basque" class="h-10 md:h-15 opacity-100 hover:opacity-90 transition-opacity" />
+        <!-- Nuevo contenedor para el botón demo -->
+        <div class="mt-auto pt-20">
+          <div class="relative w-full overflow-x-visible">
+            <a 
+              href="https://carta.reco.chat/login" 
+              class="absolute right-0 md:right-[-100px] lg:right-[-200px] whitespace-nowrap inline-flex items-center gap-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full px-8 py-3 text-lg font-medium shadow-lg transition-all duration-200" 
+              target="_blank" 
+              rel="noopener"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 flex-shrink-0"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>Crea tu carta demo acá</span>
+            </a>
+          </div>
         </div>
       </div>
-      
       <div 
         bind:this={rightContent}
-        class="md:w-1/2 relative"
+        class="w-full md:w-1/2 flex justify-center items-center mb-6 md:mb-0"
         class:animate-slide-right={isVisible}
       >
-        <div class="relative z-10 transform transition-transform duration-500 hover:translate-y-[-10px]">
-          <img
-            src="/img/hero.png"
-            alt="Reco app interface on mobile phone"
-            class="w-full max-w-md mx-auto rounded-3xl"
-            loading="eager"
-            fetchpriority="high"
-          />
+        <!-- Imagen en desktop -->
+        <div 
+          class="hidden md:block w-[70%] max-w-4xl"
+        >
+          <a 
+            href="https://fiamma.reco.restaurant" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="cursor-pointer"
+          >
+            <img
+              src="/img/hero.png"
+              alt="Reco app interface on mobile phone"
+              fetchpriority="high"
+              style="box-shadow:none;background:none;border-radius:0;"
+              class="w-full"
+            />
+          </a>
         </div>
-        
-        <!-- Efectos decorativos -->
-        <div class="absolute inset-0 bg-gradient-to-tr from-blue-100 via-transparent to-blue-50 rounded-full filter blur-3xl opacity-70"></div>
-        <div class="absolute top-1/4 left-1/4 w-12 h-12 bg-yellow-400 rounded-full filter blur-xl opacity-70 animate-pulse"></div>
-        <div class="absolute bottom-1/3 right-1/4 w-16 h-16 bg-blue-400 rounded-full filter blur-xl opacity-60 animate-pulse" style="animation-delay: 1s"></div>
       </div>
     </div>
   </div>
-
   <!-- Add bottom gradient overlay -->
-  <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent via-white to-white"></div>
+  <div class="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-b from-transparent via-white to-white"></div>
 </section>
 
 <VideoOverlay bind:this={videoOverlay} />
@@ -191,6 +249,115 @@
     to {
       opacity: 1;
       transform: translateX(0);
+    }
+  }
+
+  /* Nuevas animaciones de typewriter */
+  .typewriter-1, .typewriter-2 {
+    position: relative;
+    width: fit-content;
+    overflow: hidden;
+    border-right: 2px solid transparent;
+  }
+
+  .typewriter-1::before, .typewriter-2::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    animation: typewriter var(--duration) steps(var(--steps)) forwards;
+  }
+
+  .typewriter-1::after, .typewriter-2::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background: currentColor;
+    animation: blink 0.7s steps(2) infinite;
+  }
+
+  .typewriter-1 {
+    --duration: 2s;
+    --steps: 20;
+  }
+
+  .typewriter-2 {
+    --duration: 1.5s;
+    --steps: 15;
+    animation-delay: 2s;
+  }
+
+  .typewriter-2::before {
+    animation-delay: 2s;
+  }
+
+  .typewriter-2::after {
+    animation-delay: 2s;
+  }
+
+  @keyframes typewriter {
+    to {
+      left: 100%;
+    }
+  }
+
+  @keyframes blink {
+    to {
+      background: transparent;
+    }
+  }
+
+  /* Nueva animación de reveal */
+  .text-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+
+  .typing-text {
+    position: absolute;
+    width: 0;
+    overflow: hidden;
+    display: inline-block;
+    white-space: nowrap;
+    animation: typing 6s steps(15) infinite;
+  }
+
+  .typing-text-alt {
+    position: absolute;
+    width: 0;
+    overflow: hidden;
+    display: inline-block;
+    white-space: nowrap;
+    animation: typing-alt 6s steps(15) infinite;
+  }
+
+  @keyframes typing {
+    0% {
+      width: 0;
+    }
+    15%, 35% {
+      width: 100%;
+    }
+    50%, 100% {
+      width: 0;
+    }
+  }
+
+  @keyframes typing-alt {
+    0%, 50% {
+      width: 0;
+    }
+    65%, 85% {
+      width: 100%;
+    }
+    100% {
+      width: 0;
     }
   }
 </style>

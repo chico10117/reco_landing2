@@ -13,6 +13,8 @@
     "postinstall": "svelte-kit sync"
   },
   "dependencies": {
+    "@fortawesome/free-brands-svg-icons": "^6.7.2",
+    "@fortawesome/svelte-fontawesome": "^0.2.3",
     "@sveltejs/adapter-auto": "^3.0.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
@@ -43,7 +45,7 @@
   },
   "type": "module",
   "engines": {
-    "node": "20.11.1",
+    "node": "20.x",
     "pnpm": ">=8.0.0"
   },
   "packageManager": "pnpm@10.2.0",

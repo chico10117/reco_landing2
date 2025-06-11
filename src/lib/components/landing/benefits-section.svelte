@@ -16,22 +16,47 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     <ScrollTransition>
       <div class="text-left mb-12">
-        <h2 class="text-5xl md:text-6xl lg:text-7xl font-bold text-blue-600 leading-tight">Una forma más<br>inteligente de comer fuera.</h2>
-        <p class="mt-6 text-lg md:text-xl text-gray-600 max-w-2xl space-y-2">
-          <span class="flex items-center">
-            <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
-            Escaneas el QR
-          </span>
-          <span class="flex items-center">
-            <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
-            Aparece Reco
-          </span>
-          <span class="flex items-center">
-            <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
-            Le preguntas lo que quieras
-          </span>
-        </p>
-        <a href="#how-it-works" class="mt-6 inline-block text-blue-600 font-medium hover:underline">Explorar cómo usarlo →</a>
+          <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-blue-600 leading-tight">¿Tu carta vende o solo decora?</h1>
+
+        <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight mb-8">
+          <br>Una carta profesional no es solo bonita.<br>
+          Es clara, útil y estratégica.
+        </h2>
+        
+        <div class="mb-8">
+          <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6">Con Reco:</h3>
+          
+          <div class="space-y-4 text-lg md:text-xl text-gray-700">
+            <div class="flex items-start">
+              <span class="w-2 h-2 bg-blue-600 rounded-full mr-4 mt-3 flex-shrink-0"></span>
+              <span>Sabes qué platos realmente quieren tus clientes.</span>
+            </div>
+            <div class="flex items-start">
+              <span class="w-2 h-2 bg-blue-600 rounded-full mr-4 mt-3 flex-shrink-0"></span>
+              <span>Reco aprende y propone mejoras en tu carta.</span>
+            </div>
+            <div class="flex items-start">
+              <span class="w-2 h-2 bg-blue-600 rounded-full mr-4 mt-3 flex-shrink-0"></span>
+              <span>Vende como un camarero experto.</span>
+            </div>
+            <div class="flex items-start">
+              <span class="w-2 h-2 bg-blue-600 rounded-full mr-4 mt-3 flex-shrink-0"></span>
+              <span>Habla todos los idiomas.</span>
+            </div>
+            <div class="flex items-start">
+              <span class="w-2 h-2 bg-blue-600 rounded-full mr-4 mt-3 flex-shrink-0"></span>
+              <span>Se adapta al perfil de cada cliente.</span>
+            </div>
+          </div>
+        </div>
+        
+        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 text-center">
+          No es solo diseño. Es ingeniería de carta.
+        </h3>
+        
+
+        <!-- AGREGAR ESTE CALL TO ACTION PARA EVALUAR TU CARTA FUNCIONALIDAD!! -->
+        <!-- <a href="#how-it-works" class="mt-8 inline-block text-blue-600 font-medium hover:underline">Evalúa tu carta →</a> -->
       </div>
     </ScrollTransition>
     
