@@ -32,61 +32,63 @@
 
 <!-- Pricing Cards Section -->
 <div class="relative -mt-6 pb-20">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid md:grid-cols-3 gap-8 lg:gap-12">
+  <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-8">
+    <div class="flex flex-col md:grid md:grid-cols-3 gap-6 md:gap-8 lg:gap-12 items-center md:items-stretch">
       
       <!-- Plan Básico -->
-      <div class="relative group">
+      <div class="relative group w-72 md:w-full">
         <div class="absolute -inset-0.5 bg-gradient-to-r from-green-400 to-emerald-500 rounded-2xl blur opacity-30 group-hover:opacity-50 transition duration-300"></div>
         <div class="relative bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100">
-          <div class="px-8 py-12">
+          <div class="px-4 py-6 md:px-8 md:py-12">
             <div class="text-center">
-              <h3 class="text-2xl font-bold text-gray-900 mb-2">Básico</h3>
+              <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-2">Básico</h3>
               <div class="mb-2">
-                <span class="text-6xl font-bold text-green-600">Gratis</span>
+                <span class="text-4xl md:text-6xl font-bold text-green-600">Gratis</span>
               </div>
-              <div class="inline-flex items-center px-3 py-1 rounded-full bg-green-50 border border-green-200 mb-8">
-                <span class="text-green-700 text-sm font-medium">🎉 Plan gratuito</span>
+              <div class="inline-flex items-center px-2 py-1 md:px-3 md:py-1 rounded-full bg-green-50 border border-green-200 mb-4 md:mb-8">
+                <span class="text-green-700 text-xs md:text-sm font-medium">🎉 Plan gratuito</span>
               </div>
             </div>
             
-            <ul class="space-y-4">
+            <ul class="space-y-2 md:space-y-4">
               <li class="flex items-start">
-                <div class="flex-shrink-0 w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3 mt-0.5">
-                  <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 bg-green-100 rounded-full flex items-center justify-center mr-2 md:mr-3 mt-0.5">
+                  <svg class="w-3 h-3 md:w-4 md:h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                   </svg>
                 </div>
-                <span class="text-gray-700">Menú digital básico</span>
+                <span class="text-sm md:text-base text-gray-700">Menú digital básico</span>
               </li>
               <li class="flex items-start">
-                <div class="flex-shrink-0 w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3 mt-0.5">
-                  <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 bg-green-100 rounded-full flex items-center justify-center mr-2 md:mr-3 mt-0.5">
+                  <svg class="w-3 h-3 md:w-4 md:h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                   </svg>
                 </div>
-                <span class="text-gray-700">Hasta 50 platos</span>
+                <span class="text-sm md:text-base text-gray-700">Hasta 50 platos</span>
               </li>
               <li class="flex items-start">
-                <div class="flex-shrink-0 w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3 mt-0.5">
-                  <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 bg-green-100 rounded-full flex items-center justify-center mr-2 md:mr-3 mt-0.5">
+                  <svg class="w-3 h-3 md:w-4 md:h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                   </svg>
                 </div>
-                <span class="text-gray-700">Soporte por email</span>
+                <span class="text-sm md:text-base text-gray-700">Soporte por email</span>
               </li>
             </ul>
           </div>
-          <div class="px-8 pb-8">
-            <Button variant="outline" class="w-full h-12 text-lg font-semibold border-2 border-green-300 text-green-700 hover:bg-green-50 transition-all duration-200">
-              Empezar ahora
-            </Button>
+          <div class="px-4 pb-4 md:px-8 md:pb-8">
+            <a href="https://carta.reco.chat" target="_blank" rel="noopener noreferrer" class="block">
+              <Button variant="outline" class="w-full h-10 md:h-12 text-sm md:text-lg font-semibold border-2 border-green-300 text-green-700 hover:bg-green-50 transition-all duration-200">
+                Empezar ahora
+              </Button>
+            </a>
           </div>
         </div>
       </div>
 
       <!-- Plan Pro - Featured -->
-      <div class="relative group">
+      <div class="relative group w-72 md:w-full">
         <div class="absolute -inset-1 bg-gradient-to-r from-blue-500 via-purple-500 to-blue-600 rounded-2xl blur-lg opacity-50 group-hover:opacity-75 transition duration-300"></div>
         <div class="relative">
           <!-- Popular Badge -->
@@ -97,56 +99,56 @@
           </div>
           
           <div class="bg-gradient-to-br from-blue-600 via-blue-700 to-purple-700 rounded-2xl shadow-2xl overflow-hidden transform scale-105">
-            <div class="px-8 py-12">
-                             <div class="text-center">
-                 <h3 class="text-2xl font-bold text-white mb-2">Pro</h3>
+            <div class="px-4 py-6 md:px-8 md:py-12">
+                <div class="text-center">
+                 <h3 class="text-xl md:text-2xl font-bold text-white mb-2">Pro</h3>
                  <div class="mb-2">
-                   <span class="text-6xl font-bold text-white">24.99€</span>
-                   <span class="text-xl text-blue-200 ml-1">/mes</span>
+                   <span class="text-4xl md:text-6xl font-bold text-white">24.99€</span>
+                   <span class="text-base md:text-xl text-blue-200 ml-1">/mes</span>
                  </div>
-                <div class="inline-flex items-center px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 mb-8">
-                  <span class="text-white text-sm font-medium">🚀 Recomendado</span>
+                <div class="inline-flex items-center px-2 py-1 md:px-3 md:py-1 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 mb-4 md:mb-8">
+                  <span class="text-white text-xs md:text-sm font-medium">🚀 Recomendado</span>
                 </div>
               </div>
               
-              <ul class="space-y-4">
+              <ul class="space-y-2 md:space-y-4">
                 <li class="flex items-start">
-                  <div class="flex-shrink-0 w-6 h-6 bg-white/20 rounded-full flex items-center justify-center mr-3 mt-0.5">
-                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div class="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 bg-white/20 rounded-full flex items-center justify-center mr-2 md:mr-3 mt-0.5">
+                    <svg class="w-3 h-3 md:w-4 md:h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                     </svg>
                   </div>
-                  <span class="text-blue-100">Todo lo del plan Básico</span>
+                  <span class="text-sm md:text-base text-blue-100">Todo lo del plan Básico</span>
                 </li>
                 <li class="flex items-start">
-                  <div class="flex-shrink-0 w-6 h-6 bg-white/20 rounded-full flex items-center justify-center mr-3 mt-0.5">
-                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div class="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 bg-white/20 rounded-full flex items-center justify-center mr-2 md:mr-3 mt-0.5">
+                    <svg class="w-3 h-3 md:w-4 md:h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                     </svg>
                   </div>
-                  <span class="text-blue-100">Recomendaciones IA</span>
+                  <span class="text-sm md:text-base text-blue-100">Recomendaciones IA</span>
                 </li>
                 <li class="flex items-start">
-                  <div class="flex-shrink-0 w-6 h-6 bg-white/20 rounded-full flex items-center justify-center mr-3 mt-0.5">
-                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div class="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 bg-white/20 rounded-full flex items-center justify-center mr-2 md:mr-3 mt-0.5">
+                    <svg class="w-3 h-3 md:w-4 md:h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                     </svg>
                   </div>
-                  <span class="text-blue-100">Análisis de datos</span>
+                  <span class="text-sm md:text-base text-blue-100">Análisis de datos</span>
                 </li>
                 <li class="flex items-start">
-                  <div class="flex-shrink-0 w-6 h-6 bg-white/20 rounded-full flex items-center justify-center mr-3 mt-0.5">
-                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div class="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 bg-white/20 rounded-full flex items-center justify-center mr-2 md:mr-3 mt-0.5">
+                    <svg class="w-3 h-3 md:w-4 md:h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                     </svg>
                   </div>
-                  <span class="text-blue-100">Soporte prioritario</span>
+                  <span class="text-sm md:text-base text-blue-100">Soporte prioritario</span>
                 </li>
               </ul>
             </div>
-            <div class="px-8 pb-8">
-              <Button class="w-full h-12 text-lg font-semibold bg-white text-blue-700 hover:bg-blue-50 shadow-lg transition-all duration-200">
-                Comenzar prueba gratuita
+            <div class="px-4 pb-4 md:px-8 md:pb-8">
+              <Button class="w-full h-10 md:h-12 text-sm md:text-lg font-semibold bg-white text-blue-700 hover:bg-blue-50 shadow-lg transition-all duration-200">
+                Empezar
               </Button>
             </div>
           </div>
@@ -154,51 +156,53 @@
       </div>
 
       <!-- Plan Enterprise -->
-      <div class="relative group">
+      <div class="relative group w-72 md:w-full">
         <div class="absolute -inset-0.5 bg-gradient-to-r from-purple-400 to-blue-500 rounded-2xl blur opacity-30 group-hover:opacity-50 transition duration-300"></div>
         <div class="relative bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100">
-          <div class="px-8 py-12">
+          <div class="px-4 py-6 md:px-8 md:py-12">
             <div class="text-center">
-              <h3 class="text-2xl font-bold text-gray-900 mb-2">Enterprise</h3>
+              <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-2">Enterprise</h3>
               <div class="mb-2 px-2">
-                <span class="text-3xl font-bold text-purple-600 leading-tight">Cadenas/Empresarial</span>
+                <span class="text-2xl md:text-3xl font-bold text-purple-600 leading-tight">Cadenas/Empresarial</span>
               </div>
-              <div class="inline-flex items-center px-3 py-1 rounded-full bg-purple-50 border border-purple-200 mb-8">
-                <span class="text-purple-700 text-sm font-medium">💼 Empresas</span>
+              <div class="inline-flex items-center px-2 py-1 md:px-3 md:py-1 rounded-full bg-purple-50 border border-purple-200 mb-4 md:mb-8">
+                <span class="text-purple-700 text-xs md:text-sm font-medium">💼 Empresas</span>
               </div>
             </div>
             
-            <ul class="space-y-4 mb-2">
+            <ul class="space-y-2 md:space-y-4 mb-2">
               <li class="flex items-start">
-                <div class="flex-shrink-0 w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center mr-3 mt-0.5">
-                  <svg class="w-4 h-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 bg-purple-100 rounded-full flex items-center justify-center mr-2 md:mr-3 mt-0.5">
+                  <svg class="w-3 h-3 md:w-4 md:h-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                   </svg>
                 </div>
-                <span class="text-gray-700">Todo lo del plan Pro</span>
+                <span class="text-sm md:text-base text-gray-700">Todo lo del plan Pro</span>
               </li>
               <li class="flex items-start">
-                <div class="flex-shrink-0 w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center mr-3 mt-0.5">
-                  <svg class="w-4 h-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 bg-purple-100 rounded-full flex items-center justify-center mr-2 md:mr-3 mt-0.5">
+                  <svg class="w-3 h-3 md:w-4 md:h-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                   </svg>
                 </div>
-                <span class="text-gray-700">Integración personalizada</span>
+                <span class="text-sm md:text-base text-gray-700">Integración personalizada</span>
               </li>
               <li class="flex items-start">
-                <div class="flex-shrink-0 w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center mr-3 mt-0.5">
-                  <svg class="w-4 h-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 bg-purple-100 rounded-full flex items-center justify-center mr-2 md:mr-3 mt-0.5">
+                  <svg class="w-3 h-3 md:w-4 md:h-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                   </svg>
                 </div>
-                <span class="text-gray-700">Soporte 24/7</span>
+                <span class="text-sm md:text-base text-gray-700">Soporte 24/7</span>
               </li>
             </ul>
           </div>
-          <div class="px-8 pb-12">
-            <Button variant="outline" class="w-full h-12 text-lg font-semibold border-2 border-purple-300 text-purple-700 hover:bg-purple-50 transition-all duration-200">
-              Contactar ventas
-            </Button>
+          <div class="px-4 pb-6 md:px-8 md:pb-12">
+            <a href="https://calendly.com/fernando-lqrb/15min?month=2025-06" target="_blank" rel="noopener noreferrer" class="block">
+              <Button variant="outline" class="w-full h-10 md:h-12 text-sm md:text-lg font-semibold border-2 border-purple-300 text-purple-700 hover:bg-purple-50 transition-all duration-200">
+                Contactar ventas
+              </Button>
+            </a>
           </div>
         </div>
       </div>
