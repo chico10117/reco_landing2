@@ -5,6 +5,14 @@
 <svelte:head>
   <title>Precios | Reco</title>
   <meta name="description" content="Conoce nuestros planes y precios." />
+  <style>
+    .shadow-3xl {
+      box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25), 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+    .shadow-4xl {
+      box-shadow: 0 45px 80px -15px rgba(0, 0, 0, 0.3), 0 15px 35px -8px rgba(0, 0, 0, 0.15);
+    }
+  </style>
 </svelte:head>
 
 <!-- Hero Section with Blue Gradient -->
@@ -36,9 +44,9 @@
     <div class="flex flex-col md:grid md:grid-cols-3 gap-6 md:gap-8 lg:gap-12 items-center md:items-stretch">
       
       <!-- Plan Básico -->
-      <div class="relative group w-72 md:w-full">
-        <div class="absolute -inset-0.5 bg-gradient-to-r from-green-400 to-emerald-500 rounded-2xl blur opacity-30 group-hover:opacity-50 transition duration-300"></div>
-        <div class="relative bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100">
+      <div class="relative group w-72 md:w-full cursor-pointer">
+        <div class="absolute -inset-0.5 bg-gradient-to-r from-green-400 to-emerald-500 rounded-2xl blur opacity-30 group-hover:opacity-75 transition-all duration-500"></div>
+        <div class="relative bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100 transform transition-all duration-300 group-hover:scale-105 group-hover:-translate-y-2 group-hover:shadow-3xl">
           <div class="px-4 py-6 md:px-8 md:py-12">
             <div class="text-center">
               <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-2">Básico</h3>
@@ -79,7 +87,7 @@
           </div>
           <div class="px-4 pb-4 md:px-8 md:pb-8">
             <a href="https://carta.reco.chat" target="_blank" rel="noopener noreferrer" class="block">
-              <Button variant="outline" class="w-full h-10 md:h-12 text-sm md:text-lg font-semibold border-2 border-green-300 text-green-700 hover:bg-green-50 transition-all duration-200">
+              <Button variant="outline" class="w-full h-10 md:h-12 text-sm md:text-lg font-semibold border-2 border-green-300 text-green-700 hover:bg-green-50 hover:border-green-400 hover:scale-105 hover:shadow-lg transition-all duration-200">
                 Empezar ahora
               </Button>
             </a>
@@ -88,17 +96,17 @@
       </div>
 
       <!-- Plan Pro - Featured -->
-      <div class="relative group w-72 md:w-full">
-        <div class="absolute -inset-1 bg-gradient-to-r from-blue-500 via-purple-500 to-blue-600 rounded-2xl blur-lg opacity-50 group-hover:opacity-75 transition duration-300"></div>
+      <div class="relative group w-72 md:w-full cursor-pointer">
+        <div class="absolute -inset-1 bg-gradient-to-r from-blue-500 via-purple-500 to-blue-600 rounded-2xl blur-lg opacity-50 group-hover:opacity-90 transition-all duration-500"></div>
         <div class="relative">
           <!-- Popular Badge -->
-          <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
+          <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10 transition-transform duration-300 group-hover:scale-110">
             <div class="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-orange-400 to-pink-500 text-white text-sm font-bold shadow-lg">
               ⭐ Más Popular
             </div>
           </div>
           
-          <div class="bg-gradient-to-br from-blue-600 via-blue-700 to-purple-700 rounded-2xl shadow-2xl overflow-hidden transform scale-105">
+          <div class="bg-gradient-to-br from-blue-600 via-blue-700 to-purple-700 rounded-2xl shadow-2xl overflow-hidden transform scale-105 transition-all duration-300 group-hover:scale-110 group-hover:-translate-y-3 group-hover:shadow-4xl">
             <div class="px-4 py-6 md:px-8 md:py-12">
                 <div class="text-center">
                  <h3 class="text-xl md:text-2xl font-bold text-white mb-2">Pro</h3>
@@ -147,7 +155,7 @@
               </ul>
             </div>
             <div class="px-4 pb-4 md:px-8 md:pb-8">
-              <Button class="w-full h-10 md:h-12 text-sm md:text-lg font-semibold bg-white text-blue-700 hover:bg-blue-50 shadow-lg transition-all duration-200">
+              <Button class="w-full h-10 md:h-12 text-sm md:text-lg font-semibold bg-white text-blue-700 hover:bg-blue-50 hover:scale-105 hover:shadow-xl shadow-lg transition-all duration-200">
                 Empezar
               </Button>
             </div>
@@ -156,9 +164,9 @@
       </div>
 
       <!-- Plan Enterprise -->
-      <div class="relative group w-72 md:w-full">
-        <div class="absolute -inset-0.5 bg-gradient-to-r from-purple-400 to-blue-500 rounded-2xl blur opacity-30 group-hover:opacity-50 transition duration-300"></div>
-        <div class="relative bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100">
+      <div class="relative group w-72 md:w-full cursor-pointer">
+        <div class="absolute -inset-0.5 bg-gradient-to-r from-purple-400 to-blue-500 rounded-2xl blur opacity-30 group-hover:opacity-75 transition-all duration-500"></div>
+        <div class="relative bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100 transform transition-all duration-300 group-hover:scale-105 group-hover:-translate-y-2 group-hover:shadow-3xl">
           <div class="px-4 py-6 md:px-8 md:py-12">
             <div class="text-center">
               <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-2">Enterprise</h3>
@@ -199,7 +207,7 @@
           </div>
           <div class="px-4 pb-6 md:px-8 md:pb-12">
             <a href="https://calendly.com/fernando-lqrb/15min?month=2025-06" target="_blank" rel="noopener noreferrer" class="block">
-              <Button variant="outline" class="w-full h-10 md:h-12 text-sm md:text-lg font-semibold border-2 border-purple-300 text-purple-700 hover:bg-purple-50 transition-all duration-200">
+              <Button variant="outline" class="w-full h-10 md:h-12 text-sm md:text-lg font-semibold border-2 border-purple-300 text-purple-700 hover:bg-purple-50 hover:border-purple-400 hover:scale-105 hover:shadow-lg transition-all duration-200">
                 Contactar ventas
               </Button>
             </a>
@@ -210,22 +218,4 @@
   </div>
 </div>
 
-<!-- Bottom CTA Section -->
-<div class="bg-gradient-to-r from-blue-50 to-indigo-50 py-12">
-  <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-    <h2 class="text-3xl font-bold text-gray-900 mb-4">
-      ¿Tienes preguntas sobre nuestros <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800">planes</span>?
-    </h2>
-    <p class="text-xl text-gray-600 mb-8">
-      Nuestro equipo está aquí para ayudarte a encontrar la solución perfecta
-    </p>
-    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <Button class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg">
-        Hablar con ventas
-      </Button>
-      <Button variant="outline" class="border-blue-300 text-blue-700 hover:bg-blue-50 px-8 py-3 text-lg">
-        Ver demo gratuita
-      </Button>
-    </div>
-  </div>
-</div> 
+ 
