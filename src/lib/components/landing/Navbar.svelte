@@ -3,6 +3,7 @@
   import { track } from "$lib/utils/analytics";
   import { onMount } from 'svelte';
   import { page } from '$app/stores'; // For active link highlighting if needed
+  import { Sparkles, ChefHat, Utensils, Globe, Landmark, PlusCircle, Users } from 'lucide-svelte';
 
   let isMenuOpen = $state(false);
   let isMobile = $state(false);
@@ -14,12 +15,12 @@
   let mobileRestaurantButtonRef: HTMLElement | undefined = $state(); // Ref for the mobile button
 
   const restaurantTypes = [
-    { name: 'Cadenas de fast-casual', href: '/restaurantes/fast-casual', icon: '☕' },
-    { name: 'Restaurantes de autor / cocina creativas', href: '/restaurantes/autor', icon: '🍸' },
-    { name: 'Restaurante independiente / familiar', href: '/restaurantes/independiente', icon: '🍔' },
-    { name: 'Cadena multinacional / expansión internacional', href: '/restaurantes/multinacional', icon: '🌐' },
-    { name: 'Restaurante en zona turística', href: '/restaurantes/turistico', icon: '🍕' },
-    { name: 'Restaurante nuevo / primer emprendimiento sin presencia digital', href: '/restaurantes/nuevo', icon: '🍦' },
+    { name: 'Cadenas de fast-casual', href: '/restaurantes/fast-casual', icon: Sparkles },
+    { name: 'Restaurantes de autor / cocina creativas', href: '/restaurantes/autor', icon: ChefHat },
+    { name: 'Restaurante independiente / familiar', href: '/restaurantes/independiente', icon: Utensils },
+    { name: 'Cadena multinacional / expansión internacional', href: '/restaurantes/multinacional', icon: Globe },
+    { name: 'Restaurante en zona turística', href: '/restaurantes/turistico', icon: Landmark },
+    { name: 'Restaurante nuevo / primer emprendimiento sin presencia digital', href: '/restaurantes/nuevo', icon: PlusCircle },
   ];
 
   function toggleMainMobileMenu() {
@@ -141,7 +142,7 @@
                         role="menuitem"
                         onclick={closeAllMenus}
                       >
-                        <span class="mr-3 text-lg">{item.icon}</span>
+                        <svelte:component this={item.icon} class="mr-3 w-5 h-5 text-blue-600" />
                         {item.name}
                       </a>
                     {/each}
@@ -217,10 +218,11 @@
                 {#each restaurantTypes as item}
                   <a 
                     href={item.href} 
-                    class="block px-3 py-2 text-sm text-black hover:bg-gray-100 rounded-md" 
+                    class="block px-3 py-2 text-sm text-black hover:bg-gray-100 rounded-md flex items-center" 
                     onclick={closeAllMenus}
                   >
-                    <span class="mr-2">{item.icon}</span>{item.name}
+                    <svelte:component this={item.icon} class="mr-2 w-5 h-5 text-blue-600" />
+                    {item.name}
                   </a>
                 {/each}
               </div>
