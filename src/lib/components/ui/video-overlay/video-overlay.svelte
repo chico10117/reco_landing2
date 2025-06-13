@@ -7,15 +7,18 @@
   let isLoading = $state(true);
   let iframeElement: HTMLIFrameElement;
   
-    // Cloudflare Stream embed URL with autoplay enabled
-  const embedUrl = "https://customer-e5khuengb89dqab3.cloudflarestream.com/d4ccc59cb861eb870cf53490ba8a1a4e/iframe?preload=true&poster=https%3A%2F%2Fcustomer-e5khuengb89dqab3.cloudflarestream.com%2Fd4ccc59cb861eb870cf53490ba8a1a4e%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600&autoplay=true";
+  // Base URL without autoplay for preloading
+  const baseUrl = "https://customer-e5khuengb89dqab3.cloudflarestream.com/d4ccc59cb861eb870cf53490ba8a1a4e/iframe?preload=true&poster=https%3A%2F%2Fcustomer-e5khuengb89dqab3.cloudflarestream.com%2Fd4ccc59cb861eb870cf53490ba8a1a4e%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600";
+  
+  // URL with autoplay for when video is actually opened
+  const embedUrl = baseUrl + "&autoplay=true";
 
   // Preload iframe in background
   let preloadIframe: HTMLIFrameElement;
   onMount(() => {
-    // Create hidden iframe to start loading video
+    // Create hidden iframe to start loading video (without autoplay)
     preloadIframe = document.createElement('iframe');
-    preloadIframe.src = embedUrl;
+    preloadIframe.src = baseUrl; // Use baseUrl without autoplay
     preloadIframe.style.display = 'none';
     document.body.appendChild(preloadIframe);
 
