@@ -25,7 +25,9 @@
       Suscríbete a nuestro newsletter y recibe contenido exclusivo sobre innovación en la industria de la restauración.
     </p>
     <a 
-      href="/contact" 
+      href="https://calendly.com/fernando-lqrb/15min" 
+      target="_blank" 
+      rel="noopener noreferrer"
       class="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors shadow-md hover:shadow-lg"
     >
       Suscríbete ahora
