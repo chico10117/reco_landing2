@@ -24,7 +24,7 @@
         <ul class="space-y-2">
           <li><a href="/nosotros" class="hover:text-blue-400">Nosotros</a></li>
           <li><a href="/posts" class="hover:text-blue-400">Blog</a></li>
-          <li><a href="/contact" class="hover:text-blue-400">Contacto</a></li>
+          <li><a href="https://calendly.com/fernando-lqrb/15min" target="_blank" rel="noopener noreferrer" class="hover:text-blue-400">Contacto</a></li>
         </ul>
       </div>
       

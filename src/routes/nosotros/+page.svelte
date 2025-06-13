@@ -300,7 +300,7 @@
     <p class="text-gray-600 mb-6 max-w-2xl mx-auto">
       Estamos buscando personas apasionadas por la tecnología y la gastronomía que quieran transformar el sector restaurantero.
     </p>
-    <a href="/contact" class="inline-block bg-blue-600 text-white font-medium px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+    <a href="https://calendly.com/fernando-lqrb/15min" target="_blank" rel="noopener noreferrer" class="inline-block bg-blue-600 text-white font-medium px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
       Ver ofertas de trabajo
     </a>
   </div>

@@ -158,7 +158,7 @@
             <a href="/nosotros" class="text-black hover:text-gray-700 flex items-center space-x-2 px-2 text-base font-medium" onclick={closeAllMenus}>
               <span>Nosotros</span>
             </a>
-            <a href="/contact" class="inline-block ml-28" onclick={closeAllMenus}>
+            <a href="https://calendly.com/fernando-lqrb/15min" target="_blank" rel="noopener noreferrer" class="inline-block ml-28" onclick={closeAllMenus}>
               <Button 
                 variant="default" 
                 class="bg-blue-600 text-white hover:bg-blue-700 font-medium rounded-xl px-5 py-2 whitespace-nowrap text-base"
@@ -237,7 +237,7 @@
             <span>Nosotros</span>
           </a>
           <div class="pt-2 border-t border-gray-200">
-            <a href="/contact" class="inline-block pt-2" onclick={closeAllMenus}>
+            <a href="https://calendly.com/fernando-lqrb/15min" target="_blank" rel="noopener noreferrer" class="inline-block pt-2" onclick={closeAllMenus}>
               <Button 
                 variant="default" 
                 class="bg-blue-600 text-white hover:bg-blue-700 font-medium rounded-2xl px-5 py-2 whitespace-nowrap w-full text-base"
