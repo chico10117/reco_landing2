@@ -75,7 +75,7 @@
 
 <!-- Hero Section -->
 <section bind:this={sectionElement} class="relative min-h-screen overflow-x-hidden hero-section bg-white" style="background: radial-gradient(ellipse 60% 40% at 50% 40%, #dbeafe 0%, #e0e7ef 60%, #fff 100%);">
-  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 md:pt-12 lg:pt-16 pb-24 md:pb-32">
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 md:pt-8 lg:pt-12 pb-6 md:pb-8">
     <div class="flex flex-col-reverse md:flex-row md:items-center md:justify-between">
       <div 
         bind:this={leftContent}

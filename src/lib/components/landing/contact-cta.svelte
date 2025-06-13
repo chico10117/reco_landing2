@@ -47,7 +47,7 @@
 
 <section 
   bind:this={sectionElement}
-  class="relative py-16 md:py-24 overflow-hidden w-full bg-white"
+  class="relative py-8 md:py-12 overflow-hidden w-full bg-white"
   style="background: radial-gradient(ellipse 60% 40% at 50% 40%, #dbeafe 0%, #e0e7ef 60%, #fff 100%);"
 >
   <div id="video-reco" 

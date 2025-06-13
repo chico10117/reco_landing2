@@ -224,7 +224,7 @@
   });
 </script>
 
-<section class="py-16 md:py-24 bg-white relative overflow-hidden" style="background: radial-gradient(ellipse 60% 40% at 50% 40%, #dbeafe 0%, #e0e7ef 60%, #fff 100%);">
+<section class="py-8 md:py-12 bg-white relative overflow-hidden" style="background: radial-gradient(ellipse 60% 40% at 50% 40%, #dbeafe 0%, #e0e7ef 60%, #fff 100%);">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
 
