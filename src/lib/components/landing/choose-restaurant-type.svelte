@@ -8,6 +8,7 @@
     description: string;
     iconBgColor: string;
     iconColor: string;
+    href?: string;
   }
 
   interface Benefit {
@@ -57,7 +58,8 @@
       title: "Restaurante turístico",
       description: "Menús multilingües y recomendaciones adaptadas a cada idioma y cultura. Tus clientes se sienten como en casa.",
       iconBgColor: "bg-blue-100",
-      iconColor: "text-blue-600"
+      iconColor: "text-blue-600",
+      href: "/restaurantes/restaurant-turist"
     },
     {
       icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor">

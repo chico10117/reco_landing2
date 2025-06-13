@@ -14,16 +14,12 @@
   let mobileRestaurantButtonRef: HTMLElement | undefined = $state(); // Ref for the mobile button
 
   const restaurantTypes = [
-    { name: 'Cafeterías', href: '/restaurantes?tipo=cafeterias', icon: '☕' },
-    { name: 'Pubs', href: '/restaurantes?tipo=pubs', icon: '🍸' },
-    { name: 'Hamburgueserías', href: '/restaurantes?tipo=hamburgueserias', icon: '🍔' },
-    { name: 'Discotecas', href: '/restaurantes?tipo=discotecas', icon: '🌐' },
-    { name: 'Pizzerías', href: '/restaurantes?tipo=pizzerias', icon: '🍕' },
-    { name: 'Heladerías', href: '/restaurantes?tipo=heladerias', icon: '🍦' },
-    { name: 'Kebabs', href: '/restaurantes?tipo=kebabs', icon: '🌯' },
-    { name: 'Hoteles', href: '/restaurantes?tipo=hoteles', icon: '🏨' },
-    { name: 'Cervecerías', href: '/restaurantes?tipo=cervecerias', icon: '🍺' },
-    { name: 'Chiringuitos', href: '/restaurantes?tipo=chiringuitos', icon: '🍹' }
+    { name: 'Cadenas de fast-casual', href: '/restaurantes/fast-casual', icon: '☕' },
+    { name: 'Restaurantes de autor / cocina creativas', href: '/restaurantes/autor', icon: '🍸' },
+    { name: 'Restaurante independiente / familiar', href: '/restaurantes/independiente', icon: '🍔' },
+    { name: 'Cadena multinacional / expansión internacional', href: '/restaurantes/multinacional', icon: '🌐' },
+    { name: 'Restaurante en zona turística', href: '/restaurantes/turistico', icon: '🍕' },
+    { name: 'Restaurante nuevo / primer emprendimiento sin presencia digital', href: '/restaurantes/nuevo', icon: '🍦' },
   ];
 
   function toggleMainMobileMenu() {
@@ -118,9 +114,7 @@
                 class="text-black hover:text-gray-700 flex items-center space-x-2 px-2 text-base font-medium"
                 aria-expanded={isRestaurantMenuOpen && !isMobile}
                 onmouseenter={() => { if (!isMobile) isRestaurantMenuOpen = true; }}
-                onmouseleave={() => { if (!isMobile) isRestaurantMenuOpen = false; }}
                 onfocus={() => { if (!isMobile) isRestaurantMenuOpen = true; }}
-                onblur={() => { if (!isMobile) isRestaurantMenuOpen = false; }}
               >
                 <span>Restaurantes</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 transition-transform duration-200 {isRestaurantMenuOpen && !isMobile ? 'rotate-180' : ''}"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -131,6 +125,8 @@
                   class="absolute -left-4 mt-2 w-96 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none py-2 px-2 z-20"
                   role="menu"
                   tabindex="0"
+                  onmouseenter={() => { if (!isMobile) isRestaurantMenuOpen = true; }}
+                  onmouseleave={() => { if (!isMobile) isRestaurantMenuOpen = false; }}
                   onkeydown={(e) => {
                     if (e.key === 'Escape') {
                       isRestaurantMenuOpen = false;
