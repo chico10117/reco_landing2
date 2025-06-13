@@ -16,22 +16,21 @@
 </svelte:head>
 
 <!-- Hero Section with Blue Gradient -->
-<div class="relative overflow-hidden bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800">
+<div class="relative overflow-hidden bg-white" style="background: radial-gradient(ellipse 60% 40% at 50% 40%, #dbeafe 0%, #e0e7ef 60%, #fff 100%);">
   <!-- Background Pattern -->
   <div class="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]"></div>
-  <div class="absolute inset-0 bg-gradient-to-t from-blue-600/20"></div>
   
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
     <div class="text-center">
-      <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">
-        Planes y <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-cyan-200">Precios</span>
+      <h1 class="text-5xl md:text-6xl font-bold text-black mb-6">
+        Planes y <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800">Precios</span>
       </h1>
-      <p class="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+      <p class="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
         Elige el plan que mejor se adapte a las necesidades de tu restaurante.
       </p>
       <div class="mt-2 flex justify-center">
-        <div class="inline-flex items-center px-4 py-2 rounded-full bg-blue-500/20 backdrop-blur-sm border border-blue-400/30">
-          <span class="text-blue-200 text-sm font-medium">✨ Sin compromisos • Cancela cuando quieras</span>
+        <div class="inline-flex items-center px-4 py-2 rounded-full bg-blue-100/80 backdrop-blur-sm border border-blue-200">
+          <span class="text-blue-700 text-sm font-medium">✨ Sin compromisos • Cancela cuando quieras</span>
         </div>
       </div>
     </div>
