@@ -10,9 +10,8 @@
 <div class="min-h-screen bg-gradient-to-br from-white via-blue-50 to-blue-100 flex flex-col items-center font-sans px-4 sm:px-6">
   <!-- Hero -->
   <div class="w-full max-w-4xl mx-auto mt-12 md:mt-24 mb-4 md:mb-8 text-center">
-    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 flex items-center justify-center gap-2 md:gap-3 max-w-xl mx-auto" style="letter-spacing:-0.01em;">
-      <ShieldCheck class="inline w-8 h-8 text-blue-600" />
-      Tu creatividad, sin límites. <span class="text-blue-600">Reco se encarga del resto.</span>
+    <h1 class="text-4xl md:text-5xl font-bold mb-4 max-w-full mx-auto" style="letter-spacing:-0.01em;">
+      <span class="text-gray-900 font-bold inline">La mejor experiencia QR&nbsp;</span><span class="text-blue-600 font-bold inline">Para tus camareros</span>
     </h1>
     <p class="text-lg md:text-xl text-gray-700 mb-2 flex items-center justify-center gap-2 max-w-xl mx-auto">
       <Users class="inline w-6 h-6 text-blue-500" />
