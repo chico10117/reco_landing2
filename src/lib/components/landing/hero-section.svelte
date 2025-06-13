@@ -1,5 +1,6 @@
 <script lang="ts">
   import { Button } from "$lib/components/ui/button";
+  import { BdtAnimatedHeading } from "$lib/components/ui/bdt-animated-heading";
   import { track } from "$lib/utils/analytics";
   import { onMount } from 'svelte';
   import VideoOverlay from '$lib/components/ui/video-overlay/video-overlay.svelte';
@@ -87,11 +88,14 @@
             <div class="text-wrapper">
               <span class="text-black">La mejor experiencia QR</span>
             </div>
-            <div class="text-wrapper">
-              <span class="text-blue-600 whitespace-nowrap typing-text">Para tus clientes</span>
-              <span class="text-blue-600 whitespace-nowrap typing-text-alt">Para tus camareros</span>
-              <span class="text-blue-600 whitespace-nowrap invisible" aria-hidden="true">Para tus camareros</span>
-            </div>
+            <BdtAnimatedHeading 
+              texts={["Para tus clientes.", "Para tus camareros.", "Para tu negocio."]}
+              element="span"
+              class="text-blue-600 whitespace-nowrap"
+              speed={30}
+              delay={500}
+              pauseDuration={2000}
+            />
           </h1>
           <div class="mt-4 text-base md:text-lg text-gray-600 max-w-2xl">
             <p class="mb-3">La carta más inteligente que:</p>
@@ -313,51 +317,9 @@
     }
   }
 
-  /* Nueva animación de reveal */
+  /* Text wrapper for layout */
   .text-wrapper {
     position: relative;
     display: inline-block;
-  }
-
-  .typing-text {
-    position: absolute;
-    width: 0;
-    overflow: hidden;
-    display: inline-block;
-    white-space: nowrap;
-    animation: typing 6s steps(15) infinite;
-  }
-
-  .typing-text-alt {
-    position: absolute;
-    width: 0;
-    overflow: hidden;
-    display: inline-block;
-    white-space: nowrap;
-    animation: typing-alt 6s steps(15) infinite;
-  }
-
-  @keyframes typing {
-    0% {
-      width: 0;
-    }
-    15%, 35% {
-      width: 100%;
-    }
-    50%, 100% {
-      width: 0;
-    }
-  }
-
-  @keyframes typing-alt {
-    0%, 50% {
-      width: 0;
-    }
-    65%, 85% {
-      width: 100%;
-    }
-    100% {
-      width: 0;
-    }
   }
 </style>

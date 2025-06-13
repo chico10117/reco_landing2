@@ -1,0 +1,1 @@
+export { default as BdtAnimatedHeading } from "./bdt-animated-heading.svelte"; 
