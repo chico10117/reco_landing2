@@ -84,6 +84,7 @@
         allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
         allowfullscreen
         on:load={onIframeLoad}
+        class="w-full h-full"
         style="border: none;"
       ></iframe>
     </div>
