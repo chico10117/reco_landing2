@@ -1,11 +1,14 @@
 <script lang="ts">
   import { onMount } from 'svelte';
 
+  import type { Snippet } from 'svelte';
+  
   type Direction = 'up' | 'down' | 'left' | 'right';
 
-  let { delay = 0, direction = 'up' as Direction } = $props<{
+  let { delay = 0, direction = 'up' as Direction, children } = $props<{
     delay?: number;
     direction?: Direction;
+    children?: Snippet;
   }>();
 
   let visible = $state(false);

@@ -125,7 +125,7 @@ export const COOKIE_DESCRIPTIONS = {
   analytics: {
     name: 'Cookies de Análisis',
     description: 'Nos ayudan a entender cómo los visitantes interactúan con el sitio web.',
-    examples: 'Google Analytics, Hotjar, métricas de rendimiento',
+    examples: 'Google Analytics, Hotjar, Vercel Analytics, métricas de rendimiento',
   },
   marketing: {
     name: 'Cookies de Marketing',

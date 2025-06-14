@@ -78,13 +78,22 @@ $effect(() => {
 Copy `.env.example` to `.env` and configure:
 - `PUBLIC_GA_MEASUREMENT_ID` - Google Analytics Measurement ID (format: G-XXXXXXXXXX)
 - `PUBLIC_HOTJAR_ID` - Hotjar Site ID (numbers only)
-- `PUBLIC_ANALYTICS_ENABLED` - Set to 'false' to disable analytics
+- `PUBLIC_VERCEL_ANALYTICS_ENABLED` - Set to 'false' to disable Vercel Analytics
+- `PUBLIC_ANALYTICS_ENABLED` - Set to 'false' to disable all analytics
 
 ### Cookie Consent System
 - GDPR-compliant cookie banner appears on first visit
 - Users can manage preferences at `/cookies` page
 - Analytics only loads with user consent
 - Three categories: Essential, Analytics, Marketing
+- Supports Google Analytics, Hotjar, and Vercel Analytics
+- All analytics respect user consent and only initialize after acceptance
+
+### Analytics Integration
+- `src/lib/utils/analytics.ts` - Main tracking utility with consent checks
+- `src/lib/utils/cookies.ts` - Cookie management and consent utilities
+- `src/lib/analytics/index.ts` - Platform initialization (GA, Hotjar, Vercel)
+- `src/lib/utils/vercel-analytics.ts` - Consent-aware Vercel Analytics wrapper
 
 ## Important Notes
 

@@ -3,7 +3,7 @@
  */
 
 import { hasConsentFor } from './cookies';
-import { track as vercelTrack } from '@vercel/analytics/sveltekit';
+import { vercelTrack } from './vercel-analytics';
 
 /**
  * Track an event in analytics platforms
@@ -23,7 +23,7 @@ export const track = (event: string, data?: Record<string, unknown>): void => {
       (window as any).hj('event', event, data);
     }
     
-    // Track in Vercel Analytics
+    // Track in Vercel Analytics (only with consent)
     vercelTrack(event, data as Record<string, string | number | boolean | null>);
   }
 };

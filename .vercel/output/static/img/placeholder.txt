@@ -1,0 +1,11 @@
+The following image files are required for the landing page:
+
+1. /img/phone-mockup.webp - A mockup of a phone showing the Reco app interface
+2. /img/logo-yelmo.svg - Logo for Yelmo Cines
+3. /img/logo-vips.svg - Logo for VIPS restaurants
+4. /img/logo-honest-greens.svg - Logo for Honest Greens
+5. /img/logo-tgb.svg - Logo for TGB (The Good Burger)
+6. /img/logo-foodbox.svg - Logo for FoodBox
+7. /img/og-image.jpg - Social media preview image (1200x630px recommended)
+
+Please create these image files and replace this placeholder text file. 

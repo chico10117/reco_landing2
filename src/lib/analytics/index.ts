@@ -1,6 +1,5 @@
 import { hasConsentFor } from '$lib/utils/cookies';
 import { inject } from '@vercel/analytics';
-import { track as vercelTrack } from '@vercel/analytics/sveltekit';
 
 // Tipos para Google Analytics y Hotjar
 declare global {
@@ -55,6 +54,9 @@ export const initHotjar = (id: number) => {
   }
 };
 
+// Track if Vercel Analytics has been initialized
+let vercelAnalyticsInitialized = false;
+
 // Initialize all analytics platforms based on user consent
 export const initAnalytics = () => {
   if (hasConsentFor('analytics') && isAnalyticsConfigured()) {
@@ -69,8 +71,12 @@ export const initAnalytics = () => {
       initHotjar(HOTJAR_ID);
     }
     
-    // Initialize Vercel Analytics
-    inject();
+    // Initialize Vercel Analytics (only once and with consent)
+    const vercelEnabled = import.meta.env.PUBLIC_VERCEL_ANALYTICS_ENABLED !== 'false';
+    if (!vercelAnalyticsInitialized && vercelEnabled) {
+      inject();
+      vercelAnalyticsInitialized = true;
+    }
   }
 };
 
@@ -88,9 +94,11 @@ export const isAnalyticsConfigured = (): boolean => {
 // Check if analytics are initialized
 export const areAnalyticsInitialized = (): boolean => {
   return typeof window !== 'undefined' && 
-         (!!window.gtag || !!window.hj) && 
+         (!!window.gtag || !!window.hj || vercelAnalyticsInitialized) && 
          hasConsentFor('analytics');
 };
 
-// Export Vercel Analytics track function for direct use
-export { track as vercelTrack } from '@vercel/analytics/sveltekit'; 
+// Get Vercel Analytics initialization status
+export const isVercelAnalyticsInitialized = (): boolean => {
+  return vercelAnalyticsInitialized;
+}; 

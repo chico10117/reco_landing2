@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#1a73e8" />
+    <stop offset="100%" stop-color="#0d47a1" />
+  </linearGradient>
+  <rect width="1200" height="630" fill="url(#bg-gradient)" />
+  
+  <!-- Logo area -->
+  <rect x="400" y="150" width="400" height="100" rx="20" fill="#ffffff" />
+  <text x="600" y="220" font-family="Arial, sans-serif" font-size="72" font-weight="bold" text-anchor="middle" fill="#1a73e8">Reco</text>
+  
+  <!-- Tagline -->
+  <text x="600" y="330" font-family="Arial, sans-serif" font-size="36" text-anchor="middle" fill="#ffffff">Pide mejor. Disfruta más.</text>
+  
+  <!-- Subtitle -->
+  <text x="600" y="400" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="#e0e0e0">Tu asistente inteligente de restaurantes</text>
+  
+  <!-- Decorative elements -->
+  <circle cx="300" cy="480" r="50" fill="#ffffff" opacity="0.1" />
+  <circle cx="900" cy="200" r="80" fill="#ffffff" opacity="0.1" />
+  <circle cx="150" cy="150" r="30" fill="#ffffff" opacity="0.1" />
+  <circle cx="1050" cy="500" r="40" fill="#ffffff" opacity="0.1" />
+</svg> 

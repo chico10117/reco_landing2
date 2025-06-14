@@ -1,0 +1,1 @@
+import{j as l,k as h,l as k}from"./QF1L1msK.js";import{l as o}from"./BhYac13y.js";function _(e,a,d=a){o(e,"change",c=>{var r=c?e.defaultChecked:e.checked;d(r)}),(l&&e.defaultChecked!==e.checked||h(a)==null)&&d(e.checked),k(()=>{var c=a();e.checked=!!c})}export{_ as b};
