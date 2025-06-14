@@ -1,4 +1,6 @@
 import { hasConsentFor } from '$lib/utils/cookies';
+import { inject } from '@vercel/analytics';
+import { track as vercelTrack } from '@vercel/analytics/sveltekit';
 
 // Tipos para Google Analytics y Hotjar
 declare global {
@@ -66,6 +68,9 @@ export const initAnalytics = () => {
     if (HOTJAR_ID && !isNaN(HOTJAR_ID) && HOTJAR_ID !== 1234567) {
       initHotjar(HOTJAR_ID);
     }
+    
+    // Initialize Vercel Analytics
+    inject();
   }
 };
 
@@ -85,4 +90,7 @@ export const areAnalyticsInitialized = (): boolean => {
   return typeof window !== 'undefined' && 
          (!!window.gtag || !!window.hj) && 
          hasConsentFor('analytics');
-}; 
+};
+
+// Export Vercel Analytics track function for direct use
+export { track as vercelTrack } from '@vercel/analytics/sveltekit'; 

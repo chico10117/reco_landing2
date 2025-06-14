@@ -6,6 +6,7 @@
   import { onMount } from 'svelte';
   import { initAnalytics } from '$lib/analytics';
 
+
   // Access route children via snippet prop instead of legacy slots
   import type { Snippet } from 'svelte';
 
