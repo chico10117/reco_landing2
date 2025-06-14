@@ -139,7 +139,7 @@
             <Button 
               size="lg" 
               class="rounded-full px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white shadow-lg transition-all duration-200 focus:ring-2 focus:ring-blue-300 focus:outline-none text-lg"
-              on:click={onDiscoverClick}
+              onclick={onDiscoverClick}
             >
               Descubre cómo funciona
             </Button>
@@ -147,7 +147,7 @@
               variant="outline" 
               size="lg" 
               class="rounded-full px-8 py-3 border-2 border-blue-600 text-blue-600 hover:bg-blue-50 shadow-lg transition-all duration-200 focus:ring-2 focus:ring-blue-200 focus:outline-none text-lg"
-              on:click={() => {
+              onclick={() => {
                 track('cta_click', { label: 'restaurant_help' });
                 onRestaurantClick();
               }}
