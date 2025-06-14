@@ -1,3 +1,5 @@
+import { hasConsentFor } from '$lib/utils/cookies';
+
 // Tipos para Google Analytics y Hotjar
 declare global {
   interface Window {
@@ -16,19 +18,29 @@ declare global {
 
 // Configuración de Google Analytics
 export const initGoogleAnalytics = (id: string) => {
-  if (typeof window !== 'undefined') {
+  if (typeof window !== 'undefined' && hasConsentFor('analytics')) {
+    // Load Google Analytics script
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${id}`;
+    document.head.appendChild(script);
+    
     window.dataLayer = window.dataLayer || [];
     window.gtag = function gtag() {
       window.dataLayer.push(arguments);
     };
     window.gtag('js', new Date());
-    window.gtag('config', id);
+    window.gtag('config', id, {
+      // Enhanced privacy settings
+      anonymize_ip: true,
+      send_page_view: false, // We'll handle page views manually
+    });
   }
 };
 
 // Configuración de Hotjar
 export const initHotjar = (id: number) => {
-  if (typeof window !== 'undefined') {
+  if (typeof window !== 'undefined' && hasConsentFor('analytics')) {
     window.hj = window.hj || function() {
       (window.hj.q = window.hj.q || []).push(arguments);
     };
@@ -39,4 +51,38 @@ export const initHotjar = (id: number) => {
     script.src = `https://static.hotjar.com/c/hotjar-${id}.js?sv=6`;
     document.head.appendChild(script);
   }
+};
+
+// Initialize all analytics platforms based on user consent
+export const initAnalytics = () => {
+  if (hasConsentFor('analytics') && isAnalyticsConfigured()) {
+    const GA_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
+    const HOTJAR_ID = parseInt(import.meta.env.PUBLIC_HOTJAR_ID);
+    
+    if (GA_ID && GA_ID !== 'G-XXXXXXXXXX') {
+      initGoogleAnalytics(GA_ID);
+    }
+    
+    if (HOTJAR_ID && !isNaN(HOTJAR_ID) && HOTJAR_ID !== 1234567) {
+      initHotjar(HOTJAR_ID);
+    }
+  }
+};
+
+// Check if analytics is properly configured
+export const isAnalyticsConfigured = (): boolean => {
+  const analyticsEnabled = import.meta.env.PUBLIC_ANALYTICS_ENABLED !== 'false';
+  const hasGaId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID && 
+                  import.meta.env.PUBLIC_GA_MEASUREMENT_ID !== 'G-XXXXXXXXXX';
+  const hasHotjarId = import.meta.env.PUBLIC_HOTJAR_ID && 
+                      import.meta.env.PUBLIC_HOTJAR_ID !== '1234567';
+  
+  return analyticsEnabled && (!!hasGaId || !!hasHotjarId);
+};
+
+// Check if analytics are initialized
+export const areAnalyticsInitialized = (): boolean => {
+  return typeof window !== 'undefined' && 
+         (!!window.gtag || !!window.hj) && 
+         hasConsentFor('analytics');
 }; 

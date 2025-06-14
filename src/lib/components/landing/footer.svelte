@@ -41,6 +41,7 @@
         <ul class="space-y-2">
           <li><a href="/privacy" class="hover:text-blue-400">Privacidad</a></li>
           <li><a href="/terms" class="hover:text-blue-400">Términos</a></li>
+          <li><a href="/cookies" class="hover:text-blue-400">Cookies</a></li>
         </ul>
       </div>
       
