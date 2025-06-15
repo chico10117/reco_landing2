@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  import ContactCta from '$lib/components/landing/contact-cta.svelte';
 
   // Miembros del equipo
   const equipo = [
@@ -52,8 +53,8 @@
 <!-- Animated background elements -->
 <div class="fixed inset-0 -z-10 overflow-hidden">
   <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
-  <div class="absolute top-3/4 right-1/4 w-96 h-96 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style="animation-delay: 2s;"></div>
-  <div class="absolute top-1/2 left-3/4 w-96 h-96 bg-green-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style="animation-delay: 4s;"></div>
+  <div class="absolute top-3/4 right-1/4 w-96 h-96 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-15 animate-pulse" style="animation-delay: 2s;"></div>
+  <div class="absolute top-1/2 left-3/4 w-96 h-96 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-25 animate-pulse" style="animation-delay: 4s;"></div>
 </div>
 
 <div class="min-h-screen bg-gradient-to-br from-white via-blue-50/30 to-white">
@@ -68,12 +69,12 @@
           Equipo de clase mundial
         </div>
         
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
           Conoce al equipo que está
-          <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <span class="text-blue-600">
             revolucionando
           </span>
-          <br />la industria restaurantera
+          la industria restaurantera
         </h1>
         
         <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -101,7 +102,7 @@
               <!-- Photo and basic info -->
               <div class="flex items-start space-x-6 mb-6">
                 <div class="relative">
-                  <div class="w-20 h-20 md:w-24 md:h-24 rounded-2xl overflow-hidden ring-4 ring-white/50 group-hover:ring-blue-200/50 transition-all duration-300">
+                  <div class="w-24 h-24 md:w-32 md:h-32 rounded-2xl overflow-hidden ring-4 ring-white/50 group-hover:ring-blue-200/50 transition-all duration-300">
                     <img 
                       src={miembro.foto} 
                       alt={miembro.nombre}
@@ -170,7 +171,7 @@
   <section class="py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
           Nuestros valores
         </h2>
         <p class="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -190,7 +191,7 @@
         </div>
         
         <div class="text-center group">
-          <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-2xl mx-auto mb-6 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300 shadow-lg">
+          <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl mx-auto mb-6 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300 shadow-lg">
             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
             </svg>
@@ -200,23 +201,29 @@
         </div>
         
         <div class="text-center group">
-          <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-purple-600 rounded-2xl mx-auto mb-6 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300 shadow-lg">
+          <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-700 rounded-2xl mx-auto mb-6 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300 shadow-lg">
             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/>
             </svg>
           </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-3">Sostenibilidad</h3>
-          <p class="text-gray-600">Trabajamos por un futuro más sostenible para la industria de la restauración.</p>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Servicio al cliente</h3>
+          <p class="text-gray-600">Nos enfocamos en brindar el mejor servicio y soporte a nuestros restaurantes aliados.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA Section -->
+  <!-- Contact CTA -->
+  <div class="mt-20 md:mt-32">
+    <ContactCta />
+  </div>
+
+<!--   CTA Section - Job Offers -->
+  <!--
   <section class="py-20">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="relative bg-gradient-to-br from-blue-600 to-purple-600 rounded-3xl p-8 md:p-12 text-center overflow-hidden">
-        <!-- Background pattern -->
+      <div class="relative bg-gradient-to-br from-blue-600 to-blue-700 rounded-3xl p-8 md:p-12 text-center overflow-hidden">
+        
         <div class="absolute inset-0 bg-white/10 backdrop-blur-sm"></div>
         <div class="absolute top-0 left-0 w-40 h-40 bg-white/20 rounded-full -translate-x-20 -translate-y-20"></div>
         <div class="absolute bottom-0 right-0 w-60 h-60 bg-white/10 rounded-full translate-x-20 translate-y-20"></div>
@@ -242,7 +249,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 </div>
 
 <style>
