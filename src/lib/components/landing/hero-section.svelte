@@ -169,10 +169,10 @@
         
         <!-- Nuevo contenedor para el botón demo -->
         <div class="mt-auto pt-20">
-          <div class="relative w-full overflow-x-visible">
+          <div class="relative w-full overflow-x-visible flex justify-center md:justify-end">
             <a 
               href="https://carta.reco.chat/login" 
-              class="absolute right-0 md:right-[-100px] lg:right-[-200px] whitespace-nowrap inline-flex items-center gap-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full px-8 py-3 text-lg font-medium shadow-lg transition-all duration-200" 
+              class="md:absolute md:right-[-100px] lg:right-[-200px] whitespace-nowrap inline-flex items-center gap-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full px-8 py-3 text-lg font-medium shadow-lg transition-all duration-200" 
               target="_blank" 
               rel="noopener"
             >
