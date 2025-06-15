@@ -167,48 +167,107 @@
     </div>
   </section>
 
-  <!-- Values Section -->
-  <section class="py-20">
+  <!-- Values Section - Bento Style -->
+  <section class="py-20 relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+      <!-- Header with subtle animation -->
+      <div class="text-center mb-20 relative">
+        <div class="absolute inset-0 flex items-center justify-center opacity-5">
+          <div class="w-96 h-96 bg-blue-600 rounded-full blur-3xl"></div>
+        </div>
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-6 relative">
           Nuestros valores
         </h2>
-        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-          Los principios que guían cada decisión y nos mantienen enfocados en nuestro propósito.
+        <p class="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto relative">
+          Con más de 45 años de experiencia combinada, nuestro equipo lidera la transformación digital 
+          del sector restaurantero con excelencia técnica y servicio incomparable.
         </p>
       </div>
       
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="text-center group">
-          <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl mx-auto mb-6 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300 shadow-lg">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-            </svg>
+      <!-- Bento Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        <!-- Innovation Card -->
+        <div class="group relative bg-white rounded-3xl p-8 shadow-[0_0_0_1px_rgba(0,0,0,0.03),0_2px_4px_rgba(0,0,0,0.05),0_12px_24px_rgba(0,0,0,0.05)] hover:shadow-[0_0_0_1px_rgba(0,0,0,0.03),0_8px_16px_rgba(0,0,0,0.1),0_24px_48px_rgba(0,0,0,0.1)] transition-all duration-500 hover:-translate-y-1">
+          <!-- Gradient accent -->
+          <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-blue-600 rounded-t-3xl"></div>
+          
+          <!-- Icon container -->
+          <div class="relative mb-6">
+            <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center group-hover:bg-blue-100 transition-colors duration-300">
+              <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+              </svg>
+            </div>
+            <div class="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
           </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-3">Innovación</h3>
-          <p class="text-gray-600">Buscamos constantemente nuevas formas de mejorar la experiencia gastronómica.</p>
+          
+          <h3 class="text-xl font-semibold text-black mb-3">Innovación Disruptiva</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Pioneros en IA para restaurantes. Nuestro equipo técnico de élite desarrolla 
+            soluciones que revolucionan la industria y posicionan a nuestros clientes a la vanguardia.
+          </p>
+          
+          <!-- Decorative element -->
+          <div class="absolute bottom-8 right-8 w-20 h-20 bg-blue-50 rounded-full opacity-50 blur-2xl group-hover:opacity-70 transition-opacity duration-500"></div>
         </div>
         
-        <div class="text-center group">
-          <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl mx-auto mb-6 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300 shadow-lg">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
-            </svg>
+        <!-- Quality Card - Featured -->
+        <div class="group relative bg-gradient-to-br from-blue-600 to-blue-700 rounded-3xl p-8 text-white shadow-[0_0_0_1px_rgba(0,0,0,0.03),0_2px_4px_rgba(0,0,0,0.05),0_12px_24px_rgba(0,0,0,0.05)] hover:shadow-[0_0_0_1px_rgba(0,0,0,0.03),0_8px_16px_rgba(0,0,0,0.1),0_24px_48px_rgba(0,0,0,0.1)] transition-all duration-500 hover:-translate-y-1 md:scale-105">
+          <!-- Pattern overlay -->
+          <div class="absolute inset-0 opacity-10">
+            <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 1px); background-size: 20px 20px;"></div>
           </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-3">Calidad</h3>
-          <p class="text-gray-600">Nos comprometemos con la excelencia en cada aspecto de nuestro servicio.</p>
+          
+          <!-- Icon container -->
+          <div class="relative mb-6">
+            <div class="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center group-hover:bg-white/30 transition-colors duration-300">
+              <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+              </svg>
+            </div>
+            <div class="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+          </div>
+          
+          <h3 class="text-xl font-semibold mb-3">Excelencia Comprobada</h3>
+          <p class="text-white/90 leading-relaxed">
+            Aplicamos estándares de clase mundial para garantizar resultados excepcionales en cada implementación.
+          </p>
+          
+          <!-- Glow effect -->
+          <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-blue-700 rounded-3xl blur opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
         </div>
         
-        <div class="text-center group">
-          <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-700 rounded-2xl mx-auto mb-6 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300 shadow-lg">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/>
-            </svg>
+        <!-- Customer Service Card -->
+        <div class="group relative bg-white rounded-3xl p-8 shadow-[0_0_0_1px_rgba(0,0,0,0.03),0_2px_4px_rgba(0,0,0,0.05),0_12px_24px_rgba(0,0,0,0.05)] hover:shadow-[0_0_0_1px_rgba(0,0,0,0.03),0_8px_16px_rgba(0,0,0,0.1),0_24px_48px_rgba(0,0,0,0.1)] transition-all duration-500 hover:-translate-y-1">
+          <!-- Gradient accent -->
+          <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-green-500 to-green-600 rounded-t-3xl"></div>
+          
+          <!-- Icon container -->
+          <div class="relative mb-6">
+            <div class="w-14 h-14 bg-green-50 rounded-2xl flex items-center justify-center group-hover:bg-green-100 transition-colors duration-300">
+              <svg class="w-7 h-7 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/>
+              </svg>
+            </div>
+            <div class="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
           </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-3">Servicio al cliente</h3>
-          <p class="text-gray-600">Nos enfocamos en brindar el mejor servicio y soporte a nuestros restaurantes aliados.</p>
+          
+          <h3 class="text-xl font-semibold text-black mb-3">Servicio al Cliente</h3>
+          <p class="text-gray-600 leading-relaxed">
+            El mejor soporte del mercado. Respuesta inmediata, acompañamiento personalizado 
+            y un equipo dedicado que garantiza el éxito en cada una de nuestras soluciones.
+          </p>
+          
+          <!-- Decorative element -->
+          <div class="absolute bottom-8 right-8 w-20 h-20 bg-green-50 rounded-full opacity-50 blur-2xl group-hover:opacity-70 transition-opacity duration-500"></div>
         </div>
+      </div>
+      
+      <!-- Bottom decorative elements -->
+      <div class="mt-16 flex justify-center space-x-2">
+        <div class="w-2 h-2 bg-blue-200 rounded-full"></div>
+        <div class="w-2 h-2 bg-blue-400 rounded-full"></div>
+        <div class="w-2 h-2 bg-blue-600 rounded-full"></div>
       </div>
     </div>
   </section>
