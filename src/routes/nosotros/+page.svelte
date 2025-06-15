@@ -1,311 +1,287 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
+
   // Miembros del equipo
   const equipo = [
-    {
-      nombre: 'Francisco Cordero',
-      cargo: 'CTO & Co-fundador',
-      foto: '/img/team/francisco.jpeg',
-      bio: 'Ingeniero electrónico con una década de experiencia liderando proyectos de hardware en Intel. Arquitecto de nuestra plataforma de IA y visionario de la digitalización del sector restaurantero.',
-      linkedin: 'https://www.linkedin.com/in/francisco-cordero-reco/'
-    },
     {
       nombre: 'José Antonio Jiménez Ramos',
       cargo: 'CEO & Co-fundador',
       foto: '/img/team/jose.jpeg',
       bio: 'Emprendedor y especialista en comunicación con experiencia liderando equipos de marketing para marcas de lujo y proyectos digitales en América Latina.',
-      linkedin: 'https://www.linkedin.com/in/joseantoniojimenezramos/'
+      linkedin: 'https://www.linkedin.com/in/joseantoniojimenezramos/',
+      skills: ['Marketing Digital', 'Estrategia', 'Liderazgo']
+    },
+    {
+      nombre: 'Francisco Cordero',
+      cargo: 'CTO & Co-fundador',
+      foto: '/img/team/francisco.jpeg',
+      bio: 'Ingeniero electrónico con una década de experiencia liderando proyectos de hardware en Intel. Arquitecto de nuestra plataforma de IA y visionario de la digitalización del sector restaurantero.',
+      linkedin: 'https://www.linkedin.com/in/francisco-cordero-reco/',
+      skills: ['IA & Machine Learning', 'Arquitectura de Software', 'Hardware']
     },
     {
       nombre: 'Fernando Soto',
       cargo: 'Chief Revenue Officer',
       foto: '/img/team/fernando.jpeg',
       bio: 'Más de 25 años de experiencia en revenue management, marketing y ventas en sectores Telco, Fintech y Hospitality. Experto en transformar desafíos operativos en historias de éxito.',
-      linkedin: 'https://www.linkedin.com/in/fernandosotojaimes/'
+      linkedin: 'https://www.linkedin.com/in/fernandosotojaimes/',
+      skills: ['Revenue Management', 'Ventas B2B', 'Fintech']
     },
     {
       nombre: 'Abraham Hernández',
-      cargo: 'Head de Producto',
+      cargo: 'Senior Lead Developer',
       foto: '/img/team/abraham.jpeg',
       bio: 'Diseñador de producto especializado en experiencia de usuario y estrategia digital. Lidera la evolución del Smart Menu con enfoque en usabilidad y eficiencia.',
-      linkedin: 'https://www.linkedin.com/in/dogcalas/'
+      linkedin: 'https://www.linkedin.com/in/dogcalas/',
+      skills: ['UX/UI Design', 'Desarrollo Frontend', 'Product Strategy']
     }
   ];
 
-  const valores = [
-    {
-      titulo: 'Innovación',
-      descripcion: 'Buscamos constantemente nuevas formas de mejorar la experiencia gastronómica.',
-      icono: '🚀'
-    },
-    {
-      titulo: 'Calidad',
-      descripcion: 'Nos comprometemos con la excelencia en cada aspecto de nuestro servicio.',
-      icono: '⭐'
-    },
-    {
-      titulo: 'Sostenibilidad',
-      descripcion: 'Trabajamos por un futuro más sostenible para la industria de la restauración.',
-      icono: '🌱'
-    }
-  ];
+  let mounted = false;
 
-  // Carousel controls
-  // @ts-ignore - Svelte 5 runes
-  let activeMember = $state(0);
-  // @ts-ignore - Svelte 5 runes
-  let isHovering = $state(false);
-  let interval: ReturnType<typeof setInterval> | null = null;
-  
-  // Avanza al siguiente miembro cada 4 segundos
-  function startCarousel(): void {
-    interval = setInterval(() => {
-      if (!isHovering) {
-        activeMember = (activeMember + 1) % equipo.length;
-      }
-    }, 4000);
-  }
-  
-  function pauseCarousel(): void {
-    isHovering = true;
-  }
-  
-  function resumeCarousel(): void {
-    isHovering = false;
-  }
-  
-  function selectMember(index: number): void {
-    activeMember = index;
-    // Reset timer when manually changing
-    if (interval) {
-      clearInterval(interval);
-      startCarousel();
-    }
-  }
-  
-  // Lifecycle
-  if (typeof window !== 'undefined') {
-    // Solo ejecutar en el cliente, no en SSR
-    setTimeout(() => {
-      startCarousel();
-      
-      // Limpiar al desmontar
-      window.addEventListener('beforeunload', () => {
-        if (interval) clearInterval(interval);
-      });
-    }, 100);
-  }
+  onMount(() => {
+    mounted = true;
+  });
 </script>
 
-<style>
-  .team-tab {
-    position: relative;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  .team-tab:after {
-    content: '';
-    position: absolute;
-    bottom: -6px;
-    left: 0;
-    width: 0;
-    height: 3px;
-    background-color: #2563eb;
-    transition: width 0.3s ease;
-  }
-  
-  .team-tab.active {
-    color: #2563eb;
-  }
-  
-  .team-tab.active:after {
-    width: 100%;
-  }
-  
-  .member-card {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-    position: absolute;
-    width: 100%;
-    pointer-events: none;
-  }
-  
-  .member-card.active {
-    opacity: 1;
-    transform: translateY(0);
-    position: relative;
-    pointer-events: auto;
-  }
-  
-  .team-photo {
-    transition: transform 0.3s ease;
-    border-radius: 8px;
-  }
-  
-  .team-photo:hover {
-    transform: scale(1.02);
-  }
-  
-  .carousel-control {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(255, 255, 255, 0.8);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 10;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease;
-  }
-  
-  .carousel-control:hover {
-    background-color: rgba(255, 255, 255, 0.95);
-  }
-  
-  .carousel-control.prev {
-    left: 10px;
-  }
-  
-  .carousel-control.next {
-    right: 10px;
-  }
-  
-  @media (max-width: 768px) {
-    .carousel-control {
-      width: 30px;
-      height: 30px;
-    }
-  }
-</style>
-
 <svelte:head>
-  <title>Nosotros | Reco</title>
-  <meta name="description" content="Conoce al equipo detrás de Reco." />
+  <title>Nosotros | Reco - Conoce al equipo detrás de la revolución digital de restaurantes</title>
+  <meta name="description" content="Conoce al equipo de expertos detrás de Reco. Líderes en IA, desarrollo de producto y estrategia digital transformando la industria restaurantera." />
 </svelte:head>
 
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 mt-16">
-  <!-- Sección de Historia y Valores eliminadas -->
+<!-- Animated background elements -->
+<div class="fixed inset-0 -z-10 overflow-hidden">
+  <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
+  <div class="absolute top-3/4 right-1/4 w-96 h-96 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style="animation-delay: 2s;"></div>
+  <div class="absolute top-1/2 left-3/4 w-96 h-96 bg-green-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style="animation-delay: 4s;"></div>
+</div>
 
-  <!-- Sección del Equipo -->
-  <div class="mb-20">
-    <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">Nuestro Equipo</h2>
-    
-    <!-- Team Navigation Tabs -->
-    <div class="flex justify-center mb-12">
-      <div class="flex space-x-8 border-b border-gray-200 pb-2">
-        {#each equipo as miembro, i}
-          <button 
-            class="team-tab text-lg font-medium pb-2 {i === activeMember ? 'active' : ''}"
-            onclick={() => selectMember(i)}
-          >
-            {miembro.nombre.split(' ')[0]}
-          </button>
-        {/each}
+<div class="min-h-screen bg-gradient-to-br from-white via-blue-50/30 to-white">
+  <!-- Hero Section -->
+  <section class="relative pt-32 pb-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <div class="inline-flex items-center px-4 py-2 rounded-full bg-blue-100 text-blue-800 text-sm font-medium mb-8 backdrop-blur-sm">
+          <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+          Equipo de clase mundial
+        </div>
+        
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+          Conoce al equipo que está
+          <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            revolucionando
+          </span>
+          <br />la industria restaurantera
+        </h1>
+        
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          Somos un equipo de expertos en tecnología, producto y negocio, unidos por la misión de 
+          transformar la experiencia gastronómica a través de la inteligencia artificial.
+        </p>
       </div>
     </div>
-    
-    <!-- Team Member Cards Carousel -->
-    <div 
-      class="relative min-h-[500px]" 
-      role="region"
-      aria-label="Carrusel de miembros del equipo"
-      onmouseenter={pauseCarousel} 
-      onmouseleave={resumeCarousel}
-      ontouchstart={pauseCarousel}
-      ontouchend={resumeCarousel}
-    >
-      <!-- Carousel Controls -->
-      <button 
-        class="carousel-control prev" 
-        onclick={() => selectMember((activeMember - 1 + equipo.length) % equipo.length)}
-        aria-label="Miembro anterior"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6">
-          <path d="M15 18l-6-6 6-6"></path>
-        </svg>
-      </button>
-      
-      <button 
-        class="carousel-control next"
-        onclick={() => selectMember((activeMember + 1) % equipo.length)}
-        aria-label="Siguiente miembro"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6">
-          <path d="M9 18l6-6-6-6"></path>
-        </svg>
-      </button>
-      
-      {#each equipo as miembro, i}
-        <div class="member-card {i === activeMember ? 'active' : ''}" data-index={i}>
-          <div class="bg-white rounded-xl shadow-xl overflow-hidden">
-            <div class="md:flex">
-              <div class="md:w-1/3">
-                <div class="h-80 md:h-full overflow-hidden">
-                  <img 
-                    src={miembro.foto} 
-                    alt={miembro.nombre}
-                    class="team-photo w-full h-full object-cover object-center"
-                  />
-                </div>
-              </div>
-              <div class="md:w-2/3 p-8 md:p-10">
-                <div class="mb-6">
-                  <h3 class="text-3xl font-bold text-gray-900 mb-2">{miembro.nombre}</h3>
-                  <p class="text-blue-600 text-xl mb-6">{miembro.cargo}</p>
-                  <p class="text-gray-600 text-lg leading-relaxed">{miembro.bio}</p>
+  </section>
+
+  <!-- Team Section -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
+        {#each equipo as miembro, i}
+          <div 
+            class="team-card group relative bg-white/70 backdrop-blur-xl rounded-3xl p-8 border border-white/20 shadow-[0_8px_32px_0_rgba(33,93,255,0.08)] hover:shadow-[0_20px_60px_0_rgba(33,93,255,0.15)] transition-all duration-500 ease-out"
+            class:animate-in={mounted}
+            style="animation-delay: {i * 200}ms"
+          >
+            <!-- Glassmorphism overlay -->
+            <div class="absolute inset-0 bg-gradient-to-br from-white/40 to-white/10 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            
+            <div class="relative z-10">
+              <!-- Photo and basic info -->
+              <div class="flex items-start space-x-6 mb-6">
+                <div class="relative">
+                  <div class="w-20 h-20 md:w-24 md:h-24 rounded-2xl overflow-hidden ring-4 ring-white/50 group-hover:ring-blue-200/50 transition-all duration-300">
+                    <img 
+                      src={miembro.foto} 
+                      alt={miembro.nombre}
+                      class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                    />
+                  </div>
+                  <div class="absolute -bottom-2 -right-2 w-8 h-8 bg-green-400 rounded-full border-4 border-white flex items-center justify-center">
+                    <div class="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                  </div>
                 </div>
                 
-                {#if miembro.linkedin}
-                <div class="mt-8">
-                  <a 
-                    href={miembro.linkedin} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    class="inline-flex items-center space-x-2 text-blue-600 hover:text-blue-800 transition-colors"
-                    aria-label={`Ver perfil de LinkedIn de ${miembro.nombre}`}
-                  >
-                    <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center hover:bg-blue-200 transition-colors">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                      </svg>
-                    </div>
-                    <span class="text-sm font-medium">Ver perfil de LinkedIn</span>
-                  </a>
+                <div class="flex-1 min-w-0">
+                  <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors duration-300">
+                    {miembro.nombre}
+                  </h3>
+                  <p class="text-blue-600 font-medium mb-3">
+                    {miembro.cargo}
+                  </p>
+                  
+                  <!-- Skills tags -->
+                  <div class="flex flex-wrap gap-2">
+                    {#each miembro.skills as skill}
+                      <span class="px-3 py-1 text-xs font-medium bg-blue-100/80 text-blue-700 rounded-full border border-blue-200/50 backdrop-blur-sm">
+                        {skill}
+                      </span>
+                    {/each}
+                  </div>
                 </div>
-                {/if}
+              </div>
+              
+              <!-- Bio -->
+              <p class="text-gray-600 leading-relaxed mb-6 text-sm md:text-base">
+                {miembro.bio}
+              </p>
+              
+              <!-- LinkedIn -->
+              <div class="flex justify-between items-center">
+                <a 
+                  href={miembro.linkedin} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center space-x-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-medium text-sm transition-all duration-200 transform hover:scale-105 focus:ring-2 focus:ring-blue-300 focus:ring-offset-2"
+                  aria-label={`Ver perfil de LinkedIn de ${miembro.nombre}`}
+                >
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                  </svg>
+                  <span>LinkedIn</span>
+                </a>
+                
+                <div class="flex items-center text-gray-400">
+                  <svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                  </svg>
+                  <span class="text-sm">Remoto</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      {/each}
+        {/each}
+      </div>
     </div>
-    
-    <!-- Mobile Navigation Dots -->
-    <div class="flex justify-center mt-6">
-      {#each equipo as _, i}
-        <button 
-          class="mx-1 w-3 h-3 rounded-full {i === activeMember ? 'bg-blue-600' : 'bg-gray-300'}"
-          aria-label={`Ver ${equipo[i].nombre}`}
-          onclick={() => selectMember(i)}
-        ></button>
-      {/each}
-    </div>
-  </div>
+  </section>
 
-  <!-- Sección de CTA -->
-  <div class="mt-16 text-center bg-blue-50 p-10 rounded-xl shadow-sm">
-    <h3 class="text-2xl font-bold text-gray-900 mb-4">¿Quieres formar parte de nuestro equipo?</h3>
-    <p class="text-gray-600 mb-6 max-w-2xl mx-auto">
-      Estamos buscando personas apasionadas por la tecnología y la gastronomía que quieran transformar el sector restaurantero.
-    </p>
-    <a href="https://calendly.com/fernando-lqrb/15min" target="_blank" rel="noopener noreferrer" class="inline-block bg-blue-600 text-white font-medium px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
-      Ver ofertas de trabajo
-    </a>
-  </div>
-</div> 
+  <!-- Values Section -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+          Nuestros valores
+        </h2>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+          Los principios que guían cada decisión y nos mantienen enfocados en nuestro propósito.
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center group">
+          <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl mx-auto mb-6 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300 shadow-lg">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Innovación</h3>
+          <p class="text-gray-600">Buscamos constantemente nuevas formas de mejorar la experiencia gastronómica.</p>
+        </div>
+        
+        <div class="text-center group">
+          <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-2xl mx-auto mb-6 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300 shadow-lg">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Calidad</h3>
+          <p class="text-gray-600">Nos comprometemos con la excelencia en cada aspecto de nuestro servicio.</p>
+        </div>
+        
+        <div class="text-center group">
+          <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-purple-600 rounded-2xl mx-auto mb-6 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300 shadow-lg">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Sostenibilidad</h3>
+          <p class="text-gray-600">Trabajamos por un futuro más sostenible para la industria de la restauración.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="relative bg-gradient-to-br from-blue-600 to-purple-600 rounded-3xl p-8 md:p-12 text-center overflow-hidden">
+        <!-- Background pattern -->
+        <div class="absolute inset-0 bg-white/10 backdrop-blur-sm"></div>
+        <div class="absolute top-0 left-0 w-40 h-40 bg-white/20 rounded-full -translate-x-20 -translate-y-20"></div>
+        <div class="absolute bottom-0 right-0 w-60 h-60 bg-white/10 rounded-full translate-x-20 translate-y-20"></div>
+        
+        <div class="relative z-10">
+          <h3 class="text-2xl md:text-3xl font-bold text-white mb-4">
+            ¿Quieres formar parte de nuestro equipo?
+          </h3>
+          <p class="text-blue-100 mb-8 text-lg max-w-2xl mx-auto">
+            Estamos buscando personas apasionadas por la tecnología y la gastronomía que quieran transformar el sector restaurantero.
+          </p>
+          <a 
+            href="https://calendly.com/fernando-lqrb/15min" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="inline-flex items-center px-8 py-4 bg-white text-blue-600 font-bold rounded-2xl hover:bg-blue-50 transition-all duration-200 transform hover:scale-105 focus:ring-4 focus:ring-white/50 shadow-xl"
+          >
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m8 6V9a2 2 0 00-2-2H8a2 2 0 00-2 2v3m8 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            Ver ofertas de trabajo
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<style>
+  @keyframes animate-in {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-in {
+    animation: animate-in 0.6s ease-out forwards;
+  }
+  
+  .team-card {
+    opacity: 0;
+  }
+  
+  .team-card.animate-in {
+    opacity: 1;
+  }
+  
+  .team-card:hover {
+    transform: translateY(-8px) scale(1.02);
+  }
+  
+  .team-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 1.5rem;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.05));
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+</style>
