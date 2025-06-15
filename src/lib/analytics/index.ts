@@ -42,14 +42,19 @@ export const initGoogleAnalytics = (id: string) => {
 // Configuración de Hotjar
 export const initHotjar = (id: number) => {
   if (typeof window !== 'undefined' && hasConsentFor('analytics')) {
+    // Initialize Hotjar function queue
     window.hj = window.hj || function() {
       (window.hj.q = window.hj.q || []).push(arguments);
     };
     window._hjSettings = { hjid: id, hjsv: 6 };
     
+    // Load Hotjar script
     const script = document.createElement('script');
     script.async = true;
     script.src = `https://static.hotjar.com/c/hotjar-${id}.js?sv=6`;
+    script.onerror = () => {
+      console.warn('Failed to load Hotjar script');
+    };
     document.head.appendChild(script);
   }
 };
@@ -101,4 +106,36 @@ export const areAnalyticsInitialized = (): boolean => {
 // Get Vercel Analytics initialization status
 export const isVercelAnalyticsInitialized = (): boolean => {
   return vercelAnalyticsInitialized;
+};
+
+// Debug function to check if Hotjar is properly loaded
+export const isHotjarLoaded = (): boolean => {
+  return typeof window !== 'undefined' && 
+         typeof window.hj === 'function' && 
+         typeof window._hjSettings === 'object' &&
+         window._hjSettings.hjid > 0;
+};
+
+// Debug function to get current analytics status
+export const getAnalyticsStatus = () => {
+  if (typeof window === 'undefined') {
+    return { environment: 'server', analytics: 'not available' };
+  }
+  
+  return {
+    environment: 'client',
+    consent: hasConsentFor('analytics'),
+    configured: isAnalyticsConfigured(),
+    initialized: areAnalyticsInitialized(),
+    hotjar: {
+      loaded: isHotjarLoaded(),
+      id: window._hjSettings?.hjid || null,
+    },
+    googleAnalytics: {
+      loaded: typeof window.gtag === 'function',
+    },
+    vercel: {
+      initialized: vercelAnalyticsInitialized,
+    }
+  };
 }; 

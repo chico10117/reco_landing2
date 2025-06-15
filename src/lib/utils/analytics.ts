@@ -52,4 +52,31 @@ export const trackPageView = (url: string, title?: string): void => {
  */
 export const isAnalyticsEnabled = (): boolean => {
   return hasConsentFor('analytics');
+};
+
+/**
+ * Identify a user in Hotjar (for user session tracking)
+ * Only works if user has given consent for analytics cookies
+ * @param userId Unique user identifier
+ * @param attributes Optional user attributes
+ */
+export const identifyUser = (userId: string, attributes?: Record<string, unknown>): void => {
+  if (typeof window !== 'undefined' && hasConsentFor('analytics')) {
+    if ((window as any).hj) {
+      (window as any).hj('identify', userId, attributes);
+    }
+  }
+};
+
+/**
+ * Trigger a Hotjar survey or feedback poll
+ * Only works if user has given consent for analytics cookies
+ * @param surveyId The survey ID from Hotjar dashboard
+ */
+export const triggerSurvey = (surveyId: number): void => {
+  if (typeof window !== 'undefined' && hasConsentFor('analytics')) {
+    if ((window as any).hj) {
+      (window as any).hj('trigger', surveyId);
+    }
+  }
 }; 

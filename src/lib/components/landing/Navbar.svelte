@@ -123,7 +123,7 @@
               {#if isRestaurantMenuOpen && !isMobile}
                 <div 
                   bind:this={restaurantDropdownRef}
-                  class="absolute -left-4 mt-2 w-96 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none py-2 px-2 z-20"
+                  class="absolute -left-4 mt-2 w-80 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none py-2 px-2 z-20"
                   role="menu"
                   tabindex="0"
                   onmouseenter={() => { if (!isMobile) isRestaurantMenuOpen = true; }}
@@ -134,7 +134,7 @@
                     }
                   }}
                 >
-                  <div class="grid grid-cols-2 gap-2">
+                  <div class="flex flex-col gap-1">
                     {#each restaurantTypes as item}
                       <a 
                         href={item.href} 
