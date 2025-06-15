@@ -5,25 +5,29 @@
       nombre: 'Francisco Cordero',
       cargo: 'CTO & Co-fundador',
       foto: '/img/team/francisco.jpeg',
-      bio: 'Ingeniero electrónico con una década de experiencia liderando proyectos de hardware en Intel. Arquitecto de nuestra plataforma de IA y visionario de la digitalización del sector restaurantero.'
+      bio: 'Ingeniero electrónico con una década de experiencia liderando proyectos de hardware en Intel. Arquitecto de nuestra plataforma de IA y visionario de la digitalización del sector restaurantero.',
+      linkedin: 'https://www.linkedin.com/in/francisco-cordero-reco/'
     },
     {
       nombre: 'José Antonio Jiménez Ramos',
       cargo: 'CEO & Co-fundador',
       foto: '/img/team/jose.jpeg',
-      bio: 'Emprendedor y especialista en comunicación con experiencia liderando equipos de marketing para marcas de lujo y proyectos digitales en América Latina.'
+      bio: 'Emprendedor y especialista en comunicación con experiencia liderando equipos de marketing para marcas de lujo y proyectos digitales en América Latina.',
+      linkedin: 'https://www.linkedin.com/in/joseantoniojimenezramos/'
     },
     {
       nombre: 'Fernando Soto',
       cargo: 'Chief Revenue Officer',
       foto: '/img/team/fernando.jpeg',
-      bio: 'Más de 25 años de experiencia en revenue management, marketing y ventas en sectores Telco, Fintech y Hospitality. Experto en transformar desafíos operativos en historias de éxito.'
+      bio: 'Más de 25 años de experiencia en revenue management, marketing y ventas en sectores Telco, Fintech y Hospitality. Experto en transformar desafíos operativos en historias de éxito.',
+      linkedin: 'https://www.linkedin.com/in/fernandosotojaimes/'
     },
     {
       nombre: 'Abraham Hernández',
       cargo: 'Head de Producto',
       foto: '/img/team/abraham.jpeg',
-      bio: 'Diseñador de producto especializado en experiencia de usuario y estrategia digital. Lidera la evolución del Smart Menu con enfoque en usabilidad y eficiencia.'
+      bio: 'Diseñador de producto especializado en experiencia de usuario y estrategia digital. Lidera la evolución del Smart Menu con enfoque en usabilidad y eficiencia.',
+      linkedin: 'https://www.linkedin.com/in/dogcalas/'
     }
   ];
 
@@ -257,24 +261,24 @@
                   <p class="text-gray-600 text-lg leading-relaxed">{miembro.bio}</p>
                 </div>
                 
-                <div class="mt-8 flex space-x-4">
-                  <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                      <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
-                    </svg>
-                  </div>
-                  <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                      <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
-                      <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
-                    </svg>
-                  </div>
-                  <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                      <path fill-rule="evenodd" d="M14.243 5.757a6 6 0 10-.986 9.284 1 1 0 111.087 1.678A8 8 0 1118 10a3 3 0 01-4.8 2.401A4 4 0 1114 10a1 1 0 102 0c0-1.537-.586-3.07-1.757-4.243zM12 10a2 2 0 10-4 0 2 2 0 004 0z" clip-rule="evenodd"></path>
-                    </svg>
-                  </div>
+                {#if miembro.linkedin}
+                <div class="mt-8">
+                  <a 
+                    href={miembro.linkedin} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center space-x-2 text-blue-600 hover:text-blue-800 transition-colors"
+                    aria-label={`Ver perfil de LinkedIn de ${miembro.nombre}`}
+                  >
+                    <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center hover:bg-blue-200 transition-colors">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                      </svg>
+                    </div>
+                    <span class="text-sm font-medium">Ver perfil de LinkedIn</span>
+                  </a>
                 </div>
+                {/if}
               </div>
             </div>
           </div>
