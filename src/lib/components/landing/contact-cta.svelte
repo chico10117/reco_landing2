@@ -70,7 +70,7 @@
             track('cta_click', { label: 'contact_sales' });
           }}
         >
-          Contacta con ventas
+          ¡Contáctanos!
         </Button>
       </a>
       

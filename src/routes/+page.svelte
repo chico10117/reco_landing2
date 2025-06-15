@@ -8,13 +8,6 @@
   import RestauranteSells from '$lib/components/landing/restaurante-sells.svelte';
   import { partners } from '$lib/data/partners';
 
-  const handleDiscoverClick = () => {
-    const howItWorksSection = document.getElementById('how-it-works');
-    if (howItWorksSection) {
-      howItWorksSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   const handleRestaurantClick = () => {
     // Open WhatsApp chat with a predefined message
     const whatsappNumber = "34603114264"; // Replace with your actual WhatsApp number
@@ -31,7 +24,6 @@
 </svelte:head>
 
 <HeroSection 
-  onDiscoverClick={handleDiscoverClick} 
   onRestaurantClick={handleRestaurantClick} 
 />
 

@@ -15,16 +15,20 @@
   let isVisible = $state(true);
   let videoOverlay: VideoOverlay;
 
-  function onDiscoverClick() {
+  function handleDiscoverClick() {
     // Track click event for analytics
     track('cta_click', { label: 'discover_how_it_works' });
+    
+    // Debug: Check if videoOverlay is available
+    console.log('Video overlay instance:', videoOverlay);
+    
+    // Open video overlay
     if (videoOverlay) {
-      // Open video overlay when instance is available
+      console.log('Opening video overlay...');
       videoOverlay.open();
     } else {
-      // Handle case where video overlay component is not mounted
+      console.error('Video overlay not available');
     }
-
   }
 
   onMount(() => {
@@ -139,7 +143,7 @@
             <Button 
               size="lg" 
               class="rounded-full px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white shadow-lg transition-all duration-200 focus:ring-2 focus:ring-blue-300 focus:outline-none text-lg"
-              onclick={onDiscoverClick}
+              onclick={handleDiscoverClick}
             >
               Descubre cómo funciona
             </Button>
