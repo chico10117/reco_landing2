@@ -15,9 +15,13 @@
   import { languageStore } from '$lib/stores/language.svelte';
   import { t } from '$lib/utils/translations';
 
-  // Create reactive translations
+  // Create reactive translations using Svelte 5 runes
   const currentLang = $derived(languageStore.currentLanguage);
-  const tr = (key: Parameters<typeof t>[0]) => t(key, currentLang);
+  
+  // Reactive function using $derived
+  const tr = $derived.by(() => {
+    return (key: string) => t(key as any, currentLang);
+  });
 
   // Make language reactive
 
@@ -34,7 +38,7 @@
 
   function handleSave() {
     setConsentPreferences(preferences);
-    saveMessage = languageStore.currentLanguage === 'es' ? 'Preferencias guardadas correctamente' : 'Preferences saved successfully';
+    saveMessage = tr('cookies_preferences_saved');
     track('cookie_preferences', { action: 'save', ...preferences });
     
     // Reload page if analytics settings changed
@@ -51,11 +55,7 @@
   }
 
   function handleClearAll() {
-    const confirmMessage = languageStore.currentLanguage === 'es' 
-      ? '¿Estás seguro de que quieres eliminar todas las preferencias de cookies? Esto requerirá que vuelvas a dar tu consentimiento.'
-      : 'Are you sure you want to delete all cookie preferences? This will require you to consent again.';
-      
-    if (confirm(confirmMessage)) {
+    if (confirm(tr('cookies_confirm_delete'))) {
       clearConsent();
       track('cookie_preferences', { action: 'clear_all' });
       setTimeout(() => {
@@ -69,47 +69,12 @@
     track('cookie_preferences', { action: 'reset' });
   }
 
-  const cookieDescriptions = {
-    es: {
-      essential: {
-        name: 'Cookies Esenciales',
-        description: 'Estas cookies son necesarias para el funcionamiento básico del sitio web.',
-        examples: 'Preferencias de cookies, estado de sesión, seguridad'
-      },
-      analytics: {
-        name: 'Cookies de Análisis',
-        description: 'Nos ayudan a entender cómo interactúas con nuestro sitio web.',
-        examples: 'Google Analytics, análisis de rendimiento'
-      },
-      marketing: {
-        name: 'Cookies de Marketing',
-        description: 'Se utilizan para mostrar anuncios relevantes y campañas de marketing.',
-        examples: 'Cookies de publicidad, seguimiento de conversiones'
-      }
-    },
-    en: {
-      essential: {
-        name: 'Essential Cookies',
-        description: 'These cookies are necessary for the basic functioning of the website.',
-        examples: 'Cookie preferences, session state, security'
-      },
-      analytics: {
-        name: 'Analytics Cookies',
-        description: 'Help us understand how you interact with our website.',
-        examples: 'Google Analytics, performance analysis'
-      },
-      marketing: {
-        name: 'Marketing Cookies',
-        description: 'Used to show relevant ads and marketing campaigns.',
-        examples: 'Advertising cookies, conversion tracking'
-      }
-    }
-  };
+  const cookieTypes = ['essential', 'analytics', 'marketing'] as const;
 </script>
 
 <svelte:head>
   <title>{tr('cookies_title')} - Reco</title>
-  <meta name="description" content={languageStore.currentLanguage === 'es' ? 'Gestiona tus preferencias de cookies para el sitio web de Reco' : 'Manage your cookie preferences for the Reco website'} />
+  <meta name="description" content={tr('cookies_meta_description')} />
   <meta name="robots" content="noindex, nofollow" />
 </svelte:head>
 
@@ -123,17 +88,17 @@
         <!-- Header -->
         <div class="px-6 py-8 border-b border-gray-200">
           <h1 class="text-3xl font-bold text-gray-900">
-            {languageStore.currentLanguage === 'es' ? 'Configuración de Cookies' : 'Cookie Settings'}
+            {tr('cookies_settings_title')}
           </h1>
           <p class="mt-2 text-gray-600">
-            {languageStore.currentLanguage === 'es' ? 'Gestiona tus preferencias de cookies y privacidad para reco.chat' : 'Manage your cookie and privacy preferences for reco.chat'}
+            {tr('cookies_settings_subtitle')}
           </p>
           
           {#if currentConsent}
             <div class="mt-4 p-3 bg-blue-50 border border-blue-200 rounded-md">
               <p class="text-sm text-blue-800">
-                <strong>{languageStore.currentLanguage === 'es' ? 'Estado actual:' : 'Current status:'}</strong> 
-                {languageStore.currentLanguage === 'es' ? 'Consentimiento otorgado el' : 'Consent granted on'} {new Date(currentConsent.timestamp).toLocaleDateString(languageStore.currentLanguage === 'es' ? 'es-ES' : 'en-US', {
+                <strong>{tr('cookies_current_status')}</strong> 
+                {tr('cookies_consent_granted')} {new Date(currentConsent.timestamp).toLocaleDateString(currentLang === 'es' ? 'es-ES' : 'en-US', {
                   year: 'numeric',
                   month: 'long',
                   day: 'numeric',
@@ -155,26 +120,25 @@
         <!-- Cookie Categories -->
         <div class="px-6 py-6">
           <div class="space-y-6">
-            {#each Object.entries(cookieDescriptions[languageStore.currentLanguage]) as [key, desc]}
-              {@const cookieKey = key as keyof CookiePreferences}
+            {#each cookieTypes as cookieKey}
               <div class="border border-gray-200 rounded-lg p-6">
                 <div class="flex items-start justify-between">
                   <div class="flex-1 min-w-0 pr-4">
                     <h3 class="text-lg font-semibold text-gray-900 flex items-center gap-2">
-                      {desc.name}
+                      {tr(`cookies_${cookieKey}_name`)}
                       {#if cookieKey === 'essential'}
                         <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
-                          {languageStore.currentLanguage === 'es' ? 'Obligatorias' : 'Required'}
+                          {tr('cookies_required_label')}
                         </span>
                       {/if}
                     </h3>
                     <p class="mt-2 text-gray-600">
-                      {desc.description}
+                      {tr(`cookies_${cookieKey}_description`)}
                     </p>
                     <div class="mt-3">
-                      <h4 class="text-sm font-medium text-gray-900">{languageStore.currentLanguage === 'es' ? 'Ejemplos:' : 'Examples:'}</h4>
+                      <h4 class="text-sm font-medium text-gray-900">{tr('cookies_examples_label')}</h4>
                       <p class="text-sm text-gray-500 mt-1">
-                        {desc.examples}
+                        {tr(`cookies_${cookieKey}_examples`)}
                       </p>
                     </div>
                   </div>
