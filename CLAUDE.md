@@ -103,3 +103,69 @@ Copy `.env.example` to `.env` and configure:
 - Uses pnpm as package manager (Node.js 20.x required)
 - Deployed on Vercel with adapter-vercel
 - All new components should follow existing patterns and use the established UI component library
+
+# Sistema de Traducciones Implementado
+
+## Resumen
+Se ha implementado un sistema completo de traducciones para toda la aplicación Reco. Cuando el usuario presiona el botón de cambio de idioma, todas las páginas se traducen automáticamente entre español e inglés.
+
+## Archivos Principales Creados/Modificados
+
+### Sistema de Traducciones
+- `src/lib/stores/language.svelte.ts` - Store reactivo para manejar el idioma actual
+- `src/lib/utils/translations.ts` - Todas las traducciones en español e inglés
+- `src/lib/components/ui/language-toggle.svelte` - Botón para cambiar idioma
+
+### Páginas Traducidas
+1. **Página Principal (`/`)** - Landing page completa
+2. **Precios (`/precios`)** - Planes básico, pro y enterprise
+3. **Nosotros (`/nosotros`)** - Equipo y valores de la empresa
+4. **Blog (`/posts`)** - Lista de artículos
+5. **Restaurantes (`/restaurantes`)** - Página principal de restaurantes
+6. **Fast-casual (`/restaurantes/fast-casual`)** - Página específica para cadenas
+
+### Componentes Traducidos
+- Navbar - Menú de navegación completo
+- Footer - Enlaces y información legal
+- ContactCTA - Llamada a la acción
+- HeroSection - Sección principal del landing
+
+## Características del Sistema
+
+### Persistencia
+- El idioma seleccionado se guarda en `localStorage`
+- Se mantiene entre sesiones del navegador
+
+### Reactividad
+- Cambio inmediato de idioma en toda la aplicación
+- Sin necesidad de recargar la página
+
+### Cobertura Completa
+- Todas las páginas principales traducidas
+- Menús de navegación y footer incluidos
+- Metadatos de SEO (títulos y descripciones)
+
+## Uso del Sistema
+
+### Cambio de Idioma
+El usuario puede cambiar el idioma usando el botón en la esquina superior derecha del navbar, que muestra "ES/EN" con un ícono de globo.
+
+### Para Desarrolladores
+```typescript
+import { languageStore } from '$lib/stores/language.svelte';
+import { t } from '$lib/utils/translations';
+
+// Usar en componentes
+<h1>{t('pricing_title', languageStore.currentLanguage)}</h1>
+```
+
+## Páginas Pendientes
+Las siguientes subpáginas de restaurantes aún no están traducidas (requieren contenido específico):
+- `/restaurantes/autor`
+- `/restaurantes/independiente` 
+- `/restaurantes/multinacional`
+- `/restaurantes/turistico`
+- `/restaurantes/nuevo`
+
+## Estado
+✅ **Completado** - Sistema funcionando en todas las páginas principales

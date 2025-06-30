@@ -2,6 +2,14 @@
   import { page } from '$app/stores';
   import { onNavigate } from '$app/navigation';
   import type { PageData } from './$types';
+  import { languageStore } from '$lib/stores/language.svelte';
+
+  // Make language reactive
+  import { t } from '$lib/utils/translations';
+
+  // Create reactive translations
+  const currentLang = $derived(languageStore.currentLanguage);
+  const tr = (key: Parameters<typeof t>[0]) => t(key, currentLang);
   
   const { data } = $props<{ data: PageData }>();
   
@@ -34,8 +42,8 @@
     <meta property="og:type" content="article" />
     <meta property="og:url" content={`https://reco.chat/${post.slug}`} />
   {:else}
-    <title>Artículo no encontrado | Reco Blog</title>
-    <meta name="description" content="El artículo que estás buscando no está disponible o ha sido movido." />
+    <title>{tr('post_not_found_title')} | Reco Blog</title>
+    <meta name="description" content="{tr('post_not_found_description')}" />
   {/if}
 </svelte:head>
 
@@ -43,12 +51,12 @@
   {#key $page.params.slug}
     {#if !post}
       <div class="text-center py-12">
-        <h1 class="text-4xl font-bold text-gray-900 mb-4">Artículo no encontrado</h1>
+        <h1 class="text-4xl font-bold text-gray-900 mb-4">{tr('post_not_found_title')}</h1>
         <p class="text-lg text-gray-600 mb-8">
-          El artículo que estás buscando no está disponible o ha sido movido.
+          {tr('post_not_found_description')}
         </p>
         <a href="/posts" class="text-blue-600 hover:underline">
-          ← Volver al blog
+          {tr('post_back_to_blog')}
         </a>
       </div>
     {:else}
@@ -75,7 +83,7 @@
               <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
               </svg>
-              <span>Por {post.author}</span>
+              <span>{tr('post_by_author')} {post.author}</span>
             </div>
             
             <div class="flex items-center">
@@ -101,14 +109,14 @@
       
       <!-- Related posts -->
       <div class="mt-12">
-        <h3 class="text-2xl font-bold text-gray-900 mb-6">Más artículos</h3>
+        <h3 class="text-2xl font-bold text-gray-900 mb-6">{tr('post_related_articles')}</h3>
         <div class="grid sm:grid-cols-2 gap-6">
           {#each relatedPosts as relatedPost}
              <a href={`/${relatedPost.slug}`} class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
               <h4 class="text-lg font-bold text-gray-900 mb-2">{@html relatedPost.title.rendered}</h4>
               <p class="text-gray-600 line-clamp-2">{@html relatedPost.excerpt.rendered}</p>
                <span class="inline-flex items-center mt-3 text-blue-600 font-medium">
-                 Leer más
+                 {tr('post_read_more')}
                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                  </svg>
@@ -124,7 +132,7 @@
            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
            </svg>
-           Volver al blog
+           {tr('post_back_link')}
          </a>
        </div>
      {/if}

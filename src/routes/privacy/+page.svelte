@@ -1,6 +1,19 @@
 <script lang="ts">
   import Navbar from "$lib/components/landing/Navbar.svelte";
+  import Footer from "$lib/components/landing/footer.svelte";
+  import { languageStore } from '$lib/stores/language.svelte';
+  import { t } from '$lib/utils/translations';
+
+  // Create reactive translations
+  const currentLang = $derived(languageStore.currentLanguage);
+  const tr = (key: Parameters<typeof t>[0]) => t(key, currentLang);
+
+  // Make language reactive
 </script>
+
+<svelte:head>
+  <title>{tr('privacy_title')} | Reco</title>
+</svelte:head>
 
 <div class="min-h-screen bg-white">
   <!-- Navigation -->
@@ -8,96 +21,164 @@
 
   <!-- Content -->
   <div class="pt-20 pb-12">
-    <div class="max-w-5xl mx-auto px-4">
-      <h1 class="text-4xl font-bold text-indigo-700 mb-10 pt-8 text-center md:text-left">Política de Privacidad</h1>
+    <div class="max-w-3xl mx-auto px-4">
+      <h1 class="text-3xl font-bold text-gray-900 mb-8 pt-8">{tr('privacy_title')}</h1>
       
-      <section class="mb-8">
-        <h2 class="text-3xl font-semibold text-[#547EF7] mb-4">Quiénes somos</h2>
-        <p class="text-black mb-4 text-lg">
-          La dirección de nuestra web es: https://reco.chat.
+      <div class="prose prose-blue max-w-none">
+        <p class="text-gray-600 mb-6">
+          {languageStore.currentLanguage === 'es' ? 'Última actualización' : 'Last updated'}: {new Date().toLocaleDateString(languageStore.currentLanguage === 'es' ? 'es-ES' : 'en-US')}
         </p>
-      </section>
 
-      <section class="mb-8">
-        <h2 class="text-3xl font-semibold text-[#547EF7] mb-4">Comentarios</h2>
-        <p class="text-black mb-4 text-lg">
-          Cuando los visitantes dejan comentarios en la web, recopilamos los datos que se muestran en el formulario de comentarios, así como la dirección IP del visitante y la cadena de agentes de usuario del navegador para ayudar a la detección de spam.
-        </p>
-        <p class="text-black mb-4 text-lg">
-          Una cadena anónima creada a partir de tu dirección de correo electrónico (también llamada hash) puede ser proporcionada al servicio de Gravatar para ver si la estás usando. La política de privacidad del servicio Gravatar está disponible aquí: https://automattic.com/privacy/. Después de la aprobación de tu comentario, la imagen de tu perfil es visible para el público en el contexto de tu comentario.
-        </p>
-      </section>
+        {#if languageStore.currentLanguage === 'es'}
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">1. Información que Recopilamos</h2>
+            <p class="text-gray-600 mb-4">
+              Reco recopila información para proporcionar mejores servicios a restaurantes y comensales. Esto incluye:
+            </p>
+            <ul class="list-disc pl-6 text-gray-600 mb-4">
+              <li>Información del restaurante (nombre, menú, precios)</li>
+              <li>Preferencias de comensales (idioma, restricciones dietéticas)</li>
+              <li>Datos de uso y analíticas (platos populares, horarios pico)</li>
+              <li>Información técnica (tipo de dispositivo, navegador)</li>
+            </ul>
+          </section>
 
-      <section class="mb-8">
-        <h2 class="text-3xl font-semibold text-[#547EF7] mb-4">Medios</h2>
-        <p class="text-black mb-4 text-lg">
-          Si subes imágenes a la web, deberías evitar subir imágenes con datos de ubicación (GPS EXIF) incluidos. Los visitantes de la web pueden descargar y extraer cualquier dato de ubicación de las imágenes de la web.
-        </p>
-      </section>
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">2. Cómo Usamos la Información</h2>
+            <p class="text-gray-600 mb-4">
+              Utilizamos la información recopilada para:
+            </p>
+            <ul class="list-disc pl-6 text-gray-600 mb-4">
+              <li>Personalizar recomendaciones de menú</li>
+              <li>Proporcionar análisis valiosos a restaurantes</li>
+              <li>Mejorar nuestros servicios</li>
+              <li>Comunicarnos con usuarios cuando sea necesario</li>
+            </ul>
+          </section>
 
-      <section class="mb-8">
-        <h2 class="text-3xl font-semibold text-[#547EF7] mb-4">Cookies</h2>
-        <p class="text-black mb-4 text-lg">
-          Si dejas un comentario en nuestro sitio puedes elegir guardar tu nombre, dirección de correo electrónico y web en cookies. Esto es para tu comodidad, para que no tengas que volver a rellenar tus datos cuando dejes otro comentario. Estas cookies tendrán una duración de un año.
-        </p>
-        <p class="text-black mb-4 text-lg">
-          Si tienes una cuenta y te conectas a este sitio, instalaremos una cookie temporal para determinar si tu navegador acepta cookies. Esta cookie no contiene datos personales y se elimina al cerrar el navegador.
-        </p>
-        <p class="text-black mb-4 text-lg">
-          Cuando accedas, también instalaremos varias cookies para guardar tu información de acceso y tus opciones de visualización de pantalla. Las cookies de acceso duran dos días, y las cookies de opciones de pantalla duran un año. Si seleccionas «Recuérdarme», tu acceso perdurará durante dos semanas. Si sales de tu cuenta, las cookies de acceso se eliminarán.
-        </p>
-        <p class="text-black mb-4 text-lg">
-          Si editas o publicas un artículo se guardará una cookie adicional en tu navegador. Esta cookie no incluye datos personales y simplemente indica el ID del artículo que acabas de editar. Caduca después de 1 día.
-        </p>
-      </section>
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">3. Protección de Datos</h2>
+            <p class="text-gray-600 mb-4">
+              Implementamos medidas de seguridad para proteger la información contra acceso no autorizado, alteración o destrucción. Esto incluye encriptación, acceso restringido y auditorías regulares de seguridad.
+            </p>
+          </section>
 
-      <section class="mb-8">
-        <h2 class="text-3xl font-semibold text-[#547EF7] mb-4">Contenido incrustado de otros sitios web</h2>
-        <p class="text-black mb-4 text-lg">
-          Los artículos de este sitio pueden incluir contenido incrustado (por ejemplo, vídeos, imágenes, artículos, etc.). El contenido incrustado de otras webs se comporta exactamente de la misma manera que si el visitante hubiera visitado la otra web.
-        </p>
-        <p class="text-black mb-4 text-lg">
-          Estas webs pueden recopilar datos sobre ti, utilizar cookies, incrustar un seguimiento adicional de terceros, y supervisar tu interacción con ese contenido incrustado, incluido el seguimiento de tu interacción con el contenido incrustado si tienes una cuenta y estás conectado a esa web.
-        </p>
-      </section>
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">4. Compartir Información</h2>
+            <p class="text-gray-600 mb-4">
+              No vendemos ni compartimos información personal con terceros, excepto:
+            </p>
+            <ul class="list-disc pl-6 text-gray-600 mb-4">
+              <li>Con el consentimiento explícito del usuario</li>
+              <li>Para cumplir con requisitos legales</li>
+              <li>Con proveedores de servicios que nos ayudan a operar</li>
+            </ul>
+          </section>
 
-      <section class="mb-8">
-        <h2 class="text-3xl font-semibold text-[#547EF7] mb-4">Con quién compartimos tus datos</h2>
-        <p class="text-black mb-4 text-lg">
-          Si solicitas un restablecimiento de contraseña, tu dirección IP será incluida en el correo electrónico de restablecimiento.
-        </p>
-      </section>
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">5. Sus Derechos</h2>
+            <p class="text-gray-600 mb-4">
+              Los usuarios tienen derecho a:
+            </p>
+            <ul class="list-disc pl-6 text-gray-600 mb-4">
+              <li>Acceder a su información personal</li>
+              <li>Corregir datos inexactos</li>
+              <li>Solicitar la eliminación de sus datos</li>
+              <li>Oponerse al procesamiento de sus datos</li>
+            </ul>
+          </section>
 
-      <section class="mb-8">
-        <h2 class="text-3xl font-semibold text-[#547EF7] mb-4">Cuánto tiempo conservamos tus datos</h2>
-        <p class="text-black mb-4 text-lg">
-          Si dejas un comentario, el comentario y sus metadatos se conservan indefinidamente. Esto es para que podamos reconocer y aprobar comentarios sucesivos automáticamente, en lugar de mantenerlos en una cola de moderación.
-        </p>
-        <p class="text-black mb-4 text-lg">
-          De los usuarios que se registran en nuestra web (si los hay), también almacenamos la información personal que proporcionan en su perfil de usuario. Todos los usuarios pueden ver, editar o eliminar su información personal en cualquier momento (excepto que no pueden cambiar su nombre de usuario). Los administradores de la web también pueden ver y editar esa información.
-        </p>
-      </section>
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">6. Contacto</h2>
+            <p class="text-gray-600 mb-4">
+              Para consultas sobre privacidad, contáctenos en:
+            </p>
+            <ul class="list-disc pl-6 text-gray-600 mb-4">
+              <li>Email: privacy@reco.ai</li>
+              <li>Formulario de contacto en nuestra web</li>
+            </ul>
+          </section>
+        {:else}
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">1. Information We Collect</h2>
+            <p class="text-gray-600 mb-4">
+              Reco collects information to provide better services to restaurants and diners. This includes:
+            </p>
+            <ul class="list-disc pl-6 text-gray-600 mb-4">
+              <li>Restaurant information (name, menu, prices)</li>
+              <li>Diner preferences (language, dietary restrictions)</li>
+              <li>Usage data and analytics (popular dishes, peak hours)</li>
+              <li>Technical information (device type, browser)</li>
+            </ul>
+          </section>
 
-      <section class="mb-8">
-        <h2 class="text-3xl font-semibold text-[#547EF7] mb-4">Qué derechos tienes sobre tus datos</h2>
-        <p class="text-black mb-4 text-lg">
-          Si tienes una cuenta o has dejado comentarios en esta web, puedes solicitar recibir un archivo de exportación de los datos personales que tenemos sobre ti, incluyendo cualquier dato que nos hayas proporcionado. También puedes solicitar que eliminemos cualquier dato personal que tengamos sobre ti. Esto no incluye ningún dato que estemos obligados a conservar con fines administrativos, legales o de seguridad.
-        </p>
-      </section>
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">2. How We Use Information</h2>
+            <p class="text-gray-600 mb-4">
+              We use collected information to:
+            </p>
+            <ul class="list-disc pl-6 text-gray-600 mb-4">
+              <li>Personalize menu recommendations</li>
+              <li>Provide valuable insights to restaurants</li>
+              <li>Improve our services</li>
+              <li>Communicate with users when necessary</li>
+            </ul>
+          </section>
 
-      <section class="mb-8">
-        <h2 class="text-3xl font-semibold text-[#547EF7] mb-4">Dónde se envían tus datos</h2>
-        <p class="text-black mb-4 text-lg">
-          Los comentarios de los visitantes puede que los revise un servicio de detección automática de spam.
-        </p>
-      </section>
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">3. Data Protection</h2>
+            <p class="text-gray-600 mb-4">
+              We implement security measures to protect information against unauthorized access, alteration, or destruction. This includes encryption, restricted access, and regular security audits.
+            </p>
+          </section>
+
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">4. Sharing Information</h2>
+            <p class="text-gray-600 mb-4">
+              We do not sell or share personal information with third parties, except:
+            </p>
+            <ul class="list-disc pl-6 text-gray-600 mb-4">
+              <li>With explicit user consent</li>
+              <li>To comply with legal requirements</li>
+              <li>With service providers who help us operate</li>
+            </ul>
+          </section>
+
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">5. Your Rights</h2>
+            <p class="text-gray-600 mb-4">
+              Users have the right to:
+            </p>
+            <ul class="list-disc pl-6 text-gray-600 mb-4">
+              <li>Access their personal information</li>
+              <li>Correct inaccurate data</li>
+              <li>Request deletion of their data</li>
+              <li>Object to processing of their data</li>
+            </ul>
+          </section>
+
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">6. Contact</h2>
+            <p class="text-gray-600 mb-4">
+              For privacy inquiries, contact us at:
+            </p>
+            <ul class="list-disc pl-6 text-gray-600 mb-4">
+              <li>Email: privacy@reco.ai</li>
+              <li>Contact form on our website</li>
+            </ul>
+          </section>
+        {/if}
+      </div>
     </div>
   </div>
 
-  <!-- The old footer is removed. If a new footer is needed, it should be added separately or as part of a global layout -->
+  <!-- Footer -->
+  <Footer />
 </div>
 
 <style>
-  /* Remove global prose styles if they were specific to the old content */
-  /* Custom styles can be added here if needed, but Tailwind should cover most cases */
+  :global(.prose) {
+    max-width: 65ch;
+    margin: 0 auto;
+  }
 </style> 

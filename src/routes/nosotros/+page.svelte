@@ -1,38 +1,48 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import ContactCta from '$lib/components/landing/contact-cta.svelte';
+  import { languageStore } from '$lib/stores/language.svelte';
+  import { t } from '$lib/utils/translations';
+
+  // Create reactive translations using Svelte 5 runes
+  const currentLang = $derived(languageStore.currentLanguage);
+  
+  // Reactive function using $derived
+  const tr = $derived.by(() => {
+    return (key: string) => t(key as any, currentLang);
+  });
 
   // Miembros del equipo
   const equipo = [
     {
       nombre: 'José Antonio Jiménez Ramos',
-      cargo: 'CEO & Co-fundador',
+      cargo: 'ceo_cofounder',
       foto: '/img/team/jose.jpeg',
-      bio: 'Emprendedor y especialista en comunicación con experiencia liderando equipos de marketing para marcas de lujo y proyectos digitales en América Latina.',
+      bio: 'jose_bio',
       linkedin: 'https://www.linkedin.com/in/joseantoniojimenezramos/',
       skills: ['Marketing Digital', 'Estrategia', 'Liderazgo']
     },
     {
       nombre: 'Francisco Cordero',
-      cargo: 'CTO & Co-fundador',
+      cargo: 'cto_cofounder',
       foto: '/img/team/francisco.jpeg',
-      bio: 'Ingeniero electrónico con una década de experiencia liderando proyectos de hardware en Intel. Arquitecto de nuestra plataforma de IA y visionario de la digitalización del sector restaurantero.',
+      bio: 'francisco_bio',
       linkedin: 'https://www.linkedin.com/in/francisco-cordero-reco/',
       skills: ['IA & Machine Learning', 'Arquitectura de Software', 'Hardware']
     },
     {
       nombre: 'Fernando Soto',
-      cargo: 'Chief Revenue Officer',
+      cargo: 'chief_revenue_officer',
       foto: '/img/team/fernando.jpeg',
-      bio: 'Más de 25 años de experiencia en revenue management, marketing y ventas en sectores Telco, Fintech y Hospitality. Experto en transformar desafíos operativos en historias de éxito.',
+      bio: 'fernando_bio',
       linkedin: 'https://www.linkedin.com/in/fernandosotojaimes/',
       skills: ['Revenue Management', 'Ventas B2B', 'Fintech']
     },
     {
       nombre: 'Abraham Hernández',
-      cargo: 'Senior Lead Developer',
+      cargo: 'senior_lead_developer',
       foto: '/img/team/abraham.jpeg',
-      bio: 'Diseñador de producto especializado en experiencia de usuario y estrategia digital. Lidera la evolución del Smart Menu con enfoque en usabilidad y eficiencia.',
+      bio: 'abraham_bio',
       linkedin: 'https://www.linkedin.com/in/dogcalas/',
       skills: ['UX/UI Design', 'Desarrollo Frontend', 'Product Strategy']
     }
@@ -46,8 +56,8 @@
 </script>
 
 <svelte:head>
-  <title>Nosotros | Reco - Conoce al equipo detrás de la revolución digital de restaurantes</title>
-  <meta name="description" content="Conoce al equipo de expertos detrás de Reco. Líderes en IA, desarrollo de producto y estrategia digital transformando la industria restaurantera." />
+  <title>{tr('about')} | Reco - {tr('about_hero_title')}</title>
+  <meta name="description" content="{tr('about_hero_description')}" />
 </svelte:head>
 
 <!-- Animated background elements -->
@@ -66,20 +76,15 @@
           <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
             <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
           </svg>
-          Equipo de clase mundial
+          {tr('about_hero_badge')}
         </div>
         
         <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-          Conoce al equipo que está
-          <span class="text-blue-600">
-            revolucionando
-          </span>
-          la industria restaurantera
+          {tr('about_hero_title')}
         </h1>
         
         <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-          Somos un equipo de expertos en tecnología, producto y negocio, unidos por la misión de 
-          transformar la experiencia gastronómica a través de la inteligencia artificial.
+          {tr('about_hero_description')}
         </p>
       </div>
     </div>
@@ -91,8 +96,7 @@
       <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
         {#each equipo as miembro, i}
           <div 
-            class="team-card group relative bg-white/70 backdrop-blur-xl rounded-3xl p-8 border border-white/20 shadow-[0_8px_32px_0_rgba(33,93,255,0.08)] hover:shadow-[0_20px_60px_0_rgba(33,93,255,0.15)] transition-all duration-500 ease-out"
-            class:animate-in={mounted}
+            class="team-card group relative bg-white/70 backdrop-blur-xl rounded-3xl p-8 border border-white/20 shadow-[0_8px_32px_0_rgba(33,93,255,0.08)] hover:shadow-[0_20px_60px_0_rgba(33,93,255,0.15)] transition-all duration-500 ease-out opacity-100"
             style="animation-delay: {i * 200}ms"
           >
             <!-- Glassmorphism overlay -->
@@ -119,7 +123,7 @@
                     {miembro.nombre}
                   </h3>
                   <p class="text-blue-600 font-medium mb-3">
-                    {miembro.cargo}
+                    {tr(miembro.cargo)}
                   </p>
                   
                   <!-- Skills tags -->
@@ -135,7 +139,7 @@
               
               <!-- Bio -->
               <p class="text-gray-600 leading-relaxed mb-6 text-sm md:text-base">
-                {miembro.bio}
+                {tr(miembro.bio)}
               </p>
               
               <!-- LinkedIn -->
@@ -145,7 +149,7 @@
                   target="_blank" 
                   rel="noopener noreferrer"
                   class="inline-flex items-center space-x-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-medium text-sm transition-all duration-200 transform hover:scale-105 focus:ring-2 focus:ring-blue-300 focus:ring-offset-2"
-                  aria-label={`Ver perfil de LinkedIn de ${miembro.nombre}`}
+                  aria-label="{tr('view_linkedin')} {miembro.nombre}"
                 >
                   <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
@@ -157,7 +161,7 @@
                   <svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
                   </svg>
-                  <span class="text-sm">Remoto</span>
+                  <span class="text-sm">{tr('remote')}</span>
                 </div>
               </div>
             </div>
@@ -176,11 +180,10 @@
           <div class="w-96 h-96 bg-blue-600 rounded-full blur-3xl"></div>
         </div>
         <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-6 relative">
-          Nuestros valores
+          {tr('values_title')}
         </h2>
         <p class="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto relative">
-          Con más de 45 años de experiencia combinada, nuestro equipo lidera la transformación digital 
-          del sector restaurantero con excelencia técnica y servicio incomparable.
+          {tr('values_description')}
         </p>
       </div>
       
@@ -201,10 +204,9 @@
             <div class="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
           </div>
           
-          <h3 class="text-xl font-semibold text-black mb-3">Innovación Disruptiva</h3>
+          <h3 class="text-xl font-semibold text-black mb-3">{tr('innovation_title')}</h3>
           <p class="text-gray-600 leading-relaxed">
-            Pioneros en IA para restaurantes. Nuestro equipo técnico de élite desarrolla 
-            soluciones que revolucionan la industria y posicionan a nuestros clientes a la vanguardia.
+            {tr('innovation_description')}
           </p>
           
           <!-- Decorative element -->
@@ -228,9 +230,9 @@
             <div class="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
           </div>
           
-          <h3 class="text-xl font-semibold mb-3">Excelencia Comprobada</h3>
+          <h3 class="text-xl font-semibold mb-3">{tr('excellence_title')}</h3>
           <p class="text-white/90 leading-relaxed">
-            Aplicamos estándares de clase mundial para garantizar resultados excepcionales en cada implementación.
+            {tr('excellence_description')}
           </p>
           
           <!-- Glow effect -->
@@ -252,10 +254,9 @@
             <div class="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
           </div>
           
-          <h3 class="text-xl font-semibold text-black mb-3">Servicio al Cliente</h3>
+          <h3 class="text-xl font-semibold text-black mb-3">{tr('service_title')}</h3>
           <p class="text-gray-600 leading-relaxed">
-            El mejor soporte del mercado. Respuesta inmediata, acompañamiento personalizado 
-            y un equipo dedicado que garantiza el éxito en cada una de nuestras soluciones.
+            {tr('service_description')}
           </p>
           
           <!-- Decorative element -->
@@ -328,10 +329,6 @@
   }
   
   .team-card {
-    opacity: 0;
-  }
-  
-  .team-card.animate-in {
     opacity: 1;
   }
   
