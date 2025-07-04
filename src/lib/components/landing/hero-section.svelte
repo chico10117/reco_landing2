@@ -4,6 +4,12 @@
   import { track } from "$lib/utils/analytics";
   import { onMount } from 'svelte';
   import VideoOverlay from '$lib/components/ui/video-overlay/video-overlay.svelte';
+  import { languageStore } from '$lib/stores/language.svelte';
+  import { t } from '$lib/utils/translations';
+
+  // Create reactive translations
+  const currentLang = $derived(languageStore.currentLanguage);
+  const tr = (key: Parameters<typeof t>[0]) => t(key, currentLang);
 
   let { onRestaurantClick } = $props<{
     onRestaurantClick: () => void;
@@ -88,37 +94,43 @@
         class:animate-slide-left={isVisible}
       >
         <div class="flex-grow">
-          <h1 class="mt-0 text-3xl md:text-4xl lg:text-5xl font-bold leading-tight tracking-tight">
-            <div class="text-wrapper">
-              <span class="text-black">La mejor experiencia QR</span>
+          <div class="mt-0 text-3xl md:text-4xl lg:text-5xl font-bold leading-tight tracking-tight">
+            <h1 class="text-black mb-2 block">
+              {tr('hero_title_1')}
+            </h1>
+            <div class="text-blue-600 block">
+              <BdtAnimatedHeading 
+                texts={[
+                  t('hero_subtitle_1'),
+                  t('hero_subtitle_2'),
+                  t('hero_subtitle_3')
+                ]}
+                element="span"
+                class="text-blue-600 whitespace-nowrap"
+                speed={30}
+                delay={500}
+                pauseDuration={2000}
+              />
             </div>
-            <BdtAnimatedHeading 
-              texts={["Para tus clientes.", "Para tus camareros.", "Para tu negocio."]}
-              element="span"
-              class="text-blue-600 whitespace-nowrap"
-              speed={30}
-              delay={500}
-              pauseDuration={2000}
-            />
-          </h1>
+          </div>
           <div class="mt-4 text-base md:text-lg text-gray-600 max-w-2xl">
-            <p class="mb-3">La carta más inteligente que:</p>
+            <p class="mb-3">{tr('hero_description')}</p>
             <ul class="space-y-2 ml-4">
               <li class="flex items-start">
                 <span class="text-blue-600 mr-3 mt-1">•</span>
-                <span>Sugiere platos personalizados</span>
+                <span>{tr('hero_feature_1')}</span>
               </li>
               <li class="flex items-start">
                 <span class="text-blue-600 mr-3 mt-1">•</span>
-                <span>Resuelve dudas al instante</span>
+                <span>{tr('hero_feature_2')}</span>
               </li>
               <li class="flex items-start">
                 <span class="text-blue-600 mr-3 mt-1">•</span>
-                <span>Te ayuda a conocer mejor a tus clientes</span>
+                <span>{tr('hero_feature_3')}</span>
               </li>
               <li class="flex items-start">
                 <span class="text-blue-600 mr-3 mt-1">•</span>
-                <span>Todo desde el móvil, sin capacitaciones, sin complicaciones</span>
+                <span>{tr('hero_feature_4')}</span>
               </li>
             </ul>
             <!-- Imagen solo en móvil -->
@@ -145,7 +157,7 @@
               class="rounded-full px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white shadow-lg transition-all duration-200 focus:ring-2 focus:ring-blue-300 focus:outline-none text-lg"
               onclick={handleDiscoverClick}
             >
-              Descubre cómo funciona
+              {tr('hero_discover_btn')}
             </Button>
             <Button 
               variant="outline" 
@@ -156,10 +168,10 @@
                 onRestaurantClick();
               }}
             >
-              ¿Quieres que tu carta trabaje para ti?
+              {tr('hero_restaurant_btn')}
             </Button>
           </div>
-          <p class="mt-10 text-base text-gray-500">Confían en nosotros:</p>
+          <p class="mt-10 text-base text-gray-500">{tr('hero_trust_text')}</p>
           <div class="mt-2 flex flex-wrap items-center gap-8">
             <img src="/cinepolis.png" alt="Cinepolis" class="h-8 md:h-10 opacity-100 hover:opacity-90 transition-opacity" />
             <img src="/Basque.png" alt="Basque" class="h-8 md:h-12 opacity-100 hover:opacity-90 transition-opacity" />
@@ -177,7 +189,7 @@
               rel="noopener"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 flex-shrink-0"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-              <span>Crea tu carta demo acá</span>
+              <span>{tr('hero_demo_btn')}</span>
             </a>
           </div>
         </div>

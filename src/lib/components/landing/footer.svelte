@@ -1,4 +1,11 @@
 <script lang="ts">
+  import { languageStore } from '$lib/stores/language.svelte';
+  import { t } from '$lib/utils/translations';
+
+  // Create reactive translations
+  const currentLang = $derived(languageStore.currentLanguage);
+  const tr = (key: Parameters<typeof t>[0]) => t(key, currentLang);
+  
   const currentYear = new Date().getFullYear();
 </script>
 
@@ -15,33 +22,33 @@
           />
         </a>
         <p class="text-gray-400 text-sm">
-          Transformando la experiencia gastronómica con inteligencia artificial.
+          {tr('footer_description')}
         </p>
       </div>
       
       <div>
-        <h3 class="text-lg font-semibold mb-3">Empresa</h3>
+        <h3 class="text-lg font-semibold mb-3">{tr('footer_company')}</h3>
         <ul class="space-y-2">
-          <li><a href="/nosotros" class="hover:text-blue-400">Nosotros</a></li>
-          <li><a href="/posts" class="hover:text-blue-400">Blog</a></li>
-          <li><a href="https://calendly.com/fernando-lqrb/15min" target="_blank" rel="noopener noreferrer" class="hover:text-blue-400">Contacto</a></li>
+          <li><a href="/nosotros" class="hover:text-blue-400">{tr('about')}</a></li>
+          <li><a href="/posts" class="hover:text-blue-400">{tr('blog')}</a></li>
+          <li><a href="https://calendly.com/fernando-lqrb/15min" target="_blank" rel="noopener noreferrer" class="hover:text-blue-400">{tr('contact')}</a></li>
         </ul>
       </div>
       
       <div>
-        <h3 class="text-lg font-semibold mb-3">Productos</h3>
+        <h3 class="text-lg font-semibold mb-3">{tr('footer_products')}</h3>
         <ul class="space-y-2">
-          <li><a href="/restaurantes" class="hover:text-blue-400">Restaurantes</a></li>
-          <li><a href="/precios" class="hover:text-blue-400">Precios</a></li>
+          <li><a href="/restaurantes" class="hover:text-blue-400">{tr('restaurants')}</a></li>
+          <li><a href="/precios" class="hover:text-blue-400">{tr('prices')}</a></li>
         </ul>
       </div>
       
       <div>
-        <h3 class="text-lg font-semibold mb-3">Legal</h3>
+        <h3 class="text-lg font-semibold mb-3">{tr('footer_legal')}</h3>
         <ul class="space-y-2">
-          <li><a href="/privacy" class="hover:text-blue-400">Privacidad</a></li>
-          <li><a href="/terms" class="hover:text-blue-400">Términos</a></li>
-          <li><a href="/cookies" class="hover:text-blue-400">Cookies</a></li>
+          <li><a href="/privacy" class="hover:text-blue-400">{tr('footer_privacy')}</a></li>
+          <li><a href="/terms" class="hover:text-blue-400">{tr('footer_terms')}</a></li>
+          <li><a href="/cookies" class="hover:text-blue-400">{tr('footer_cookies')}</a></li>
         </ul>
       </div>
       
@@ -65,7 +72,7 @@
     </div>
     
     <div class="mt-6 pt-6 border-t border-gray-700 text-center text-sm text-gray-400">
-      <p>&copy; {currentYear} Reco. Todos los derechos reservados.</p>
+      <p>&copy; {currentYear} Reco. {tr('footer_rights')}</p>
     </div>
   </div>
 </footer> 

@@ -1,11 +1,17 @@
 <script lang="ts">
   import ScrollTransition from '$lib/components/ui/scroll-transition.svelte';
+  import { languageStore } from '$lib/stores/language.svelte';
+  import { t } from '$lib/utils/translations';
+
+  // Create reactive translations
+  const currentLang = $derived(languageStore.currentLanguage);
+  const tr = (key: Parameters<typeof t>[0]) => t(key, currentLang);
   import { onMount } from 'svelte';
 
   interface RestaurantType {
     icon: string;
-    title: string;
-    description: string;
+    title: keyof typeof import('$lib/utils/translations').translations.es;
+    description: keyof typeof import('$lib/utils/translations').translations.es;
     iconBgColor: string;
     iconColor: string;
     href?: string;
@@ -13,8 +19,8 @@
 
   interface Benefit {
     icon: string;
-    title: string;
-    description: string;
+    title: keyof typeof import('$lib/utils/translations').translations.es;
+    description: keyof typeof import('$lib/utils/translations').translations.es;
     iconBgColor: string;
     iconColor: string;
   }
@@ -24,8 +30,8 @@
       icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>`,
-      title: "Más ingresos",
-      description: "Reco recomienda platos que suben el ticket medio — sin que el staff diga una palabra.",
+      title: "more_revenue_title",
+      description: "more_revenue_desc",
       iconBgColor: "bg-blue-100",
       iconColor: "text-blue-600"
     },
@@ -33,8 +39,8 @@
       icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>`,
-      title: "Menos presión para el equipo",
-      description: "Reco responde dudas frecuentes, sugiere maridajes y libera al personal para lo humano.",
+      title: "less_pressure_title",
+      description: "less_pressure_desc",
       iconBgColor: "bg-green-100",
       iconColor: "text-green-600"
     },
@@ -42,8 +48,8 @@
       icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
       </svg>`,
-      title: "Datos útiles al instante",
-      description: "Descubre qué platos triunfan, qué falla y cómo mejorar — todo desde la carta.",
+      title: "data_insights_title",
+      description: "data_insights_desc",
       iconBgColor: "bg-purple-100",
       iconColor: "text-purple-600"
     }
@@ -55,8 +61,8 @@
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
       </svg>`,
-      title: "Restaurante turístico",
-      description: "Menús multilingües y recomendaciones adaptadas a cada idioma y cultura. Tus clientes se sienten como en casa.",
+      title: "tourist_restaurant_title",
+      description: "tourist_restaurant_desc",
       iconBgColor: "bg-blue-100",
       iconColor: "text-blue-600",
       href: "/restaurantes/restaurant-turist"
@@ -65,8 +71,8 @@
       icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.016a3.001 3.001 0 003.75.614m-16.5 0a3.004 3.004 0 01-.621-4.72L4.318 3.44A1.5 1.5 0 015.378 3h13.243a1.5 1.5 0 011.06.44l1.19 1.189a3 3 0 01-.621 4.72m-13.5 8.65h3.75a.75.75 0 00.75-.75V13.5a.75.75 0 00-.75-.75H6.75a.75.75 0 00-.75.75v3.75c0 .415.336.75.75.75z"/>
       </svg>`,
-      title: "Gastrobar o autor",
-      description: "Destaca tus platos especiales y maridajes. Reco ayuda a tus clientes a descubrir tu propuesta gastronómica única.",
+      title: "gastrobar_title",
+      description: "gastrobar_desc",
       iconBgColor: "bg-green-100",
       iconColor: "text-green-600"
     },
@@ -74,8 +80,8 @@
       icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/>
       </svg>`,
-      title: "Fast-casual o franquicia",
-      description: "Agiliza los pedidos y maximiza las ventas. Reco sugiere complementos y optimiza el ticket medio automáticamente.",
+      title: "fast_casual_title",
+      description: "fast_casual_desc",
       iconBgColor: "bg-purple-100",
       iconColor: "text-purple-600"
     },
@@ -83,8 +89,8 @@
       icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
       </svg>`,
-      title: "Casa de comidas o menú del día",
-      description: "Gestiona fácilmente los menús diarios y sugerencias. Reco mantiene tu carta siempre actualizada y atractiva.",
+      title: "family_restaurant_title",
+      description: "family_restaurant_desc",
       iconBgColor: "bg-orange-100",
       iconColor: "text-orange-600"
     }
@@ -233,45 +239,45 @@
     <ScrollTransition>
       <div class="mb-12 md:mb-16 text-left">
         <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
-          <span class="text-black">¿Tu carta vende&nbsp;</span><span class="text-blue-600">o solo decora?</span>
+          <span class="text-black">{tr('restaurant_sells_title_1')}&nbsp;</span><span class="text-blue-600">{tr('restaurant_sells_title_2')}</span>
         </h1>
         <div class="mt-6 md:flex md:items-start md:space-x-8">
           <div class="md:w-3/5 lg:w-1/2">
             <blockquote class="text-base md:text-lg text-gray-700 italic border-l-4 border-blue-500 pl-4 py-2 max-w-3xl">
-              Una carta profesional no es solo bonita. Es clara, útil y estratégica.
+              {tr('restaurant_sells_quote')}
             </blockquote>
             <ul class="mt-4 text-sm md:text-base text-gray-600 max-w-3xl space-y-2">
               <li class="flex items-center">
                 <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
-                Sabes qué platos realmente quieren tus clientes
+                {tr('restaurant_sells_benefit_1')}
               </li>
               <li class="flex items-center">
                 <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
-                Reco aprende y propone mejoras en tu carta
+                {tr('restaurant_sells_benefit_2')}
               </li>
               <li class="flex items-center">
                 <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
-                Vende como un camarero experto
+                {tr('restaurant_sells_benefit_3')}
               </li>
               <li class="flex items-center">
                 <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
-                Habla todos los idiomas
+                {tr('restaurant_sells_benefit_4')}
               </li>
               <li class="flex items-center">
                 <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
-                Se adapta al perfil de cada cliente
+                {tr('restaurant_sells_benefit_5')}
               </li>
             </ul>
             <blockquote class="text-base md:text-lg text-gray-700 italic border-l-4 border-blue-500 pl-4 py-2 max-w-3xl mt-4">
-              No es diseño. Es ingeniería de carta.
+              {tr('restaurant_sells_quote_2')}
             </blockquote>
           </div>
           <div class="md:w-2/5 lg:w-1/2 mt-6 md:mt-0">
             <div class="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 bg-blue-50 rounded-lg shadow-sm border-2 border-blue-400">
               <img src="/Andres.webp" alt="Andrés, Fonda Muñoz" class="h-14 w-14 sm:h-16 sm:w-16 rounded-full object-cover border-2 border-blue-400 shrink-0">
               <div>
-                <p class="text-base sm:text-lg font-medium text-blue-900 italic leading-tight">"Reco convirtió mi carta en mi mejor vendedor."</p>
-                <p class="text-xs sm:text-sm text-blue-700 mt-1">- Andrés, Fonda Muñoz</p>
+                <p class="text-base sm:text-lg font-medium text-blue-900 italic leading-tight">{tr('restaurant_sells_testimonial')}</p>
+                <p class="text-xs sm:text-sm text-blue-700 mt-1">{tr('restaurant_sells_testimonial_author')}</p>
               </div>
             </div>
           </div>
@@ -290,8 +296,8 @@
                 {@html benefit.icon}
               </div>
             </div>
-            <h3 class="text-blue-600 text-2xl font-bold mb-2">{benefit.title}</h3>
-            <p class="text-gray-700 text-base">{benefit.description}</p>
+            <h3 class="text-blue-600 text-2xl font-bold mb-2">{tr(benefit.title)}</h3>
+            <p class="text-gray-700 text-base">{tr(benefit.description)}</p>
           </div>
         {/each}
       </div>

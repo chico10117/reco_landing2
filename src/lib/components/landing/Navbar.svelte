@@ -4,6 +4,15 @@
   import { onMount } from 'svelte';
   import { page } from '$app/stores'; // For active link highlighting if needed
   import { Sparkles, ChefHat, Utensils, Globe, Landmark, PlusCircle, Users } from 'lucide-svelte';
+  import LanguageToggle from '$lib/components/ui/language-toggle.svelte';
+  import { languageStore } from '$lib/stores/language.svelte';
+  import { t } from '$lib/utils/translations';
+  
+  interface RestaurantType {
+    name: keyof typeof import('$lib/utils/translations').translations.es;
+    href: string;
+    icon: any;
+  }
 
   let isMenuOpen = $state(false);
   let isMobile = $state(false);
@@ -15,12 +24,12 @@
   let mobileRestaurantButtonRef: HTMLElement | undefined = $state(); // Ref for the mobile button
 
   const restaurantTypes = [
-    { name: 'Cadenas de fast-casual', href: '/restaurantes/fast-casual', icon: Sparkles },
-    { name: 'Restaurantes de autor / cocina creativas', href: '/restaurantes/autor', icon: ChefHat },
-    { name: 'Restaurante independiente / familiar', href: '/restaurantes/independiente', icon: Utensils },
-    { name: 'Cadena multinacional / expansión internacional', href: '/restaurantes/multinacional', icon: Globe },
-    { name: 'Restaurante en zona turística', href: '/restaurantes/turistico', icon: Landmark },
-    { name: 'Restaurante nuevo / primer emprendimiento sin presencia digital', href: '/restaurantes/nuevo', icon: PlusCircle },
+    { name: 'fast-casual', href: '/restaurantes/fast-casual', icon: Sparkles },
+    { name: 'autor', href: '/restaurantes/autor', icon: ChefHat },
+    { name: 'independiente', href: '/restaurantes/independiente', icon: Utensils },
+    { name: 'multinacional', href: '/restaurantes/multinacional', icon: Globe },
+    { name: 'turistico', href: '/restaurantes/turistico', icon: Landmark },
+    { name: 'nuevo', href: '/restaurantes/nuevo', icon: PlusCircle },
   ];
 
   function toggleMainMobileMenu() {
@@ -117,7 +126,7 @@
                 onmouseenter={() => { if (!isMobile) isRestaurantMenuOpen = true; }}
                 onfocus={() => { if (!isMobile) isRestaurantMenuOpen = true; }}
               >
-                <span>Restaurantes</span>
+                <span>{t('restaurants')}</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 transition-transform duration-200 {isRestaurantMenuOpen && !isMobile ? 'rotate-180' : ''}"><polyline points="6 9 12 15 18 9"></polyline></svg>
               </button>
               {#if isRestaurantMenuOpen && !isMobile}
@@ -143,17 +152,17 @@
                         onclick={closeAllMenus}
                       >
                         <svelte:component this={item.icon} class="mr-3 w-5 h-5 text-blue-600" />
-                        {item.name}
+                        {t(item.name as keyof typeof import('$lib/utils/translations').translations.es)}
                       </a>
                     {/each}
                   </div>
                 </div>
               {/if}
             </div>
-            <a href="/precios" class="text-black hover:text-gray-700 px-2 text-base font-medium" onclick={closeAllMenus}>Precios</a>
-            <a href="/posts" class="text-black hover:text-gray-700 px-2 text-base font-medium" onclick={closeAllMenus}>Blog</a>
+            <a href="/precios" class="text-black hover:text-gray-700 px-2 text-base font-medium" onclick={closeAllMenus}>{t('prices')}</a>
+            <a href="/posts" class="text-black hover:text-gray-700 px-2 text-base font-medium" onclick={closeAllMenus}>{t('blog')}</a>
             <a href="/nosotros" class="text-black hover:text-gray-700 flex items-center space-x-2 px-2 text-base font-medium" onclick={closeAllMenus}>
-              <span>Nosotros</span>
+              <span>{t('about')}</span>
             </a>
             <a href="https://calendly.com/fernando-lqrb/15min" target="_blank" rel="noopener noreferrer" class="inline-block ml-28" onclick={closeAllMenus}>
               <Button 
@@ -161,7 +170,7 @@
                 class="bg-blue-600 text-white hover:bg-blue-700 font-medium rounded-xl px-5 py-2 whitespace-nowrap text-base"
                 onclick={() => { trackNavClick('contact_sales'); /* closeAllMenus is on parent <a> */ }}
               >
-                Contáctanos
+                {t('contact')}
               </Button>
             </a>
           </div>
@@ -169,10 +178,13 @@
       </div>
       
       <!-- Parte derecha - Botones de acción -->
-      <div class="flex items-center">
+      <div class="flex items-center gap-3">
+        <!-- Botón de cambio de idioma -->
+        <LanguageToggle />
+        
         <!-- Menú hamburguesa para móviles -->
         <button 
-          class="text-black ml-4 lg:hidden" 
+          class="text-black lg:hidden" 
           onclick={(e) => { e.stopPropagation(); toggleMainMobileMenu(); }}
           aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
         >
@@ -210,7 +222,7 @@
               aria-expanded={isRestaurantMenuOpen && isMobile}
               onclick={(e) => { e.stopPropagation(); toggleRestaurantSubMenu(); }} 
             >
-              <span>Restaurantes</span>
+              <span>{t('restaurants')}</span>
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 transition-transform duration-200 {isRestaurantMenuOpen && isMobile ? 'rotate-180' : ''}"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </button>
             {#if isRestaurantMenuOpen && isMobile}
@@ -222,17 +234,17 @@
                     onclick={closeAllMenus}
                   >
                     <svelte:component this={item.icon} class="mr-2 w-5 h-5 text-blue-600" />
-                    {item.name}
+                    {t(item.name as keyof typeof import('$lib/utils/translations').translations.es)}
                   </a>
                 {/each}
               </div>
             {/if}
           </div>
           
-          <a href="/precios" class="text-black hover:text-gray-700 block py-2 text-base" onclick={closeAllMenus}>Precios</a>
-          <a href="/posts" class="text-black hover:text-gray-700 block py-2 text-base" onclick={closeAllMenus}>Blog</a>
+          <a href="/precios" class="text-black hover:text-gray-700 block py-2 text-base" onclick={closeAllMenus}>{t('prices')}</a>
+          <a href="/posts" class="text-black hover:text-gray-700 block py-2 text-base" onclick={closeAllMenus}>{t('blog')}</a>
           <a href="/nosotros" class="text-black hover:text-gray-700 flex items-center space-x-1 py-2 text-base" onclick={closeAllMenus}>
-            <span>Nosotros</span>
+            <span>{t('about')}</span>
           </a>
           <div class="pt-2 border-t border-gray-200">
             <a href="https://calendly.com/fernando-lqrb/15min" target="_blank" rel="noopener noreferrer" class="inline-block pt-2" onclick={closeAllMenus}>
@@ -241,7 +253,7 @@
                 class="bg-blue-600 text-white hover:bg-blue-700 font-medium rounded-2xl px-5 py-2 whitespace-nowrap w-full text-base"
                 onclick={() => trackNavClick('contact_sales')} 
               >
-                Contáctanos
+                {t('contact')}
               </Button>
             </a>
           </div>

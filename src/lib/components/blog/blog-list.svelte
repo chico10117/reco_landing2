@@ -2,6 +2,16 @@
   import { onMount } from 'svelte';
   import { blogPosts } from '$lib/data/blog-posts';
   import BlogPost from './blog-post.svelte';
+  import { languageStore } from '$lib/stores/language.svelte';
+  import { t } from '$lib/utils/translations';
+
+  // Create reactive translations using Svelte 5 runes
+  const currentLang = $derived(languageStore.currentLanguage);
+  
+  // Reactive function using $derived
+  const tr = $derived.by(() => {
+    return (key: string) => t(key as any, currentLang);
+  });
 
   // Estado para controlar la visualización masonry
   let columns: number = typeof window !== 'undefined' && window.innerWidth < 640 ? 1 : 3;
@@ -88,7 +98,7 @@
 <div class="blog-container w-full px-4 sm:px-6 lg:px-8" bind:this={containerElement}>
   <!-- Filtros -->
   <div class="mb-6 sm:mb-8 flex flex-col sm:flex-row gap-4 justify-between">
-    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">Artículos y recursos</h2>
+    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">{tr('blog_articles_title')}</h2>
     
 
   </div>
@@ -131,8 +141,8 @@
         <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 sm:h-12 sm:w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
-        <h3 class="mt-4 text-base sm:text-lg font-medium text-gray-900 text-center">No se encontraron artículos</h3>
-        <p class="mt-1 text-sm sm:text-base text-gray-500 text-center">Prueba con otros filtros</p>
+        <h3 class="mt-4 text-base sm:text-lg font-medium text-gray-900 text-center">{tr('blog_no_articles')}</h3>
+        <p class="mt-1 text-sm sm:text-base text-gray-500 text-center">{tr('blog_try_other_filters')}</p>
       </div>
     {/if}
   </div>

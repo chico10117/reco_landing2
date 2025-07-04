@@ -3,6 +3,14 @@
   import { onMount } from 'svelte';
   import { track } from "$lib/utils/analytics";
   import Navbar from "$lib/components/landing/Navbar.svelte";
+  import { languageStore } from '$lib/stores/language.svelte';
+
+  // Make language reactive
+  import { t } from '$lib/utils/translations';
+
+  // Create reactive translations
+  const currentLang = $derived(languageStore.currentLanguage);
+  const tr = (key: Parameters<typeof t>[0]) => t(key, currentLang);
 
   // Calendly URL
   const calendlyUrl = "https://calendly.com/fernando-lqrb/15min";
@@ -30,23 +38,23 @@
   <!-- Content -->
   <div class="pt-20 pb-12 flex items-center justify-center min-h-[60vh]">
     <div class="max-w-md mx-auto px-4 text-center">
-      <h1 class="text-3xl font-bold text-gray-900 mb-6">Contacto</h1>
+      <h1 class="text-3xl font-bold text-gray-900 mb-6">{tr('contact_title')}</h1>
       
       <div class="bg-white rounded-3xl shadow-lg p-8 space-y-6">
         <div class="text-6xl mb-6">📅</div>
         <p class="text-gray-600 mb-6">
-          Redirigiendo a Calendly para agendar una reunión...
+          {tr('contact_redirecting')}
         </p>
         
         <Button 
           class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 rounded-full shadow-lg transform transition-all hover:scale-105"
           on:click={redirectToCalendly}
         >
-          Agendar una reunión
+          {tr('contact_schedule_meeting')}
         </Button>
         
         <p class="text-sm text-gray-500 mt-4">
-          Si no eres redirigido automáticamente, haz clic en el botón de arriba.
+          {tr('contact_auto_redirect')}
         </p>
       </div>
     </div>
@@ -60,12 +68,12 @@
           <img src="/img/reco-logo.svg" alt="Reco" class="h-7" />
         </a>
         <nav class="space-x-6">
-          <a href="/privacy" class="text-gray-300 hover:text-blue-400 transition-colors">Política de Privacidad</a>
-          <a href="/terms" class="text-gray-300 hover:text-blue-400 transition-colors">Términos de Servicio</a>
+          <a href="/privacy" class="text-gray-300 hover:text-blue-400 transition-colors">{tr('footer_privacy')}</a>
+          <a href="/terms" class="text-gray-300 hover:text-blue-400 transition-colors">{tr('footer_terms')}</a>
         </nav>
       </div>
       <div class="border-t border-gray-800 my-6"></div>
-      <p class="text-center text-gray-400 text-sm">&copy; {new Date().getFullYear()} Reco AI Solutions. Todos los derechos reservados.</p>
+      <p class="text-center text-gray-400 text-sm">&copy; {new Date().getFullYear()} Reco AI Solutions. {tr('footer_rights')}</p>
     </div>
   </footer>
 </div>

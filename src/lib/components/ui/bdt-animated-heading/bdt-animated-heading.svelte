@@ -27,69 +27,89 @@
   let showCursorState = $state(false);
   let isTyping = $state(false);
   let currentIndex = $state(0);
+  let animationRunning = $state(false);
 
   // Use texts array if provided, otherwise use single text
-  const textArray = texts.length > 0 ? texts : [text];
+  let textArray = $derived(texts.length > 0 ? texts : [text]);
+
+  // Reset animation when texts change
+  $effect(() => {
+    if (textArray.length > 0) {
+      displayText = "";
+      currentIndex = 0;
+      if (!animationRunning) {
+        startAnimation();
+      }
+    }
+  });
+
+  const typeText = (textToType: string) => {
+    return new Promise<void>((resolve) => {
+      isTyping = true;
+      let i = 0;
+      
+      const typeInterval = setInterval(() => {
+        if (i < textToType.length) {
+          displayText = textToType.slice(0, i + 1);
+          i++;
+        } else {
+          clearInterval(typeInterval);
+          isTyping = false;
+          resolve();
+        }
+      }, speed);
+    });
+  };
+
+  const eraseText = () => {
+    return new Promise<void>((resolve) => {
+      isTyping = true;
+      let i = displayText.length;
+      
+      const eraseInterval = setInterval(() => {
+        if (i > 0) {
+          displayText = displayText.slice(0, i - 1);
+          i--;
+        } else {
+          clearInterval(eraseInterval);
+          isTyping = false;
+          resolve();
+        }
+      }, speed / 2); // Erase faster than typing
+    });
+  };
+
+  const startAnimation = async () => {
+    animationRunning = true;
+    showCursorState = showCursor;
+    
+    if (textArray.length === 1) {
+      // Single text mode - just type once
+      await typeText(textArray[0]);
+    } else {
+      // Multiple texts mode - cycle through them
+      while (animationRunning && textArray.length > 0) {
+        await typeText(textArray[currentIndex]);
+        if (!animationRunning) break;
+        await new Promise(resolve => setTimeout(resolve, pauseDuration));
+        if (!animationRunning) break;
+        await eraseText();
+        if (!animationRunning) break;
+        await new Promise(resolve => setTimeout(resolve, 300)); // Short pause before next text
+        currentIndex = (currentIndex + 1) % textArray.length;
+      }
+    }
+    animationRunning = false;
+  };
 
   onMount(() => {
-    const typeText = (textToType: string) => {
-      return new Promise<void>((resolve) => {
-        isTyping = true;
-        let i = 0;
-        
-        const typeInterval = setInterval(() => {
-          if (i < textToType.length) {
-            displayText = textToType.slice(0, i + 1);
-            i++;
-          } else {
-            clearInterval(typeInterval);
-            isTyping = false;
-            resolve();
-          }
-        }, speed);
-      });
-    };
-
-    const eraseText = () => {
-      return new Promise<void>((resolve) => {
-        isTyping = true;
-        let i = displayText.length;
-        
-        const eraseInterval = setInterval(() => {
-          if (i > 0) {
-            displayText = displayText.slice(0, i - 1);
-            i--;
-          } else {
-            clearInterval(eraseInterval);
-            isTyping = false;
-            resolve();
-          }
-        }, speed / 2); // Erase faster than typing
-      });
-    };
-
-    const startAnimation = async () => {
-      showCursorState = showCursor;
-      
-      if (textArray.length === 1) {
-        // Single text mode - just type once
-        await typeText(textArray[0]);
-      } else {
-        // Multiple texts mode - cycle through them
-        while (true) {
-          await typeText(textArray[currentIndex]);
-          await new Promise(resolve => setTimeout(resolve, pauseDuration));
-          await eraseText();
-          await new Promise(resolve => setTimeout(resolve, 300)); // Short pause before next text
-          currentIndex = (currentIndex + 1) % textArray.length;
-        }
-      }
-    };
-
+    // Initial start with delay if specified
     if (delay > 0) {
-      setTimeout(startAnimation, delay);
-    } else {
-      startAnimation();
+      setTimeout(() => {
+        if (!animationRunning) {
+          startAnimation();
+        }
+      }, delay);
     }
   });
 </script>

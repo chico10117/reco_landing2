@@ -2,6 +2,12 @@
   import { Button } from "$lib/components/ui/button";
   import { track } from "$lib/utils/analytics";
   import { onMount } from 'svelte';
+  import { languageStore } from '$lib/stores/language.svelte';
+  import { t } from '$lib/utils/translations';
+
+  // Create reactive translations
+  const currentLang = $derived(languageStore.currentLanguage);
+  const tr = (key: Parameters<typeof t>[0]) => t(key, currentLang);
   
   // Changed from props to constants since they're not being used as component props
   const salesEmail: string = "sales@reco.chat";
@@ -55,10 +61,10 @@
     class:animate-slide-up={isVisible}
   >
     <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
-      <span class="text-black">Transforma la experiencia de tus clientes con&nbsp;</span><span class="text-blue-600">Reco</span>
+      <span class="text-black">{tr('contact_cta_title_1')}&nbsp;</span><span class="text-blue-600">{tr('contact_cta_title_2')}</span>
     </h2>
     <p class="text-base md:text-lg text-gray-700 max-w-4xl mx-auto mb-12">
-      Potencia tu restaurante con recomendaciones inteligentes, pagos más rápidos y clientes más satisfechos. Descubre cómo Reco puede ayudarte a crecer.
+      {tr('contact_cta_description')}
     </p>
     
     <div class="flex flex-col sm:flex-row gap-6 justify-center w-full px-4 sm:px-0">
@@ -70,7 +76,7 @@
             track('cta_click', { label: 'contact_sales' });
           }}
         >
-          ¡Contáctanos!
+          {tr('contact_cta_btn')}
         </Button>
       </a>
       
@@ -83,7 +89,7 @@
             track('cta_click', { label: 'free_trial' });
           }}
         >
-          Prueba gratis
+          {tr('free_trial_btn')}
         </Button>
       </a>
     </div>

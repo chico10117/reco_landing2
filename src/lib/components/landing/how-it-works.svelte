@@ -1,10 +1,16 @@
 <script lang="ts">
   import ScrollTransition from '$lib/components/ui/scroll-transition.svelte';
+  import { languageStore } from '$lib/stores/language.svelte';
+  import { t } from '$lib/utils/translations';
+
+  // Create reactive translations
+  const currentLang = $derived(languageStore.currentLanguage);
+  const tr = (key: Parameters<typeof t>[0]) => t(key, currentLang);
 
   interface Benefit {
     icon: string;
-    title: string;
-    description: string;
+    title: keyof typeof import('$lib/utils/translations').translations.es;
+    description: keyof typeof import('$lib/utils/translations').translations.es;
     iconBgColor: string;
     iconColor: string;
   }
@@ -14,8 +20,8 @@
       icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
       </svg>`,
-      title: "Menús en tu idioma",
-      description: "Ver el menú en tu idioma preferido, sin complicaciones. Adaptado automáticamente para que te sientas como en casa.",
+      title: "menus_in_language_title",
+      description: "menus_in_language_desc",
       iconBgColor: "bg-blue-100",
       iconColor: "text-blue-600"
     },
@@ -23,8 +29,8 @@
       icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
       </svg>`,
-      title: "Recomendaciones personalizadas",
-      description: "Obtén recomendaciones inteligentes basadas en tus preferencias, dieta, y presupuesto. Como tener un experto gastronómico personal.",
+      title: "personalized_recommendations_title",
+      description: "personalized_recommendations_desc",
       iconBgColor: "bg-green-100",
       iconColor: "text-green-600"
     },
@@ -32,8 +38,8 @@
       icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
       </svg>`,
-      title: "Pide y paga desde el móvil",
-      description: "Simplifica tu experiencia pagando directamente desde tu dispositivo. Sin esperas, sin complicaciones, solo disfruta.",
+      title: "mobile_ordering_title",
+      description: "mobile_ordering_desc",
       iconBgColor: "bg-purple-100",
       iconColor: "text-purple-600"
     }
@@ -45,25 +51,25 @@
     <ScrollTransition>
       <div class="mb-12 md:mb-16 text-left">
         <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
-          <span class="text-black">Para comensales:&nbsp;</span><span class="text-blue-600">pedir sin dudas, comer mejor</span>
+          <span class="text-black">{tr('how_it_works_title_1')}&nbsp;</span><span class="text-blue-600">{tr('how_it_works_title_2')}</span>
         </h1>
         <div class="mt-6 md:flex md:items-start md:space-x-8">
           <div class="md:w-3/5 lg:w-1/2">
             <blockquote class="text-base md:text-lg text-gray-700 italic border-l-4 border-blue-500 pl-4 py-2 max-w-3xl">
-              "Reco me salvó de pedir un plato con mariscos (¡alérgica!)"
+              {tr('how_it_works_quote')}
             </blockquote>
             <ul class="mt-4 text-sm md:text-base text-gray-600 max-w-3xl space-y-2">
               <li class="flex items-center">
                 <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
-                Piden sin miedo a equivocarse
+                {tr('how_it_works_benefit_1')}
               </li>
               <li class="flex items-center">
                 <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
-                Pueden preguntar lo que quieran (y Reco responde)
+                {tr('how_it_works_benefit_2')}
               </li>
               <li class="flex items-center">
                 <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
-                Reciben sugerencias según su dieta, tiempo y bolsillo
+                {tr('how_it_works_benefit_3')}
               </li>
             </ul>
           </div>
@@ -92,8 +98,8 @@
                 {@html benefit.icon}
               </div>
             </div>
-            <h3 class="text-blue-600 text-2xl font-bold mb-2">{benefit.title}</h3>
-            <p class="text-gray-700 text-base">{benefit.description}</p>
+            <h3 class="text-blue-600 text-2xl font-bold mb-2">{tr(benefit.title)}</h3>
+            <p class="text-gray-700 text-base">{tr(benefit.description)}</p>
           </div>
         {/each}
       </div>

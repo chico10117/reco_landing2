@@ -1,9 +1,64 @@
 <script lang="ts">
   import type { BlogPost } from '$lib/data/blog-posts';
+  import { languageStore } from '$lib/stores/language.svelte';
+  import { t } from '$lib/utils/translations';
+
+  // Create reactive translations using Svelte 5 runes
+  const currentLang = $derived(languageStore.currentLanguage);
+  
+  // Reactive function using $derived
+  const tr = $derived.by(() => {
+    return (key: string) => t(key as any, currentLang);
+  });
 
   let { post } = $props<{
     post: BlogPost;
   }>();
+
+  // Helper para obtener idioma del post usando Yoast schema
+  const getPostLanguage = (post: BlogPost) => {
+    const graph = post.yoast_head_json?.schema?.['@graph'] || [];
+    const article = graph.find((node: any) => node['@type'] === 'Article');
+    return (article?.inLanguage as string) || 'es';
+  };
+
+  // Helper para formatear fecha según idioma
+  const formatDate = (dateString: string, language: string) => {
+    const date = new Date(dateString);
+    if (language === 'en') {
+      return date.toLocaleDateString('en-US', { 
+        day: 'numeric', 
+        month: 'long', 
+        year: 'numeric' 
+      });
+    } else {
+      return date.toLocaleDateString('es-ES', { 
+        day: 'numeric', 
+        month: 'long', 
+        year: 'numeric' 
+      });
+    }
+  };
+
+  // Helper para obtener contenido traducido
+  const getTranslatedContent = (post: BlogPost, field: 'title' | 'excerpt') => {
+    // Usar traducciones específicas para cada post
+    const translationKey = `blog_post_${post.id}_${field}` as any;
+    
+    try {
+      // Intentar obtener la traducción específica
+      const translation = tr(translationKey);
+      // Si la traducción existe y es diferente a la clave, usarla
+      if (translation && translation !== translationKey) {
+        return translation;
+      }
+    } catch (e) {
+      // Si no existe la traducción, continuar con el contenido original
+    }
+    
+    // Fallback al contenido original
+    return post[field].rendered;
+  };
 </script>
 
 <article class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 h-full flex flex-col w-full max-w-full">
@@ -23,24 +78,24 @@
   
   <div class="p-4 sm:p-6 flex flex-col flex-grow">
     <div class="flex items-center text-sm text-gray-500 mb-2">
-      <span>{new Date(post.date).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
+      <span>{formatDate(post.date, currentLang)}</span>
     </div>
     
     <h2 class="text-lg sm:text-xl font-bold text-gray-900 mb-3 line-clamp-2 transition-colors">
       <a href={"/" + post.slug} class="hover:text-blue-600">
-        {@html post.title.rendered}
+        {@html getTranslatedContent(post, 'title')}
       </a>
     </h2>
     
     <p class="text-sm sm:text-base text-gray-600 mb-4 line-clamp-3 flex-grow">
-      {@html post.excerpt.rendered}
+      {@html getTranslatedContent(post, 'excerpt')}
     </p>
     
     <a 
       href={"/" + post.slug} 
       class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center mt-auto text-sm sm:text-base"
     >
-      Leer más
+      {tr('post_read_more')}
       <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
       </svg>
