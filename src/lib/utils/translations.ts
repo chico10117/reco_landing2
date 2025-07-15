@@ -120,7 +120,7 @@ export const translations = {
 		
 		// Pro Plan
 		pro_plan_title: 'Pro',
-		pro_plan_price: '24.99€',
+		pro_plan_price: '249.99€',
 		pro_plan_period: '/mes',
 		pro_plan_badge: '🚀 Recomendado',
 		pro_plan_popular: '⭐ Más Popular',
@@ -633,7 +633,7 @@ export const translations = {
 		
 		// Pro Plan
 		pro_plan_title: 'Pro',
-		pro_plan_price: '€24.99',
+		pro_plan_price: '€249.99',
 		pro_plan_period: '/month',
 		pro_plan_badge: '🚀 Recommended',
 		pro_plan_popular: '⭐ Most Popular',
