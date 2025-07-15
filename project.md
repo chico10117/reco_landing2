@@ -8597,7 +8597,7 @@ export const load: PageServerLoad = async () => {
                 <div class="text-center">
                  <h3 class="text-xl md:text-2xl font-bold text-white mb-2">Pro</h3>
                  <div class="mb-2">
-                   <span class="text-4xl md:text-6xl font-bold text-white">24.99€</span>
+                   <span class="text-4xl md:text-6xl font-bold text-white">249.99€</span>
                    <span class="text-base md:text-xl text-blue-200 ml-1">/mes</span>
                  </div>
                 <div class="inline-flex items-center px-2 py-1 md:px-3 md:py-1 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 mb-4 md:mb-8">
