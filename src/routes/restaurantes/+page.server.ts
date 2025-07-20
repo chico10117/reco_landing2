@@ -1,8 +1,11 @@
 import type { PageServerLoad } from './$types';
 
-export const prerender = true;
+export const prerender = false; // Changed to false to handle query parameters
 
-export const load: PageServerLoad = async () => {
+export const load: PageServerLoad = async ({ url }) => {
+  // Handle query parameters if needed
+  const page = url.searchParams.get('page');
+  
   return {
     meta: {
       title: 'Restaurantes | Reco',
@@ -15,6 +18,7 @@ export const load: PageServerLoad = async () => {
         url: 'https://reco.chat/restaurantes',
         type: 'website'
       }
-    }
+    },
+    page: page ? parseInt(page) : 1
   };
 }; 

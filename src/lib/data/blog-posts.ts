@@ -6,6 +6,7 @@ export interface BlogPost {
     date_gmt: string;
     author: string;
     featured_media: string;
+    featured_media_url?: string; // URL for the featured media
     categories: number[];
     slug: string;
     title: {
@@ -40,7 +41,7 @@ export const blogPosts: BlogPost[] = [
             "rendered": "¿Cómo vender con tu carta sin mover un dedo?"
         },
         "content": {
-            "rendered": "\n<p>En la mayoría de los restaurantes, la carta solo hace una cosa: enumera los platos.<\/p>\n\n\n\n<p>No sugiere. No ofrece más ventas. No ayuda a los clientes a decidir. Y en ese silencio, se pierden ingresos silenciosamente, día tras día. Tu equipo está capacitado. Tu comida cumple. ¿Pero la carta? Normalmente no rinde lo suficiente.<\/p>\n\n\n\n<p>Ahí es donde entra Reco..<\/p>\n\n\n\n<p><strong>Tu carta puede recomendar. Puede convertir.<\/strong><\/p>\n\n\n\n<p>Reco convierte tu carta digital en un vendedor silencioso. Guía al cliente en sus decisiones con indicaciones amigables que se sienten naturales, no insistentes. Cosas como:<\/p>\n\n\n\n<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\">\n<p>\u201c¿Buscas algo rápido y contundente?\u201d<br>\u201cEstos platos combinan bien con lo que acabas de elegir.\u201d<br>\u201cA los clientes les encanta esto con una copa de Albariño\u00f1o.\u201d<\/p>\n<\/blockquote>\n\n\n\n<p>No solo es útil. Es rentable.<\/p>\n\n\n\n<p>Al combinar una experiencia de usuario inteligente con la inteligencia de la carta, el tamaño de la cuenta aumenta, sin presionar a tu personal. <br>De acuerdo con <a href=\"https:\/\/www.qsrmagazine.com\/story\/the-future-of-restaurant-loyalty-starts-with-personalization\/\"><strong>QSR Magazine<\/strong><\/a>, la orientación personalizada puede aumentar el gasto hasta en un 30%.<\/p>\n\n\n\n<p>Y con Reco, está integrado.<\/p>\n\n\n\n<p><strong>Por qué funciona, incluso con poco personal<\/strong><\/p>\n\n\n\n<p>Los comensales no necesitan más filtros. Necesitan una mejor orientación. Por eso, herramientas como Reco están diseñadas pensando en comportamientos reales. En <a href=\"https:\/\/archive.reco.chat\/what-guests-want\">\u201cLos que los comensales realmente quieren en su carta\u201d<\/a>, exploramos cómo la claridad, la puntualidad y el tono conducen a decisiones más rápidas y mejores resultados.<\/p>\n\n\n\n<p>Y ese tono no surge por casualidad. En <a class=\"\" href=\"https:\/\/archive.reco.chat\/behind-the-menu\">Detrás de la carta<\/a> \u2014 explicamos nuestro enfoque para escribir y probar cada línea, porque incluso una sola palabra puede cambiar la confianza de un comensal.<\/p>\n\n\n\n<p>Deje que la carta haga su trabajo.<\/p>\n\n\n\n<p>No necesita más funciones. Necesita menos preguntas en la mesa, decisiones más rápidas y comensales satisfechos con lo que pidieron.<\/p>\n\n\n\n<p class=\"has-text-align-center\">Eso empieza con Reco y empieza con la carta.<\/p>\n",
+            "rendered": "\n<p>En la mayoría de los restaurantes, la carta solo hace una cosa: enumera los platos.<\/p>\n\n\n\n<p>No sugiere. No ofrece más ventas. No ayuda a los clientes a decidir. Y en ese silencio, se pierden ingresos silenciosamente, día tras día. Tu equipo está capacitado. Tu comida cumple. ¿Pero la carta? Normalmente no rinde lo suficiente.<\/p>\n\n\n\n<p>Ahí es donde entra Reco..<\/p>\n\n\n\n<p><strong>Tu carta puede recomendar. Puede convertir.<\/strong><\/p>\n\n\n\n<p>Reco convierte tu carta digital en un vendedor silencioso. Guía al cliente en sus decisiones con indicaciones amigables que se sienten naturales, no insistentes. Cosas como:<\/p>\n\n\n\n<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\">\n<p>\u201c¿Buscas algo rápido y contundente?\u201d<br>\u201cEstos platos combinan bien con lo que acabas de elegir.\u201d<br>\u201cA los clientes les encanta esto con una copa de Albariño\u00f1o.\u201d<\/p>\n<\/blockquote>\n\n\n\n<p>No solo es útil. Es rentable.<\/p>\n\n\n\n<p>Al combinar una experiencia de usuario inteligente con la inteligencia de la carta, el tamaño de la cuenta aumenta, sin presionar a tu personal. <br>De acuerdo con <a href=\"https:\/\/www.qsrmagazine.com\/story\/the-future-of-restaurant-loyalty-starts-with-personalization\/\"><strong>QSR Magazine<\/strong><\/a>, la orientación personalizada puede aumentar el gasto hasta en un 30%.<\/p>\n\n\n\n<p>Y con Reco, está integrado.<\/p>\n\n\n\n<p><strong>Por qué funciona, incluso con poco personal<\/strong><\/p>\n\n\n\n<p>Los comensales no necesitan más filtros. Necesitan una mejor orientación. Por eso, herramientas como Reco están diseñadas pensando en comportamientos reales. En <a href=\"\/guests-want-decisions\">\u201cLos que los comensales realmente quieren en su carta\u201d<\/a>, exploramos cómo la claridad, la puntualidad y el tono conducen a decisiones más rápidas y mejores resultados.<\/p>\n\n\n\n<p>Y ese tono no surge por casualidad. En <a class=\"\" href=\"\/behind-the-menu\">Detrás de la carta<\/a> \u2014 explicamos nuestro enfoque para escribir y probar cada línea, porque incluso una sola palabra puede cambiar la confianza de un comensal.<\/p>\n\n\n\n<p>Deje que la carta haga su trabajo.<\/p>\n\n\n\n<p>No necesita más funciones. Necesita menos preguntas en la mesa, decisiones más rápidas y comensales satisfechos con lo que pidieron.<\/p>\n\n\n\n<p class=\"has-text-align-center\">Eso empieza con Reco y empieza con la carta.<\/p>\n",
             "protected": false
         },
         "excerpt": {
@@ -49,6 +50,7 @@ export const blogPosts: BlogPost[] = [
         },
         "author": "Reco",
         "featured_media": "1133.webp",
+        "featured_media_url": "/1133.webp",
         "comment_status": "open",
         "ping_status": "closed",
         "sticky": false,
@@ -337,6 +339,7 @@ export const blogPosts: BlogPost[] = [
         },
         "author": "Reco",
         "featured_media": "1435.jpg",
+        "featured_media_url": "/1435.jpg",
         "comment_status": "open",
         "ping_status": "closed",
         "sticky": false,
@@ -660,6 +663,7 @@ export const blogPosts: BlogPost[] = [
         },
         "author": "Reco",
         "featured_media": "1434.jpg",
+        "featured_media_url": "/1434.jpg",
         "comment_status": "open",
         "ping_status": "closed",
         "sticky": false,
@@ -983,6 +987,7 @@ export const blogPosts: BlogPost[] = [
         },
         "author": "Reco",
         "featured_media": "1133.webp",
+        "featured_media_url": "/1133.webp",
         "comment_status": "open",
         "ping_status": "closed",
         "sticky": false,
@@ -1312,6 +1317,7 @@ export const blogPosts: BlogPost[] = [
         },
         "author": "Reco",
         "featured_media": "1381.jpg",
+        "featured_media_url": "/1381.jpg",
         "comment_status": "open",
         "ping_status": "closed",
         "sticky": false,
@@ -1967,6 +1973,7 @@ export const blogPosts: BlogPost[] = [
         },
         "author": "Reco",
         "featured_media": "1383.jpg",
+        "featured_media_url": "/1383.jpg",
         "comment_status": "open",
         "ping_status": "closed",
         "sticky": false,
@@ -2293,6 +2300,7 @@ export const blogPosts: BlogPost[] = [
         },
         "author": "Reco",
         "featured_media": "1384.jpg",
+        "featured_media_url": "/1384.jpg",
         "comment_status": "open",
         "ping_status": "closed",
         "sticky": false,
@@ -2619,6 +2627,7 @@ export const blogPosts: BlogPost[] = [
         },
         "author": "Reco",
         "featured_media": "1385.jpg",
+        "featured_media_url": "/1385.jpg",
         "comment_status": "open",
         "ping_status": "closed",
         "sticky": false,
@@ -2945,6 +2954,7 @@ export const blogPosts: BlogPost[] = [
         },
         "author": "Reco",
         "featured_media": "1387.jpg",
+        "featured_media_url": "/1387.jpg",
         "comment_status": "open",
         "ping_status": "closed",
         "sticky": false,
@@ -3271,6 +3281,7 @@ export const blogPosts: BlogPost[] = [
         },
         "author": "Reco",
         "featured_media": "1388.jpg",
+        "featured_media_url": "/1388.jpg",
         "comment_status": "open",
         "ping_status": "closed",
         "sticky": false,
@@ -3597,6 +3608,7 @@ export const blogPosts: BlogPost[] = [
         },
         "author": "Reco",
         "featured_media": "1389.jpg",
+        "featured_media_url": "/1389.jpg",
         "comment_status": "open",
         "ping_status": "closed",
         "sticky": false,
@@ -3923,6 +3935,7 @@ export const blogPosts: BlogPost[] = [
         },
         "author": "Reco",
         "featured_media": "1390.jpg",
+        "featured_media_url": "/1390.jpg",
         "comment_status": "open",
         "ping_status": "closed",
         "sticky": false,
@@ -4249,6 +4262,7 @@ export const blogPosts: BlogPost[] = [
         },
         "author": "Reco",
         "featured_media": "1391.jpg",
+        "featured_media_url": "/1391.jpg",
         "comment_status": "open",
         "ping_status": "closed",
         "sticky": false,
@@ -4575,6 +4589,7 @@ export const blogPosts: BlogPost[] = [
         },
         "author": "Reco",
         "featured_media": "1392.jpg",
+        "featured_media_url": "/1392.jpg",
         "comment_status": "open",
         "ping_status": "closed",
         "sticky": false,
