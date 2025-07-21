@@ -59,8 +59,7 @@
   <meta name="description" content="{tr('restaurants_trust_title')}" />
 </svelte:head>
 
-<div class="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 pt-24">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 mt-16">
   <div class="text-center mb-12">
     <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">{tr('restaurants_select_title')}</h1>
     <p class="text-xl text-gray-600">{tr('restaurants_select_description')}</p>
@@ -88,6 +87,5 @@
         <div class="absolute -top-1 -right-1 w-16 h-16 bg-gradient-to-br {type.bgColor} opacity-10 rounded-bl-3xl group-hover:opacity-20 transition-opacity duration-300"></div>
       </a>
     {/each}
-  </div>
   </div>
 </div> 
