@@ -3,7 +3,7 @@ import { browser } from '$app/environment';
 export type Language = 'es' | 'en' | 'es-MX';
 
 class LanguageStore {
-	currentLanguage = $state<Language>('es');
+	currentLanguage = $state<Language>('es-MX'); // Default to Mexican Spanish
 	hasUserSelected = false;
 
 	constructor() {
@@ -13,6 +13,8 @@ class LanguageStore {
 			if (savedLang && (savedLang === 'es' || savedLang === 'en' || savedLang === 'es-MX')) {
 				this.currentLanguage = savedLang;
 				this.hasUserSelected = true;
+				// Sync cookie with localStorage
+				document.cookie = `user-language=${savedLang}; path=/; max-age=${60 * 60 * 24 * 365}`; // 1 year
 			}
 		}
 	}
@@ -41,6 +43,8 @@ class LanguageStore {
 		this.hasUserSelected = true;
 		if (typeof window !== 'undefined') {
 			localStorage.setItem('language', this.currentLanguage);
+			// Also set a cookie for server-side detection
+			document.cookie = `user-language=${this.currentLanguage}; path=/; max-age=${60 * 60 * 24 * 365}`; // 1 year
 		}
 	}
 
@@ -49,6 +53,8 @@ class LanguageStore {
 		this.hasUserSelected = true;
 		if (typeof window !== 'undefined') {
 			localStorage.setItem('language', this.currentLanguage);
+			// Also set a cookie for server-side detection
+			document.cookie = `user-language=${lang}; path=/; max-age=${60 * 60 * 24 * 365}`; // 1 year
 		}
 	}
 	

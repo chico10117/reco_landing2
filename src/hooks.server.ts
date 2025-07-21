@@ -49,26 +49,40 @@ export const handle: Handle = async ({ event, resolve }) => {
     // Try to detect country from various sources
     let detectedCountry: string | null = null;
     
+    // Log all headers for debugging
+    console.log('=== IP Detection Debug ===');
+    console.log('Request URL:', event.url.pathname);
+    
     // 1. Check Vercel's geo object (if deployed on Vercel)
     // @ts-ignore - Vercel adds this to the request
     if (event.platform?.context?.geo) {
       // @ts-ignore
       detectedCountry = event.platform.context.geo.country;
+      console.log('Vercel geo country:', detectedCountry);
     }
     
     // 2. Check Cloudflare's CF-IPCountry header
     if (!detectedCountry) {
-      detectedCountry = event.request.headers.get('cf-ipcountry');
+      const cfCountry = event.request.headers.get('cf-ipcountry');
+      if (cfCountry) {
+        detectedCountry = cfCountry;
+        console.log('Cloudflare country:', detectedCountry);
+      }
     }
     
     // 3. Check X-Vercel-IP-Country header (Vercel Edge)
     if (!detectedCountry) {
-      detectedCountry = event.request.headers.get('x-vercel-ip-country');
+      const vercelCountry = event.request.headers.get('x-vercel-ip-country');
+      if (vercelCountry) {
+        detectedCountry = vercelCountry;
+        console.log('Vercel header country:', detectedCountry);
+      }
     }
     
     // 4. As a fallback, check Accept-Language header for hints
     if (!detectedCountry) {
       const acceptLanguage = event.request.headers.get('accept-language');
+      console.log('Accept-Language header:', acceptLanguage);
       if (acceptLanguage) {
         // Simple parsing - look for country codes
         if (acceptLanguage.includes('en-US')) detectedCountry = 'US';
@@ -80,6 +94,10 @@ export const handle: Handle = async ({ event, resolve }) => {
     
     // Get suggested language based on country
     const suggestedLanguage = getLanguageFromCountry(detectedCountry);
+    
+    console.log('Final detected country:', detectedCountry);
+    console.log('Suggested language:', suggestedLanguage);
+    console.log('=========================');
     
     // Store the suggestion in event.locals for the layout to access
     event.locals.suggestedLanguage = suggestedLanguage;
