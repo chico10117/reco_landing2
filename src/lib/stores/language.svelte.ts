@@ -4,6 +4,7 @@ export type Language = 'es' | 'en' | 'es-MX';
 
 class LanguageStore {
 	currentLanguage = $state<Language>('es');
+	hasUserSelected = false;
 
 	constructor() {
 		// Check if we're in the browser
@@ -11,6 +12,19 @@ class LanguageStore {
 			const savedLang = localStorage.getItem('language') as Language;
 			if (savedLang && (savedLang === 'es' || savedLang === 'en' || savedLang === 'es-MX')) {
 				this.currentLanguage = savedLang;
+				this.hasUserSelected = true;
+			}
+		}
+	}
+
+	// Initialize with server suggestion if user hasn't selected
+	initializeWithSuggestion(suggestedLanguage?: Language) {
+		if (!this.hasUserSelected && suggestedLanguage && typeof window !== 'undefined') {
+			// Only use suggestion if user hasn't made a selection
+			const savedLang = localStorage.getItem('language');
+			if (!savedLang) {
+				this.currentLanguage = suggestedLanguage;
+				// Don't save to localStorage yet - let user confirm by selecting
 			}
 		}
 	}
@@ -24,6 +38,7 @@ class LanguageStore {
 		} else {
 			this.currentLanguage = 'es';
 		}
+		this.hasUserSelected = true;
 		if (typeof window !== 'undefined') {
 			localStorage.setItem('language', this.currentLanguage);
 		}
@@ -31,6 +46,7 @@ class LanguageStore {
 
 	setLanguage(lang: Language) {
 		this.currentLanguage = lang;
+		this.hasUserSelected = true;
 		if (typeof window !== 'undefined') {
 			localStorage.setItem('language', this.currentLanguage);
 		}

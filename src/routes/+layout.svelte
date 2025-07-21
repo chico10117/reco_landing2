@@ -5,12 +5,30 @@
   import CookieConsentBanner from '$lib/components/ui/cookie-consent-banner.svelte';
   import { onMount } from 'svelte';
   import { initAnalytics } from '$lib/analytics';
-
+  import { languageStore } from '$lib/stores/language.svelte';
+  import type { PageData } from './$types';
 
   // Access route children via snippet prop instead of legacy slots
   import type { Snippet } from 'svelte';
 
-  let { children } = $props<{ children?: Snippet }>();
+  let { children, data } = $props<{ children?: Snippet; data: PageData }>();
+
+  // Initialize language with server suggestion if available
+  $effect(() => {
+    if (data?.suggestedLanguage) {
+      languageStore.initializeWithSuggestion(data.suggestedLanguage);
+    }
+  });
+
+  // Update HTML lang attribute
+  $effect(() => {
+    if (typeof document !== 'undefined') {
+      const lang = languageStore.currentLanguage;
+      // Map to proper HTML lang codes
+      const htmlLang = lang === 'es-MX' ? 'es-MX' : lang === 'en' ? 'en' : 'es';
+      document.documentElement.lang = htmlLang;
+    }
+  });
 
   onMount(() => {
     // Initialize analytics if user has already consented
