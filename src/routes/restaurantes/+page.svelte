@@ -82,26 +82,4 @@
     {/each}
   </div>
 
-  <div class="bg-gray-50 rounded-2xl p-8 md:p-12">
-    <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">{tr('restaurants_trust_title')}</h2>
-    <div class="mb-8">
-      <p class="text-lg text-gray-600 text-center max-w-3xl mx-auto">
-        {tr('restaurants_trust_description')}
-      </p>
-    </div>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-      <div class="flex items-center justify-center">
-        <img src="/img/logo-yelmo.svg" alt="Yelmo" class="h-12 w-auto opacity-60 hover:opacity-100 transition-opacity" />
-      </div>
-      <div class="flex items-center justify-center">
-        <img src="/img/logo-vips.svg" alt="VIPS" class="h-12 w-auto opacity-60 hover:opacity-100 transition-opacity" />
-      </div>
-      <div class="flex items-center justify-center">
-        <img src="/img/logo-honest-greens.svg" alt="Honest Greens" class="h-12 w-auto opacity-60 hover:opacity-100 transition-opacity" />
-      </div>
-      <div class="flex items-center justify-center">
-        <img src="/img/logo-tgb.svg" alt="TGB" class="h-12 w-auto opacity-60 hover:opacity-100 transition-opacity" />
-      </div>
-    </div>
-  </div>
 </div> 
