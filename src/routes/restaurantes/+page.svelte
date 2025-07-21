@@ -59,27 +59,35 @@
   <meta name="description" content="{tr('restaurants_trust_title')}" />
 </svelte:head>
 
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 mt-16">
+<div class="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 pt-24">
   <div class="text-center mb-12">
     <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">{tr('restaurants_select_title')}</h1>
     <p class="text-xl text-gray-600">{tr('restaurants_select_description')}</p>
   </div>
   
-  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16 max-w-6xl mx-auto">
     {#each restaurantTypes as type}
-      <a href={type.href} class="group relative bg-white rounded-xl border border-gray-200 p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-        <div class="flex items-start space-x-4">
-          <div class="{type.bgColor} p-3 rounded-lg group-hover:scale-110 transition-transform duration-300">
-            <svelte:component this={type.icon} class="w-6 h-6 {type.color}" />
+      <a href={type.href} class="group relative bg-white rounded-2xl border-2 border-gray-100 p-8 hover:border-blue-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden">
+        <!-- Background gradient on hover -->
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-50/0 to-blue-100/0 group-hover:from-blue-50/50 group-hover:to-blue-100/30 transition-all duration-300"></div>
+        
+        <!-- Content -->
+        <div class="relative z-10">
+          <div class="flex items-center space-x-4 mb-4">
+            <div class="{type.bgColor} p-4 rounded-xl group-hover:scale-110 transition-transform duration-300 shadow-sm">
+              <svelte:component this={type.icon} class="w-8 h-8 {type.color}" />
+            </div>
           </div>
-          <div class="flex-1">
-            <h3 class="text-lg font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
-              {tr(type.name)}
-            </h3>
-          </div>
+          <h3 class="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
+            {tr(type.name)}
+          </h3>
         </div>
+
+        <!-- Decorative corner accent -->
+        <div class="absolute -top-1 -right-1 w-16 h-16 bg-gradient-to-br {type.bgColor} opacity-10 rounded-bl-3xl group-hover:opacity-20 transition-opacity duration-300"></div>
       </a>
     {/each}
   </div>
-
+  </div>
 </div> 
