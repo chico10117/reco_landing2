@@ -83,7 +83,7 @@
             </div>
           </div>
         </div>
-        <a href="#benefits" class="mt-8 inline-block text-blue-600 hover:text-blue-700 font-medium">
+        <a href="/restaurantes" class="mt-8 inline-block text-blue-600 hover:text-blue-700 font-medium">
           Soy un restaurante → Ver beneficios para mi negocio
         </a>
       </div>
