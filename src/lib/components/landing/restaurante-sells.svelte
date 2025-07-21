@@ -61,7 +61,7 @@
                 {tr('for_restaurateurs_benefit_3')}
               </li>
             </ul>
-            <a href="#pricing" class="mt-4 inline-block text-blue-600 hover:text-blue-700 font-medium">{tr('for_restaurateurs_pricing_link')}</a>
+            <a href="https://www.reco.chat/precios" class="mt-4 inline-block text-blue-600 hover:text-blue-700 font-medium">{tr('for_restaurateurs_pricing_link')}</a>
           </div>
           <div class="md:w-2/5 lg:w-1/2 mt-6 md:mt-0 flex justify-center">
             <div class="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 bg-white rounded-lg shadow-sm border border-blue-200">
