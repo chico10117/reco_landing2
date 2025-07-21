@@ -8,7 +8,7 @@ This is the landing page for Reco, an AI-powered digital menu platform for resta
 
 ## Development Commands
 
-- `pnpm dev` - Start development server
+- `pnpm dev` - Start development server on localhost:5173
 - `pnpm build` - Build for production
 - `pnpm preview` - Preview production build
 - `pnpm check` - Run Svelte type checking
@@ -29,7 +29,9 @@ This is the landing page for Reco, an AI-powered digital menu platform for resta
 - `src/lib/components/landing/` - Landing page specific components
 - `src/lib/components/ui/` - Reusable UI components (shadcn-based)
 - `src/routes/` - SvelteKit file-based routing
-- `src/lib/utils/analytics.ts` - Analytics tracking utilities
+- `src/lib/stores/` - Global state management (language store)
+- `src/lib/utils/` - Utilities (analytics, translations, cookies)
+- `src/lib/data/` - Static data (blog posts, partners)
 - `static/` - Static assets and images
 
 ### Key Components
@@ -38,6 +40,8 @@ This is the landing page for Reco, an AI-powered digital menu platform for resta
 - `how-it-works.svelte` - Step-by-step process explanation
 - `partners-strip.svelte` - Company logos display
 - `contact-cta.svelte` - Contact and demo sections
+- `language-toggle.svelte` - Language switcher (ES/EN)
+- `cookie-consent-banner.svelte` - GDPR cookie consent
 
 ### Styling System
 - Uses Tailwind with custom CSS variables for theming
@@ -49,6 +53,7 @@ This is the landing page for Reco, an AI-powered digital menu platform for resta
 - Google Analytics and Hotjar integration
 - Custom event tracking through `track()` utility
 - Page view and interaction monitoring
+- Consent-aware initialization (GDPR compliant)
 
 ## Svelte 5 Runes Guidelines
 
@@ -95,77 +100,71 @@ Copy `.env.example` to `.env` and configure:
 - `src/lib/analytics/index.ts` - Platform initialization (GA, Hotjar, Vercel)
 - `src/lib/utils/vercel-analytics.ts` - Consent-aware Vercel Analytics wrapper
 
+## Internationalization System
+
+### Translation Implementation
+- Complete Spanish/English translation system
+- Language preference persisted in localStorage
+- Real-time language switching without page reload
+
+### Key Translation Files
+- `src/lib/stores/language.svelte.ts` - Reactive language store
+- `src/lib/utils/translations.ts` - All translation strings
+- `src/lib/components/ui/language-toggle.svelte` - Language switcher UI
+
+### Usage Pattern
+```typescript
+import { languageStore } from '$lib/stores/language.svelte';
+import { t } from '$lib/utils/translations';
+
+// In components
+<h1>{t('pricing_title', languageStore.currentLanguage)}</h1>
+```
+
+### Translated Pages
+- Landing page (`/`)
+- Pricing (`/precios`)
+- About us (`/nosotros`)
+- Blog (`/posts`)
+- Restaurants (`/restaurantes`)
+- Fast-casual (`/restaurantes/fast-casual`)
+
+### Pending Translations
+- `/restaurantes/autor`
+- `/restaurantes/independiente`
+- `/restaurantes/multinacional`
+- `/restaurantes/turistico`
+- `/restaurantes/nuevo`
+
 ## Important Notes
 
-- Never remove existing functionality or debug code
+- Never remove existing functionality or debug code (per .cursorrules)
+- Don't remove comments or debugging code
 - This is a marketing site focused on conversions and lead generation
 - Images in `/static/img/` are referenced throughout components
 - Uses pnpm as package manager (Node.js 20.x required)
 - Deployed on Vercel with adapter-vercel
 - All new components should follow existing patterns and use the established UI component library
+- No test framework is currently configured
 
-# Sistema de Traducciones Implementado
+## Required Static Assets
 
-## Resumen
-Se ha implementado un sistema completo de traducciones para toda la aplicación Reco. Cuando el usuario presiona el botón de cambio de idioma, todas las páginas se traducen automáticamente entre español e inglés.
+The following images are required in `/static/img/`:
+- `phone-mockup.webp` - Phone mockup showing Reco app
+- `logo-yelmo.svg` - Yelmo Cines logo
+- `logo-vips.svg` - VIPS restaurants logo
+- `logo-honest-greens.svg` - Honest Greens logo
+- `logo-tgb.svg` - The Good Burger logo
+- `logo-foodbox.svg` - FoodBox logo
+- `og-image.jpg` - Social media preview (1200x630px)
 
-## Archivos Principales Creados/Modificados
+## Package Management
 
-### Sistema de Traducciones
-- `src/lib/stores/language.svelte.ts` - Store reactivo para manejar el idioma actual
-- `src/lib/utils/translations.ts` - Todas las traducciones en español e inglés
-- `src/lib/components/ui/language-toggle.svelte` - Botón para cambiar idioma
+This project uses pnpm v10.2.0 with Node.js 20.x. Always use pnpm commands instead of npm or yarn.
 
-### Páginas Traducidas
-1. **Página Principal (`/`)** - Landing page completa
-2. **Precios (`/precios`)** - Planes básico, pro y enterprise
-3. **Nosotros (`/nosotros`)** - Equipo y valores de la empresa
-4. **Blog (`/posts`)** - Lista de artículos
-5. **Restaurantes (`/restaurantes`)** - Página principal de restaurantes
-6. **Fast-casual (`/restaurantes/fast-casual`)** - Página específica para cadenas
+## Build & Deployment
 
-### Componentes Traducidos
-- Navbar - Menú de navegación completo
-- Footer - Enlaces y información legal
-- ContactCTA - Llamada a la acción
-- HeroSection - Sección principal del landing
-
-## Características del Sistema
-
-### Persistencia
-- El idioma seleccionado se guarda en `localStorage`
-- Se mantiene entre sesiones del navegador
-
-### Reactividad
-- Cambio inmediato de idioma en toda la aplicación
-- Sin necesidad de recargar la página
-
-### Cobertura Completa
-- Todas las páginas principales traducidas
-- Menús de navegación y footer incluidos
-- Metadatos de SEO (títulos y descripciones)
-
-## Uso del Sistema
-
-### Cambio de Idioma
-El usuario puede cambiar el idioma usando el botón en la esquina superior derecha del navbar, que muestra "ES/EN" con un ícono de globo.
-
-### Para Desarrolladores
-```typescript
-import { languageStore } from '$lib/stores/language.svelte';
-import { t } from '$lib/utils/translations';
-
-// Usar en componentes
-<h1>{t('pricing_title', languageStore.currentLanguage)}</h1>
-```
-
-## Páginas Pendientes
-Las siguientes subpáginas de restaurantes aún no están traducidas (requieren contenido específico):
-- `/restaurantes/autor`
-- `/restaurantes/independiente` 
-- `/restaurantes/multinacional`
-- `/restaurantes/turistico`
-- `/restaurantes/nuevo`
-
-## Estado
-✅ **Completado** - Sistema funcionando en todas las páginas principales
+- Production builds use adapter-vercel
+- Vercel deployment automatically configured
+- Environment variables must be set in Vercel dashboard
+- Analytics are automatically initialized on production builds

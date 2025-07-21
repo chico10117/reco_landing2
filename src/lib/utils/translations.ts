@@ -1,6 +1,6 @@
 import { languageStore } from '$lib/stores/language.svelte';
 
-export type Language = 'es' | 'en';
+export type Language = 'es' | 'en' | 'es-MX';
 
 export const translations = {
 	es: {
@@ -1028,6 +1028,290 @@ export const translations = {
 		blog_post_945_excerpt: 'Customer retention is crucial for the long-term success of your restaurant.',
 		blog_post_947_title: 'Artificial Intelligence in Restaurants: The Future Is Here',
 		blog_post_947_excerpt: 'AI is transforming the restaurant industry in ways that previously seemed impossible.'
+	},
+	'es-MX': {
+		// Navbar
+		restaurants: 'Restaurantes',
+		prices: 'Precios',
+		blog: 'Blog',
+		about: 'Nosotros',
+		contact: 'Contáctanos',
+		
+		// Restaurant types for navbar dropdown
+		'fast-casual': 'Cadenas de comida rápida',
+		'autor': 'Restaurantes de autor / cocina creativa',
+		'independiente': 'Restaurante independiente / familiar',
+		'multinacional': 'Cadena multinacional / expansión internacional',
+		'turistico': 'Restaurante en zona turística',
+		'nuevo': 'Restaurante nuevo / primer emprendimiento sin presencia digital',
+		
+		// Hero Section
+		hero_title_1: 'La mejor experiencia QR',
+		hero_subtitle_1: 'Para tus comensales.',
+		hero_subtitle_2: 'Para tus meseros.',
+		hero_subtitle_3: 'Para tu negocio.',
+		hero_description: 'El menú más inteligente que:',
+		hero_feature_1: 'Sugiere platillos personalizados',
+		hero_feature_2: 'Resuelve dudas al instante',
+		hero_feature_3: 'Te ayuda a conocer mejor a tus comensales',
+		hero_feature_4: 'Todo desde el celular, sin capacitaciones, sin complicaciones',
+		hero_discover_btn: 'Descubre cómo funciona',
+		hero_restaurant_btn: '¿Quieres que tu menú trabaje para ti?',
+		hero_trust_text: 'Confían en nosotros:',
+		hero_demo_btn: 'Crea tu menú demo aquí',
+		
+		// WhatsApp message
+		whatsapp_message: 'Hola, me gustaría obtener más información sobre Reco para mi restaurante.',
+		
+		// How It Works Section
+		how_it_works_title_1: 'Para comensales:',
+		how_it_works_title_2: 'ordenar sin dudas, comer mejor',
+		how_it_works_quote: '"Reco me salvó de ordenar un platillo con mariscos (¡alérgica!)"',
+		how_it_works_benefit_1: 'Ordenan sin miedo a equivocarse',
+		how_it_works_benefit_2: 'Pueden preguntar lo que quieran (y Reco responde)',
+		how_it_works_benefit_3: 'Reciben sugerencias según su dieta, tiempo y presupuesto',
+		
+		// Benefits
+		menus_in_language_title: 'Menús en tu idioma',
+		menus_in_language_desc: 'Ver el menú en tu idioma preferido, sin complicaciones. Adaptado automáticamente para que te sientas como en casa.',
+		personalized_recommendations_title: 'Recomendaciones personalizadas',
+		personalized_recommendations_desc: 'Obtén recomendaciones inteligentes basadas en tus preferencias, dieta, y presupuesto. Como tener un experto gastronómico personal.',
+		mobile_ordering_title: 'Ordena y paga desde el celular',
+		mobile_ordering_desc: 'Simplifica tu experiencia pagando directamente desde tu dispositivo. Sin esperas, sin complicaciones, solo disfruta.',
+		
+		// Choose Restaurant Type Section
+		restaurant_sells_title_1: '¿Tu menú vende',
+		restaurant_sells_title_2: 'o solo decora?',
+		restaurant_sells_quote: 'Un menú profesional no es solo bonito. Es claro, útil y estratégico.',
+		restaurant_sells_benefit_1: 'Sabes qué platillos realmente quieren tus comensales',
+		restaurant_sells_benefit_2: 'Reco aprende y propone mejoras en tu menú',
+		restaurant_sells_benefit_3: 'Vende como un mesero experto',
+		restaurant_sells_benefit_4: 'Habla todos los idiomas',
+		restaurant_sells_benefit_5: 'Se adapta al perfil de cada comensal',
+		restaurant_sells_quote_2: 'No es diseño. Es ingeniería de menú.',
+		restaurant_sells_testimonial: '"Reco convirtió mi menú en mi mejor vendedor."',
+		restaurant_sells_testimonial_author: '- Carlos, La Casa de Toño',
+		
+		// RestauranteSells testimonial
+		for_restaurateurs_testimonial: '"Reco no reemplaza a mi equipo. Lo hace mejor."',
+		for_restaurateurs_testimonial_author: '- María, Los Panchos',
+		
+		// Restaurant benefits for owners
+		data_insights_title: 'Datos útiles al instante',
+		data_insights_desc: 'Descubre qué platillos triunfan, qué falla y cómo mejorar — todo desde el menú.',
+		more_revenue_title: 'Más ingresos',
+		more_revenue_desc: 'Reco recomienda platillos que suben el ticket promedio — sin que el personal diga una palabra.',
+		less_pressure_title: 'Menos presión para el equipo',
+		less_pressure_desc: 'Reco responde dudas frecuentes, sugiere maridajes y libera al personal para lo humano.',
+		
+		// Restaurant types
+		tourist_restaurant_title: 'Restaurante turístico',
+		tourist_restaurant_desc: 'Menús multilingües y recomendaciones adaptadas a cada idioma y cultura. Tus comensales se sienten como en casa.',
+		gastrobar_title: 'Gastrobar o autor',
+		gastrobar_desc: 'Destaca tus platillos especiales y maridajes. Reco ayuda a tus comensales a descubrir tu propuesta gastronómica única.',
+		fast_casual_title: 'Comida rápida o franquicia',
+		fast_casual_desc: 'Agiliza las órdenes y maximiza las ventas. Reco sugiere complementos y optimiza el ticket promedio automáticamente.',
+		family_restaurant_title: 'Fonda o menú del día',
+		family_restaurant_desc: 'Gestiona fácilmente los menús diarios y sugerencias. Reco mantiene tu menú siempre actualizado y atractivo.',
+		
+		// Restaurante Sells Section  
+		for_restaurateurs_title_1: 'Para ti, restaurantero:',
+		for_restaurateurs_title_2: 'más ventas, menos errores',
+		for_restaurateurs_quote: '"Tu personal se enfoca en lo humano. Reco, en todo lo demás."',
+		for_restaurateurs_benefit_1: 'Aumenta el ticket promedio con recomendaciones inteligentes',
+		for_restaurateurs_benefit_2: 'Reduce errores de orden (Mejor experiencia del comensal = mejores reseñas)',
+		for_restaurateurs_benefit_3: 'Funciona con un QR. Sin instalaciones, sin capacitaciones eternas',
+		for_restaurateurs_pricing_link: 'Conoce los precios flexibles de Reco →',
+		
+		// Contact CTA
+		contact_cta_title_1: 'Transforma la experiencia de tus comensales con',
+		contact_cta_title_2: 'Reco',
+		contact_cta_description: 'Potencia tu restaurante con recomendaciones inteligentes, pagos más rápidos y comensales más satisfechos. Descubre cómo Reco puede ayudarte a crecer.',
+		contact_cta_btn: '¡Contáctanos!',
+		free_trial_btn: 'Prueba gratis',
+		
+		// PRICING PAGE
+		pricing_title: 'Planes y Precios',
+		pricing_subtitle: 'Elige el plan que mejor se adapte a las necesidades de tu restaurante.',
+		pricing_no_commitment: '✨ Sin compromisos • Cancela cuando quieras',
+		
+		// Basic Plan
+		basic_plan_title: 'Básico',
+		basic_plan_price: 'Gratis',
+		basic_plan_badge: '🎉 Plan gratuito',
+		basic_feature_digital_menu: 'Menú digital básico',
+		basic_feature_dishes: 'Hasta 50 platillos',
+		basic_feature_email_support: 'Soporte por email',
+		basic_plan_cta: 'Empezar ahora',
+		
+		// Pro Plan
+		pro_plan_title: 'Pro',
+		pro_plan_price: '$4,999 MXN',
+		pro_plan_period: '/mes',
+		pro_plan_badge: '🚀 Recomendado',
+		pro_plan_popular: '⭐ Más Popular',
+		pro_feature_basic_included: 'Todo lo del plan Básico',
+		pro_feature_ai_recommendations: 'Recomendaciones IA',
+		pro_feature_data_analysis: 'Análisis de datos',
+		pro_feature_priority_support: 'Soporte prioritario',
+		pro_plan_cta: 'Empezar',
+		
+		// Enterprise Plan
+		enterprise_plan_title: 'Enterprise',
+		enterprise_plan_price: 'Plan Empresarial',
+		enterprise_plan_badge: '💼 Empresas',
+		enterprise_feature_pro_included: 'Todo lo del plan Pro',
+		enterprise_feature_custom_integration: 'Integración personalizada',
+		enterprise_feature_24_7_support: 'Soporte 24/7',
+		enterprise_plan_cta: 'Contactar ventas',
+		
+		// ABOUT PAGE (NOSOTROS)
+		about_hero_badge: 'Equipo de clase mundial',
+		about_hero_title: 'Conoce al equipo que está revolucionando la industria restaurantera',
+		about_hero_description: 'Somos un equipo de expertos en tecnología, producto y negocio, unidos por la misión de transformar la experiencia gastronómica a través de la inteligencia artificial.',
+		
+		// Team roles
+		ceo_cofounder: 'CEO & Co-fundador',
+		cto_cofounder: 'CTO & Co-fundador',
+		chief_revenue_officer: 'Chief Revenue Officer',
+		senior_lead_developer: 'Senior Lead Developer',
+		
+		// Team bios
+		jose_bio: 'Emprendedor y especialista en comunicación con experiencia liderando equipos de marketing para marcas de lujo y proyectos digitales en América Latina.',
+		francisco_bio: 'Ingeniero electrónico con una década de experiencia liderando proyectos de hardware en Intel. Arquitecto de nuestra plataforma de IA y visionario de la digitalización del sector restaurantero.',
+		fernando_bio: 'Más de 25 años de experiencia en revenue management, marketing y ventas en sectores Telco, Fintech y Hospitality. Experto en transformar desafíos operativos en historias de éxito.',
+		abraham_bio: 'Diseñador de producto especializado en experiencia de usuario y estrategia digital. Lidera la evolución del Smart Menu con enfoque en usabilidad y eficiencia.',
+		
+		// Values section
+		values_title: 'Nuestros valores',
+		values_description: 'Con más de 45 años de experiencia combinada, nuestro equipo lidera la transformación digital del sector restaurantero con excelencia técnica y servicio incomparable.',
+		
+		innovation_title: 'Innovación Disruptiva',
+		innovation_description: 'Pioneros en IA para restaurantes. Nuestro equipo técnico de élite desarrolla soluciones que revolucionan la industria y posicionan a nuestros clientes a la vanguardia.',
+		excellence_title: 'Excelencia Comprobada',
+		excellence_description: 'Aplicamos estándares de clase mundial para garantizar resultados excepcionales en cada implementación.',
+		service_title: 'Servicio al Cliente',
+		service_description: 'El mejor soporte del mercado. Respuesta inmediata, acompañamiento personalizado y un equipo dedicado que garantiza el éxito en cada una de nuestras soluciones.',
+		
+		// BLOG PAGE
+		blog_title: 'Blog de RECO',
+		blog_description: 'Descubre consejos, estrategias y análisis sobre menús digitales, experiencia del comensal y optimización de restaurantes.',
+		blog_newsletter_title: '¿Quieres mantenerte al día con nuestras novedades?',
+		blog_newsletter_description: 'Suscríbete a nuestro newsletter y recibe contenido exclusivo sobre innovación en el sector restaurantero.',
+		blog_newsletter_cta: 'Suscribirse ahora',
+		
+		// Individual blog post page
+		post_not_found_title: 'Artículo no encontrado',
+		post_not_found_description: 'El artículo que estás buscando no está disponible o ha sido movido.',
+		post_back_to_blog: '← Volver al blog',
+		post_by_author: 'Por',
+		post_related_articles: 'Más artículos',
+		post_read_more: 'Leer más',
+		post_back_link: 'Volver al blog',
+		
+		// Blog section
+		blog_articles_title: 'Artículos y recursos',
+		blog_no_articles: 'No se encontraron artículos',
+		blog_try_other_filters: 'Prueba con otros filtros',
+		
+		// RESTAURANTS PAGE
+		restaurants_title: 'Restaurantes',
+		restaurants_owner_title: '¿Tienes un restaurante?',
+		restaurants_owner_description: 'Descubre cómo Reco puede ayudarte a mejorar la experiencia de tus comensales y aumentar tus ventas.',
+		restaurants_feature_smart_menus: 'Menús digitales inteligentes y personalizados',
+		restaurants_feature_ai_recommendations: 'Recomendaciones basadas en IA',
+		restaurants_feature_data_analysis: 'Análisis de datos y tendencias',
+		restaurants_demo_cta: 'Solicitar una demo',
+		restaurants_trust_title: 'Restaurantes que confían en Reco',
+		restaurants_trust_description: 'Únete a los cientos de restaurantes que ya están transformando su experiencia gastronómica con Reco.',
+		
+		// Restaurant types selection
+		restaurants_select_title: 'Selecciona tu tipo de restaurante',
+		restaurants_select_description: 'Soluciones personalizadas para cada tipo de negocio gastronómico.',
+		
+		// FAST-CASUAL PAGE
+		fast_casual_hero_title: 'Menú Digital Inteligente para Cadenas de Comida Rápida',
+		fast_casual_hero_subtitle: 'Optimiza tus operaciones, aumenta el ticket promedio y mejora la experiencia del comensal con IA.',
+		
+		// Fast-casual features
+		fast_casual_feature_1_title: 'Órdenes Más Rápidas',
+		fast_casual_feature_1_desc: 'Reduce el tiempo de orden en un 40% con sugerencias inteligentes y navegación optimizada.',
+		fast_casual_feature_2_title: 'Mayor Ticket Promedio',
+		fast_casual_feature_2_desc: 'Incrementa tus ventas hasta un 25% con recomendaciones personalizadas de complementos.',
+		fast_casual_feature_3_title: 'Menos Errores',
+		fast_casual_feature_3_desc: 'Elimina malentendidos y reduce devoluciones con descripciones claras y confirmaciones visuales.',
+		
+		// Fast-casual benefits
+		fast_casual_benefit_operations: 'Operaciones Optimizadas',
+		fast_casual_benefit_operations_desc: 'Sistema diseñado para alto volumen: gestión de rush hours, integración con cocina y actualizaciones en tiempo real de disponibilidad.',
+		fast_casual_benefit_analytics: 'Análisis en Tiempo Real',
+		fast_casual_benefit_analytics_desc: 'Dashboard completo con métricas clave: productos más vendidos, horarios pico, preferencias por sucursal y tendencias de consumo.',
+		fast_casual_benefit_brand: 'Consistencia de Marca',
+		fast_casual_benefit_brand_desc: 'Mantén la identidad de tu marca en todas las sucursales con plantillas personalizables y control centralizado.',
+		
+		// Fast-casual CTA
+		fast_casual_cta_title: '¿Listo para revolucionar tu cadena de comida rápida?',
+		fast_casual_cta_subtitle: 'Únete a las principales cadenas que ya confían en Reco',
+		fast_casual_cta_button: 'Agendar Demo Personalizada',
+		fast_casual_cta_whatsapp: 'Hablar por WhatsApp',
+		
+		// Footer
+		footer_product_title: 'Producto',
+		footer_features: 'Características',
+		footer_pricing: 'Precios',
+		footer_restaurants: 'Restaurantes',
+		footer_blog: 'Blog',
+		
+		footer_company_title: 'Empresa',
+		footer_about: 'Nosotros',
+		footer_contact: 'Contacto',
+		footer_privacy: 'Privacidad',
+		footer_terms: 'Términos',
+		
+		footer_social_title: 'Síguenos',
+		footer_copyright: '© 2024 Reco. Todos los derechos reservados.',
+		
+		// Cookie consent
+		cookie_consent_title: 'Usamos cookies',
+		cookie_consent_description: 'Utilizamos cookies para mejorar tu experiencia. Al continuar navegando, aceptas nuestro uso de cookies.',
+		cookie_consent_accept: 'Aceptar',
+		cookie_consent_decline: 'Rechazar',
+		cookie_consent_manage: 'Gestionar preferencias',
+		
+		// Cookies page
+		cookies_page_title: 'Política de Cookies',
+		cookies_page_description: 'En Reco utilizamos cookies para mejorar tu experiencia de navegación.',
+		cookies_essential_title: 'Cookies Esenciales',
+		cookies_essential_desc: 'Necesarias para el funcionamiento básico del sitio.',
+		cookies_analytics_title: 'Cookies Analíticas',
+		cookies_analytics_desc: 'Nos ayudan a entender cómo interactúas con nuestro sitio.',
+		cookies_marketing_title: 'Cookies de Marketing',
+		cookies_marketing_desc: 'Usadas para mostrarte contenido relevante.',
+		cookies_save_preferences: 'Guardar preferencias',
+		
+		// Additional Mexican-specific content
+		fast_casual_testimonial: '"Reco aumentó nuestras ventas en 30% en solo 2 meses"',
+		fast_casual_testimonial_author: '- Roberto, Tacos El Güero',
+		
+		// Blog posts - keeping same as Spanish for now
+		blog_post_886_title: '¿Por qué usar un Menú Inteligente? Los beneficios que nadie te contó',
+		blog_post_886_excerpt: 'Descubre las ventajas ocultas de implementar un menú inteligente en tu restaurante.',
+		blog_post_884_title: 'La importancia de la fidelización en la industria de hostelería',
+		blog_post_884_excerpt: 'La fidelización de clientes es clave para el éxito de cualquier restaurante.',
+		blog_post_882_title: '¿Cómo optimizar la rotación de mesas en tu restaurante?',
+		blog_post_882_excerpt: 'La rotación de mesas es fundamental para maximizar los ingresos de tu restaurante.',
+		blog_post_871_title: '5 estrategias para aumentar el ticket promedio en tu restaurante',
+		blog_post_871_excerpt: 'Aumentar el ticket promedio es una de las formas más efectivas de incrementar tus ingresos.',
+		blog_post_869_title: 'La importancia de un menú visualmente atractivo en la era digital',
+		blog_post_869_excerpt: 'En la era digital, la presentación visual de tu menú es más importante que nunca.',
+		blog_post_940_title: '¿Por qué los clientes odian esperar y cómo solucionarlo?',
+		blog_post_940_excerpt: 'Los tiempos de espera largos pueden arruinar la experiencia del cliente en tu restaurante.',
+		blog_post_944_title: 'Los menús digitales típicos son obsoletos',
+		blog_post_944_excerpt: 'Los menús digitales tradicionales ya no son suficientes para satisfacer las expectativas de los clientes.',
+		blog_post_945_title: '¿Cómo hacer que los clientes regresen a tu restaurante?',
+		blog_post_945_excerpt: 'La retención de clientes es crucial para el éxito a largo plazo de tu restaurante.',
+		blog_post_947_title: 'Inteligencia Artificial en restaurantes: El futuro está aquí',
+		blog_post_947_excerpt: 'La IA está transformando la industria restaurantera de maneras que antes parecían imposibles.'
 	}
 } as const;
 

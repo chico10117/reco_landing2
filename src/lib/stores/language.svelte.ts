@@ -1,6 +1,6 @@
 import { browser } from '$app/environment';
 
-export type Language = 'es' | 'en';
+export type Language = 'es' | 'en' | 'es-MX';
 
 class LanguageStore {
 	currentLanguage = $state<Language>('es');
@@ -9,14 +9,21 @@ class LanguageStore {
 		// Check if we're in the browser
 		if (typeof window !== 'undefined') {
 			const savedLang = localStorage.getItem('language') as Language;
-			if (savedLang && (savedLang === 'es' || savedLang === 'en')) {
+			if (savedLang && (savedLang === 'es' || savedLang === 'en' || savedLang === 'es-MX')) {
 				this.currentLanguage = savedLang;
 			}
 		}
 	}
 
 	toggleLanguage() {
-		this.currentLanguage = this.currentLanguage === 'es' ? 'en' : 'es';
+		// Cycle through languages: es -> en -> es-MX -> es
+		if (this.currentLanguage === 'es') {
+			this.currentLanguage = 'en';
+		} else if (this.currentLanguage === 'en') {
+			this.currentLanguage = 'es-MX';
+		} else {
+			this.currentLanguage = 'es';
+		}
 		if (typeof window !== 'undefined') {
 			localStorage.setItem('language', this.currentLanguage);
 		}

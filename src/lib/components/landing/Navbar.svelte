@@ -4,7 +4,7 @@
   import { onMount } from 'svelte';
   import { page } from '$app/stores'; // For active link highlighting if needed
   import { Sparkles, ChefHat, Utensils, Globe, Landmark, PlusCircle, Users } from 'lucide-svelte';
-  import LanguageToggle from '$lib/components/ui/language-toggle.svelte';
+  import LanguageSelector from '$lib/components/ui/language-selector.svelte';
   import { languageStore } from '$lib/stores/language.svelte';
   import { t } from '$lib/utils/translations';
   
@@ -180,7 +180,7 @@
       <!-- Parte derecha - Botones de acción -->
       <div class="flex items-center gap-3">
         <!-- Botón de cambio de idioma -->
-        <LanguageToggle />
+        <LanguageSelector />
         
         <!-- Menú hamburguesa para móviles -->
         <button 
