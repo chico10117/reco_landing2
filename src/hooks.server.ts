@@ -11,34 +11,34 @@ const countryToLanguage: Record<string, Language> = {
   'NZ': 'en', // New Zealand
   'IE': 'en', // Ireland
   
-  // Mexican Spanish
-  'MX': 'es-MX', // Mexico
-  
-  // Spanish-speaking countries (default Spanish)
+  // Spain Spanish (only for Spain)
   'ES': 'es', // Spain
-  'AR': 'es', // Argentina
-  'CO': 'es', // Colombia
-  'CL': 'es', // Chile
-  'PE': 'es', // Peru
-  'VE': 'es', // Venezuela
-  'EC': 'es', // Ecuador
-  'GT': 'es', // Guatemala
-  'CU': 'es', // Cuba
-  'BO': 'es', // Bolivia
-  'DO': 'es', // Dominican Republic
-  'HN': 'es', // Honduras
-  'PY': 'es', // Paraguay
-  'SV': 'es', // El Salvador
-  'NI': 'es', // Nicaragua
-  'CR': 'es', // Costa Rica
-  'PA': 'es', // Panama
-  'UY': 'es', // Uruguay
-  'PR': 'es', // Puerto Rico
+  
+  // Latin American countries (Mexican Spanish)
+  'MX': 'es-MX', // Mexico
+  'AR': 'es-MX', // Argentina
+  'CO': 'es-MX', // Colombia
+  'CL': 'es-MX', // Chile
+  'PE': 'es-MX', // Peru
+  'VE': 'es-MX', // Venezuela
+  'EC': 'es-MX', // Ecuador
+  'GT': 'es-MX', // Guatemala
+  'CU': 'es-MX', // Cuba
+  'BO': 'es-MX', // Bolivia
+  'DO': 'es-MX', // Dominican Republic
+  'HN': 'es-MX', // Honduras
+  'PY': 'es-MX', // Paraguay
+  'SV': 'es-MX', // El Salvador
+  'NI': 'es-MX', // Nicaragua
+  'CR': 'es-MX', // Costa Rica
+  'PA': 'es-MX', // Panama
+  'UY': 'es-MX', // Uruguay
+  'PR': 'es-MX', // Puerto Rico
 };
 
 function getLanguageFromCountry(country: string | null): Language {
-  if (!country) return 'es'; // Default to Spanish
-  return countryToLanguage[country.toUpperCase()] || 'es';
+  if (!country) return 'es-MX'; // Default to Mexican Spanish
+  return countryToLanguage[country.toUpperCase()] || 'es-MX';
 }
 
 export const handle: Handle = async ({ event, resolve }) => {
