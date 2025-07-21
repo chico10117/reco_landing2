@@ -205,8 +205,8 @@ export const translations = {
 		fastcasual_info: 'Reco es la capa inteligente que potencia tus menús QR. Personaliza la experiencia, aumenta el ticket medio y aligera la operación.',
 		
 		fastcasual_problem_title: 'El problema',
-		fastcasual_problem_desc_1: 'Dirigir una cadena fast-casual hoy es una batalla constante entre velocidad, eficiencia y experiencia. Tu equipo rota. Los clientes esperan inmediatez. Los márgenes son estrechos. Y aunque tienes datos... no siempre se convierten en decisiones de menú claras.',
-		fastcasual_problem_desc_2: 'El menú es la herramienta que todos tus clientes tocan — pero que aún no te ayuda a vender mejor. Reco lo cambia.',
+		fastcasual_problem_desc_1: 'Las cadenas fast-casual enfrentan retos constantes: alta rotación, clientes impacientes y decisiones de menú poco claras que afectan las ventas.',
+		fastcasual_problem_desc_2: '',
 		
 		fastcasual_solution_title: '¿Qué hace Reco?',
 		fastcasual_feature_promote: 'Promociona automáticamente platos de alta rentabilidad.',
@@ -718,8 +718,8 @@ export const translations = {
 		fastcasual_info: 'Reco is the intelligent layer that powers your QR menus. Personalize the experience, increase average ticket and lighten operations.',
 		
 		fastcasual_problem_title: 'The problem',
-		fastcasual_problem_desc_1: 'Running a fast-casual chain today is a constant battle between speed, efficiency and experience. Your team rotates. Customers expect immediacy. Margins are tight. And while you have data... it doesn\'t always translate into clear menu decisions.',
-		fastcasual_problem_desc_2: 'The menu is the tool all your customers touch — but it still doesn\'t help you sell better. Reco changes that.',
+		fastcasual_problem_desc_1: 'Fast-casual chains face constant challenges: high turnover, impatient customers, and unclear menu decisions that affect sales.',
+		fastcasual_problem_desc_2: '',
 		
 		fastcasual_solution_title: 'What does Reco do?',
 		fastcasual_feature_promote: 'Automatically promotes high-profitability dishes.',
@@ -1232,6 +1232,10 @@ export const translations = {
 		// FAST-CASUAL PAGE
 		fast_casual_hero_title: 'Menú Digital Inteligente para Cadenas de Comida Rápida',
 		fast_casual_hero_subtitle: 'Optimiza tus operaciones, aumenta el ticket promedio y mejora la experiencia del comensal con IA.',
+		
+		// Fast-casual problem section
+		fast_casual_problem_title: 'El problema',
+		fast_casual_problem_description: 'Las cadenas de comida rápida enfrentan retos constantes: alta rotación, clientes impacientes y decisiones de menú poco claras que afectan las ventas.',
 		
 		// Fast-casual features
 		fast_casual_feature_1_title: 'Órdenes Más Rápidas',
