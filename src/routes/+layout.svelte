@@ -4,9 +4,14 @@
   import Footer from '$lib/components/landing/footer.svelte';
   import CookieConsentBanner from '$lib/components/ui/cookie-consent-banner.svelte';
   import { onMount } from 'svelte';
+  import { dev } from '$app/environment';
+  import { inject } from '@vercel/analytics';
   import { initAnalytics } from '$lib/analytics';
   import { languageStore } from '$lib/stores/language.svelte';
   import type { PageData } from './$types';
+
+  // Initialize Vercel Analytics immediately (correct SvelteKit implementation)
+  inject({ mode: dev ? 'development' : 'production' });
 
   // Access route children via snippet prop instead of legacy slots
   import type { Snippet } from 'svelte';

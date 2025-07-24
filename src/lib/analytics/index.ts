@@ -1,5 +1,4 @@
 import { hasConsentFor } from '$lib/utils/cookies';
-import { inject } from '@vercel/analytics';
 
 // Tipos para Google Analytics y Hotjar
 declare global {
@@ -59,9 +58,6 @@ export const initHotjar = (id: number) => {
   }
 };
 
-// Track if Vercel Analytics has been initialized
-let vercelAnalyticsInitialized = false;
-
 // Initialize all analytics platforms based on user consent
 export const initAnalytics = () => {
   if (hasConsentFor('analytics') && isAnalyticsConfigured()) {
@@ -74,13 +70,6 @@ export const initAnalytics = () => {
     
     if (HOTJAR_ID && !isNaN(HOTJAR_ID) && HOTJAR_ID !== 1234567) {
       initHotjar(HOTJAR_ID);
-    }
-    
-    // Initialize Vercel Analytics (only once and with consent)
-    const vercelEnabled = import.meta.env.PUBLIC_VERCEL_ANALYTICS_ENABLED !== 'false';
-    if (!vercelAnalyticsInitialized && vercelEnabled) {
-      inject();
-      vercelAnalyticsInitialized = true;
     }
   }
 };
@@ -99,13 +88,8 @@ export const isAnalyticsConfigured = (): boolean => {
 // Check if analytics are initialized
 export const areAnalyticsInitialized = (): boolean => {
   return typeof window !== 'undefined' && 
-         (!!window.gtag || !!window.hj || vercelAnalyticsInitialized) && 
+         (!!window.gtag || !!window.hj) && 
          hasConsentFor('analytics');
-};
-
-// Get Vercel Analytics initialization status
-export const isVercelAnalyticsInitialized = (): boolean => {
-  return vercelAnalyticsInitialized;
 };
 
 // Debug function to check if Hotjar is properly loaded
@@ -135,7 +119,7 @@ export const getAnalyticsStatus = () => {
       loaded: typeof window.gtag === 'function',
     },
     vercel: {
-      initialized: vercelAnalyticsInitialized,
+      initialized: true, // Now initialized directly in layout
     }
   };
 }; 
