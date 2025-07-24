@@ -3,7 +3,7 @@ import { browser } from '$app/environment';
 export type Language = 'es' | 'en' | 'es-MX';
 
 class LanguageStore {
-	currentLanguage = $state<Language>('es-MX'); // Default to Mexican Spanish
+	currentLanguage = $state<Language>('en'); // Default to English
 	hasUserSelected = false;
 
 	constructor() {

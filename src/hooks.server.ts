@@ -3,19 +3,41 @@ import type { Language } from '$lib/stores/language.svelte';
 
 // Map of country codes to languages
 const countryToLanguage: Record<string, Language> = {
-  // English-speaking countries
+  // Native English-speaking countries - MUST see English
   'US': 'en', // United States
+  'GB': 'en', // United Kingdom (England, Scotland, Wales, N. Ireland)
   'CA': 'en', // Canada
-  'GB': 'en', // United Kingdom
   'AU': 'en', // Australia
   'NZ': 'en', // New Zealand
   'IE': 'en', // Ireland
+  'ZA': 'en', // South Africa
+  'SG': 'en', // Singapore
+  'IN': 'en', // India
+  'PH': 'en', // Philippines
+  'NG': 'en', // Nigeria
+  'KE': 'en', // Kenya
+  'GH': 'en', // Ghana
+  'ZM': 'en', // Zambia
+  'ZW': 'en', // Zimbabwe
+  'MW': 'en', // Malawi
+  'UG': 'en', // Uganda
+  'TZ': 'en', // Tanzania
+  'BW': 'en', // Botswana
+  'JM': 'en', // Jamaica
+  'TT': 'en', // Trinidad and Tobago
+  'BB': 'en', // Barbados
+  'BS': 'en', // Bahamas
+  'BZ': 'en', // Belize
+  'GY': 'en', // Guyana
+  'MT': 'en', // Malta
   
-  // Spain Spanish (only for Spain)
+  // Spain - ONLY Spain gets Spain Spanish
   'ES': 'es', // Spain
   
-  // Latin American countries (Mexican Spanish)
+  // Mexico - MUST see Mexican Spanish
   'MX': 'es-MX', // Mexico
+  
+  // Latin American countries - MUST see Mexican Spanish (es-MX)
   'AR': 'es-MX', // Argentina
   'CO': 'es-MX', // Colombia
   'CL': 'es-MX', // Chile
@@ -34,11 +56,21 @@ const countryToLanguage: Record<string, Language> = {
   'PA': 'es-MX', // Panama
   'UY': 'es-MX', // Uruguay
   'PR': 'es-MX', // Puerto Rico
+  'GQ': 'es-MX', // Equatorial Guinea (Spanish-speaking in Africa)
 };
 
 function getLanguageFromCountry(country: string | null): Language {
-  if (!country) return 'es-MX'; // Default to Mexican Spanish
-  return countryToLanguage[country.toUpperCase()] || 'es-MX';
+  if (!country) return 'en'; // Default to English for unknown locations
+  
+  const countryUpper = country.toUpperCase();
+  
+  // If country is explicitly mapped, use that mapping
+  if (countryUpper in countryToLanguage) {
+    return countryToLanguage[countryUpper];
+  }
+  
+  // For unmapped countries, default to English (rest of the world)
+  return 'en';
 }
 
 export const handle: Handle = async ({ event, resolve }) => {
