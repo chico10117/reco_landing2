@@ -37,24 +37,8 @@ const countryToLanguage: Record<string, Language> = {
 };
 
 function getLanguageFromCountry(country: string | null): Language {
-  if (!country) return 'en'; // Default to English for unknown locations
-  
-  const countryUpper = country.toUpperCase();
-  
-  // If country is in our mapping, use it
-  if (countryUpper in countryToLanguage) {
-    return countryToLanguage[countryUpper];
-  }
-  
-  // For unmapped countries, make intelligent defaults based on region
-  // European countries default to English
-  const europeanCountries = ['DE', 'FR', 'IT', 'NL', 'BE', 'SE', 'NO', 'DK', 'FI', 'PL', 'PT', 'AT', 'CH', 'GR', 'CZ', 'HU', 'RO', 'BG'];
-  if (europeanCountries.includes(countryUpper)) {
-    return 'en';
-  }
-  
-  // Asian and other countries default to English
-  return 'en';
+  if (!country) return 'es-MX'; // Default to Mexican Spanish
+  return countryToLanguage[country.toUpperCase()] || 'es-MX';
 }
 
 export const handle: Handle = async ({ event, resolve }) => {
