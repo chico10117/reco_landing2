@@ -46,43 +46,47 @@ export const handle: Handle = async ({ event, resolve }) => {
   const languageCookie = event.cookies.get('user-language');
   
   if (!languageCookie) {
-    // Try to detect country from various sources
+    // Collect all available geolocation data
     let detectedCountry: string | null = null;
+    let detectedCity: string | null = null;
+    let detectedRegion: string | null = null;
+    let detectedPostalCode: string | null = null;
     
-    // Log all headers for debugging
-    console.log('=== IP Detection Debug ===');
-    console.log('Request URL:', event.url.pathname);
+    // Get all Vercel geolocation headers (available immediately)
+    const vercelCountry = event.request.headers.get('x-vercel-ip-country');
+    const vercelCity = event.request.headers.get('x-vercel-ip-city');
+    const vercelRegion = event.request.headers.get('x-vercel-ip-country-region');
+    const vercelPostalCode = event.request.headers.get('x-vercel-ip-postal-code');
     
-    // 1. Check Vercel's geo object (if deployed on Vercel)
-    // @ts-ignore - Vercel adds this to the request
-    if (event.platform?.context?.geo) {
-      // @ts-ignore
-      detectedCountry = event.platform.context.geo.country;
-      console.log('Vercel geo country:', detectedCountry);
+    if (vercelCountry) {
+      detectedCountry = vercelCountry;
+      detectedCity = vercelCity;
+      detectedRegion = vercelRegion;
+      detectedPostalCode = vercelPostalCode;
     }
     
-    // 2. Check Cloudflare's CF-IPCountry header
+    // Fallback: Check Vercel's geo object
+    // @ts-ignore - Vercel adds this to the request
+    if (!detectedCountry && event.platform?.context?.geo) {
+      // @ts-ignore
+      detectedCountry = event.platform.context.geo.country;
+      // @ts-ignore
+      detectedCity = event.platform.context.geo.city;
+      // @ts-ignore
+      detectedRegion = event.platform.context.geo.region;
+    }
+    
+    // Additional fallback: Cloudflare headers
     if (!detectedCountry) {
       const cfCountry = event.request.headers.get('cf-ipcountry');
       if (cfCountry) {
         detectedCountry = cfCountry;
-        console.log('Cloudflare country:', detectedCountry);
       }
     }
     
-    // 3. Check X-Vercel-IP-Country header (Vercel Edge)
-    if (!detectedCountry) {
-      const vercelCountry = event.request.headers.get('x-vercel-ip-country');
-      if (vercelCountry) {
-        detectedCountry = vercelCountry;
-        console.log('Vercel header country:', detectedCountry);
-      }
-    }
-    
-    // 4. As a fallback, check Accept-Language header for hints
+    // Final fallback: Check Accept-Language header for hints
     if (!detectedCountry) {
       const acceptLanguage = event.request.headers.get('accept-language');
-      console.log('Accept-Language header:', acceptLanguage);
       if (acceptLanguage) {
         // Simple parsing - look for country codes
         if (acceptLanguage.includes('en-US')) detectedCountry = 'US';
@@ -95,13 +99,21 @@ export const handle: Handle = async ({ event, resolve }) => {
     // Get suggested language based on country
     const suggestedLanguage = getLanguageFromCountry(detectedCountry);
     
-    console.log('Final detected country:', detectedCountry);
-    console.log('Suggested language:', suggestedLanguage);
-    console.log('=========================');
-    
-    // Store the suggestion in event.locals for the layout to access
+    // Store all geolocation data in event.locals
     event.locals.suggestedLanguage = suggestedLanguage;
     event.locals.detectedCountry = detectedCountry;
+    event.locals.detectedCity = detectedCity;
+    event.locals.detectedRegion = detectedRegion;
+    event.locals.detectedPostalCode = detectedPostalCode;
+    
+    // Debug logging (can be removed in production)
+    console.log('=== Geolocation Data ===');
+    console.log('Country:', detectedCountry);
+    console.log('City:', detectedCity);
+    console.log('Region:', detectedRegion);
+    console.log('Postal Code:', detectedPostalCode);
+    console.log('Suggested Language:', suggestedLanguage);
+    console.log('========================');
   }
   
   const response = await resolve(event);

@@ -9,6 +9,9 @@ declare global {
 		interface Locals {
 			suggestedLanguage?: Language;
 			detectedCountry?: string | null;
+			detectedCity?: string | null;
+			detectedRegion?: string | null;
+			detectedPostalCode?: string | null;
 		}
 		// interface PageData {}
 		// interface PageState {}
