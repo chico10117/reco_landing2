@@ -8,6 +8,35 @@
   // Create reactive translations
   const currentLang = $derived(languageStore.currentLanguage);
   const tr = (key: Parameters<typeof t>[0]) => t(key, currentLang);
+  
+  // Pricing toggle state
+  let isAnnual = $state(false);
+  
+  // Reactive pricing based on toggle
+  const basicPrice = $derived(isAnnual ? tr('basic_plan_price_annual') : tr('basic_plan_price'));
+  const proPrice = $derived(isAnnual ? tr('pro_plan_price_annual') : tr('pro_plan_price'));
+  
+  // Stripe links based on language and billing period
+  const stripeLinks = $derived.by(() => {
+    const isMexico = currentLang === 'es-MX';
+    
+    if (isMexico) {
+      return {
+        standard: 'https://buy.stripe.com/4gM8wP25G82h1cPeqa1ck06', // MX Monthly Standard (same as Pro monthly)
+        pro: isAnnual 
+          ? 'https://buy.stripe.com/eVq6oHfWw6Yd3kX1Do1ck05' // MX Annual Pro
+          : 'https://buy.stripe.com/4gM8wP25G82h1cPeqa1ck06'  // MX Monthly Pro
+      };
+    } else {
+      // European customers (ES, EN)
+      return {
+        standard: 'https://buy.stripe.com/bJedR96lWdmBaNpbdY1ck02', // EU Monthly Standard
+        pro: isAnnual
+          ? 'https://buy.stripe.com/cNi6oH25G0zP4p181M1ck04' // EU Annual Pro
+          : 'https://buy.stripe.com/aFa7sLeSs1DT2gT95Q1ck03'  // EU Monthly Pro
+      };
+    }
+  });
 </script>
 
 <svelte:head>
@@ -45,6 +74,31 @@
   </div>
 </div>
 
+<!-- Pricing Toggle -->
+<div class="relative -mt-12 mb-16 z-10">
+  <div class="max-w-xs mx-auto">
+    <div class="relative bg-white rounded-full p-2 shadow-lg border border-gray-200">
+      <div class="grid grid-cols-2 gap-4">
+        <button 
+          onclick={() => isAnnual = false}
+          class="relative px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 {!isAnnual ? 'bg-blue-600 text-white shadow-md' : 'text-gray-600 hover:text-gray-900'}"
+        >
+          {tr('pricing_toggle_monthly')}
+        </button>
+        <button 
+          onclick={() => isAnnual = true}
+          class="relative px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 {isAnnual ? 'bg-blue-600 text-white shadow-md' : 'text-gray-600 hover:text-gray-900'}"
+        >
+          {tr('pricing_toggle_annual')}
+          <span class="absolute -top-2 -right-2 bg-green-500 text-white text-xs px-2 py-0.5 rounded-full">
+            {tr('pricing_save_yearly')}
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Pricing Cards Section -->
 <div class="relative -mt-6 pb-20">
   <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-8">
@@ -58,7 +112,8 @@
             <div class="text-center">
               <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-2">{tr('basic_plan_title')}</h3>
               <div class="mb-2">
-                <span class="text-4xl md:text-6xl font-bold text-green-600">{tr('basic_plan_price')}</span>
+                <span class="text-4xl md:text-6xl font-bold text-green-600">{basicPrice}</span>
+                <span class="text-base md:text-xl text-gray-600 ml-1">{tr('basic_plan_period')}</span>
               </div>
               <div class="inline-flex items-center px-2 py-1 md:px-3 md:py-1 rounded-full bg-green-50 border border-green-200 mb-4 md:mb-8">
                 <span class="text-green-700 text-xs md:text-sm font-medium">{tr('basic_plan_badge')}</span>
@@ -93,7 +148,7 @@
             </ul>
           </div>
           <div class="px-4 pb-4 md:px-8 md:pb-8">
-            <a href="https://carta.reco.chat" target="_blank" rel="noopener noreferrer" class="block">
+            <a href={stripeLinks.standard} target="_blank" rel="noopener noreferrer" class="block">
               <Button variant="outline" class="w-full h-10 md:h-12 text-sm md:text-lg font-semibold border-2 border-green-300 text-green-700 hover:bg-green-50 hover:border-green-400 hover:scale-105 hover:shadow-lg transition-all duration-200">
                 {tr('basic_plan_cta')}
               </Button>
@@ -118,7 +173,7 @@
                 <div class="text-center">
                  <h3 class="text-xl md:text-2xl font-bold text-white mb-2">{tr('pro_plan_title')}</h3>
                  <div class="mb-2">
-                   <span class="text-4xl md:text-6xl font-bold text-white">{tr('pro_plan_price')}</span>
+                   <span class="text-4xl md:text-6xl font-bold text-white">{proPrice}</span>
                    <span class="text-base md:text-xl text-blue-200 ml-1">{tr('pro_plan_period')}</span>
                  </div>
                 <div class="inline-flex items-center px-2 py-1 md:px-3 md:py-1 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 mb-4 md:mb-8">
@@ -162,9 +217,11 @@
               </ul>
             </div>
             <div class="px-4 pb-4 md:px-8 md:pb-8">
-              <Button class="w-full h-10 md:h-12 text-sm md:text-lg font-semibold bg-white text-blue-700 hover:bg-blue-50 hover:scale-105 hover:shadow-xl shadow-lg transition-all duration-200">
-                {tr('pro_plan_cta')}
-              </Button>
+              <a href={stripeLinks.pro} target="_blank" rel="noopener noreferrer" class="block">
+                <Button class="w-full h-10 md:h-12 text-sm md:text-lg font-semibold bg-white text-blue-700 hover:bg-blue-50 hover:scale-105 hover:shadow-xl shadow-lg transition-all duration-200">
+                  {tr('pro_plan_cta')}
+                </Button>
+              </a>
             </div>
           </div>
         </div>

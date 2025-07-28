@@ -108,11 +108,16 @@ export const translations = {
 		pricing_title: 'Planes y Precios',
 		pricing_subtitle: 'Elige el plan que mejor se adapte a las necesidades de tu restaurante.',
 		pricing_no_commitment: '✨ Sin compromisos • Cancela cuando quieras',
+		pricing_toggle_monthly: 'Mensual',
+		pricing_toggle_annual: 'Anual',
+		pricing_save_yearly: 'Ahorra hasta 10%',
 		
 		// Basic Plan
-		basic_plan_title: 'Básico',
-		basic_plan_price: 'Gratis',
-		basic_plan_badge: '🎉 Plan gratuito',
+		basic_plan_title: 'Estándar',
+		basic_plan_price: '24.99€',
+		basic_plan_price_annual: '22.50€',
+		basic_plan_period: '/mes',
+		basic_plan_badge: '🌟 Plan estándar',
 		basic_feature_digital_menu: 'Menú digital básico',
 		basic_feature_dishes: 'Hasta 50 platos',
 		basic_feature_email_support: 'Soporte por email',
@@ -120,7 +125,8 @@ export const translations = {
 		
 		// Pro Plan
 		pro_plan_title: 'Pro',
-		pro_plan_price: '249.99€',
+		pro_plan_price: '49.99€',
+		pro_plan_price_annual: '45€',
 		pro_plan_period: '/mes',
 		pro_plan_badge: '🚀 Recomendado',
 		pro_plan_popular: '⭐ Más Popular',
@@ -621,11 +627,16 @@ export const translations = {
 		pricing_title: 'Plans & Pricing',
 		pricing_subtitle: 'Choose the plan that best fits your restaurant\'s needs.',
 		pricing_no_commitment: '✨ No commitments • Cancel anytime',
+		pricing_toggle_monthly: 'Monthly',
+		pricing_toggle_annual: 'Annual',
+		pricing_save_yearly: 'Save up to 10%',
 		
 		// Basic Plan
-		basic_plan_title: 'Basic',
-		basic_plan_price: 'Free',
-		basic_plan_badge: '🎉 Free plan',
+		basic_plan_title: 'Standard',
+		basic_plan_price: '€24.99',
+		basic_plan_price_annual: '€22.50',
+		basic_plan_period: '/month',
+		basic_plan_badge: '🌟 Standard plan',
 		basic_feature_digital_menu: 'Basic digital menu',
 		basic_feature_dishes: 'Up to 50 dishes',
 		basic_feature_email_support: 'Email support',
@@ -633,7 +644,8 @@ export const translations = {
 		
 		// Pro Plan
 		pro_plan_title: 'Pro',
-		pro_plan_price: '€249.99',
+		pro_plan_price: '€49.99',
+		pro_plan_price_annual: '€45',
 		pro_plan_period: '/month',
 		pro_plan_badge: '🚀 Recommended',
 		pro_plan_popular: '⭐ Most Popular',
@@ -1134,11 +1146,16 @@ export const translations = {
 		pricing_title: 'Planes y Precios',
 		pricing_subtitle: 'Elige el plan que mejor se adapte a las necesidades de tu restaurante.',
 		pricing_no_commitment: '✨ Sin compromisos • Cancela cuando quieras',
+		pricing_toggle_monthly: 'Mensual',
+		pricing_toggle_annual: 'Anual',
+		pricing_save_yearly: 'Ahorra hasta 25%',
 		
 		// Basic Plan
-		basic_plan_title: 'Básico',
-		basic_plan_price: 'Gratis',
-		basic_plan_badge: '🎉 Plan gratuito',
+		basic_plan_title: 'Estándar',
+		basic_plan_price: '$4,999 MXN',
+		basic_plan_price_annual: '$4,500 MXN',
+		basic_plan_period: '/mes',
+		basic_plan_badge: '🌟 Plan estándar',
 		basic_feature_digital_menu: 'Menú digital básico',
 		basic_feature_dishes: 'Hasta 50 platillos',
 		basic_feature_email_support: 'Soporte por email',
@@ -1147,6 +1164,7 @@ export const translations = {
 		// Pro Plan
 		pro_plan_title: 'Pro',
 		pro_plan_price: '$4,999 MXN',
+		pro_plan_price_annual: '$4,500 MXN',
 		pro_plan_period: '/mes',
 		pro_plan_badge: '🚀 Recomendado',
 		pro_plan_popular: '⭐ Más Popular',
@@ -1230,6 +1248,10 @@ export const translations = {
 		restaurants_select_description: 'Soluciones personalizadas para cada tipo de negocio gastronómico.',
 		
 		// FAST-CASUAL PAGE
+		fastcasual_hero_title_1: 'Convierte tu menú en un motor de ingresos.',
+		fastcasual_hero_title_2: 'Sin apps. Sin fricción.',
+		fastcasual_hero_subtitle: 'Optimiza cada pedido, cada turno y cada local con Reco.',
+		fastcasual_info: 'Reco es la capa inteligente que potencia tus menús QR. Personaliza la experiencia, aumenta el ticket medio y aligera la operación.',
 		fast_casual_hero_title: 'Menú Digital Inteligente para Cadenas de Comida Rápida',
 		fast_casual_hero_subtitle: 'Optimiza tus operaciones, aumenta el ticket promedio y mejora la experiencia del comensal con IA.',
 		
