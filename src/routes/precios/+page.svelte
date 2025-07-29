@@ -55,7 +55,7 @@
 </svelte:head>
 
 <!-- Hero Section with Blue Gradient -->
-<div class="relative overflow-hidden bg-white" style="background: radial-gradient(ellipse 60% 40% at 50% 40%, #dbeafe 0%, #e0e7ef 60%, #fff 100%);">
+ <div class="relative overflow-hidden bg-white"> <!--style="background: radial-gradient(ellipse 60% 40% at 50% 40%, #dbeafe 0%, #e0e7ef 60%, #fff 100%);"> -->
   <!-- Background Pattern -->
   <div class="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]"></div>
   
