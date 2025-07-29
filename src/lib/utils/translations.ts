@@ -640,7 +640,7 @@ export const translations = {
 		basic_feature_digital_menu: 'Basic digital menu',
 		basic_feature_dishes: 'Up to 50 dishes',
 		basic_feature_email_support: 'Email support',
-		basic_plan_cta: 'Start now',
+		basic_plan_cta: 'Start Now',
 		
 		// Pro Plan
 		pro_plan_title: 'Pro',
@@ -653,7 +653,7 @@ export const translations = {
 		pro_feature_ai_recommendations: 'AI recommendations',
 		pro_feature_data_analysis: 'Data analysis',
 		pro_feature_priority_support: 'Priority support',
-		pro_plan_cta: 'Get started',
+		pro_plan_cta: 'Get Started',
 		
 		// Enterprise Plan
 		enterprise_plan_title: 'Enterprise',
@@ -662,7 +662,7 @@ export const translations = {
 		enterprise_feature_pro_included: 'Everything in Pro plan',
 		enterprise_feature_custom_integration: 'Custom integration',
 		enterprise_feature_24_7_support: '24/7 support',
-		enterprise_plan_cta: 'Contact sales',
+		enterprise_plan_cta: 'Get Quote',
 		
 		// ABOUT PAGE (NOSOTROS)
 		about_hero_badge: 'World-class team',
@@ -1152,19 +1152,19 @@ export const translations = {
 		
 		// Basic Plan
 		basic_plan_title: 'Estándar',
-		basic_plan_price: '$4,999 MXN',
-		basic_plan_price_annual: '$4,500 MXN',
+		basic_plan_price: '$499 MXN',
+		basic_plan_price_annual: '$449 MXN',
 		basic_plan_period: '/mes',
 		basic_plan_badge: '🌟 Plan estándar',
 		basic_feature_digital_menu: 'Menú digital básico',
 		basic_feature_dishes: 'Hasta 50 platillos',
 		basic_feature_email_support: 'Soporte por email',
-		basic_plan_cta: 'Empezar ahora',
+		basic_plan_cta: 'Empezar Ahora',
 		
 		// Pro Plan
 		pro_plan_title: 'Pro',
 		pro_plan_price: '$4,999 MXN',
-		pro_plan_price_annual: '$4,500 MXN',
+		pro_plan_price_annual: '$4,499 MXN',
 		pro_plan_period: '/mes',
 		pro_plan_badge: '🚀 Recomendado',
 		pro_plan_popular: '⭐ Más Popular',
@@ -1181,7 +1181,7 @@ export const translations = {
 		enterprise_feature_pro_included: 'Todo lo del plan Pro',
 		enterprise_feature_custom_integration: 'Integración personalizada',
 		enterprise_feature_24_7_support: 'Soporte 24/7',
-		enterprise_plan_cta: 'Contactar ventas',
+		enterprise_plan_cta: 'Contáctanos',
 		
 		// ABOUT PAGE (NOSOTROS)
 		about_hero_badge: 'Equipo de clase mundial',

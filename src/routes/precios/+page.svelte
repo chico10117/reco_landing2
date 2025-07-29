@@ -22,7 +22,9 @@
     
     if (isMexico) {
       return {
-        standard: 'https://buy.stripe.com/4gM8wP25G82h1cPeqa1ck06', // MX Monthly Standard (same as Pro monthly)
+        standard: isAnnual
+          ? 'https://buy.stripe.com/4gM6oHh0Abetg7J5TE1ck0a' // MX Annual Standard
+          : 'https://buy.stripe.com/dRm3cvcKkgyNcVx0zk1ck09', // MX Monthly Standard
         pro: isAnnual 
           ? 'https://buy.stripe.com/eVq6oHfWw6Yd3kX1Do1ck05' // MX Annual Pro
           : 'https://buy.stripe.com/4gM8wP25G82h1cPeqa1ck06'  // MX Monthly Pro
