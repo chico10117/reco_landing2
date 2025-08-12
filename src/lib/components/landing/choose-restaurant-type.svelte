@@ -274,7 +274,10 @@
           </div>
           <div class="md:w-2/5 lg:w-1/2 mt-6 md:mt-0">
             <div class="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 bg-blue-50 rounded-lg shadow-sm border-2 border-blue-400">
-              <img src="/Andres.webp" alt="Andrés, Fonda Muñoz" class="h-14 w-14 sm:h-16 sm:w-16 rounded-full object-cover border-2 border-blue-400 shrink-0">
+              <picture>
+                <source srcset="/Andres-optimized.webp" type="image/webp" />
+                <img src="/Andres.webp" alt="Andrés, Fonda Muñoz" class="h-14 w-14 sm:h-16 sm:w-16 rounded-full object-cover border-2 border-blue-400 shrink-0" loading="lazy" width="64" height="64">
+              </picture>
               <div>
                 <p class="text-base sm:text-lg font-medium text-blue-900 italic leading-tight">{tr('restaurant_sells_testimonial')}</p>
                 <p class="text-xs sm:text-sm text-blue-700 mt-1">{tr('restaurant_sells_testimonial_author')}</p>

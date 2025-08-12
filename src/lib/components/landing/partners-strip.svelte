@@ -36,7 +36,8 @@
           <img 
             src={partner.logoUrl} 
             alt={partner.name} 
-            class="h-8 md:h-12 max-w-[120px] md:max-w-[160px] object-contain filter grayscale hover:grayscale-0 transition-all duration-300" 
+            class="h-8 md:h-12 max-w-[120px] md:max-w-[160px] object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+            loading="lazy" 
           />
         </div>
       {/each}

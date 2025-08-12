@@ -65,7 +65,10 @@
           </div>
           <div class="md:w-2/5 lg:w-1/2 mt-6 md:mt-0 flex justify-center">
             <div class="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 bg-white rounded-lg shadow-sm border border-blue-200">
-              <img src="/Isabel.webp" alt="Isabel, Casa Ramos" class="h-14 w-14 sm:h-16 sm:w-16 rounded-full object-cover border-2 border-blue-200 shrink-0">
+              <picture>
+                <source srcset="/Isabel-optimized.webp" type="image/webp" />
+                <img src="/Isabel.webp" alt="Isabel, Casa Ramos" class="h-14 w-14 sm:h-16 sm:w-16 rounded-full object-cover border-2 border-blue-200 shrink-0" loading="lazy" width="64" height="64">
+              </picture>
               <div>
                 <p class="text-base sm:text-lg font-medium text-gray-800 italic leading-tight">{tr('for_restaurateurs_testimonial')}</p>
                 <p class="text-xs sm:text-sm text-gray-600 mt-1">{tr('for_restaurateurs_testimonial_author')}</p>
