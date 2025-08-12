@@ -10,9 +10,6 @@
   import { languageStore } from '$lib/stores/language.svelte';
   import type { PageData } from './$types';
 
-  // Initialize Vercel Analytics immediately (correct SvelteKit implementation)
-  inject({ mode: dev ? 'development' : 'production' });
-
   // Access route children via snippet prop instead of legacy slots
   import type { Snippet } from 'svelte';
 
@@ -36,8 +33,21 @@
   });
 
   onMount(() => {
-    // Initialize analytics if user has already consented
-    initAnalytics();
+    // Defer all analytics initialization to reduce main thread blocking
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(() => {
+        // Initialize Vercel Analytics
+        inject({ mode: dev ? 'development' : 'production' });
+        // Initialize other analytics if user has already consented
+        initAnalytics();
+      }, { timeout: 3000 });
+    } else {
+      // Fallback for browsers without requestIdleCallback
+      setTimeout(() => {
+        inject({ mode: dev ? 'development' : 'production' });
+        initAnalytics();
+      }, 100);
+    }
   });
 </script>
 

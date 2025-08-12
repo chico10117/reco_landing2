@@ -61,16 +61,30 @@ export const initHotjar = (id: number) => {
 // Initialize all analytics platforms based on user consent
 export const initAnalytics = () => {
   if (hasConsentFor('analytics') && isAnalyticsConfigured()) {
-    const GA_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
-    const HOTJAR_ID = parseInt(import.meta.env.PUBLIC_HOTJAR_ID);
-    
-    if (GA_ID && GA_ID !== 'G-XXXXXXXXXX') {
-      initGoogleAnalytics(GA_ID);
+    // Defer analytics initialization to avoid blocking main thread
+    if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+      window.requestIdleCallback(() => {
+        loadAnalyticsScripts();
+      }, { timeout: 2000 });
+    } else {
+      // Fallback for browsers without requestIdleCallback
+      setTimeout(() => {
+        loadAnalyticsScripts();
+      }, 100);
     }
-    
-    if (HOTJAR_ID && !isNaN(HOTJAR_ID) && HOTJAR_ID !== 1234567) {
-      initHotjar(HOTJAR_ID);
-    }
+  }
+};
+
+const loadAnalyticsScripts = () => {
+  const GA_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
+  const HOTJAR_ID = parseInt(import.meta.env.PUBLIC_HOTJAR_ID);
+  
+  if (GA_ID && GA_ID !== 'G-XXXXXXXXXX') {
+    initGoogleAnalytics(GA_ID);
+  }
+  
+  if (HOTJAR_ID && !isNaN(HOTJAR_ID) && HOTJAR_ID !== 1234567) {
+    initHotjar(HOTJAR_ID);
   }
 };
 

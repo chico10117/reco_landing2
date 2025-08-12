@@ -141,13 +141,26 @@
                 rel="noopener noreferrer"
                 class="cursor-pointer w-[85%]"
               >
-                <img
-                  src="/img/hero.png"
-                  alt="Reco app interface on mobile phone"
-                  fetchpriority="high"
-                  style="box-shadow:none;background:none;border-radius:0;"
-                  class="w-full"
-                />
+                <picture>
+                  <source 
+                    srcset="/img/hero-mobile.webp"
+                    type="image/webp"
+                    media="(max-width: 768px)"
+                  />
+                  <source 
+                    srcset="/img/hero.webp"
+                    type="image/webp"
+                  />
+                  <img
+                    src="/img/hero.png"
+                    alt="Reco app interface on mobile phone"
+                    fetchpriority="high"
+                    width="1200"
+                    height="800"
+                    style="box-shadow:none;background:none;border-radius:0;"
+                    class="w-full"
+                  />
+                </picture>
               </a>
             </div>
           </div>
@@ -173,9 +186,15 @@
           </div>
           <p class="mt-10 text-base text-gray-500">{tr('hero_trust_text')}</p>
           <div class="mt-2 flex flex-wrap items-center gap-8">
-            <img src="/cinepolis.png" alt="Cinepolis" class="h-8 md:h-10 opacity-100 hover:opacity-90 transition-opacity" />
-            <img src="/Basque.png" alt="Basque" class="h-8 md:h-12 opacity-100 hover:opacity-90 transition-opacity" />
-            <img src="/Yelmo.svg" alt="Cine Yelmo" class="h-6 md:h-8 opacity-100 hover:opacity-90 transition-opacity" />
+            <picture>
+              <source srcset="/cinepolis.webp" type="image/webp" />
+              <img src="/cinepolis.png" alt="Cinepolis" class="h-8 md:h-10 opacity-100 hover:opacity-90 transition-opacity" loading="lazy" />
+            </picture>
+            <picture>
+              <source srcset="/Basque.webp" type="image/webp" />
+              <img src="/Basque.png" alt="Basque" class="h-8 md:h-12 opacity-100 hover:opacity-90 transition-opacity" loading="lazy" />
+            </picture>
+            <img src="/Yelmo.svg" alt="Cine Yelmo" class="h-6 md:h-8 opacity-100 hover:opacity-90 transition-opacity" loading="lazy" />
           </div>
         </div>
         
@@ -209,13 +228,21 @@
             rel="noopener noreferrer"
             class="cursor-pointer"
           >
-            <img
-              src="/img/hero.png"
-              alt="Reco app interface on mobile phone"
-              fetchpriority="high"
-              style="box-shadow:none;background:none;border-radius:0;"
-              class="w-full"
-            />
+            <picture>
+              <source 
+                srcset="/img/hero.webp"
+                type="image/webp"
+              />
+              <img
+                src="/img/hero.png"
+                alt="Reco app interface on mobile phone"
+                fetchpriority="high"
+                width="1200"
+                height="800"
+                style="box-shadow:none;background:none;border-radius:0;"
+                class="w-full"
+              />
+            </picture>
           </a>
         </div>
       </div>
