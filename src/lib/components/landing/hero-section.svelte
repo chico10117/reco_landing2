@@ -153,7 +153,7 @@
                   />
                   <img
                     src="/img/hero.png"
-                    alt="Reco app interface on mobile phone"
+                    alt=""
                     fetchpriority="high"
                     width="1200"
                     height="800"
@@ -235,7 +235,7 @@
               />
               <img
                 src="/img/hero.png"
-                alt="Reco app interface on mobile phone"
+                alt=""
                 fetchpriority="high"
                 width="1200"
                 height="800"
