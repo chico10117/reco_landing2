@@ -7,25 +7,22 @@
 	let isOpen = $state(false);
 	const currentLang = $derived(languageStore.currentLanguage);
 
-	// Language options with display names
+	// Language options with local SVG paths
 	const languages = [
 		{ 
 			code: 'es', 
 			name: 'Español', 
-			flag: '🇪🇸',
-			svgFlag: 'https://flagcdn.com/24x18/es.png' // Using flagcdn for reliable cross-platform flags
+			svgFlag: '/flags/es.svg'
 		},
 		{ 
 			code: 'en', 
 			name: 'English', 
-			flag: '🇬🇧',
-			svgFlag: 'https://flagcdn.com/24x18/gb.png'
+			svgFlag: '/flags/gb.svg'
 		},
 		{ 
 			code: 'es-MX', 
 			name: 'Español (México)', 
-			flag: '🇲🇽',
-			svgFlag: 'https://flagcdn.com/24x18/mx.png'
+			svgFlag: '/flags/mx.svg'
 		}
 	] as const;
 
