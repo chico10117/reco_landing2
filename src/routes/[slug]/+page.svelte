@@ -3,6 +3,7 @@
   import { onNavigate } from '$app/navigation';
   import type { PageData } from './$types';
   import { languageStore } from '$lib/stores/language.svelte';
+  import { getBlogTranslation } from '$lib/data/blog-translations';
 
   // Make language reactive
   import { t } from '$lib/utils/translations';
@@ -16,6 +17,28 @@
   // Datos reactivos que se actualizan cuando cambian los props
   let post = $derived(data.post);
   let relatedPosts = $derived(data.relatedPosts);
+  
+  // Helper function to get translated content
+  const getTranslatedContent = (field: 'title' | 'excerpt' | 'content') => {
+    if (!post) return '';
+    
+    // Try to get translation
+    const translation = getBlogTranslation(post.id, currentLang, field);
+    
+    // If translation exists, return it
+    if (translation) {
+      return translation;
+    }
+    
+    // Otherwise return original content
+    if (field === 'title') {
+      return post.title.rendered;
+    } else if (field === 'excerpt') {
+      return post.excerpt.rendered;
+    } else {
+      return post.content.rendered;
+    }
+  };
   
   // Scroll al top cuando cambie de página
   onNavigate(() => {
@@ -74,7 +97,7 @@
         <!-- Article header -->
         <header class="mb-8 border-b border-gray-200 pb-2">
           <h1 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-            {@html post.title.rendered}
+            {@html getTranslatedContent('title')}
           </h1>
           
           <!-- Article metadata -->
@@ -103,7 +126,7 @@
         </header>
         
         <div class="prose lg:prose-xl">
-          {@html post.content.rendered}
+          {@html getTranslatedContent('content')}
         </div>
       </article>
       
@@ -113,8 +136,8 @@
         <div class="grid sm:grid-cols-2 gap-6">
           {#each relatedPosts as relatedPost}
              <a href={`/${relatedPost.slug}`} class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
-              <h4 class="text-lg font-bold text-gray-900 mb-2">{@html relatedPost.title.rendered}</h4>
-              <p class="text-gray-600 line-clamp-2">{@html relatedPost.excerpt.rendered}</p>
+              <h4 class="text-lg font-bold text-gray-900 mb-2">{@html getBlogTranslation(relatedPost.id, currentLang, 'title') || relatedPost.title.rendered}</h4>
+              <p class="text-gray-600 line-clamp-2">{@html getBlogTranslation(relatedPost.id, currentLang, 'excerpt') || relatedPost.excerpt.rendered}</p>
                <span class="inline-flex items-center mt-3 text-blue-600 font-medium">
                  {tr('post_read_more')}
                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
