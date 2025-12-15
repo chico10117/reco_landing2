@@ -31,7 +31,7 @@
         <ul class="space-y-2">
           <li><a href="/nosotros" class="hover:text-blue-400">{tr('about')}</a></li>
           <li><a href="/posts" class="hover:text-blue-400">{tr('blog')}</a></li>
-          <li><a href="https://calendly.com/fernando-lqrb/15min" target="_blank" rel="noopener noreferrer" class="hover:text-blue-400">{tr('contact')}</a></li>
+          <li><a href="https://calendar.app.google/C3yhn8ZD1ZcMSCPC7" target="_blank" rel="noopener noreferrer" class="hover:text-blue-400">{tr('contact')}</a></li>
         </ul>
       </div>
       

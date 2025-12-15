@@ -11,7 +11,7 @@
   
   // Changed from props to constants since they're not being used as component props
   const salesEmail: string = "sales@reco.chat";
-  const calendlyUrl: string = "https://calendly.com/fernando-lqrb/15min";
+  const calendlyUrl: string = "https://calendar.app.google/C3yhn8ZD1ZcMSCPC7";
 
   let sectionElement: HTMLElement;
   let contentElement: HTMLElement;

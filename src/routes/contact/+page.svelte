@@ -13,7 +13,7 @@
   const tr = (key: Parameters<typeof t>[0]) => t(key, currentLang);
 
   // Calendly URL
-  const calendlyUrl = "https://calendly.com/fernando-lqrb/15min";
+  const calendlyUrl = "https://calendar.app.google/C3yhn8ZD1ZcMSCPC7";
   
   // Function to redirect to Calendly
   function redirectToCalendly() {

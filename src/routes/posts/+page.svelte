@@ -36,7 +36,7 @@
       {tr('blog_newsletter_description')}
     </p>
     <a 
-      href="https://calendly.com/fernando-lqrb/15min" 
+      href="https://calendar.app.google/C3yhn8ZD1ZcMSCPC7" 
       target="_blank" 
       rel="noopener noreferrer"
       class="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors shadow-md hover:shadow-lg"

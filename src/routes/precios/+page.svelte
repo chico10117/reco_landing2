@@ -272,7 +272,7 @@
             </ul>
           </div>
           <div class="px-4 pb-6 md:px-8 md:pb-12">
-            <a href="https://calendly.com/fernando-lqrb/15min?month=2025-06" target="_blank" rel="noopener noreferrer" class="block">
+            <a href="https://calendar.app.google/C3yhn8ZD1ZcMSCPC7" target="_blank" rel="noopener noreferrer" class="block">
               <Button variant="outline" class="w-full h-10 md:h-12 text-sm md:text-lg font-semibold border-2 border-blue-300 text-blue-700 hover:bg-blue-50 hover:border-blue-400 hover:scale-105 hover:shadow-lg transition-all duration-200">
                 {tr('enterprise_plan_cta')}
               </Button>

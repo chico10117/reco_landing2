@@ -296,7 +296,7 @@
             Estamos buscando personas apasionadas por la tecnología y la gastronomía que quieran transformar el sector restaurantero.
           </p>
           <a 
-            href="https://calendly.com/fernando-lqrb/15min" 
+            href="https://calendar.app.google/C3yhn8ZD1ZcMSCPC7" 
             target="_blank" 
             rel="noopener noreferrer" 
             class="inline-flex items-center px-8 py-4 bg-white text-blue-600 font-bold rounded-2xl hover:bg-blue-50 transition-all duration-200 transform hover:scale-105 focus:ring-4 focus:ring-white/50 shadow-xl"
