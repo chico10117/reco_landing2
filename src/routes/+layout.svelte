@@ -59,6 +59,18 @@
   </main>
 
   <Footer />
+
+  <div class="bg-white py-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <img
+        src="/enisa.jpg"
+        alt="ENISA"
+        class="w-full h-auto object-contain"
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+  </div>
   
   <!-- Cookie Consent Banner -->
   <CookieConsentBanner />
